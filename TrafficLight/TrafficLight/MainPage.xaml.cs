@@ -26,5 +26,10 @@ namespace TrafficLight
         {
             this.InitializeComponent();
         }
+
+        private void btnAuto_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

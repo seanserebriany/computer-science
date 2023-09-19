@@ -8,13 +8,28 @@
     mc:Ignorable="d"
     Background="Cyan">
 
-    <Grid Background="AntiqueWhite">
+    <Grid Background="HotPink">
         <Grid.ColumnDefinitions>
             <ColumnDefinition></ColumnDefinition>
             <ColumnDefinition></ColumnDefinition>
             <ColumnDefinition></ColumnDefinition>
+            
         </Grid.ColumnDefinitions>
+        <Button x:Name="btnAuto" Background="Purple" HorizontalAlignment="Stretch" Width="250" Height="100" Content="Auto" FontSize="50" FontFamily="baush93" FontStyle="Italic" CornerRadius="80" VerticalAlignment="Top" Click="btnAuto_Click"></Button>
+        <Button x:Name="btnManual" Background="Purple" HorizontalAlignment="Stretch" Width="250" Height="100" Content="Manual" FontSize="50" FontFamily="baush93" FontStyle="Italic" CornerRadius="80" VerticalAlignment="Top" Grid.Column="2"></Button>
+        <Image x:Name="imgninja" Width="200" Height="200" Source="Assets\Characters\ninja\ninja_idle.gif"></Image>
+        <Image x:Name="imgdino" Width="300" Height="300" Source="Assets\Characters\dino\dino_idle.gif" Grid.Column="2"></Image>
+        <Grid Background="Black" Grid.Column="1" BorderBrush="White" BorderThickness="15" CornerRadius="60">
+            <Grid.RowDefinitions>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+            </Grid.RowDefinitions>
+            <Ellipse x:Name="elpRed" Grid.Row="0"  Stroke="White" StrokeThickness="15" Fill="Red" Grid.Column="1" VerticalAlignment="Stretch"></Ellipse>
+            <Ellipse x:Name="elpYellow" Grid.Row="1" Stroke="White" StrokeThickness="15" Fill="Black" Grid.Column="1" VerticalAlignment="Stretch"></Ellipse>
+            <Ellipse x:Name="elpGreen" Grid.Row="2" Stroke="White" StrokeThickness="15" Fill="Black" Grid.Column="1" VerticalAlignment="Stretch"></Ellipse>
+        </Grid>
         
-        
+    
     </Grid>
 </Page>
