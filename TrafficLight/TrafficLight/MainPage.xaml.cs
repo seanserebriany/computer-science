@@ -31,5 +31,10 @@ namespace TrafficLight
         {
 
         }
+
+        private void btnManual_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
