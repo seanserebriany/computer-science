@@ -7,14 +7,14 @@
   IgnorableNamespaces="uap mp">
 
   <Identity
-    Name="5d34487d-a2fe-45d3-9baa-f6d30455dbee"
+    Name="060610f1-876e-4648-a8c0-9375d79d4cbe"
     Publisher="CN=ediks"
     Version="1.0.0.0" />
 
-  <mp:PhoneIdentity PhoneProductId="5d34487d-a2fe-45d3-9baa-f6d30455dbee" PhonePublisherId="00000000-0000-0000-0000-000000000000"/>
+  <mp:PhoneIdentity PhoneProductId="060610f1-876e-4648-a8c0-9375d79d4cbe" PhonePublisherId="00000000-0000-0000-0000-000000000000"/>
 
   <Properties>
-    <DisplayName>App1</DisplayName>
+    <DisplayName>TrafficLight</DisplayName>
     <PublisherDisplayName>ediks</PublisherDisplayName>
     <Logo>Assets\App\StoreLogo.png</Logo>
   </Properties>
@@ -30,12 +30,12 @@
   <Applications>
     <Application Id="App"
       Executable="$targetnametoken$.exe"
-      EntryPoint="App1.App">
+      EntryPoint="TrafficLight.App">
       <uap:VisualElements
-        DisplayName="App1"
+        DisplayName="TrafficLight"
         Square150x150Logo="Assets\App\Square150x150Logo.png"
         Square44x44Logo="Assets\App\Square44x44Logo.png"
-        Description="App1"
+        Description="TrafficLight"
         BackgroundColor="transparent">
         <uap:DefaultTile Wide310x150Logo="Assets\App\Wide310x150Logo.png" Square71x71Logo="Assets\App\SmallTile.png" Square310x310Logo="Assets\App\LargeTile.png"/>
         <uap:SplashScreen Image="Assets\App\SplashScreen.png" />
