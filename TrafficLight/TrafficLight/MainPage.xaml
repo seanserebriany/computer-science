@@ -8,26 +8,25 @@
     mc:Ignorable="d"
     Background="Cyan">
 
-    <Grid Background="HotPink">
+    <Grid Background="LightGray" BorderBrush="DarkGray" BorderThickness="11">
         <Grid.ColumnDefinitions>
             <ColumnDefinition></ColumnDefinition>
             <ColumnDefinition></ColumnDefinition>
             <ColumnDefinition></ColumnDefinition>
-            
         </Grid.ColumnDefinitions>
-        <Button x:Name="btnAuto" Background="Purple" HorizontalAlignment="Stretch" Width="250" Height="100" Content="Auto" FontSize="50" FontFamily="baush93" FontStyle="Italic" CornerRadius="80" VerticalAlignment="Top" Click="btnAuto_Click"></Button>
-        <Button x:Name="btnManual" Background="Purple" HorizontalAlignment="Stretch" Width="250" Height="100" Content="Manual" FontSize="50" FontFamily="baush93" FontStyle="Italic" CornerRadius="80" VerticalAlignment="Top" Grid.Column="2" Click="btnManual_Click"></Button>
+        <Button x:Name="btnAuto" Background="DarkGray" BorderBrush="Black" BorderThickness="8" HorizontalAlignment="Stretch" Width="200" Height="100" Content="Auto" FontSize="50" FontFamily="baush93" FontStyle="Italic" CornerRadius="80" VerticalAlignment="Top" Click="btnAuto_Click" Margin="25"></Button>
+        <Button x:Name="btnManual" Background="DarkGray" BorderBrush="Black" BorderThickness="8" HorizontalAlignment="Stretch" Width="200" Height="100" Content="Manual" FontSize="50" FontFamily="baush93" FontStyle="Italic" CornerRadius="80" VerticalAlignment="Top" Grid.Column="2" Click="btnManual_Click" Margin="25"></Button>
         <Image x:Name="imgninja" Width="200" Height="200" Source="Assets\Characters\ninja\ninja_idle.gif"></Image>
-        <Image x:Name="imgdino" Width="300" Height="300" Source="Assets\Characters\dino\dino_idle.gif" Grid.Column="2"></Image>
-        <Grid Background="Black" Grid.Column="1" BorderBrush="White" BorderThickness="15" CornerRadius="60">
+        <Image x:Name="imgdino" Width="430" Height="222" Source="Assets\Characters\dino\dino_idle.gif" Grid.Column="2"/>
+        <Grid Background="Black" Grid.Column="1" BorderBrush="DarkGray" BorderThickness="8" CornerRadius="60" Margin="20">
             <Grid.RowDefinitions>
                 <RowDefinition></RowDefinition>
                 <RowDefinition></RowDefinition>
                 <RowDefinition></RowDefinition>
             </Grid.RowDefinitions>
-            <Ellipse x:Name="elpRed" Grid.Row="0"  Stroke="White" StrokeThickness="15" Fill="Red" Grid.Column="1" VerticalAlignment="Stretch"></Ellipse>
-            <Ellipse x:Name="elpYellow" Grid.Row="1" Stroke="White" StrokeThickness="15" Fill="Black" Grid.Column="1" VerticalAlignment="Stretch"></Ellipse>
-            <Ellipse x:Name="elpGreen" Grid.Row="2" Stroke="White" StrokeThickness="15" Fill="Black" Grid.Column="1" VerticalAlignment="Stretch"></Ellipse>
+            <Ellipse x:Name="elpRed" Grid.Row="0"  Stroke="White" StrokeThickness="10" Fill="Red" Grid.Column="1" VerticalAlignment="Stretch" Margin="6"></Ellipse>
+            <Ellipse x:Name="elpYellow" Grid.Row="1" Stroke="White" StrokeThickness="10" Fill="Black" Grid.Column="1" VerticalAlignment="Stretch" Margin="6"></Ellipse>
+            <Ellipse x:Name="elpGreen" Grid.Row="2" Stroke="White" StrokeThickness="10" Fill="Black" Grid.Column="1" VerticalAlignment="Stretch" Margin="6"></Ellipse>
         </Grid>
         
     
