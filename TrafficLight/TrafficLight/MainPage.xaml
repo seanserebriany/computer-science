@@ -18,7 +18,7 @@
         <Button x:Name="btnManual" Background="DarkGray" BorderBrush="Black" BorderThickness="8" HorizontalAlignment="Stretch" Width="200" Height="100" Content="Manual" FontSize="50" FontFamily="baush93" FontStyle="Italic" CornerRadius="80" VerticalAlignment="Top" Grid.Column="2" Click="btnManual_Click" Margin="25"></Button>
         <Image x:Name="imgninja" Width="200" Height="200" Source="Assets\Characters\ninja\ninja_idle.gif"></Image>
         <Image x:Name="imgdino" Width="430" Height="222" Source="Assets\Characters\dino\dino_idle.gif" Grid.Column="2"/>
-        <Grid Background="Black" Grid.Column="1" BorderBrush="DarkGray" BorderThickness="8" CornerRadius="60" Margin="20">
+        <Grid Background="Black" Grid.Column="1" BorderBrush="White" BorderThickness="8" CornerRadius="60" Margin="20">
             <Grid.RowDefinitions>
                 <RowDefinition></RowDefinition>
                 <RowDefinition></RowDefinition>
