@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace TrafficLight.objects
 {
-    internal class Character
+    public abstract class Character
     {
+
     }
 }
