@@ -3,8 +3,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
+using TrafficLight.objects;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
+using Windows.Security.Cryptography.Core;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Controls.Primitives;
@@ -22,18 +24,34 @@ namespace TrafficLight
     /// </summary>
     public sealed partial class MainPage : Page
     {
+        private Trafficlights _trafficlights;
         public MainPage()
-        {
+        {           
             this.InitializeComponent();
         }
 
         private void btnAuto_Click(object sender, RoutedEventArgs e)
         {
-
+            _trafficlights.IsAuto = !_trafficlights.IsAuto;
+            if(_trafficlights.IsAuto)
+            {
+                btnAuto.Content = "Stop";
+            }
+            else
+            {
+                btnAuto.Content = "Auto";
+            }
+            btnManual.IsEnabled = !_trafficlights.IsAuto;
         }
 
         private void btnManual_Click(object sender, RoutedEventArgs e)
         {
+            _trafficlights.SetState();
+        }
+
+        private void Page_Loaded(object sender, RoutedEventArgs e)
+        {
+            _trafficlights = new Trafficlights(elpRed, elpYellow, elpGreen);//יצירת רמזור
 
         }
     }

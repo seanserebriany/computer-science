@@ -125,7 +125,7 @@
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="objects\Ninja.cs" />
-    <Compile Include="objects\Trafficlightss.cs" />
+    <Compile Include="objects\Trafficlights.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
