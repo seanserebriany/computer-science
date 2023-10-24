@@ -14,12 +14,12 @@ namespace TrafficLight.objects
         {
             standing, ready, going
         }
-        private Image _imageCharacter;
-        private BitmapImage _bitmapimage;
-        private CharacterStateType _animalState; // המצב
+        protected Image _imageCharacter;
+        protected BitmapImage _bitmapimage;
+        protected CharacterStateType _characterState; // המצב
         public Character(Image imageAnimal)
         {
-            _animalState = CharacterStateType.standing;
+            _characterState = CharacterStateType.standing;
             _imageCharacter = imageAnimal;
             _bitmapimage = new BitmapImage();
             _imageCharacter.Source = _bitmapimage;

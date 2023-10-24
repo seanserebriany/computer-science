@@ -25,6 +25,8 @@ namespace TrafficLight
     public sealed partial class MainPage : Page
     {
         private Trafficlights _trafficlights;
+        private Ninja _ninja;
+        private Dino _dino;
         public MainPage()
         {           
             this.InitializeComponent();
@@ -52,6 +54,9 @@ namespace TrafficLight
         private void Page_Loaded(object sender, RoutedEventArgs e)
         {
             _trafficlights = new Trafficlights(elpRed, elpYellow, elpGreen);//יצירת רמזור
+            _ninja = new Ninja(imgninja);
+            _dino = new Dino(imgdino);
+
 
         }
     }
