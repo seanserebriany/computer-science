@@ -119,6 +119,7 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Events.cs" />
     <Compile Include="objects\Character.cs" />
     <Compile Include="objects\Dino.cs" />
     <Compile Include="MainPage.xaml.cs">

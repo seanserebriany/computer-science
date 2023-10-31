@@ -87,7 +87,10 @@ namespace TrafficLight.objects
                     _state = trafficlightsstate.Yellow;
             break;
             }
-                
+            if(Events.OnChangeState != null)//אם מישהו נרשם לאירוע אז
+            {
+                Events.OnChangeState(_state);//הפעלת האירוע
+            }
             
         }
         //paint all elipse in black
