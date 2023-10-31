@@ -9,7 +9,6 @@ namespace TrafficLight
 {
     public static class Events
     {
-        private static Action<trafficlightsstate> onChangeState;
-        internal static Action<trafficlightsstate> OnChangeState { get => onChangeState; set => onChangeState = value; }
+        public static Action<trafficlightsstate> OnChangeState;
     }
 }

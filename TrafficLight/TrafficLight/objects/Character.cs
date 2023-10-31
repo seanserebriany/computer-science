@@ -45,6 +45,7 @@ namespace TrafficLight.objects
                     _characterState = CharacterStateType.going;
                         break;
             }
+            MatchGifToState();
         }
 
         protected virtual void MatchGifToState()

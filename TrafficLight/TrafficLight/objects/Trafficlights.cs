@@ -12,7 +12,7 @@ using Windows.UI.Xaml.Shapes;
 
 namespace TrafficLight.objects
 {
-    internal class Trafficlights
+    public class Trafficlights
     {
         private trafficlightsstate _state;//מצב בו יכול להמצא הרמזור
 
