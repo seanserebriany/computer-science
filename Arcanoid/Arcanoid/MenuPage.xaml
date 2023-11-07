@@ -43,31 +43,31 @@
             <ColumnDefinition></ColumnDefinition>
             <ColumnDefinition></ColumnDefinition>
         </Grid.ColumnDefinitions>
-        <Button x:Name="BtnPlay" Grid.Row="6" Grid.Column="6" Grid.ColumnSpan="3" Grid.RowSpan="3">
+        <Button Style="{StaticResource MyButtonStyle}" x:Name="BtnPlay" Grid.Row="6" Grid.Column="6" Grid.ColumnSpan="3" Grid.RowSpan="3">
             <Image x:Name="imgPlay" Source="/Assets/Buttons/PlayO.png"></Image>
         </Button>
-        <Button x:Name="btnExit" Grid.Row="0" Grid.Column="13" Grid.ColumnSpan="1" Grid.RowSpan="2">
-            <Image x:Name="imgExit" Source="/Assets/Buttons/ExitG.png" ></Image>
+        <Button Style="{StaticResource MyButtonStyle}" x:Name="btnExit" Grid.Row="0" Grid.Column="13" Grid.ColumnSpan="1" Grid.RowSpan="2">
+            <Image x:Name="imgExit" Source="/Assets/Buttons/ExitG.png" PointerEntered="imgExit_PointerEntered" PointerExited="imgExit_PointerExited"></Image>
         </Button>
-        <Button x:Name="BtnHelp" Grid.Row="9" Grid.Column="4" Grid.ColumnSpan="1" Grid.RowSpan="2">
+        <Button Style="{StaticResource MyButtonStyle}" x:Name="BtnHelp" Grid.Row="9" Grid.Column="4" Grid.ColumnSpan="1" Grid.RowSpan="2">
             <Image x:Name="imgHelp" Source="/Assets/Buttons/HelpG.png"></Image>
         </Button>
-        <Button x:Name="BtnSettings" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="1" Grid.RowSpan="2">
+        <Button Style="{StaticResource MyButtonStyle}" x:Name="BtnSettings" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="1" Grid.RowSpan="2">
             <Image x:Name="imgSettings" Source="/Assets/Buttons/SettingsO.png"></Image>
         </Button>
-        <Button x:Name="BtnAccaunt" Grid.Row="9" Grid.Column="6" Grid.ColumnSpan="1" Grid.RowSpan="2">
+        <Button Style="{StaticResource MyButtonStyle}" x:Name="BtnAccaunt" Grid.Row="9" Grid.Column="6" Grid.ColumnSpan="1" Grid.RowSpan="2">
             <Image x:Name="imgAccaunt" Source="/Assets/Buttons/AccaountO.png"></Image>
         </Button>
-        <Button x:Name="BtnLeader" Grid.Row="9" Grid.Column="7" Grid.ColumnSpan="1" Grid.RowSpan="2">
+        <Button Style="{StaticResource MyButtonStyle}" x:Name="BtnLeader" Grid.Row="9" Grid.Column="7" Grid.ColumnSpan="1" Grid.RowSpan="2">
             <Image x:Name="imgLeader" Source="/Assets/Buttons/LeaderO.png"></Image>
         </Button>
-        <Button x:Name="BtnShop" Grid.Row="9" Grid.Column="8" Grid.ColumnSpan="1" Grid.RowSpan="2">
+        <Button Style="{StaticResource MyButtonStyle}" x:Name="BtnShop" Grid.Row="9" Grid.Column="8" Grid.ColumnSpan="1" Grid.RowSpan="2">
             <Image x:Name="imgShop" Source="/Assets/Buttons/ShopO.png"></Image>
         </Button>
-        <Button x:Name="BtnMenu" Grid.Row="9" Grid.Column="9" Grid.ColumnSpan="1" Grid.RowSpan="2">
+        <Button Style="{StaticResource MyButtonStyle}" x:Name="BtnMenu" Grid.Row="9" Grid.Column="9" Grid.ColumnSpan="1" Grid.RowSpan="2">
             <Image x:Name="imgMenu" Source="/Assets/Buttons/MenuO.png"></Image>
         </Button>
-        <Button x:Name="BtnMusic" Grid.Row="9" Grid.Column="5" Grid.ColumnSpan="1" Grid.RowSpan="2">
+        <Button Style="{StaticResource MyButtonStyle}" x:Name="BtnMusic" Grid.Row="9" Grid.Column="5" Grid.ColumnSpan="1" Grid.RowSpan="2">
             <Image x:Name="imgMusic" Source="/Assets/Buttons/MusicO.png"></Image>
         </Button>
     </Grid>

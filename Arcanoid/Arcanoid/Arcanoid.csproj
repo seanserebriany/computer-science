@@ -183,6 +183,7 @@
     <Content Include="Assets\Background\background.jpg" />
     <Content Include="Assets\Buttons\AccaountO.png" />
     <Content Include="Assets\Buttons\ExitG.png" />
+    <Content Include="Assets\Buttons\ExitP.png" />
     <Content Include="Assets\Buttons\GreenMenu.png" />
     <Content Include="Assets\Buttons\HelpG.png" />
     <Content Include="Assets\Buttons\LeaderO.png" />
