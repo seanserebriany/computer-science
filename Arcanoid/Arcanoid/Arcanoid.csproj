@@ -186,12 +186,20 @@
     <Content Include="Assets\Buttons\ExitP.png" />
     <Content Include="Assets\Buttons\GreenMenu.png" />
     <Content Include="Assets\Buttons\HelpG.png" />
+    <Content Include="Assets\Buttons\HelpP.png" />
     <Content Include="Assets\Buttons\LeaderO.png" />
+    <Content Include="Assets\Buttons\LeaderP.png" />
     <Content Include="Assets\Buttons\MenuO.png" />
+    <Content Include="Assets\Buttons\MenuP.png" />
     <Content Include="Assets\Buttons\MusicO.png" />
+    <Content Include="Assets\Buttons\MusicP.png" />
     <Content Include="Assets\Buttons\PlayO.png" />
+    <Content Include="Assets\Buttons\PlayP.png" />
+    <Content Include="Assets\Buttons\ProfileP.png" />
     <Content Include="Assets\Buttons\SettingsO.png" />
+    <Content Include="Assets\Buttons\SettingsP.png" />
     <Content Include="Assets\Buttons\ShopO.png" />
+    <Content Include="Assets\Buttons\ShopP.png" />
     <Content Include="Properties\Default.rd.xml" />
   </ItemGroup>
   <ItemGroup>
