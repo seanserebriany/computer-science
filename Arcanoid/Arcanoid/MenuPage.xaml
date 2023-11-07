@@ -47,7 +47,7 @@
             <Image x:Name="imgPlay" Source="/Assets/Buttons/PlayO.png"></Image>
         </Button>
         <Button x:Name="btnExit" Grid.Row="0" Grid.Column="13" Grid.ColumnSpan="1" Grid.RowSpan="2">
-            <Image x:Name="imgExit" Source="/Assets/Buttons/ExitG.png"></Image>
+            <Image x:Name="imgExit" Source="/Assets/Buttons/ExitG.png" ></Image>
         </Button>
         <Button x:Name="BtnHelp" Grid.Row="9" Grid.Column="4" Grid.ColumnSpan="1" Grid.RowSpan="2">
             <Image x:Name="imgHelp" Source="/Assets/Buttons/HelpG.png"></Image>
