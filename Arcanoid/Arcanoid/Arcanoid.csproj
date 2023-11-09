@@ -119,8 +119,14 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Pages\LevelsPage.xaml.cs">
+      <DependentUpon>LevelsPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="MenuPage.xaml.cs">
       <DependentUpon>MenuPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\SignInPage.xaml.cs">
+      <DependentUpon>SignInPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -183,6 +189,7 @@
     <Content Include="Assets\Background\background.jpg" />
     <Content Include="Assets\Buttons\AccaountO.png" />
     <Content Include="Assets\Buttons\ExitG.png" />
+    <Content Include="Assets\Buttons\ExitO.png" />
     <Content Include="Assets\Buttons\ExitP.png" />
     <Content Include="Assets\Buttons\GreenMenu.png" />
     <Content Include="Assets\Buttons\HelpG.png" />
@@ -200,6 +207,7 @@
     <Content Include="Assets\Buttons\SettingsP.png" />
     <Content Include="Assets\Buttons\ShopO.png" />
     <Content Include="Assets\Buttons\ShopP.png" />
+    <Content Include="Assets\Buttons\YesO.png" />
     <Content Include="Properties\Default.rd.xml" />
   </ItemGroup>
   <ItemGroup>
@@ -214,7 +222,15 @@
     </PackageReference>
   </ItemGroup>
   <ItemGroup>
+    <Page Include="Pages\LevelsPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MenuPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\SignInPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

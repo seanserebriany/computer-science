@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Arcanoid.Pages;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -35,7 +36,7 @@ namespace Arcanoid
             Window.Current.CoreWindow.PointerCursor = new Windows.UI.Core.CoreCursor(Windows.UI.Core.CoreCursorType.Hand, 1);
         }
 
-        private void imgExit_PointerExited(object sender, PointerRoutedEventArgs e)
+        private void ImgExit_PointerExited(object sender, PointerRoutedEventArgs e)
         {
             imgExit.Source = new BitmapImage(new Uri("ms-appx:///Assets/Buttons/ExitG.png"));
             Window.Current.CoreWindow.PointerCursor = new Windows.UI.Core.CoreCursor(Windows.UI.Core.CoreCursorType.Arrow, 1);
@@ -43,12 +44,55 @@ namespace Arcanoid
 
         private void img_PointerEntered(object sender, PointerRoutedEventArgs e)
         {
+            Image img = (Image)sender;
+            string name = img.Name;
+            imgExit.Source = new BitmapImage(new Uri("ms-appx:///Assets/Buttons/ExitG.png"));
             Window.Current.CoreWindow.PointerCursor = new Windows.UI.Core.CoreCursor(Windows.UI.Core.CoreCursorType.Hand, 1);
         }
 
         private void img_PointerExited(object sender, PointerRoutedEventArgs e)
         {
             Window.Current.CoreWindow.PointerCursor = new Windows.UI.Core.CoreCursor(Windows.UI.Core.CoreCursorType.Arrow, 1);
+        }
+
+        private void imgPopExit_PointerPressed(object sender, PointerRoutedEventArgs e)
+        {
+            popupGrid.Visibility = Visibility.Collapsed;
+
+        }
+
+        private void imgYes_PointerPressed(object sender, PointerRoutedEventArgs e)
+        {
+            Window.Current.Close();
+
+        }
+
+        private void imgPopNo_PointerPressed(object sender, PointerRoutedEventArgs e)
+        {
+            popupGrid.Visibility = Visibility.Collapsed;
+        }
+
+        private void imgExit_PointerPressed(object sender, PointerRoutedEventArgs e)
+        {
+            popupGrid.Visibility = Visibility.Visible;
+
+        }
+
+        private void imgPopExit_PointerEntered(object sender, PointerRoutedEventArgs e)
+        {
+            imgPopExit.Source = new BitmapImage(new Uri("ms-appx:///Assets/Buttons/ExitG.png"));
+            Window.Current.CoreWindow.PointerCursor = new Windows.UI.Core.CoreCursor(Windows.UI.Core.CoreCursorType.Hand, 1);
+        }
+
+        private void imgPopExit_PointerExited(object sender, PointerRoutedEventArgs e)
+        {
+            imgPopExit.Source = new BitmapImage(new Uri("ms-appx:///Assets/Buttons/ExitO.png"));
+            Window.Current.CoreWindow.PointerCursor = new Windows.UI.Core.CoreCursor(Windows.UI.Core.CoreCursorType.Arrow, 1);
+        }
+
+        private void imgAccaunt_PointerPressed(object sender, PointerRoutedEventArgs e)
+        {
+            Frame.Navigate(typeof(SignInPage));
         }
     }
 }
