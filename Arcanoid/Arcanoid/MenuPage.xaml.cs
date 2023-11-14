@@ -5,6 +5,7 @@ using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
 using System.Xml.Linq;
+using Windows.ApplicationModel.Core;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
 using Windows.UI.Xaml;
@@ -63,7 +64,7 @@ namespace Arcanoid
 
         private void imgYes_PointerPressed(object sender, PointerRoutedEventArgs e)
         {
-            Window.Current.Close();
+            CoreApplication.Exit();
 
         }
 

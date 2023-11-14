@@ -42,5 +42,15 @@ namespace Arcanoid.Pages
             Window.Current.CoreWindow.PointerCursor = new Windows.UI.Core.CoreCursor(Windows.UI.Core.CoreCursorType.Arrow, 1);
 
         }
+
+        private void TextBlock_SelectionChanged(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void TextBlock_SelectionChanged_1(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
