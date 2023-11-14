@@ -10,7 +10,7 @@
 
     <Grid>
         <Grid.Background>
-            <ImageBrush x:Name="Background" ImageSource="Assets/Background/background.jpg"></ImageBrush>
+            <ImageBrush x:Name="Background" ImageSource="/Assets/Background/background.jpg"></ImageBrush>
         </Grid.Background>
         <Grid.RowDefinitions>
             <RowDefinition></RowDefinition>
@@ -97,8 +97,8 @@
                 <ColumnDefinition></ColumnDefinition>
                 <ColumnDefinition></ColumnDefinition>
             </Grid.ColumnDefinitions>
-            <Viewbox Grid.Column="3" Grid.ColumnSpan="6">
-                <TextBlock Text="Exit the game" HorizontalAlignment="Center" FontSize="45" Grid.RowSpan="2" VerticalAlignment="Top" FontFamily="Broadway" FontWeight="Bold"></TextBlock>
+            <Viewbox Grid.Column="3" Grid.Row="1" Grid.ColumnSpan="6">
+                <TextBlock Text="Exit the game?" HorizontalAlignment="Center" FontSize="45" Foreground="Black" Grid.RowSpan="2" VerticalAlignment="Top" FontFamily="Broadway" FontWeight="Bold"></TextBlock>
             </Viewbox>
             <Button Style="{StaticResource MyButtonStyle}" x:Name="btnPopNo" Grid.Row="5" Grid.Column="8" Grid.ColumnSpan="4" Grid.RowSpan="3">
                 <Image x:Name="imgPopExit" Source="/Assets/Buttons/ExitO.png" PointerEntered="imgPopExit_PointerEntered"  PointerExited="imgPopExit_PointerExited" PointerPressed="imgPopNo_PointerPressed"></Image>

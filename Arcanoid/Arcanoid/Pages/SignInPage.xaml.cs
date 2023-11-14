@@ -26,5 +26,21 @@ namespace Arcanoid.Pages
         {
             this.InitializeComponent();
         }
+        private void imgBack_PointerPressed(object sender, PointerRoutedEventArgs e)
+        {
+            Frame.Navigate(typeof(MenuPage));
+        }
+
+        private void imgBack_PointerEntered(object sender, PointerRoutedEventArgs e)
+        {
+            Window.Current.CoreWindow.PointerCursor = new Windows.UI.Core.CoreCursor(Windows.UI.Core.CoreCursorType.Hand, 1);
+
+        }
+
+        private void imgBack_PointerExited(object sender, PointerRoutedEventArgs e)
+        {
+            Window.Current.CoreWindow.PointerCursor = new Windows.UI.Core.CoreCursor(Windows.UI.Core.CoreCursorType.Arrow, 1);
+
+        }
     }
 }

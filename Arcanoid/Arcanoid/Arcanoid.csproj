@@ -188,6 +188,7 @@
     <Content Include="Assets\app\Wide310x150Logo.scale-400.png" />
     <Content Include="Assets\Background\background.jpg" />
     <Content Include="Assets\Buttons\AccaountO.png" />
+    <Content Include="Assets\Buttons\BackO.png" />
     <Content Include="Assets\Buttons\ExitG.png" />
     <Content Include="Assets\Buttons\ExitO.png" />
     <Content Include="Assets\Buttons\ExitP.png" />
