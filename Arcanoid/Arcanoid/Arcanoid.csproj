@@ -209,6 +209,10 @@
     <Content Include="Assets\Buttons\ShopO.png" />
     <Content Include="Assets\Buttons\ShopP.png" />
     <Content Include="Assets\Buttons\YesO.png" />
+    <Content Include="Assets\Levels\Num1.png" />
+    <Content Include="Assets\Levels\Num2.png" />
+    <Content Include="Assets\Levels\Num3.png" />
+    <Content Include="Assets\Levels\Num4.png" />
     <Content Include="Properties\Default.rd.xml" />
   </ItemGroup>
   <ItemGroup>

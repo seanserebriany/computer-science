@@ -11,6 +11,7 @@ using Windows.UI.Xaml.Controls.Primitives;
 using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
+using Windows.UI.Xaml.Media.Imaging;
 using Windows.UI.Xaml.Navigation;
 
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=234238
@@ -25,6 +26,40 @@ namespace Arcanoid.Pages
         public LevelsPage()
         {
             this.InitializeComponent();
+        }
+        private void img_PointerEntered(object sender, PointerRoutedEventArgs e)
+        {
+            Image img = (Image)sender;
+            string name = img.Name;
+            if(name == "imgLevel1")
+                imgLevel1.Opacity = 0.5;
+            if (name == "imgLevel2")
+                imgLevel2.Opacity = 0.5;
+            if (name == "imgLevel3")
+                imgLevel3.Opacity = 0.5;
+            if (name == "imgLevel4")
+                imgLevel4.Opacity = 0.5;
+            Window.Current.CoreWindow.PointerCursor = new Windows.UI.Core.CoreCursor(Windows.UI.Core.CoreCursorType.Hand, 1);
+        }
+
+        private void img_PointerExited(object sender, PointerRoutedEventArgs e)
+        {
+            Image img = (Image)sender;
+            string name = img.Name;
+            if (name == "imgLevel1")
+                imgLevel1.Opacity = 1;
+            if (name == "imgLevel2")
+                imgLevel2.Opacity = 1;
+            if (name == "imgLevel3")
+                imgLevel3.Opacity = 1;
+            if (name == "imgLevel4")
+                imgLevel4.Opacity = 1;
+            Window.Current.CoreWindow.PointerCursor = new Windows.UI.Core.CoreCursor(Windows.UI.Core.CoreCursorType.Arrow, 1);
+        }
+
+        private void imgLevel_PointerPressed(object sender, PointerRoutedEventArgs e)
+        {
+            Frame.Navigate(typeof(MenuPage));
         }
     }
 }

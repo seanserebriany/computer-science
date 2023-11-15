@@ -31,24 +31,44 @@ namespace Arcanoid.Pages
             Frame.Navigate(typeof(MenuPage));
         }
 
-        private void imgBack_PointerEntered(object sender, PointerRoutedEventArgs e)
+        private void img_PointerEntered(object sender, PointerRoutedEventArgs e)
         {
             Window.Current.CoreWindow.PointerCursor = new Windows.UI.Core.CoreCursor(Windows.UI.Core.CoreCursorType.Hand, 1);
-
         }
 
-        private void imgBack_PointerExited(object sender, PointerRoutedEventArgs e)
+        private void img_PointerExited(object sender, PointerRoutedEventArgs e)
         {
             Window.Current.CoreWindow.PointerCursor = new Windows.UI.Core.CoreCursor(Windows.UI.Core.CoreCursorType.Arrow, 1);
 
         }
-
-        private void TextBlock_SelectionChanged(object sender, RoutedEventArgs e)
+        private void BtnExistYes_PointerPressed(object sender, PointerRoutedEventArgs e)
         {
-
+            Frame.Navigate(typeof(MenuPage));
         }
 
-        private void TextBlock_SelectionChanged_1(object sender, RoutedEventArgs e)
+        private void BtnNewYes_PointerPressed(object sender, PointerRoutedEventArgs e)
+        {
+            Frame.Navigate(typeof(MenuPage));
+        }
+
+        private void LogIn_PointerPressed(object sender, PointerRoutedEventArgs e)
+        {
+            newUserGrid.Visibility = Visibility.Collapsed;
+            existedUserGrid.Visibility = Visibility.Visible;
+            newName.Text = "";
+            newPass.Password = "";
+            newSamePass.Password = "";
+        }
+
+        private void SignUp_PointerPressed(object sender, PointerRoutedEventArgs e)
+        {
+            newUserGrid.Visibility = Visibility.Visible;
+            existedUserGrid.Visibility = Visibility.Collapsed;
+            LoginPassword.Password = "";
+            LoginUser.Text = "";
+        }
+
+        private void CheckBox_Click(object sender, RoutedEventArgs e)
         {
 
         }

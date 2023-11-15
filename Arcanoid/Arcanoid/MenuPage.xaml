@@ -67,8 +67,8 @@
         <Button Style="{StaticResource MyButtonStyle}" x:Name="BtnShop" Grid.Row="9" Grid.Column="8" Grid.ColumnSpan="1" Grid.RowSpan="2">
             <Image x:Name="imgShop" Source="/Assets/Buttons/ShopO.png" PointerEntered="img_PointerEntered" PointerExited="img_PointerExited"></Image>
         </Button>
-        <Button Style="{StaticResource MyButtonStyle}" x:Name="BtnMenu" Grid.Row="9" Grid.Column="9" Grid.ColumnSpan="1" Grid.RowSpan="2">
-            <Image x:Name="imgMenu" Source="/Assets/Buttons/MenuO.png" PointerEntered="img_PointerEntered" PointerExited="img_PointerExited"></Image>
+        <Button Style="{StaticResource MyButtonStyle}" x:Name="BtnLevels" Grid.Row="9" Grid.Column="9" Grid.ColumnSpan="1" Grid.RowSpan="2">
+            <Image x:Name="imgLevel" Source="/Assets/Buttons/MenuO.png" PointerEntered="img_PointerEntered" PointerExited="img_PointerExited" PointerPressed="imgLevel_PointerPressed"></Image>
         </Button>
         <Grid x:Name="popupGrid" Background="LightBlue" Grid.Row="3" Grid.Column="3" Grid.RowSpan="9" Grid.ColumnSpan="8" Opacity="0.9" BorderBrush="Blue" BorderThickness="10" Visibility="Collapsed">
             <Grid.RowDefinitions>

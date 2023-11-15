@@ -95,5 +95,10 @@ namespace Arcanoid
         {
             Frame.Navigate(typeof(SignInPage));
         }
+
+        private void imgLevel_PointerPressed(object sender, PointerRoutedEventArgs e)
+        {
+            Frame.Navigate(typeof(LevelsPage));
+        }
     }
 }
