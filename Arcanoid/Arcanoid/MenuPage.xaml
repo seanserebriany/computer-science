@@ -47,7 +47,7 @@
             <Image x:Name="imgExit" Source="/Assets/Buttons/ExitG.png" PointerEntered="img_PointerEntered" PointerExited="img_PointerExited" PointerPressed="imgExit_PointerPressed"></Image>
         </Button>
         <Button Style="{StaticResource MyButtonStyle}" x:Name="BtnSettings" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="1" Grid.RowSpan="2">
-            <Image x:Name="imgSettings" Source="/Assets/Buttons/LevelsO.png" PointerEntered="img_PointerEntered" PointerExited="img_PointerExited"></Image>
+            <Image x:Name="imgSettings" Source="/Assets/Buttons/SettingsO.png" PointerEntered="img_PointerEntered" PointerExited="img_PointerExited"></Image>
         </Button>
         <Button Style="{StaticResource MyButtonStyle}" x:Name="BtnPlay" Grid.Row="6" Grid.Column="6" Grid.ColumnSpan="3" Grid.RowSpan="3">
             <Image x:Name="imgPlay" Source="/Assets/Buttons/PlayO.png" PointerEntered="img_PointerEntered" PointerExited="img_PointerExited"></Image>
@@ -56,7 +56,7 @@
             <Image x:Name="imgHelp" Source="/Assets/Buttons/HelpO.png" PointerEntered="img_PointerEntered" PointerExited="img_PointerExited"></Image>
         </Button>
         <Button Style="{StaticResource MyButtonStyle}" x:Name="BtnMusic" Grid.Row="9" Grid.Column="5" Grid.ColumnSpan="1" Grid.RowSpan="2">
-            <Image x:Name="imgMusic" Source="/Assets/Buttons/MusicO.png" PointerEntered="img_PointerEntered" PointerExited="img_PointerExited"></Image>
+            <Image x:Name="imgMusic" Source="/Assets/Buttons/MusicO.png" PointerEntered="img_PointerEntered" PointerExited="img_PointerExited" PointerPressed="imgMusic_PointerPressed"></Image>
         </Button>
         <Button Style="{StaticResource MyButtonStyle}" x:Name="BtnAccaunt" Grid.Row="9" Grid.Column="6" Grid.ColumnSpan="1" Grid.RowSpan="2">
             <Image x:Name="imgAccaunt" Source="/Assets/Buttons/ProfileO.png" PointerEntered="img_PointerEntered" PointerExited="img_PointerExited" PointerPressed="imgAccaunt_PointerPressed"></Image>
@@ -70,7 +70,7 @@
         <Button Style="{StaticResource MyButtonStyle}" x:Name="BtnLevels" Grid.Row="9" Grid.Column="9" Grid.ColumnSpan="1" Grid.RowSpan="2">
             <Image x:Name="imgLevel" Source="/Assets/Buttons/LevelsO.png" PointerEntered="img_PointerEntered" PointerExited="img_PointerExited" PointerPressed="imgLevel_PointerPressed"></Image>
         </Button>
-        <Grid x:Name="popupGrid" Background="LightBlue" Grid.Row="3" Grid.Column="3" Grid.RowSpan="9" Grid.ColumnSpan="8" Opacity="0.9" BorderBrush="Blue" BorderThickness="10" Visibility="Collapsed">
+        <Grid x:Name="popupGrid" Background="LightBlue" Grid.Row="3" Grid.Column="3" Grid.RowSpan="9" Grid.ColumnSpan="8" Opacity="1" BorderBrush="Blue" BorderThickness="10" Visibility="Collapsed">
             <Grid.RowDefinitions>
                 <RowDefinition></RowDefinition>
                 <RowDefinition></RowDefinition>
@@ -107,5 +107,40 @@
                 <Image x:Name="imgYes" Source="/Assets/Buttons/YesO.png" PointerEntered="img_PointerEntered" PointerExited="img_PointerExited" PointerPressed="imgYes_PointerPressed"></Image>
             </Button>
         </Grid>
+        <Grid x:Name="popupGridMusic" Background="LightBlue" Grid.Row="3" Grid.Column="3" Grid.RowSpan="9" Grid.ColumnSpan="8" Opacity="1" BorderBrush="Blue" BorderThickness="10" Visibility="Collapsed">
+            <Grid.RowDefinitions>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Button Style="{StaticResource MyButtonStyle}" x:Name="BtnYes" Grid.Row="8" Grid.Column="5" Grid.ColumnSpan="2" Grid.RowSpan="2">
+                <Image x:Name="imgYesPop" Source="/Assets/Buttons/YesO.png" PointerEntered="img_PointerEntered"  PointerExited="img_PointerExited" PointerPressed="imgBack_PointerPressed"></Image>
+            </Button>
+            
+            
+            
+        </Grid>
+
     </Grid>
 </Page>

@@ -45,23 +45,23 @@
             <ColumnDefinition></ColumnDefinition>
         </Grid.ColumnDefinitions>
         <Viewbox Grid.Row="6" Grid.Column="6" Grid.ColumnSpan="3" Grid.RowSpan="2">
-            <Button Style="{StaticResource MyButtonStyle}" x:Name="BtnLogIn" PointerEntered="img_PointerEntered" PointerExited="img_PointerExited" Visibility="Collapsed">
+            <Button Style="{StaticResource MyButtonStyle}" x:Name="BtnLogIn" Visibility="Collapsed">
                 <Border BorderBrush="Black" BorderThickness="4" Background="White" CornerRadius="25">
-                    <TextBlock x:Name="LogIn" Text="Log in" Foreground="Black" FontStyle="Italic" FontFamily="Broadway" FontSize="70" FontWeight="Bold" VerticalAlignment="Center" PointerPressed="LogIn_PointerPressed"></TextBlock>
+                    <TextBlock x:Name="LogIn" Text="Log in" Foreground="Black" FontStyle="Italic" FontFamily="Broadway" FontSize="70" FontWeight="Bold" VerticalAlignment="Center" PointerPressed="LogIn_PointerPressed" PointerEntered="text_PointerEntered" PointerExited="text_PointerExited"></TextBlock>
                 </Border>
             </Button>
         </Viewbox>
         <Viewbox Grid.Row="6" Grid.Column="6" Grid.ColumnSpan="3" Grid.RowSpan="2">
-            <Button Style="{StaticResource MyButtonStyle}" x:Name="BtnSignUp" PointerEntered="img_PointerEntered"  PointerExited="img_PointerExited" Visibility="Visible">
+            <Button Style="{StaticResource MyButtonStyle}" x:Name="BtnSignUp" Visibility="Visible">
                 <Border BorderBrush="Black" BorderThickness="4" Background="White" CornerRadius="25">
-                    <TextBlock x:Name="SignUp" Text="Sign Up" Foreground="Black" FontStyle="Italic" FontFamily="Broadway" FontSize="70" FontWeight="Bold" VerticalAlignment="Center" PointerPressed="SignUp_PointerPressed"></TextBlock>
+                    <TextBlock x:Name="SignUp" Text="Sign Up" Foreground="Black" FontStyle="Italic" FontFamily="Broadway" FontSize="70" FontWeight="Bold" VerticalAlignment="Center" PointerPressed="SignUp_PointerPressed" PointerEntered="text_PointerEntered" PointerExited="text_PointerExited"></TextBlock>
                 </Border>
             </Button>
         </Viewbox>
         <Button Style="{StaticResource MyButtonStyle}" x:Name="BtnBack" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" Grid.RowSpan="2">
             <Image x:Name="imgBack" Source="/Assets/Buttons/BackO.png" PointerEntered="img_PointerEntered"  PointerExited="img_PointerExited" PointerPressed="imgBack_PointerPressed"></Image>
         </Button>
-        <Grid x:Name="newUserGrid" Background="DodgerBlue" Grid.Row="3" Grid.Column="2" Grid.ColumnSpan="4" Grid.RowSpan="8" BorderBrush="Blue" BorderThickness="8" CornerRadius="40" Visibility="Visible">
+        <Grid x:Name="newUserGrid" Background="DodgerBlue" Grid.Row="3" Grid.Column="2" Grid.ColumnSpan="4" Grid.RowSpan="8" BorderBrush="Blue" BorderThickness="8" CornerRadius="40" Visibility="Collapsed">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition></ColumnDefinition>
                 <ColumnDefinition></ColumnDefinition>
@@ -128,7 +128,7 @@
                 <RowDefinition></RowDefinition>
             </Grid.RowDefinitions>
             <Button Style="{StaticResource MyButtonStyle}" x:Name="BtnExistYes" Grid.Row="8" Grid.Column="3" Grid.ColumnSpan="4" Grid.RowSpan="2">
-                <Image x:Name="imgExistYes" Source="/Assets/Buttons/YesO.png" PointerPressed="BtnExistYes_PointerPressed" PointerEntered="img_PointerEntered"  PointerExited="img_PointerExited"/>
+                <Image x:Name="imgExistYes" Source="/Assets/Buttons/YesO.png" PointerPressed="BtnNewYes_PointerPressed"  PointerEntered="img_PointerEntered"  PointerExited="img_PointerExited"/>
             </Button>
             <Viewbox Grid.Column="1" Grid.Row="0" Grid.ColumnSpan="8" Grid.RowSpan="2" HorizontalAlignment="Center" VerticalAlignment="Center">
                 <TextBlock Text="Log In" HorizontalAlignment="Stretch" FontSize="25" Foreground="White" FontFamily="Italic" FontWeight="Bold" ></TextBlock>

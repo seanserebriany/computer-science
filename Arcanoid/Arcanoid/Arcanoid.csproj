@@ -11,7 +11,7 @@
     <AssemblyName>Arcanoid</AssemblyName>
     <DefaultLanguage>en-US</DefaultLanguage>
     <TargetPlatformIdentifier>UAP</TargetPlatformIdentifier>
-    <TargetPlatformVersion Condition=" '$(TargetPlatformVersion)' == '' ">10.0.19041.0</TargetPlatformVersion>
+    <TargetPlatformVersion Condition=" '$(TargetPlatformVersion)' == '' ">10.0.22621.0</TargetPlatformVersion>
     <TargetPlatformMinVersion>10.0.17763.0</TargetPlatformMinVersion>
     <MinimumVisualStudioVersion>14</MinimumVisualStudioVersion>
     <FileAlignment>512</FileAlignment>
@@ -187,6 +187,7 @@
     <Content Include="Assets\app\Wide310x150Logo.scale-200.png" />
     <Content Include="Assets\app\Wide310x150Logo.scale-400.png" />
     <Content Include="Assets\Background\background.jpg" />
+    <Content Include="Assets\Buttons\BackP.png" />
     <Content Include="Assets\Buttons\ProfileO.png" />
     <Content Include="Assets\Buttons\BackO.png" />
     <Content Include="Assets\Buttons\ExitG.png" />
@@ -208,6 +209,7 @@
     <Content Include="Assets\Buttons\SettingsP.png" />
     <Content Include="Assets\Buttons\ShopO.png" />
     <Content Include="Assets\Buttons\ShopP.png" />
+    <Content Include="Assets\Buttons\YesG.png" />
     <Content Include="Assets\Buttons\YesO.png" />
     <Content Include="Assets\Levels\Num1.png" />
     <Content Include="Assets\Levels\Num2.png" />

@@ -54,6 +54,10 @@ namespace Arcanoid
                 imgLevel.Source = new BitmapImage(new Uri("ms-appx:///Assets/Buttons/LevelsP.png"));
             if (name == "imgPopExit")
                 imgPopExit.Source = new BitmapImage(new Uri("ms-appx:///Assets/Buttons/ExitG.png"));
+            if (name == "imgYes")
+                imgYes.Source = new BitmapImage(new Uri("ms-appx:///Assets/Buttons/YesG.png"));
+            if (name == "imgYesPop")
+                imgYesPop.Source = new BitmapImage(new Uri("ms-appx:///Assets/Buttons/YesG.png"));
             Window.Current.CoreWindow.PointerCursor = new Windows.UI.Core.CoreCursor(Windows.UI.Core.CoreCursorType.Hand, 1);
         }
 
@@ -81,6 +85,10 @@ namespace Arcanoid
                 imgLevel.Source = new BitmapImage(new Uri("ms-appx:///Assets/Buttons/LevelsO.png"));
             if (name == "imgPopExit")
                 imgPopExit.Source = new BitmapImage(new Uri("ms-appx:///Assets/Buttons/ExitO.png"));
+            if (name == "imgYes")
+                imgYes.Source = new BitmapImage(new Uri("ms-appx:///Assets/Buttons/YesO.png"));
+            if (name == "imgYesPop")
+                imgYesPop.Source = new BitmapImage(new Uri("ms-appx:///Assets/Buttons/YesO.png"));
             Window.Current.CoreWindow.PointerCursor = new Windows.UI.Core.CoreCursor(Windows.UI.Core.CoreCursorType.Arrow, 1);
         }
 
@@ -128,5 +136,16 @@ namespace Arcanoid
         {
             Frame.Navigate(typeof(LevelsPage));
         }
+
+        private void imgMusic_PointerPressed(object sender, PointerRoutedEventArgs e)
+        {
+            popupGridMusic.Visibility = Visibility.Visible;
+        }
+
+        private void imgBack_PointerPressed(object sender, PointerRoutedEventArgs e)
+        {
+            popupGridMusic.Visibility = Visibility.Collapsed;
+        }
+
     }
 }
