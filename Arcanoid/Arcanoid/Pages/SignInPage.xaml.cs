@@ -55,6 +55,8 @@ namespace Arcanoid.Pages
         {
             newUserGrid.Visibility = Visibility.Collapsed;
             existedUserGrid.Visibility = Visibility.Visible;
+            BtnSignUp.Visibility = Visibility.Visible;
+            BtnLogIn.Visibility = Visibility.Collapsed;
             newName.Text = "";
             newPass.Password = "";
             newSamePass.Password = "";
@@ -64,13 +66,10 @@ namespace Arcanoid.Pages
         {
             newUserGrid.Visibility = Visibility.Visible;
             existedUserGrid.Visibility = Visibility.Collapsed;
+            BtnLogIn.Visibility = Visibility.Visible;
+            BtnSignUp.Visibility = Visibility.Collapsed;
             LoginPassword.Password = "";
             LoginUser.Text = "";
-        }
-
-        private void CheckBox_Click(object sender, RoutedEventArgs e)
-        {
-
         }
     }
 }

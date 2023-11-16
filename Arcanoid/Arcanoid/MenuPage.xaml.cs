@@ -30,29 +30,57 @@ namespace Arcanoid
         {
             this.InitializeComponent();
         }
-
-        private void imgExit_PointerEntered(object sender, PointerRoutedEventArgs e)
-        {
-            imgExit.Source = new BitmapImage(new Uri("ms-appx:///Assets/Buttons/ExitP.png"));
-            Window.Current.CoreWindow.PointerCursor = new Windows.UI.Core.CoreCursor(Windows.UI.Core.CoreCursorType.Hand, 1);
-        }
-
-        private void ImgExit_PointerExited(object sender, PointerRoutedEventArgs e)
-        {
-            imgExit.Source = new BitmapImage(new Uri("ms-appx:///Assets/Buttons/ExitG.png"));
-            Window.Current.CoreWindow.PointerCursor = new Windows.UI.Core.CoreCursor(Windows.UI.Core.CoreCursorType.Arrow, 1);
-        }
-
         private void img_PointerEntered(object sender, PointerRoutedEventArgs e)
         {
             Image img = (Image)sender;
             string name = img.Name;
-            imgExit.Source = new BitmapImage(new Uri("ms-appx:///Assets/Buttons/ExitG.png"));
+            if(name == "imgExit")
+                imgExit.Source = new BitmapImage(new Uri("ms-appx:///Assets/Buttons/ExitP.png"));
+            if (name == "imgSettings")
+                imgSettings.Source = new BitmapImage(new Uri("ms-appx:///Assets/Buttons/SettingsP.png"));
+            if (name == "imgPlay")
+                imgPlay.Source = new BitmapImage(new Uri("ms-appx:///Assets/Buttons/PlayP.png"));
+            if (name == "imgHelp")
+                imgHelp.Source = new BitmapImage(new Uri("ms-appx:///Assets/Buttons/HelpP.png"));
+            if (name == "imgMusic")
+                imgMusic.Source = new BitmapImage(new Uri("ms-appx:///Assets/Buttons/MusicP.png"));
+            if (name == "imgAccaunt")
+                imgAccaunt.Source = new BitmapImage(new Uri("ms-appx:///Assets/Buttons/ProfileP.png"));
+            if (name == "imgLeader")
+                imgLeader.Source = new BitmapImage(new Uri("ms-appx:///Assets/Buttons/LeaderP.png"));
+            if (name == "imgShop")
+                imgShop.Source = new BitmapImage(new Uri("ms-appx:///Assets/Buttons/ShopP.png"));
+            if (name == "imgLevel")
+                imgLevel.Source = new BitmapImage(new Uri("ms-appx:///Assets/Buttons/LevelsP.png"));
+            if (name == "imgPopExit")
+                imgPopExit.Source = new BitmapImage(new Uri("ms-appx:///Assets/Buttons/ExitG.png"));
             Window.Current.CoreWindow.PointerCursor = new Windows.UI.Core.CoreCursor(Windows.UI.Core.CoreCursorType.Hand, 1);
         }
 
         private void img_PointerExited(object sender, PointerRoutedEventArgs e)
         {
+            Image img = (Image)sender;
+            string name = img.Name;
+            if (name == "imgExit")
+                imgExit.Source = new BitmapImage(new Uri("ms-appx:///Assets/Buttons/ExitG.png"));
+            if (name == "imgSettings")
+                imgSettings.Source = new BitmapImage(new Uri("ms-appx:///Assets/Buttons/SettingsO.png"));
+            if (name == "imgPlay")
+                imgPlay.Source = new BitmapImage(new Uri("ms-appx:///Assets/Buttons/PlayO.png"));
+            if (name == "imgHelp")
+                imgHelp.Source = new BitmapImage(new Uri("ms-appx:///Assets/Buttons/HelpO.png"));
+            if (name == "imgMusic")
+                imgMusic.Source = new BitmapImage(new Uri("ms-appx:///Assets/Buttons/MusicO.png"));
+            if (name == "imgAccaunt")
+                imgAccaunt.Source = new BitmapImage(new Uri("ms-appx:///Assets/Buttons/ProfileO.png"));
+            if (name == "imgLeader")
+                imgLeader.Source = new BitmapImage(new Uri("ms-appx:///Assets/Buttons/LeaderO.png"));
+            if (name == "imgShop")
+                imgShop.Source = new BitmapImage(new Uri("ms-appx:///Assets/Buttons/ShopO.png"));
+            if (name == "imgLevel")
+                imgLevel.Source = new BitmapImage(new Uri("ms-appx:///Assets/Buttons/LevelsO.png"));
+            if (name == "imgPopExit")
+                imgPopExit.Source = new BitmapImage(new Uri("ms-appx:///Assets/Buttons/ExitO.png"));
             Window.Current.CoreWindow.PointerCursor = new Windows.UI.Core.CoreCursor(Windows.UI.Core.CoreCursorType.Arrow, 1);
         }
 
