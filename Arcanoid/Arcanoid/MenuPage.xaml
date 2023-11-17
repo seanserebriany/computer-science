@@ -7,6 +7,7 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    
 
     <Grid>
         <Grid.Background>
@@ -67,10 +68,10 @@
         <Button Style="{StaticResource MyButtonStyle}" x:Name="BtnShop" Grid.Row="9" Grid.Column="8" Grid.ColumnSpan="1" Grid.RowSpan="2">
             <Image x:Name="imgShop" Source="/Assets/Buttons/ShopO.png" PointerEntered="img_PointerEntered" PointerExited="img_PointerExited"></Image>
         </Button>
-        <Button Style="{StaticResource MyButtonStyle}" x:Name="BtnLevels" Grid.Row="9" Grid.Column="9" Grid.ColumnSpan="1" Grid.RowSpan="2">
-            <Image x:Name="imgLevel" Source="/Assets/Buttons/LevelsO.png" PointerEntered="img_PointerEntered" PointerExited="img_PointerExited" PointerPressed="imgLevel_PointerPressed"></Image>
-        </Button>
-        <Grid x:Name="popupGrid" Background="LightBlue" Grid.Row="3" Grid.Column="3" Grid.RowSpan="9" Grid.ColumnSpan="8" Opacity="1" BorderBrush="Blue" BorderThickness="10" Visibility="Collapsed">
+            <Button Style="{StaticResource MyButtonStyle}" x:Name="BtnLevels" Grid.Row="9" Grid.Column="9" Grid.ColumnSpan="1" Grid.RowSpan="2">
+                <Image x:Name="imgLevel" Source="/Assets/Buttons/LevelsO.png" PointerEntered="img_PointerEntered" PointerExited="img_PointerExited" PointerPressed="imgLevel_PointerPressed"></Image>
+            </Button>
+            <Grid x:Name="popupGrid" Background="DodgerBlue" Grid.Row="3" Grid.Column="3" Grid.RowSpan="9" Grid.ColumnSpan="8" Opacity="1" BorderBrush="Blue" BorderThickness="10" Visibility="Collapsed" CornerRadius="120">
             <Grid.RowDefinitions>
                 <RowDefinition></RowDefinition>
                 <RowDefinition></RowDefinition>
@@ -98,7 +99,7 @@
                 <ColumnDefinition></ColumnDefinition>
             </Grid.ColumnDefinitions>
             <Viewbox Grid.Column="3" Grid.Row="1" Grid.ColumnSpan="6">
-                <TextBlock Text="Exit the game?" HorizontalAlignment="Center" FontSize="45" Foreground="Black" Grid.RowSpan="2" VerticalAlignment="Top" FontFamily="Broadway" FontWeight="Bold"></TextBlock>
+                <TextBlock Text="Exit the game?" HorizontalAlignment="Center" FontSize="45" Foreground="White" Grid.RowSpan="2" VerticalAlignment="Top" FontFamily="Broadway" FontWeight="Bold"></TextBlock>
             </Viewbox>
             <Button Style="{StaticResource MyButtonStyle}" x:Name="btnPopNo" Grid.Row="5" Grid.Column="8" Grid.ColumnSpan="4" Grid.RowSpan="3">
                 <Image x:Name="imgPopExit" Source="/Assets/Buttons/ExitO.png" PointerEntered="img_PointerEntered"  PointerExited="img_PointerExited" PointerPressed="imgPopNo_PointerPressed"></Image>
@@ -107,8 +108,8 @@
                 <Image x:Name="imgYes" Source="/Assets/Buttons/YesO.png" PointerEntered="img_PointerEntered" PointerExited="img_PointerExited" PointerPressed="imgYes_PointerPressed"></Image>
             </Button>
         </Grid>
-        <Grid x:Name="popupGridMusic" Background="LightBlue" Grid.Row="3" Grid.Column="3" Grid.RowSpan="9" Grid.ColumnSpan="8" Opacity="1" BorderBrush="Blue" BorderThickness="10" Visibility="Collapsed">
-            <Grid.RowDefinitions>
+        <Grid x:Name="popupGridMusic" Background="DodgerBlue" Grid.Row="3" Grid.Column="4" Grid.RowSpan="8" Grid.ColumnSpan="6" Opacity="1" BorderBrush="Blue" BorderThickness="10" CornerRadius="70" Visibility="Collapsed">
+                <Grid.RowDefinitions>
                 <RowDefinition></RowDefinition>
                 <RowDefinition></RowDefinition>
                 <RowDefinition></RowDefinition>
@@ -137,10 +138,15 @@
             <Button Style="{StaticResource MyButtonStyle}" x:Name="BtnYes" Grid.Row="8" Grid.Column="5" Grid.ColumnSpan="2" Grid.RowSpan="2">
                 <Image x:Name="imgYesPop" Source="/Assets/Buttons/YesO.png" PointerEntered="img_PointerEntered"  PointerExited="img_PointerExited" PointerPressed="imgBack_PointerPressed"></Image>
             </Button>
-            
-            
-            
-        </Grid>
+            <Viewbox Grid.Column="1" Grid.Row="0" Grid.ColumnSpan="10" Grid.RowSpan="2">
+                <TextBlock Text="Sound Control" FontSize="45" Foreground="White" Grid.RowSpan="2" VerticalAlignment="Stretch" FontFamily="Broadway" FontWeight="Bold"></TextBlock>
+            </Viewbox>
+            <ToggleSwitch x:Name="BackgroundMusic" IsOn="False" OnContent="Music On" OffContent="Music Off" Toggled="BackgroundMusic_Toggled" FontSize="40" Foreground="White" VerticalAlignment="Stretch" FontFamily="Broadway" FontWeight="Bold" Grid.Column="2" Grid.Row="2" Grid.RowSpan="2" Grid.ColumnSpan="6"></ToggleSwitch>
+            <ToggleSwitch x:Name="SoundEffects" IsOn="False" OnContent="Sound Effects On" OffContent="Sound Effects off" Toggled="SoundEffects_Toggled"  FontSize="40" Foreground="White" Grid.RowSpan="2" Grid.ColumnSpan="6" VerticalAlignment="Stretch" FontFamily="Broadway" FontWeight="Bold" Grid.Column="2" Grid.Row="3"></ToggleSwitch>
+            <Slider x:Name="BackgroundVolumeSlider" ValueChanged="BackgroundVolumeSlider_ValueChanged" Value="50" Maximum="100" Header="Background Sound" Grid.ColumnSpan="8" Grid.RowSpan="2" Grid.Row="4" Grid.Column="2" FontSize="40" Foreground="White" VerticalAlignment="Stretch" FontFamily="Broadway" FontWeight="Bold"></Slider>
+            <Slider x:Name="SoundEffectsVolumeSlider" ValueChanged="SoundEffectsVolumeSlider_ValueChanged" Value="50" Maximum="100" Header="SoundEffects Volume" Grid.ColumnSpan="8" Grid.RowSpan="2" Grid.Row="6" Grid.Column="2" FontSize="40" Foreground="White" VerticalAlignment="Stretch" FontFamily="Broadway" FontWeight="Bold"></Slider>
 
+
+        </Grid>
     </Grid>
 </Page>

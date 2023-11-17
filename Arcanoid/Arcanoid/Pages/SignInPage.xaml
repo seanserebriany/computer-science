@@ -46,15 +46,15 @@
         </Grid.ColumnDefinitions>
         <Viewbox Grid.Row="6" Grid.Column="6" Grid.ColumnSpan="3" Grid.RowSpan="2">
             <Button Style="{StaticResource MyButtonStyle}" x:Name="BtnLogIn" Visibility="Collapsed">
-                <Border BorderBrush="Black" BorderThickness="4" Background="White" CornerRadius="25">
-                    <TextBlock x:Name="LogIn" Text="Log in" Foreground="Black" FontStyle="Italic" FontFamily="Broadway" FontSize="70" FontWeight="Bold" VerticalAlignment="Center" PointerPressed="LogIn_PointerPressed" PointerEntered="text_PointerEntered" PointerExited="text_PointerExited"></TextBlock>
+                <Border BorderBrush="Blue" BorderThickness="4" Background="DodgerBlue" CornerRadius="25">
+                    <TextBlock x:Name="LogIn" Text="Log in" Foreground="White" FontStyle="Italic" FontFamily="Broadway" FontSize="70" FontWeight="Bold" VerticalAlignment="Center" PointerPressed="LogIn_PointerPressed" PointerEntered="text_PointerEntered" PointerExited="text_PointerExited"></TextBlock>
                 </Border>
             </Button>
         </Viewbox>
         <Viewbox Grid.Row="6" Grid.Column="6" Grid.ColumnSpan="3" Grid.RowSpan="2">
             <Button Style="{StaticResource MyButtonStyle}" x:Name="BtnSignUp" Visibility="Visible">
-                <Border BorderBrush="Black" BorderThickness="4" Background="White" CornerRadius="25">
-                    <TextBlock x:Name="SignUp" Text="Sign Up" Foreground="Black" FontStyle="Italic" FontFamily="Broadway" FontSize="70" FontWeight="Bold" VerticalAlignment="Center" PointerPressed="SignUp_PointerPressed" PointerEntered="text_PointerEntered" PointerExited="text_PointerExited"></TextBlock>
+                <Border BorderBrush="Blue" BorderThickness="4" Background="DodgerBlue" CornerRadius="25">
+                    <TextBlock x:Name="SignUp" Text="Sign Up" Foreground="White" FontStyle="Italic" FontFamily="Broadway" FontSize="70" FontWeight="Bold" VerticalAlignment="Center" PointerPressed="SignUp_PointerPressed" PointerEntered="text_PointerEntered" PointerExited="text_PointerExited"></TextBlock>
                 </Border>
             </Button>
         </Viewbox>

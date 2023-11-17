@@ -107,11 +107,15 @@ namespace Arcanoid
         private void imgPopNo_PointerPressed(object sender, PointerRoutedEventArgs e)
         {
             popupGrid.Visibility = Visibility.Collapsed;
+            imgSettings.Visibility = Visibility.Visible;
+            imgExit.Visibility = Visibility.Visible;
         }
 
         private void imgExit_PointerPressed(object sender, PointerRoutedEventArgs e)
         {
             popupGrid.Visibility = Visibility.Visible;
+            imgSettings.Visibility = Visibility.Collapsed;
+            imgExit.Visibility = Visibility.Collapsed;
 
         }
 
@@ -140,12 +144,35 @@ namespace Arcanoid
         private void imgMusic_PointerPressed(object sender, PointerRoutedEventArgs e)
         {
             popupGridMusic.Visibility = Visibility.Visible;
+            imgSettings.Visibility = Visibility.Collapsed;
+            imgExit.Visibility = Visibility.Collapsed;
         }
 
         private void imgBack_PointerPressed(object sender, PointerRoutedEventArgs e)
         {
             popupGridMusic.Visibility = Visibility.Collapsed;
+            imgSettings.Visibility = Visibility.Visible;
+            imgExit.Visibility = Visibility.Visible;
         }
 
+        private void BackgroundMusic_Toggled(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void SoundEffects_Toggled(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void SoundEffectsVolumeSlider_ValueChanged(object sender, RangeBaseValueChangedEventArgs e)
+        {
+
+        }
+
+        private void BackgroundVolumeSlider_ValueChanged(object sender, RangeBaseValueChangedEventArgs e)
+        {
+
+        }
     }
 }
