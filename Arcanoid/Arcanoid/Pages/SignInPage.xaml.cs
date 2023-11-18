@@ -6,6 +6,7 @@ using System.Runtime.InteropServices.WindowsRuntime;
 using System.Xml.Linq;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
+using Windows.UI;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Controls.Primitives;
@@ -93,15 +94,32 @@ namespace Arcanoid.Pages
         {
             Window.Current.CoreWindow.PointerCursor = new Windows.UI.Core.CoreCursor(Windows.UI.Core.CoreCursorType.Arrow, 1);
             TextBlock img = (TextBlock)sender;
-            img.FontSize = 70;
+            img.Foreground = new SolidColorBrush(Colors.White);
         }
 
         private void text_PointerEntered(object sender, PointerRoutedEventArgs e)
         {
             Window.Current.CoreWindow.PointerCursor = new Windows.UI.Core.CoreCursor(Windows.UI.Core.CoreCursorType.Hand, 1);
             TextBlock img = (TextBlock)sender;
-            img.FontSize = 120;
+            img.Foreground = new SolidColorBrush(Colors.LightGray);
 
+        }
+
+        private void TextBlock_PointerPressed(object sender, PointerRoutedEventArgs e)
+        {
+
+        }
+
+        private void txt_ForgotPassword_PointerEntered(object sender, PointerRoutedEventArgs e)
+        {
+            txt_ForgotPassword.Foreground = new SolidColorBrush(Colors.LightGray);
+            Window.Current.CoreWindow.PointerCursor = new Windows.UI.Core.CoreCursor(Windows.UI.Core.CoreCursorType.Hand, 1);
+        }
+
+        private void txt_ForgotPassword_PointerExited(object sender, PointerRoutedEventArgs e)
+        {
+            txt_ForgotPassword.Foreground = new SolidColorBrush(Colors.White);
+            Window.Current.CoreWindow.PointerCursor = new Windows.UI.Core.CoreCursor(Windows.UI.Core.CoreCursorType.Arrow, 1);
         }
     }
 }
