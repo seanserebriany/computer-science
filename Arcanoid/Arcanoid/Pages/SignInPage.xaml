@@ -61,7 +61,7 @@
         <Button Style="{StaticResource MyButtonStyle}" x:Name="BtnBack" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" Grid.RowSpan="2">
             <Image x:Name="imgBack" Source="/Assets/Buttons/BackO.png" PointerEntered="img_PointerEntered"  PointerExited="img_PointerExited" PointerPressed="imgBack_PointerPressed"></Image>
         </Button>
-        <Grid x:Name="newUserGrid" Background="DodgerBlue" Grid.Row="3" Grid.Column="2" Grid.ColumnSpan="4" Grid.RowSpan="8" BorderBrush="Blue" BorderThickness="8" CornerRadius="40" Visibility="Collapsed">
+        <Grid x:Name="newUserGrid" Background="DodgerBlue" Grid.Row="3" Grid.Column="9" Grid.ColumnSpan="4" Grid.RowSpan="8" BorderBrush="Blue" BorderThickness="8" CornerRadius="40" Visibility="Collapsed">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition></ColumnDefinition>
                 <ColumnDefinition></ColumnDefinition>
@@ -104,7 +104,7 @@
                 <PasswordBox PasswordChar="●" x:Name="newSamePass" ScrollViewer.VerticalScrollMode="Disabled" IsPasswordRevealButtonEnabled="False"  PlaceholderText="Same Password" FontWeight="Bold" FontStyle="Italic" MaxLength="25" Width="160" Height="35" BorderBrush="White" CornerRadius="20" VerticalAlignment="Center" FontSize="18"></PasswordBox>
             </Viewbox>
         </Grid>
-        <Grid x:Name="existedUserGrid" Background="DodgerBlue" Grid.Row="3" Grid.Column="9" Grid.ColumnSpan="4" Grid.RowSpan="8" BorderBrush="Blue" BorderThickness="8" CornerRadius="40" Visibility="Visible">
+        <Grid x:Name="existedUserGrid" Background="DodgerBlue" Grid.Row="3" Grid.Column="2" Grid.ColumnSpan="4" Grid.RowSpan="8" BorderBrush="Blue" BorderThickness="8" CornerRadius="40" Visibility="Visible">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition></ColumnDefinition>
                 <ColumnDefinition></ColumnDefinition>
@@ -149,7 +149,7 @@
                 <PasswordBox x:Name="LoginPassword" PasswordChar="●" IsPasswordRevealButtonEnabled="False" ScrollViewer.VerticalScrollMode="Disabled" PlaceholderText="Password" FontWeight="Bold" FontStyle="Italic" MaxLength="25" Width="160" Height="35" BorderBrush="White" CornerRadius="20" FontSize="18" VerticalAlignment="Center"></PasswordBox>
             </Viewbox>
         </Grid>
-        <Grid x:Name="ForgotPasswordGrid" Background="DodgerBlue" Grid.Row="3" Grid.Column="9" Grid.ColumnSpan="4" Grid.RowSpan="8" BorderBrush="Blue" BorderThickness="8" CornerRadius="40" Visibility="Collapsed">
+        <Grid x:Name="ForgotPasswordGrid" Background="DodgerBlue" Grid.Row="3" Grid.Column="2" Grid.ColumnSpan="4" Grid.RowSpan="8" BorderBrush="Blue" BorderThickness="8" CornerRadius="40" Visibility="Collapsed">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition></ColumnDefinition>
                 <ColumnDefinition></ColumnDefinition>
