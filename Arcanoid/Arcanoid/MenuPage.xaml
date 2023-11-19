@@ -71,7 +71,7 @@
             <Button Style="{StaticResource MyButtonStyle}" x:Name="BtnLevels" Grid.Row="9" Grid.Column="9" Grid.ColumnSpan="1" Grid.RowSpan="2">
                 <Image x:Name="imgLevel" Source="/Assets/Buttons/LevelsO.png" PointerEntered="img_PointerEntered" PointerExited="img_PointerExited" PointerPressed="imgLevel_PointerPressed"></Image>
             </Button>
-            <Grid x:Name="popupGrid" Background="DodgerBlue" Grid.Row="3" Grid.Column="3" Grid.RowSpan="9" Grid.ColumnSpan="8" Opacity="1" BorderBrush="Blue" BorderThickness="10" Visibility="Collapsed" CornerRadius="120">
+        <Grid x:Name="popupGrid" Background="DodgerBlue" Grid.Row="3" Grid.Column="3" Grid.RowSpan="9" Grid.ColumnSpan="8" Opacity="1" BorderBrush="Blue" BorderThickness="10" CornerRadius="120" Visibility="Visible">
             <Grid.RowDefinitions>
                 <RowDefinition></RowDefinition>
                 <RowDefinition></RowDefinition>
@@ -98,8 +98,8 @@
                 <ColumnDefinition></ColumnDefinition>
                 <ColumnDefinition></ColumnDefinition>
             </Grid.ColumnDefinitions>
-            <Viewbox Grid.Column="3" Grid.Row="1" Grid.ColumnSpan="6">
-                <TextBlock Text="Exit the game?" HorizontalAlignment="Center" FontSize="45" Foreground="White" Grid.RowSpan="2" VerticalAlignment="Top" FontFamily="Broadway" FontWeight="Bold"></TextBlock>
+            <Viewbox Grid.Column="1" Grid.Row="0" Grid.ColumnSpan="10" Grid.RowSpan="4">
+                <TextBlock Text="Exit the game?" HorizontalAlignment="Center" FontSize="755" Foreground="White" FontFamily="Broadway" FontWeight="Bold"></TextBlock>
             </Viewbox>
             <Button Style="{StaticResource MyButtonStyle}" x:Name="btnPopNo" Grid.Row="5" Grid.Column="8" Grid.ColumnSpan="4" Grid.RowSpan="3">
                 <Image x:Name="imgPopExit" Source="/Assets/Buttons/ExitO.png" PointerEntered="img_PointerEntered"  PointerExited="img_PointerExited" PointerPressed="imgPopNo_PointerPressed"></Image>

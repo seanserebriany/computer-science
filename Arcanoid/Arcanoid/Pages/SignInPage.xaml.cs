@@ -84,6 +84,7 @@ namespace Arcanoid.Pages
         {
             newUserGrid.Visibility = Visibility.Visible;
             existedUserGrid.Visibility = Visibility.Collapsed;
+            ForgotPasswordGrid.Visibility = Visibility.Collapsed;
             BtnLogIn.Visibility = Visibility.Visible;
             BtnSignUp.Visibility = Visibility.Collapsed;
             LoginPassword.Password = "";
@@ -105,11 +106,6 @@ namespace Arcanoid.Pages
 
         }
 
-        private void TextBlock_PointerPressed(object sender, PointerRoutedEventArgs e)
-        {
-
-        }
-
         private void txt_ForgotPassword_PointerEntered(object sender, PointerRoutedEventArgs e)
         {
             txt_ForgotPassword.Foreground = new SolidColorBrush(Colors.LightGray);
@@ -120,6 +116,35 @@ namespace Arcanoid.Pages
         {
             txt_ForgotPassword.Foreground = new SolidColorBrush(Colors.White);
             Window.Current.CoreWindow.PointerCursor = new Windows.UI.Core.CoreCursor(Windows.UI.Core.CoreCursorType.Arrow, 1);
+        }
+        private void txt_ForgotPassword_PointerPressed(object sender, PointerRoutedEventArgs e)
+        {
+            ForgotPasswordGrid.Visibility = Visibility.Visible;
+            existedUserGrid.Visibility = Visibility.Collapsed;
+            ForgotPasswordUsername.Text = "";
+            ForgotPasswordNew.Password = "";
+            ForgotPasswordNewSame.Password = "";
+        }
+
+        private void imgNewPasswordYes_PointerPressed(object sender, PointerRoutedEventArgs e)
+        {
+            ForgotPasswordGrid.Visibility = Visibility.Collapsed;
+            existedUserGrid.Visibility = Visibility.Visible;
+            ForgotPasswordUsername.Text = "";
+            ForgotPasswordNew.Password = "";
+            ForgotPasswordNewSame.Password = "";
+        }
+
+        private void imgNewPasswordYes_PointerExited(object sender, PointerRoutedEventArgs e)
+        {
+            Window.Current.CoreWindow.PointerCursor = new Windows.UI.Core.CoreCursor(Windows.UI.Core.CoreCursorType.Arrow, 1);
+                imgNewPasswordYes.Source = new BitmapImage(new Uri("ms-appx:///Assets/Buttons/YesO.png"));
+        }
+
+        private void imgNewPasswordYes_PointerEntered(object sender, PointerRoutedEventArgs e)
+        {
+            imgNewPasswordYes.Source = new BitmapImage(new Uri("ms-appx:///Assets/Buttons/YesG.png"));
+            Window.Current.CoreWindow.PointerCursor = new Windows.UI.Core.CoreCursor(Windows.UI.Core.CoreCursorType.Hand, 1);
         }
     }
 }

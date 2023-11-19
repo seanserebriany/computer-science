@@ -107,7 +107,6 @@
         <Grid x:Name="existedUserGrid" Background="DodgerBlue" Grid.Row="3" Grid.Column="9" Grid.ColumnSpan="4" Grid.RowSpan="8" BorderBrush="Blue" BorderThickness="8" CornerRadius="40" Visibility="Visible">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition></ColumnDefinition>
-
                 <ColumnDefinition></ColumnDefinition>
                 <ColumnDefinition></ColumnDefinition>
                 <ColumnDefinition></ColumnDefinition>
@@ -137,7 +136,7 @@
             </Viewbox>
             <Viewbox Grid.Row="9" Grid.Column="1" Grid.ColumnSpan="8">
                 <Button x:Name="btn_ForgotPassword" Style="{StaticResource MyButtonStyle}">
-                    <TextBlock x:Name="txt_ForgotPassword" Text="Forgot Password?" HorizontalAlignment="Stretch" FontSize="35" Foreground="White" FontFamily="Italic" FontWeight="Bold" PointerPressed="TextBlock_PointerPressed" PointerEntered="txt_ForgotPassword_PointerEntered" PointerExited="txt_ForgotPassword_PointerExited"></TextBlock>
+                    <TextBlock x:Name="txt_ForgotPassword" Text="Forgot Password?" HorizontalAlignment="Stretch" FontSize="35" Foreground="White" FontFamily="Italic" FontWeight="Bold" PointerPressed="txt_ForgotPassword_PointerPressed"  PointerEntered="txt_ForgotPassword_PointerEntered" PointerExited="txt_ForgotPassword_PointerExited"></TextBlock>
                 </Button>
             </Viewbox>
             <Viewbox Grid.Column="1" Grid.Row="0" Grid.ColumnSpan="8" Grid.RowSpan="2" HorizontalAlignment="Center" VerticalAlignment="Center">
@@ -148,6 +147,49 @@
             </Viewbox>
             <Viewbox Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="10" Grid.RowSpan="2">
                 <PasswordBox x:Name="LoginPassword" PasswordChar="●" IsPasswordRevealButtonEnabled="False" ScrollViewer.VerticalScrollMode="Disabled" PlaceholderText="Password" FontWeight="Bold" FontStyle="Italic" MaxLength="25" Width="160" Height="35" BorderBrush="White" CornerRadius="20" FontSize="18" VerticalAlignment="Center"></PasswordBox>
+            </Viewbox>
+        </Grid>
+        <Grid x:Name="ForgotPasswordGrid" Background="DodgerBlue" Grid.Row="3" Grid.Column="9" Grid.ColumnSpan="4" Grid.RowSpan="8" BorderBrush="Blue" BorderThickness="8" CornerRadius="40" Visibility="Collapsed">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+            </Grid.RowDefinitions>
+            <Viewbox Grid.Row="8" Grid.Column="4" Grid.ColumnSpan="2" Grid.RowSpan="4">
+                <Button Style="{StaticResource MyButtonStyle}" x:Name="BtnNewPasswordYes">
+                    <Image x:Name="imgNewPasswordYes" Source="/Assets/Buttons/YesO.png" PointerPressed="imgNewPasswordYes_PointerPressed"  PointerEntered="imgNewPasswordYes_PointerEntered"  PointerExited="imgNewPasswordYes_PointerExited"/>
+                </Button>
+            </Viewbox>
+            <Viewbox Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="10" Grid.RowSpan="2" HorizontalAlignment="Center" VerticalAlignment="Center">
+                <TextBlock Text="Forgot Password?" HorizontalAlignment="Stretch" FontSize="25" Foreground="White" FontFamily="Italic" FontWeight="Bold" ></TextBlock>
+            </Viewbox>
+            <Viewbox Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="10" Grid.RowSpan="2" HorizontalAlignment="Stretch">
+                <TextBox x:Name="ForgotPasswordUsername" PlaceholderText="Username" FontWeight="Bold" FontStyle="Italic" TextWrapping="Wrap" ScrollViewer.VerticalScrollMode="Disabled"  Width="160" Height="35" MaxWidth="160" MaxHeight="40" MaxLength="10" BorderBrush="White" CornerRadius="20" FontSize="18" VerticalAlignment="Center"></TextBox>
+            </Viewbox>
+            <Viewbox Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="10" Grid.RowSpan="2">
+                <PasswordBox x:Name="ForgotPasswordNew" PasswordChar="●" IsPasswordRevealButtonEnabled="False" ScrollViewer.VerticalScrollMode="Disabled" PlaceholderText="New Password" FontWeight="Bold" FontStyle="Italic" MaxLength="25" Width="160" Height="35" BorderBrush="White" CornerRadius="20" FontSize="18" VerticalAlignment="Center"></PasswordBox>
+            </Viewbox>
+            <Viewbox Grid.Row="6" Grid.Column="0" Grid.ColumnSpan="10" Grid.RowSpan="2">
+                <PasswordBox x:Name="ForgotPasswordNewSame" PasswordChar="●" IsPasswordRevealButtonEnabled="False" ScrollViewer.VerticalScrollMode="Disabled" PlaceholderText="Same Password" FontWeight="Bold" FontStyle="Italic" MaxLength="25" Width="160" Height="35" BorderBrush="White" CornerRadius="20" FontSize="18" VerticalAlignment="Center"></PasswordBox>
             </Viewbox>
         </Grid>
         <Viewbox Grid.Column="3" Grid.Row="0" Grid.ColumnSpan="9" Grid.RowSpan="2">
