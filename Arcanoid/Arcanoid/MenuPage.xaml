@@ -54,7 +54,7 @@
             <Image x:Name="imgPlay" Source="/Assets/Buttons/PlayO.png" PointerEntered="img_PointerEntered" PointerExited="img_PointerExited"></Image>
         </Button>
         <Button Style="{StaticResource MyButtonStyle}" x:Name="BtnHelp" Grid.Row="9" Grid.Column="4" Grid.ColumnSpan="1" Grid.RowSpan="2">
-            <Image x:Name="imgHelp" Source="/Assets/Buttons/HelpO.png" PointerEntered="img_PointerEntered" PointerExited="img_PointerExited"></Image>
+            <Image x:Name="imgHelp" Source="/Assets/Buttons/HelpO.png" PointerEntered="img_PointerEntered" PointerExited="img_PointerExited" PointerPressed="imgHelp_PointerPressed"></Image>
         </Button>
         <Button Style="{StaticResource MyButtonStyle}" x:Name="BtnMusic" Grid.Row="9" Grid.Column="5" Grid.ColumnSpan="1" Grid.RowSpan="2">
             <Image x:Name="imgMusic" Source="/Assets/Buttons/MusicO.png" PointerEntered="img_PointerEntered" PointerExited="img_PointerExited" PointerPressed="imgMusic_PointerPressed"></Image>

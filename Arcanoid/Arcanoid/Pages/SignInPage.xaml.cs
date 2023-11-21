@@ -33,7 +33,6 @@ namespace Arcanoid.Pages
         {
             Frame.Navigate(typeof(MenuPage));
         }
-
         private void img_PointerEntered(object sender, PointerRoutedEventArgs e)
         {
             Image img = (Image)sender;
@@ -124,6 +123,8 @@ namespace Arcanoid.Pages
             ForgotPasswordUsername.Text = "";
             ForgotPasswordNew.Password = "";
             ForgotPasswordNewSame.Password = "";
+            LoginUser.Text = "";
+            LoginPassword.Password = "";
         }
 
         private void imgNewPasswordYes_PointerPressed(object sender, PointerRoutedEventArgs e)
