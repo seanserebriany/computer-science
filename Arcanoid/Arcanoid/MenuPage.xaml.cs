@@ -1,4 +1,5 @@
 ﻿using Arcanoid.Pages;
+using GameEngine.GameServices;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -157,12 +158,15 @@ namespace Arcanoid
 
         private void BackgroundMusic_Toggled(object sender, RoutedEventArgs e)
         {
-
+            MusicPlayer.isOn = !MusicPlayer.isOn;
+            if (MusicPlayer.isOn)
+                MusicPlayer.Play("BackgroundMusic.mp3");
+            else
+                MusicPlayer.Stop();
         }
 
         private void SoundEffects_Toggled(object sender, RoutedEventArgs e)
         {
-
         }
 
         private void SoundEffectsVolumeSlider_ValueChanged(object sender, RangeBaseValueChangedEventArgs e)
@@ -172,12 +176,22 @@ namespace Arcanoid
 
         private void BackgroundVolumeSlider_ValueChanged(object sender, RangeBaseValueChangedEventArgs e)
         {
-
+            MusicPlayer.ChangeVolume(BackgroundVolumeSlider.Value);
         }
 
         private void imgHelp_PointerPressed(object sender, PointerRoutedEventArgs e)
         {
             Frame.Navigate(typeof(HelpPage));
+        }
+
+        private void Page_Loaded(object sender, RoutedEventArgs e)
+        {
+            BackgroundMusic.IsOn = MusicPlayer.isOn;
+            if (MusicPlayer.isOn)
+                MusicPlayer.Play("BackgroundMusix");
+            else
+                MusicPlayer.Stop();
+
         }
     }
 }

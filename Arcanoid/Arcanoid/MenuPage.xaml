@@ -5,7 +5,7 @@
     xmlns:local="using:Arcanoid"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    mc:Ignorable="d"
+    mc:Ignorable="d" Loaded="Page_Loaded"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
     
 
@@ -108,7 +108,7 @@
                 <Image x:Name="imgYes" Source="/Assets/Buttons/YesO.png" PointerEntered="img_PointerEntered" PointerExited="img_PointerExited" PointerPressed="imgYes_PointerPressed"></Image>
             </Button>
         </Grid>
-        <Grid x:Name="popupGridMusic" Background="DodgerBlue" Grid.Row="3" Grid.Column="4" Grid.RowSpan="8" Grid.ColumnSpan="6" Opacity="1" BorderBrush="Blue" BorderThickness="10" CornerRadius="30" Visibility="Visible">
+        <Grid x:Name="popupGridMusic" Background="DodgerBlue" Grid.Row="3" Grid.Column="4" Grid.RowSpan="8" Grid.ColumnSpan="6" Opacity="1" BorderBrush="Blue" BorderThickness="10" CornerRadius="30" Visibility="Collapsed">
                 <Grid.RowDefinitions>
                 <RowDefinition></RowDefinition>
                 <RowDefinition></RowDefinition>
@@ -141,7 +141,7 @@
             <Viewbox Grid.Column="1" Grid.Row="0" Grid.ColumnSpan="10" Grid.RowSpan="2">
                 <TextBlock Text="Sound Control" FontSize="45" Foreground="White" Grid.RowSpan="2" VerticalAlignment="Stretch" FontFamily="Broadway" FontWeight="Bold"></TextBlock>
             </Viewbox>
-            <ToggleSwitch x:Name="BackgroundMusic" IsOn="False" OnContent="Music On" OffContent="Music Off" Toggled="BackgroundMusic_Toggled" FontSize="40" Foreground="White" VerticalAlignment="Stretch" FontFamily="Broadway" FontWeight="Bold" Grid.Column="2" Grid.Row="2" Grid.RowSpan="2" Grid.ColumnSpan="7"></ToggleSwitch>
+            <ToggleSwitch x:Name="BackgroundMusic" OnContent="Music On" OffContent="Music Off" Toggled="BackgroundMusic_Toggled" FontSize="40" Foreground="White" VerticalAlignment="Stretch" FontFamily="Broadway" FontWeight="Bold" Grid.Column="2" Grid.Row="2" Grid.RowSpan="2" Grid.ColumnSpan="7"></ToggleSwitch>
             <ToggleSwitch x:Name="SoundEffects" IsOn="False" OnContent="Sound Effects On" OffContent="Sound Effects off" Toggled="SoundEffects_Toggled"  FontSize="40" Foreground="White" Grid.RowSpan="2" Grid.ColumnSpan="9" VerticalAlignment="Stretch" FontFamily="Broadway" FontWeight="Bold" Grid.Column="2" Grid.Row="3"></ToggleSwitch>
             <Slider x:Name="BackgroundVolumeSlider" ValueChanged="BackgroundVolumeSlider_ValueChanged" Value="50" Maximum="100" Header="Background Sound" Grid.ColumnSpan="9" Grid.RowSpan="2" Grid.Row="4" Grid.Column="2" FontSize="40" Foreground="White" VerticalAlignment="Stretch" FontFamily="Broadway" FontWeight="Bold"></Slider>
             <Slider x:Name="SoundEffectsVolumeSlider" ValueChanged="SoundEffectsVolumeSlider_ValueChanged" Value="50" Maximum="100" Header="SoundEffects Volume" Grid.ColumnSpan="9" Grid.RowSpan="3" Grid.Row="6" Grid.Column="2" FontSize="40" Foreground="White" VerticalAlignment="Stretch" FontFamily="Broadway" FontWeight="Bold"></Slider>

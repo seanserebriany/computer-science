@@ -15,7 +15,7 @@ namespace GameEngine.GameServices
         public static void Play(string FileName)
         {
             isOn = true;
-            _mediaPlayer.Source = MediaSource.CreateFromUri(new Uri($"/Assets/music/{FileName}"));
+            _mediaPlayer.Source = MediaSource.CreateFromUri(new Uri($"ms-appx:///Assets/Music/{FileName}"));
             _mediaPlayer.IsLoopingEnabled = true;
             _mediaPlayer.Play();
         }
