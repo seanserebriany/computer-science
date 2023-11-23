@@ -193,5 +193,10 @@ namespace Arcanoid
                 MusicPlayer.Stop();
 
         }
+
+        private void imgPlay_PointerPressed(object sender, PointerRoutedEventArgs e)
+        {
+            Frame.Navigate(typeof(GamePag));
+        }
     }
 }

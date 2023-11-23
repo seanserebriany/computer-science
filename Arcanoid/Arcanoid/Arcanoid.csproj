@@ -119,6 +119,9 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Pages\GamePag.xaml.cs">
+      <DependentUpon>GamePag.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Pages\HelpPage.xaml.cs">
       <DependentUpon>HelpPage.xaml</DependentUpon>
     </Compile>
@@ -190,6 +193,7 @@
     <Content Include="Assets\app\Wide310x150Logo.scale-200.png" />
     <Content Include="Assets\app\Wide310x150Logo.scale-400.png" />
     <Content Include="Assets\Background\background.jpg" />
+    <Content Include="Assets\Background\GameBackground.png" />
     <Content Include="Assets\Buttons\BackP.png" />
     <Content Include="Assets\Buttons\ProfileO.png" />
     <Content Include="Assets\Buttons\BackO.png" />
@@ -233,6 +237,10 @@
     </PackageReference>
   </ItemGroup>
   <ItemGroup>
+    <Page Include="Pages\GamePag.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Pages\HelpPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

@@ -51,7 +51,7 @@
             <Image x:Name="imgSettings" Source="/Assets/Buttons/SettingsO.png" PointerEntered="img_PointerEntered" PointerExited="img_PointerExited"></Image>
         </Button>
         <Button Style="{StaticResource MyButtonStyle}" x:Name="BtnPlay" Grid.Row="6" Grid.Column="6" Grid.ColumnSpan="3" Grid.RowSpan="3">
-            <Image x:Name="imgPlay" Source="/Assets/Buttons/PlayO.png" PointerEntered="img_PointerEntered" PointerExited="img_PointerExited"></Image>
+            <Image x:Name="imgPlay" Source="/Assets/Buttons/PlayO.png" PointerEntered="img_PointerEntered" PointerExited="img_PointerExited" PointerPressed="imgPlay_PointerPressed"></Image>
         </Button>
         <Button Style="{StaticResource MyButtonStyle}" x:Name="BtnHelp" Grid.Row="9" Grid.Column="4" Grid.ColumnSpan="1" Grid.RowSpan="2">
             <Image x:Name="imgHelp" Source="/Assets/Buttons/HelpO.png" PointerEntered="img_PointerEntered" PointerExited="img_PointerExited" PointerPressed="imgHelp_PointerPressed"></Image>
@@ -108,7 +108,7 @@
                 <Image x:Name="imgYes" Source="/Assets/Buttons/YesO.png" PointerEntered="img_PointerEntered" PointerExited="img_PointerExited" PointerPressed="imgYes_PointerPressed"></Image>
             </Button>
         </Grid>
-        <Grid x:Name="popupGridMusic" Background="DodgerBlue" Grid.Row="3" Grid.Column="4" Grid.RowSpan="9" Grid.ColumnSpan="6" Opacity="1" BorderBrush="Blue" BorderThickness="10" CornerRadius="30" Visibility="Visible">
+        <Grid x:Name="popupGridMusic" Background="DodgerBlue" Grid.Row="3" Grid.Column="4" Grid.RowSpan="9" Grid.ColumnSpan="6" Opacity="1" BorderBrush="Blue" BorderThickness="10" CornerRadius="30" Visibility="Collapsed">
                 <Grid.RowDefinitions>
                 <RowDefinition></RowDefinition>
                 <RowDefinition></RowDefinition>
