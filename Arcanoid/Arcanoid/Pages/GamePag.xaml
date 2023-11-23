@@ -74,16 +74,16 @@
                 <ColumnDefinition></ColumnDefinition>
                 <ColumnDefinition></ColumnDefinition>
             </Grid.ColumnDefinitions>
-            <Button Style="{StaticResource MyButtonStyle}" x:Name="BtnPopYes" Grid.Row="9" Grid.Column="6" Grid.ColumnSpan="2" Grid.RowSpan="2">
+            <Button Style="{StaticResource MyButtonStyle}" x:Name="BtnPopYes" Grid.Row="9" Grid.Column="5" Grid.ColumnSpan="2" Grid.RowSpan="2">
                 <Image x:Name="imgYes" Source="/Assets/Buttons/YesG.png" PointerPressed="imgYes_PointerPressed" PointerEntered="img_PointerEntered" PointerExited="img_PointerExited"></Image>
             </Button>
-            <Button Style="{StaticResource MyButtonStyle}" x:Name="BtnHelp" Grid.Row="0" Grid.Column="4" Grid.ColumnSpan="4" Grid.RowSpan="3">
+            <Button Style="{StaticResource MyButtonStyle}" x:Name="BtnHelp" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="4" Grid.RowSpan="3">
                 <Image x:Name="imgHelp" Source="/Assets/Buttons/HelpO.png" PointerEntered="img_PointerEntered" PointerExited="img_PointerExited"></Image>
             </Button>
-            <Button Style="{StaticResource MyButtonStyle}" x:Name="BtnMusic" Grid.Row="3" Grid.Column="4" Grid.ColumnSpan="4" Grid.RowSpan="3">
+            <Button Style="{StaticResource MyButtonStyle}" x:Name="BtnMusic" Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="4" Grid.RowSpan="3">
                 <Image x:Name="imgMusic" Source="/Assets/Buttons/MusicO.png" PointerEntered="img_PointerEntered" PointerExited="img_PointerExited"></Image>
             </Button>
-            <Button Style="{StaticResource MyButtonStyle}" x:Name="btnExit" Grid.Row="6" Grid.Column="4" Grid.ColumnSpan="4" Grid.RowSpan="3">
+            <Button Style="{StaticResource MyButtonStyle}" x:Name="btnExit" Grid.Row="6" Grid.Column="0" Grid.ColumnSpan="4" Grid.RowSpan="3">
                 <Image x:Name="imgExit" Source="/Assets/Buttons/ExitO.png" PointerEntered="img_PointerEntered" PointerExited="img_PointerExited" PointerPressed="imgExit_PointerPressed"></Image>
             </Button>
         </Grid>

@@ -50,7 +50,7 @@ namespace Arcanoid.Pages
             if (name == "imgMusic")
                 imgMusic.Source = new BitmapImage(new Uri("ms-appx:///Assets/Buttons/MusicP.png"));
             if (name == "imgYes")
-                imgYes.Source = new BitmapImage(new Uri("ms-appx:///Assets/Buttons/YesP.png"));
+                imgYes.Source = new BitmapImage(new Uri("ms-appx:///Assets/Buttons/YesO.png"));
             Window.Current.CoreWindow.PointerCursor = new Windows.UI.Core.CoreCursor(Windows.UI.Core.CoreCursorType.Hand, 1);
         }
 

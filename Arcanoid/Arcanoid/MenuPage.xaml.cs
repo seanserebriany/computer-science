@@ -9,6 +9,7 @@ using System.Xml.Linq;
 using Windows.ApplicationModel.Core;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
+using Windows.Media.Core.Preview;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Controls.Primitives;
@@ -154,11 +155,12 @@ namespace Arcanoid
             popupGridMusic.Visibility = Visibility.Collapsed;
             imgSettings.Visibility = Visibility.Visible;
             imgExit.Visibility = Visibility.Visible;
+            SoundsPlayer.Play("ClickEffect.mp3");
         }
 
         private void BackgroundMusic_Toggled(object sender, RoutedEventArgs e)
         {
-            MusicPlayer.isOn = !MusicPlayer.isOn;
+            MusicPlayer.isOn = BackgroundMusic.IsOn;
             if (MusicPlayer.isOn)
                 MusicPlayer.Play("BackgroundMusic.mp3");
             else
@@ -167,16 +169,12 @@ namespace Arcanoid
 
         private void SoundEffects_Toggled(object sender, RoutedEventArgs e)
         {
+            SoundsPlayer.isOn = SoundEffects.IsOn;
         }
 
         private void SoundEffectsVolumeSlider_ValueChanged(object sender, RangeBaseValueChangedEventArgs e)
         {
 
-        }
-
-        private void BackgroundVolumeSlider_ValueChanged(object sender, RangeBaseValueChangedEventArgs e)
-        {
-            MusicPlayer.ChangeVolume(BackgroundVolumeSlider.Value);
         }
 
         private void imgHelp_PointerPressed(object sender, PointerRoutedEventArgs e)
@@ -186,17 +184,20 @@ namespace Arcanoid
 
         private void Page_Loaded(object sender, RoutedEventArgs e)
         {
-            BackgroundMusic.IsOn = MusicPlayer.isOn;
-            if (MusicPlayer.isOn)
-                MusicPlayer.Play("BackgroundMusix");
-            else
-                MusicPlayer.Stop();
-
+            BackgroundMusic.IsOn = MusicPlayer.isOn;//כך נזכרים מה היה מצבו של מפסק המוזיקה
+            BackgroundVolumeSlider.Value = MusicPlayer.Volume;
+            SoundEffects.IsOn = SoundsPlayer.isOn;
+            
         }
 
         private void imgPlay_PointerPressed(object sender, PointerRoutedEventArgs e)
         {
             Frame.Navigate(typeof(GamePag));
+        }
+
+        private void BackgroundVolumeSlider_ValueChanged(object sender, RangeBaseValueChangedEventArgs e)
+        {
+            MusicPlayer.Volume = BackgroundVolumeSlider.Value;
         }
     }
 }
