@@ -155,21 +155,20 @@ namespace Arcanoid
             popupGridMusic.Visibility = Visibility.Collapsed;
             imgSettings.Visibility = Visibility.Visible;
             imgExit.Visibility = Visibility.Visible;
-            SoundsPlayer.Play("ClickEffect.mp3");
         }
 
         private void BackgroundMusic_Toggled(object sender, RoutedEventArgs e)
         {
-            MusicPlayer.isOn = BackgroundMusic.IsOn;
-            if (MusicPlayer.isOn)
-                MusicPlayer.Play("BackgroundMusic.mp3");
+            if (BackgroundMusic.IsOn)
+            {
+                BackgroundSound.Play("BackgroundMusic.mp3");
+            }
             else
-                MusicPlayer.Stop();
+                BackgroundSound.Stop();
         }
 
         private void SoundEffects_Toggled(object sender, RoutedEventArgs e)
         {
-            SoundsPlayer.isOn = SoundEffects.IsOn;
         }
 
         private void SoundEffectsVolumeSlider_ValueChanged(object sender, RangeBaseValueChangedEventArgs e)
@@ -182,14 +181,6 @@ namespace Arcanoid
             Frame.Navigate(typeof(HelpPage));
         }
 
-        private void Page_Loaded(object sender, RoutedEventArgs e)
-        {
-            BackgroundMusic.IsOn = MusicPlayer.isOn;//כך נזכרים מה היה מצבו של מפסק המוזיקה
-            BackgroundVolumeSlider.Value = MusicPlayer.Volume;
-            SoundEffects.IsOn = SoundsPlayer.isOn;
-            
-        }
-
         private void imgPlay_PointerPressed(object sender, PointerRoutedEventArgs e)
         {
             Frame.Navigate(typeof(GamePag));
@@ -197,7 +188,21 @@ namespace Arcanoid
 
         private void BackgroundVolumeSlider_ValueChanged(object sender, RangeBaseValueChangedEventArgs e)
         {
-            MusicPlayer.Volume = BackgroundVolumeSlider.Value;
+            BackgroundSound.SetVolume(BackgroundVolumeSlider.Value);
+        }
+
+        private void Page_Loaded(object sender, RoutedEventArgs e)
+        {
+            if (BackgroundSound.isOn)
+            {
+                BackgroundMusic.IsOn = true;
+                BackgroundVolumeSlider.Value = BackgroundSound.GetVolume();
+            }
+            else
+            {
+                BackgroundMusic.IsOn = false;
+                //BackgroundSound.Stop();
+            }
         }
     }
 }

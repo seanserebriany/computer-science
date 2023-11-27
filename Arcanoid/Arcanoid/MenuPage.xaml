@@ -5,8 +5,7 @@
     xmlns:local="using:Arcanoid"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    mc:Ignorable="d" Loaded="Page_Loaded"
-    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    mc:Ignorable="d" Loaded="Page_Loaded" Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
     
 
     <Grid>
@@ -108,7 +107,7 @@
                 <Image x:Name="imgYes" Source="/Assets/Buttons/YesO.png" PointerEntered="img_PointerEntered" PointerExited="img_PointerExited" PointerPressed="imgYes_PointerPressed"></Image>
             </Button>
         </Grid>
-        <Grid x:Name="popupGridMusic" Background="DodgerBlue" Grid.Row="3" Grid.Column="4" Grid.RowSpan="9" Grid.ColumnSpan="6" Opacity="1" BorderBrush="Blue" BorderThickness="10" CornerRadius="30" Visibility="Visible">
+        <Grid x:Name="popupGridMusic" Background="DodgerBlue" Grid.Row="3" Grid.Column="4" Grid.RowSpan="9" Grid.ColumnSpan="6" Opacity="1" BorderBrush="Blue" BorderThickness="10" CornerRadius="30" Visibility="Collapsed">
                 <Grid.RowDefinitions>
                 <RowDefinition></RowDefinition>
                 <RowDefinition></RowDefinition>
@@ -150,7 +149,7 @@
                 <ToggleSwitch x:Name="SoundEffects" OnContent="Sound Effects On" OffContent="Sound Effects off" Toggled="SoundEffects_Toggled"  FontSize="40" Foreground="White" VerticalAlignment="Stretch" FontFamily="Broadway" FontWeight="Bold" ></ToggleSwitch>
             </Viewbox>
             <Viewbox Grid.ColumnSpan="6" Grid.RowSpan="3" Grid.Row="4" Grid.Column="3">
-                <Slider x:Name="BackgroundVolumeSlider" ValueChanged="BackgroundVolumeSlider_ValueChanged"  Maximum="100" Header="Background Sound" FontSize="40" Foreground="White" VerticalAlignment="Stretch" FontFamily="Broadway" FontWeight="Bold"></Slider>
+                <Slider x:Name="BackgroundVolumeSlider" ValueChanged="BackgroundVolumeSlider_ValueChanged" Maximum="100" Header="Background Sound" FontSize="40" Foreground="White" VerticalAlignment="Stretch" FontFamily="Broadway" FontWeight="Bold"></Slider>
             </Viewbox>
             <Viewbox Grid.ColumnSpan="6" Grid.RowSpan="3" Grid.Row="6" Grid.Column="3">
                 <Slider x:Name="SoundEffectsVolumeSlider" ValueChanged="SoundEffectsVolumeSlider_ValueChanged" Maximum="100" Header="SoundEffects Volume" FontSize="40" Foreground="White" VerticalAlignment="Stretch" FontFamily="Broadway" FontWeight="Bold"></Slider>

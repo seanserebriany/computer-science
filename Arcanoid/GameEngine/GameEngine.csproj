@@ -120,8 +120,7 @@
     <RestoreProjectStyle>PackageReference</RestoreProjectStyle>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="GameServices\MusicPlayer.cs" />
-    <Compile Include="GameServices\SoundsPlayer.cs" />
+    <Compile Include="GameServices\BackgroundSound.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Properties\GameEngine.rd.xml" />
   </ItemGroup>
