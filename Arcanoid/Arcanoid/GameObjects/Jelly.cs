@@ -11,54 +11,37 @@ using Windows.UI.Xaml.Media.Imaging;
 
 namespace Arcanoid.GameObjects
 {
-    internal class Jelly
+    internal class Jelly : GameObject
     {
-        //eeeee
-        protected double _X;
-        protected double _Y;
-
-        protected double _PlaceX;
-        protected double _PlaceY;
-
-        public Image Image { get; set; }
-        protected string _fileName;
-
-        public double Width => Image.ActualWidth;
-
-        public double Height => Image.ActualHeight;
-
-        public virtual Rect Rect => new Rect(_X, _Y, Width, Height);
-
-        public bool Collisional { get; set; } = true;
-        protected Scene _scene;
-
-        public Jelly(Scene scene, string filename, double placeX, double placeY)
+        public enum jellyType
         {
-            _scene = scene;
-            _fileName = filename;
-            _PlaceX = placeX;
-            _PlaceY = placeY;
-            Image = new Image();
-            SetImage(filename);
-            Render();
+            Green = 0,
+            Pink = 1,
+            Yellow = 2
         }
-        public virtual void Init()
-        {
-            _X = _PlaceX;
-            _Y = _PlaceY;
-        }
-        public virtual void Collide(GameObject gameobject)
+        private jellyType _jellyType;
+        public Jelly(Scene scene, jellyType jellyType, double width, double placeX, double placeY) : base(scene, string.Empty, placeY, placeX)
         {
 
+            Image.Width = width;
+            Image.Height = width;
+            _jellyType = jellyType;
+            SetImage();
         }
-        public virtual void Render()
+        private void SetImage()
         {
-            Canvas.SetLeft(Image, _X);
-            Canvas.SetTop(Image, _Y);
-        }
-        public void SetImage(string filename)
-        {
-            Image.Source = new BitmapImage(new Uri($"/Assets/{filename}"));
+            switch (_jellyType)
+            {
+                case jellyType.Green:
+                    base.SetImage("jelly/jellyGreen.png");
+                    break;
+                case jellyType.Pink:
+                    base.SetImage("jelly/jellyPink.png");
+                    break;
+                case jellyType.Yellow:
+                    base.SetImage("jelly/jellyYellow.png");
+                    break;
+            }
         }
     }
 }
