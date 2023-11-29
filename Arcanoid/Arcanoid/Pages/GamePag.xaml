@@ -5,6 +5,7 @@
     xmlns:local="using:Arcanoid.Pages"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:GameServices ="using:Arcanoid.GameServices"
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
@@ -87,5 +88,8 @@
                 <Image x:Name="imgExit" Source="/Assets/Buttons/ExitO.png" PointerEntered="img_PointerEntered" PointerExited="img_PointerExited" PointerPressed="imgExit_PointerPressed"></Image>
             </Button>
         </Grid>
+        <Border x:Name="GameBorder" Grid.ColumnSpan="11" Grid.RowSpan="10" Grid.Row="2" Grid.Column="2" BorderBrush="Black" BorderThickness="10">
+            <GameServices:GameScene x:Name="scene" Background="Transparent"></GameServices:GameScene>
+        </Border>
     </Grid>
 </Page>

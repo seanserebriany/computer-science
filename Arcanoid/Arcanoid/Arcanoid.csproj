@@ -119,6 +119,8 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="GameObjects\Jelly.cs" />
+    <Compile Include="GameServices\GameScene.cs" />
     <Compile Include="Pages\GamePag.xaml.cs">
       <DependentUpon>GamePag.xaml</DependentUpon>
     </Compile>
