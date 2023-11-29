@@ -13,6 +13,7 @@ namespace Arcanoid.GameObjects
 {
     internal class Jelly
     {
+        //eeeee
         protected double _X;
         protected double _Y;
 
