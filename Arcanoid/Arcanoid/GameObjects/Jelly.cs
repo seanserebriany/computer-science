@@ -20,11 +20,12 @@ namespace Arcanoid.GameObjects
             Yellow = 2
         }
         private jellyType _jellyType;
-        public Jelly(Scene scene, jellyType jellyType, double width, double placeX, double placeY) : base(scene, string.Empty, placeY, placeX)
+        private Scene scene;
+        public Jelly(Scene scene, jellyType jellyType, double width, double placeX, double placeY) : base(placeX, placeY, string.Empty, scene)
         {
 
-            Image.Width = width;
-            Image.Height = width;
+            image.Width = width;
+            image.Height = width;
             _jellyType = jellyType;
             SetImage();
         }
@@ -33,13 +34,13 @@ namespace Arcanoid.GameObjects
             switch (_jellyType)
             {
                 case jellyType.Green:
-                    base.SetImage("jelly/jellyGreen.png");
+                    base.SetImage("Jelly/JellyGreen.png");
                     break;
                 case jellyType.Pink:
-                    base.SetImage("jelly/jellyPink.png");
+                    base.SetImage("Jelly/JellyPink.png");
                     break;
                 case jellyType.Yellow:
-                    base.SetImage("jelly/jellyYellow.png");
+                    base.SetImage("Jelly/JellyYellow.png");
                     break;
             }
         }

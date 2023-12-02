@@ -46,7 +46,7 @@ namespace Arcanoid.Pages
         }
         private void imgBack_PointerPressed(object sender, PointerRoutedEventArgs e)
         {
-            Frame.Navigate(typeof(MenuPage));
+            Frame.GoBack();
         }
 
         private void TextBox_TextChanged(object sender, TextChangedEventArgs e)

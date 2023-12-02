@@ -6,6 +6,7 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:GameServices ="using:Arcanoid.GameServices"
     mc:Ignorable="d"
+    Loaded="Page_Loaded"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
     <Grid>
@@ -47,7 +48,7 @@
         <Button Style="{StaticResource MyButtonStyle}" x:Name="btnSettings" Grid.Row="0" Grid.Column="14" Grid.ColumnSpan="1" Grid.RowSpan="2">
             <Image x:Name="imgSettings" Source="/Assets/Buttons/SettingsO.png" PointerPressed="imgSettings_PointerPressed" PointerEntered="img_PointerEntered" PointerExited="img_PointerExited"></Image>
         </Button>
-        <Grid x:Name="popupGridMenu" Background="DodgerBlue" Grid.Row="3" Grid.Column="6" Grid.RowSpan="8" Grid.ColumnSpan="4" Opacity="1" BorderBrush="Blue" BorderThickness="10" CornerRadius="30" Visibility="Visible">
+        <Grid x:Name="popupGridMenu" Background="DodgerBlue" Grid.Row="3" Grid.Column="6" Grid.RowSpan="8" Grid.ColumnSpan="4" Opacity="1" BorderBrush="Blue" BorderThickness="10" CornerRadius="30" Visibility="Collapsed">
             <Grid.RowDefinitions>
                 <RowDefinition></RowDefinition>
                 <RowDefinition></RowDefinition>
@@ -78,7 +79,7 @@
                 <Image x:Name="imgYes" Source="/Assets/Buttons/YesG.png" PointerPressed="imgYes_PointerPressed" PointerEntered="img_PointerEntered" PointerExited="img_PointerExited"></Image>
             </Button>
             <Button Style="{StaticResource MyButtonStyle}" x:Name="BtnHelp" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="4" Grid.RowSpan="3">
-                <Image x:Name="imgHelp" Source="/Assets/Buttons/HelpO.png" PointerEntered="img_PointerEntered" PointerExited="img_PointerExited"></Image>
+                <Image x:Name="imgHelp" Source="/Assets/Buttons/HelpO.png" PointerEntered="img_PointerEntered" PointerExited="img_PointerExited" PointerPressed="imgHelp_PointerPressed"></Image>
             </Button>
             <Button Style="{StaticResource MyButtonStyle}" x:Name="BtnMusic" Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="4" Grid.RowSpan="3">
                 <Image x:Name="imgMusic" Source="/Assets/Buttons/MusicO.png" PointerEntered="img_PointerEntered" PointerExited="img_PointerExited"></Image>

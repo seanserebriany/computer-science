@@ -120,6 +120,7 @@
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
     <Compile Include="GameObjects\Jelly.cs" />
+    <Compile Include="GameServices\GameManager.cs" />
     <Compile Include="GameServices\GameScene.cs" />
     <Compile Include="Pages\GamePag.xaml.cs">
       <DependentUpon>GamePag.xaml</DependentUpon>
@@ -220,6 +221,9 @@
     <Content Include="Assets\Buttons\ShopP.png" />
     <Content Include="Assets\Buttons\YesG.png" />
     <Content Include="Assets\Buttons\YesO.png" />
+    <Content Include="Assets\Jelly\JellyGreen.png" />
+    <Content Include="Assets\Jelly\JellyPink.png" />
+    <Content Include="Assets\Jelly\JellyYellow.png" />
     <Content Include="Assets\Levels\Num1.png" />
     <Content Include="Assets\Levels\Num2.png" />
     <Content Include="Assets\Levels\Num3.png" />
@@ -267,7 +271,6 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Assets\Jelly\" />
     <Folder Include="Assets\Sounds\" />
   </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">

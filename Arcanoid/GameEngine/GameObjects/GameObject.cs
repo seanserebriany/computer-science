@@ -1,12 +1,7 @@
 ﻿using GameEngine.GameServices;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Windows.Foundation;
 using Windows.UI.Xaml.Controls;
-using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Media.Imaging;
 
 namespace GameEngine.GameObjects
@@ -19,46 +14,71 @@ namespace GameEngine.GameObjects
         protected double _PlaceX;
         protected double _PlaceY;
 
-        public Image Image { get; set; }
-        protected string _fileName;
+        public Image image {  get; set; }
+        protected string _FileName;
 
-        public double Width => Image.ActualWidth;
+        public double Width => image.ActualWidth;
+        public double Height => image.ActualHeight;
 
-        public double Height => Image.ActualHeight;
-
-        public virtual Rect Rect => new Rect(_X, _Y, Width, Height);
-
+        public virtual Rect rect => new Rect(_X, _Y, Width, Height);
         public bool Collisional { get; set; } = true;
-        protected Scene _scene;
+        protected Scene _scene; // Game Scene
+        private Scene scene;
+        private string empty;
+        private double placeY;
+        private double placeX;
 
-        public GameObject(Scene scene, string filename, double placeX, double placeY)
+        /// <summary>
+        /// building a gameobject object
+        /// </summary>
+        /// <param name="x"> x pos </param>
+        /// <param name="y"> y pos </param>
+        /// <param name="placeX"> starting x pos </param>
+        /// <param name="placeY"> starting y pos</param>
+        /// <param name="image"> the image object</param>
+        /// <param name="fileName"> the file name of the character </param>
+        /// <param name="scene"> game scene </param>
+        public GameObject(double placeX, double placeY, string fileName, Scene scene)
         {
-            _scene = scene;
-            _fileName = filename;
+            _X = placeX;
+            _Y = placeY;
             _PlaceX = placeX;
             _PlaceY = placeY;
-            Image = new Image();
-            SetImage(filename);
+            _FileName = fileName;
+            image = new Image();
+            SetImage(_FileName);
             Render();
+            _scene = scene;
         }
+
         public virtual void Init()
         {
             _X = _PlaceX;
             _Y = _PlaceY;
         }
-        public virtual void Collide(GameObject gameobject)
+        /// <summary>
+        /// collision event with another game object 
+        /// </summary>
+        /// <param name="gameObject">the colliding object </param>
+        public virtual void Collide(GameObject gameObject)
         {
 
         }
+        /// <summary>
+        /// renders the object position on the gird 
+        /// </summary>
         public virtual void Render()
         {
-            Canvas.SetLeft(Image, _X);
-            Canvas.SetTop(Image, _Y);
+            Canvas.SetLeft(image, _X);
+            Canvas.SetTop(image, _Y);
         }
-        public void SetImage(string filename)
+        /// <summary>
+        /// sets the image object source with the given image file name
+        /// </summary>
+        /// <param name="FileName"></param>
+        public void SetImage(string FileName)
         {
-            Image.Source = new BitmapImage(new Uri($"/Assets/{filename}"));
+            image.Source = new BitmapImage(new Uri($"ms-appx:///Assets/{FileName}"));
         }
-
     }
 }

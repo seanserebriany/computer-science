@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Arcanoid.GameServices;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -23,6 +24,8 @@ namespace Arcanoid.Pages
     /// </summary>
     public sealed partial class GamePag : Page
     {
+        private GameManager _GameManeger;
+
         public GamePag()
         {
             this.InitializeComponent();
@@ -31,11 +34,13 @@ namespace Arcanoid.Pages
         {
             popupGridMenu.Visibility = Visibility.Visible;
             imgSettings.Visibility = Visibility.Collapsed;
+            GameBorder.Visibility = Visibility.Collapsed;
         }
         private void imgYes_PointerPressed(object sender, PointerRoutedEventArgs e)
         {
             popupGridMenu.Visibility = Visibility.Collapsed;
             imgSettings.Visibility = Visibility.Visible;
+            GameBorder.Visibility = Visibility.Visible;
         }
         private void img_PointerEntered(object sender, PointerRoutedEventArgs e)
         {
@@ -74,6 +79,16 @@ namespace Arcanoid.Pages
         private void imgExit_PointerPressed(object sender, PointerRoutedEventArgs e)
         {
             Frame.Navigate(typeof(MenuPage));
+        }
+
+        private void imgHelp_PointerPressed(object sender, PointerRoutedEventArgs e)
+        {
+            Frame.Navigate(typeof(HelpPage));
+        }
+
+        private void Page_Loaded(object sender, RoutedEventArgs e)
+        {
+            _GameManeger = new GameManager(scene);
         }
     }
 }
