@@ -17,7 +17,19 @@ namespace GameEngine.GameServices
         public double Ground {  get; set; }
 
         public Scene() 
-        { 
+        {
+            Manager.GameEvent.OnRun += Run;
+        }
+
+        private void Run()
+        {
+            foreach(var obj in _GameObjects)
+            {
+                if(obj is GameMovingObject)
+                {
+                    obj.Render();
+                }
+            }
         }
 
         public void Init()

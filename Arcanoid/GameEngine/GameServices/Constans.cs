@@ -14,6 +14,6 @@ namespace GameEngine.GameServices
             Loaded, Started, Paused, Ended
         }
         public static GameState Current { get;}
-        public static double SpeedUnit { get; internal set; }
+        public const int SpeedUnit = 10;
     }
 }
