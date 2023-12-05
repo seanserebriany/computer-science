@@ -11,7 +11,7 @@ namespace GameEngine.GameServices
         public const int Runinterval = 100;
         public enum GameState
         {
-            Loaded, Started, Paused, GameOver
+            Loaded, Started, Paused, Ended
         }
         public static GameState Current { get;}
     }

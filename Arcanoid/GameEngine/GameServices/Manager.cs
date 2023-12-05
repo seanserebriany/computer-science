@@ -60,5 +60,32 @@ namespace GameEngine.GameServices
                 GameEvent.OnRun();
             }
         }
+        public void Start()
+        {
+            Scene.Init();
+            _runTimer.Start();
+            gameState = GameState.Started;
+        }
+        public void Pause()
+        {
+            _runTimer.Stop();
+            gameState = GameState.Paused;
+        }
+        public void Resume()
+        {
+            _runTimer.Start();
+            gameState = GameState.Started;
+
+        }
+        public static bool GameOver()
+        {
+            if(gameState != GameState.Ended)
+            {
+                _runTimer.Stop();
+                gameState = GameState.Ended;
+                return true;
+            }
+            return false;
+        }
     }
 }
