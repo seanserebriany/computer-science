@@ -14,11 +14,11 @@ namespace GameEngine.GameServices
 
         protected List<GameObject> _GameObjectSnapShot => _GameObjects.ToList();
 
-        public double Ground {  get; set; }
+        public double Ground {get; set; }
 
         public Scene() 
         {
-            Manager.GameEvent.OnRun += Run;
+            Manager.GameEvent.OnRun += Run; //בזכות השורה הפעולה RUN פועלת ללא הפסקה
         }
 
         private void Run()

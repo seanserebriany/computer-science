@@ -23,15 +23,15 @@ namespace Arcanoid.GameServices
             Scene.RemoveAllObjects();
             for (int i = 0; i < 9; i++) 
             {
-                Scene.AddObject(new Jelly(Scene, (jellyType)rnd.Next(0, 3), 100, 100 * i, 50));
+                Scene.AddObject(new Jelly(Scene, (jellyType)rnd.Next(0, 3), 90, 100 * i, 30));
             }
             for (int i = 0; i < 9; i++)
             {
-                Scene.AddObject(new Jelly(Scene, (jellyType)rnd.Next(0, 3), 100, 100 * i, 150));
+                Scene.AddObject(new Jelly(Scene, (jellyType)rnd.Next(0, 3), 90, 100 * i, 110));
             }
             for (int i = 0; i < 9; i++)
             {
-                Scene.AddObject(new Jelly(Scene, (jellyType)rnd.Next(0, 3), 100, 100 * i, 250));
+                Scene.AddObject(new Jelly(Scene, (jellyType)rnd.Next(0, 3), 90, 100 * i, 190));
             }
 
 

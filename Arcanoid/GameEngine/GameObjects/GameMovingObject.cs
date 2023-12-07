@@ -10,9 +10,9 @@ namespace GameEngine.GameObjects
 {
     public abstract class GameMovingObject : GameObject
     {
-        protected double _dX;
+        protected double _dX;//מהירות
         protected double _dY;
-        protected double _ddX;
+        protected double _ddX;//תאוצה
         protected double _ddY;
         protected double _toX;
         protected double _toY;
@@ -21,7 +21,7 @@ namespace GameEngine.GameObjects
         {
 
         }
-        public override void Render()
+        public override void Render() //מתבצעת כל הזמן וגורמת להנעה של הדמות
         {
             _dX += _ddX;
             _dY += _ddY;
@@ -41,7 +41,7 @@ namespace GameEngine.GameObjects
         {
             _dX = _dY = _ddX = 0;
         }
-        public void MoveTo(double toX, double toY, double Speed=0, double ac=1)
+        public void MoveTo(double toX, double toY, double Speed=0, double ac=0)
         {
 
             _toX = toX;
