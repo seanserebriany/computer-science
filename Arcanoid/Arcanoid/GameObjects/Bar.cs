@@ -68,6 +68,7 @@ namespace Arcanoid.GameObjects
         }
         public override void Render()
         {
+            //בדיקת קצוות הזירה
             base.Render();
             if(_X <= 0)
             {   
