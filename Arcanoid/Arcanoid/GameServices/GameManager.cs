@@ -34,6 +34,8 @@ namespace Arcanoid.GameServices
                 Scene.AddObject(new Jelly(Scene, (jellyType)rnd.Next(0, 3), 90, 100 * i, 190));
             }
 
+            var bar = new Bar(Scene, "Bar/Bar.png", speed: 3, Width: 160, Scene.ActualWidth / 2 - 40, Scene.Ground);
+            Scene.AddObject(bar);
 
         }
     }
