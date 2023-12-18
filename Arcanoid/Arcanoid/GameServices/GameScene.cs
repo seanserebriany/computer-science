@@ -6,6 +6,6 @@ namespace Arcanoid.GameServices
 {
     public class GameScene : Scene
     {
-        public int BrickCount => _GameObjectSnapShot.Count(x=> x is Jelly);
+        public int JellyCount => _GameObjectSnapShot.Count(x=> x is Jelly);
     }
 }
