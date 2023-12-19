@@ -19,6 +19,21 @@ namespace GameEngine.GameServices
         public Scene() 
         {
             Manager.GameEvent.OnRun += Run; //בזכות השורה הפעולה RUN פועלת ללא הפסקה
+            Manager.GameEvent.OnRun += CheckCollision;
+        }
+
+        private void CheckCollision()
+        {
+            foreach(var gameObject in _GameObjectSnapShot)
+            {
+                if (GameObject.Collisional)
+                {
+
+                }
+            }
+            {
+
+            }
         }
 
         private void Run()
