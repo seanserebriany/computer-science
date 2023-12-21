@@ -1,95 +1,152 @@
 ﻿using GameEngine.GameObjects;
+using Arcanoid.GameObjects;
 using GameEngine.GameServices;
+using Microsoft.VisualBasic;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.Design;
 using System.Linq;
-using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 using Windows.System;
+using Windows.UI.Xaml;
 
-namespace Arcanoid.GameObjects
+namespace Arcanoid1.GameObjects
 {
     public class Ball : GameMovingObject
     {
+
         public double dX => _dX;
-        private double _speed;
+        public double dY => _dY;
+        public double _speed;
+        private bool IsRelased = false;
+
+
+
+
         /// <summary>
-        /// הפעולה בונה עצם מחבט
+        ///
         /// </summary>
         /// <param name="scene">במת המשחק</param>
-        /// <param name="fileName">שם הקובץ שמתאר את המחבט</param>
+        /// <param name="fileName">שם קובץ שמתאר את המחבא</param>
         /// <param name="speed">מהירות אופקית</param>
-        /// <param name="Width">רוחב המחבט</param>
-        /// <param name="placeX">מיקום היבצרות המחבט אופקי</param>
-        /// <param name="placeY">מיקום היבצרות המחבט אנכי</param>
-        public Ball(Scene scene, string fileName, double speed, int Width, double placeX, double placeY) : base(placeX, placeY, fileName, scene)
+        /// <param name="width">מהירות אנכית</param>
+        /// <param name="placeX">מיקום יווצרות הכדור ביחס לציר האופקי</param>
+        /// <param name="placeY">מיקום יווצרות המחבט ביחס לציר אנכי</param>
+        public Ball(Scene scene, string fileName, double speed, int width, double placeX, double placeY) :
+            base(placeX, placeY, fileName, scene)
         {
             _speed = speed;
-            image.Height = 20; //אורך המחבט
-            image.Width = Width; //רוחב המחבט
-            image.Stretch = Windows.UI.Xaml.Media.Stretch.Fill;
-            //MoveTo(_X, int.MinValue, _speed, 0);
+            image.Height = 45; // כך אנו קובעים את עובי הכדור
+            image.Width = width; // קובעים את הרוחב הכדור
+            image.Stretch = Windows.UI.Xaml.Media.Stretch.Fill; // כך אנו מותחים את מראה המחבט
+            Manager.GameEvent.OnKeyDown += KeyDown;
+            Manager.GameEvent.OnKeyUp += KeyUp;
 
-            //כך המחבט נרשם לאירועים הקשורים למקלדת
-            Manager.GameEvent.OnKeyDown += KeyUp;
         }
-        private void KeyUp(VirtualKey key)
+        public void KeyUp(VirtualKey key)
         {
-            switch (key)
+            if (!IsRelased)
             {
-                case VirtualKey.Up:
-                    MoveTo(_X, int.MinValue, _speed, 0);
-                    Manager.GameEvent.OnKeyDown -= KeyUp;
-                    break;
+                switch (key)
+                {
+                    case VirtualKey.Left:
+                    case VirtualKey.Right:
+                        Stop();
+                        break;
+
+                }
+            }
+
+        }
+        /// <summary>
+        /// באמצעות הפעולה הזאת הכדור מגיב לעזיבת המקש
+        /// </summary>
+        /// <param name="key">המקש שנעזוב</param>
+        public void KeyDown(VirtualKey key)
+        {
+            if (!IsRelased)
+            {
+                switch (key)
+                {
+                    case VirtualKey.Up:
+                        IsRelased = true;
+                        _dX = _speed * Constans.SpeedUnit / 2;
+                        _dY = _speed * Constans.SpeedUnit / 2;
+                        break;
+                    case VirtualKey.Right:
+                        MoveTo(int.MaxValue, _Y, _speed, 0);
+                        break;
+                    case VirtualKey.Left:
+                        MoveTo(int.MinValue, _Y, _speed, 0);
+                        break;
+                }
             }
         }
-        private void Down()
-        {
-            MoveTo(_X, int.MaxValue, _speed, 0);
 
-        }
-        private void Up()
+        public override void Collide(GameObject gameObject)
         {
-            MoveTo(_X, int.MinValue, _speed, 0);
+            if (gameObject is Bar bar)
+            {
+                _dY = -_dY;
+                if (Math.Abs(bar.dX) > 0)
+                {
+                    _dX += bar.dX / 2.6; // מעניק לכדור כמחצית המהירות של המחבט, כלומר. הכדור נוטה לכיוון תנועת המחבט
+                }
+                _Y = bar.rect.Top - Height;
+            }
+            //if (gameObject is Jelly jelly)
+            //{
+            //    var intersectRect = RectHelper.Intersect(Rect, jelly.Rect);
+            //    if (intersectRect.Height > intersectRect.Width)
+            //    {
+            //        _X = _dX;
+            //        _dX = -dX;
+            //    }
+            //    else
+            //    {
+            //        _Y = _dY;
+            //        _dY = -dY;
+            //    }
+            //}
+        }
 
-        }
-        private void diff()
+        public override void Render()// מתבצעת כל הזמן
         {
-            MoveTo(-_X, int.MinValue, _speed, 0);
+            // בדיקת קצוות הזירה
 
-        }
-        public override void Render()
-        {
+            if (IsRelased)
+            {
+                if (_X <= 0) // נגיעה בקיר שמאלי
+                {
+                    _dX = -_dX;
+                    _X = 0;
+
+
+                }
+                else if (_X >= _scene?.ActualWidth - Width) // כאשר תיגע עם הצד הימני שלך בקיר הימני של הזירה
+                {
+                    _dX = -_dX;
+                    _X = _scene.ActualWidth - Width; // עוצר לך בפינה
+
+                }
+                else if (_Y + _dY <= 0) // נוגעה בתקרה
+                {
+                    _dY = -dY;
+                    _Y = 0;
+                }
+                else if (_Y >= _scene?.ActualHeight - Height) // בדיקת רצפה
+                {
+                    _dY = -dY;
+                    _Y = _scene.ActualHeight - Height;
+                }
+            }
             base.Render();
-
-            //בדיקת קצוות הזירה
-            if (_Y < 0)
-            {
-                _Y = 0;
-                Down();
-            }
-            else if (_Y > _scene?.ActualHeight)//כאשר תיגע עם הצד הימני שלך בקיר הימני של הזירה
-            {
-                _Y = _scene.ActualHeight;
-                Up();
-            }
-            else if (_X < 0)
-            {
-                _X = 0;
-                diff();
-            }
-            else if (_X > _scene?.ActualWidth - Width)//כאשר תיגע עם הצד הימני שלך בקיר הימני של הזירה
-            {
-                _X = _scene.ActualWidth - Width;
-                diff();
-            }
-
-
         }
-        public override void Collide()
-        {
 
-        }
+
+
+        //Messenger.Send(Place);
     }
+
 }

@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Windows.UI.Xaml.Controls;
 using GameEngine.GameObjects;
+using Windows.UI.Xaml;
 
 namespace GameEngine.GameServices
 {
@@ -21,21 +22,6 @@ namespace GameEngine.GameServices
             Manager.GameEvent.OnRun += Run; //בזכות השורה הפעולה RUN פועלת ללא הפסקה
             Manager.GameEvent.OnRun += CheckCollision;
         }
-
-        private void CheckCollision()
-        {
-            foreach(var gameObject in _GameObjectSnapShot)
-            {
-                if (GameObject.Collisional)
-                {
-
-                }
-            }
-            {
-
-            }
-        }
-
         private void Run()
         {
             foreach(var obj in _GameObjects)
@@ -74,5 +60,23 @@ namespace GameEngine.GameServices
             _GameObjects.Add(obj);
             Children.Add(obj.image);
         }
+        public void CheckCollision() // OnRun הפעולה פעולת ללא ערב כתגובה לאירוע
+        {
+            foreach (var gameObject in _GameObjectSnapShot)  // עוברים על כל רשימת הפרוייקט
+            {
+                if (gameObject.Collisional) //  אם האובייקט הוא לא שקוף
+                {
+                    // מחפשים מופע ראשון של אובייקט אשר הוא לא אותו אובייקט, הוא לא שקוף והוא נוגע באובייקט הנוכחי
+                    var otherObject = _GameObjectSnapShot.FirstOrDefault(g => !ReferenceEquals(g, gameObject) && g.Collisional &&
+                    !RectHelper.Intersect(g.rect, gameObject.rect).IsEmpty);
+
+                    if (otherObject != null)
+                    {
+                        gameObject.Collide(otherObject);
+                    }
+                }
+            }
+        }
+
     }
 }
