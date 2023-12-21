@@ -95,20 +95,21 @@ namespace Arcanoid1.GameObjects
                 }
                 _Y = bar.rect.Top - Height;
             }
-            //if (gameObject is Jelly jelly)
-            //{
-            //    var intersectRect = RectHelper.Intersect(Rect, jelly.Rect);
-            //    if (intersectRect.Height > intersectRect.Width)
-            //    {
-            //        _X = _dX;
-            //        _dX = -dX;
-            //    }
-            //    else
-            //    {
-            //        _Y = _dY;
-            //        _dY = -dY;
-            //    }
-            //}
+            if (gameObject is Jelly jelly)
+            {
+                var intersectRect = RectHelper.Intersect(rect, jelly.rect);
+                if (intersectRect.Height > intersectRect.Width)
+                {
+                    _X = _dX;
+                    _dX = -dX;
+                }
+                else
+                {
+                    _Y = _dY;
+                    _dY = -dY;
+                }
+                jelly.ChangeJelly();
+            }
         }
 
         public override void Render()// מתבצעת כל הזמן

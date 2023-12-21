@@ -23,7 +23,6 @@ namespace Arcanoid.GameObjects
         private Scene scene;
         public Jelly(Scene scene, jellyType jellyType, double width, double placeX, double placeY) : base(placeX, placeY, string.Empty, scene)
         {
-
             image.Width = width;
             image.Height = width;
             _jellyType = jellyType;
@@ -43,6 +42,24 @@ namespace Arcanoid.GameObjects
                     base.SetImage("Jelly/JellyYellow.png");
                     break;
             }
+        }
+
+        internal void ChangeJelly()
+        {
+            switch(_jellyType)
+            {
+                case jellyType.Yellow:
+                    _jellyType = jellyType.Pink;
+                    break;
+                case jellyType.Pink:
+                    _jellyType = jellyType.Green;
+                    break;
+                case jellyType.Green:
+                    _scene.RemoveObject(this);
+                     break;
+                    return;  
+            }
+            SetImage();
         }
     }
 }
