@@ -57,7 +57,7 @@ namespace Arcanoid.GameObjects
                 case jellyType.Green:
                     _scene.RemoveObject(this);
                      break;
-                    return;  
+                     return;  
             }
             SetImage();
         }

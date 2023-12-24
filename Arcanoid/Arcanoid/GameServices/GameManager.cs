@@ -37,7 +37,7 @@ namespace Arcanoid.GameServices
 
             var bar = new Bar(Scene, "Bar/Bar.png", speed: 3, Width: 160, Scene.ActualWidth / 2 - 40, Scene.ActualHeight-60);
             Scene.AddObject(bar);
-            var ball = new Ball(Scene, "Ball/Ball.jpg", speed: 3, width: 50, Scene.ActualWidth / 2 - 40, Scene.ActualHeight - 65);
+            var ball = new Ball(Scene, "Ball/Ball.jpg", speed:3, width: 50, Scene.ActualWidth / 2 - 40, Scene.ActualHeight - 65);
             Scene.AddObject(ball);
 
         }

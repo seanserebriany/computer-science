@@ -42,7 +42,6 @@ namespace Arcanoid1.GameObjects
             image.Stretch = Windows.UI.Xaml.Media.Stretch.Fill; // כך אנו מותחים את מראה המחבט
             Manager.GameEvent.OnKeyDown += KeyDown;
             Manager.GameEvent.OnKeyUp += KeyUp;
-
         }
         public void KeyUp(VirtualKey key)
         {
@@ -71,8 +70,9 @@ namespace Arcanoid1.GameObjects
                 {
                     case VirtualKey.Up:
                         IsRelased = true;
-                        _dX = _speed * Constans.SpeedUnit / 2;
+                        //_dX = _speed * Constans.SpeedUnit / 2;
                         _dY = _speed * Constans.SpeedUnit / 2;
+                        _dX = 0;
                         break;
                     case VirtualKey.Right:
                         MoveTo(int.MaxValue, _Y, _speed, 0);
@@ -100,12 +100,12 @@ namespace Arcanoid1.GameObjects
                 var intersectRect = RectHelper.Intersect(rect, jelly.rect);
                 if (intersectRect.Height > intersectRect.Width)
                 {
-                    _X = _dX;
+                   // _X = _dX;
                     _dX = -dX;
                 }
                 else
                 {
-                    _Y = _dY;
+                  //  _Y = _dY;
                     _dY = -dY;
                 }
                 jelly.ChangeJelly();
