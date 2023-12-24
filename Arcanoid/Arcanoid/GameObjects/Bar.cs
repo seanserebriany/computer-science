@@ -43,6 +43,8 @@ namespace Arcanoid.GameObjects
             switch(key)
             {
                 case VirtualKey.Left:
+                    Stop();
+                    break;
                 case VirtualKey.Right:
                     Stop();
                     break;
@@ -68,18 +70,21 @@ namespace Arcanoid.GameObjects
         }
         public override void Render()
         {
-            //בדיקת קצוות הזירה
             base.Render();
-            if(_X <= 0)
-            {   
+
+            //בדיקת קצוות הזירה
+            if (_X < 0)
+            {
                 _X = 0;
                 Stop();
             }
-            else if(_X >= _scene?.ActualWidth - Width)//כאשר תיגע עם הצד הימני שלך בקיר הימני של הזירה
+            else if (_X > _scene?.ActualWidth - Width)//כאשר תיגע עם הצד הימני שלך בקיר הימני של הזירה
             {
                 _X = _scene.ActualWidth - Width;
                 Stop();
             }
+
+
         }
     }
 }

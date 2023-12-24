@@ -26,7 +26,8 @@ namespace GameEngine.GameServices
             if(_runTimer == null)
             {
                 _runTimer = new DispatcherTimer();
-                _runTimer.Interval = TimeSpan.FromSeconds(Constans.Runinterval);
+                _runTimer.Interval = TimeSpan.FromMilliseconds(30);
+                _runTimer.Start();
                 _runTimer.Tick += _RunTimer_Tick;
             }
             Window.Current.CoreWindow.KeyDown += CoreWindow_KeyDown;
