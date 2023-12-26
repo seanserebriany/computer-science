@@ -13,5 +13,6 @@ namespace GameEngine.GameServices
         public Action OnClock;//האירוע שבזכותו יפעל השעון
         public Action<VirtualKey> OnKeyUp;//עזיבת כפתור
         public Action<VirtualKey> OnKeyDown;//לחיצה על כפתור
+        public Action<int> OnRemoveHeart;//removing hearts
     }
 }

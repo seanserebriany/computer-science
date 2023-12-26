@@ -1,4 +1,5 @@
 ﻿using Arcanoid.GameServices;
+using GameEngine.GameServices;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -30,32 +31,16 @@ namespace Arcanoid.Pages
         {
             this.InitializeComponent();
         }
-        private void imgSettings_PointerPressed(object sender, PointerRoutedEventArgs e)
-        {
-            popupGridMenu.Visibility = Visibility.Visible;
-            imgSettings.Visibility = Visibility.Collapsed;
-            GameBorder.Visibility = Visibility.Collapsed;
-        }
-        private void imgYes_PointerPressed(object sender, PointerRoutedEventArgs e)
-        {
-            popupGridMenu.Visibility = Visibility.Collapsed;
-            imgSettings.Visibility = Visibility.Visible;
-            GameBorder.Visibility = Visibility.Visible;
-        }
         private void img_PointerEntered(object sender, PointerRoutedEventArgs e)
         {
             Image img = (Image)sender;
             string name = img.Name;
             if (name == "imgExit")
                 imgExit.Source = new BitmapImage(new Uri("ms-appx:///Assets/Buttons/ExitP.png"));
-            if (name == "imgSettings")
-                imgSettings.Source = new BitmapImage(new Uri("ms-appx:///Assets/Buttons/SettingsP.png"));
             if (name == "imgHelp")
                 imgHelp.Source = new BitmapImage(new Uri("ms-appx:///Assets/Buttons/HelpP.png"));
             if (name == "imgMusic")
                 imgMusic.Source = new BitmapImage(new Uri("ms-appx:///Assets/Buttons/MusicP.png"));
-            if (name == "imgYes")
-                imgYes.Source = new BitmapImage(new Uri("ms-appx:///Assets/Buttons/YesO.png"));
             Window.Current.CoreWindow.PointerCursor = new Windows.UI.Core.CoreCursor(Windows.UI.Core.CoreCursorType.Hand, 1);
         }
 
@@ -65,14 +50,10 @@ namespace Arcanoid.Pages
             string name = img.Name;
             if (name == "imgExit")
                 imgExit.Source = new BitmapImage(new Uri("ms-appx:///Assets/Buttons/ExitO.png"));
-            if (name == "imgSettings")
-                imgSettings.Source = new BitmapImage(new Uri("ms-appx:///Assets/Buttons/SettingsO.png"));
             if (name == "imgHelp")
                 imgHelp.Source = new BitmapImage(new Uri("ms-appx:///Assets/Buttons/HelpO.png"));
             if (name == "imgMusic")
                 imgMusic.Source = new BitmapImage(new Uri("ms-appx:///Assets/Buttons/MusicO.png"));
-            if (name == "imgYes")
-                imgYes.Source = new BitmapImage(new Uri("ms-appx:///Assets/Buttons/YesG.png"));
             Window.Current.CoreWindow.PointerCursor = new Windows.UI.Core.CoreCursor(Windows.UI.Core.CoreCursorType.Arrow, 1);
         }
 
@@ -90,6 +71,23 @@ namespace Arcanoid.Pages
         {
             _GameManeger = new GameManager(scene);
             _GameManeger.Start();
+            Manager.GameEvent.OnRemoveHeart += RemoveHeart;
+        }
+
+        private void RemoveHeart(int lifes)
+        {
+            if(lifes == 2)
+            {
+                Heart1.Visibility = Visibility.Collapsed;
+            }
+            if (lifes == 1)
+            {
+                Heart2.Visibility = Visibility.Collapsed;
+            }
+            if (lifes == 0)
+            {
+                Heart3.Visibility = Visibility.Collapsed;
+            }
         }
     }
 }

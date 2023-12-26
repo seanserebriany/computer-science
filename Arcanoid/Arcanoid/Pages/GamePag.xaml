@@ -45,51 +45,21 @@
             <ColumnDefinition></ColumnDefinition>
             <ColumnDefinition></ColumnDefinition>
         </Grid.ColumnDefinitions>
-        <Button Style="{StaticResource MyButtonStyle}" x:Name="btnSettings" Grid.Row="0" Grid.Column="14" Grid.ColumnSpan="1" Grid.RowSpan="2">
-            <Image x:Name="imgSettings" Source="/Assets/Buttons/SettingsO.png" PointerPressed="imgSettings_PointerPressed" PointerEntered="img_PointerEntered" PointerExited="img_PointerExited"></Image>
+        <Button Style="{StaticResource MyButtonStyle}" x:Name="BtnHelp" Grid.Row="0" Grid.Column="4" Grid.ColumnSpan="4" Grid.RowSpan="2">
+            <Image x:Name="imgHelp" Source="/Assets/Buttons/HelpO.png" PointerEntered="img_PointerEntered" PointerExited="img_PointerExited" PointerPressed="imgHelp_PointerPressed"></Image>
         </Button>
-        <Grid x:Name="popupGridMenu" Background="DodgerBlue" Grid.Row="3" Grid.Column="6" Grid.RowSpan="8" Grid.ColumnSpan="4" Opacity="1" BorderBrush="Blue" BorderThickness="10" CornerRadius="30" Visibility="Collapsed">
-            <Grid.RowDefinitions>
-                <RowDefinition></RowDefinition>
-                <RowDefinition></RowDefinition>
-                <RowDefinition></RowDefinition>
-                <RowDefinition></RowDefinition>
-                <RowDefinition></RowDefinition>
-                <RowDefinition></RowDefinition>
-                <RowDefinition></RowDefinition>
-                <RowDefinition></RowDefinition>
-                <RowDefinition></RowDefinition>
-                <RowDefinition></RowDefinition>
-            </Grid.RowDefinitions>
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition></ColumnDefinition>
-                <ColumnDefinition></ColumnDefinition>
-                <ColumnDefinition></ColumnDefinition>
-                <ColumnDefinition></ColumnDefinition>
-                <ColumnDefinition></ColumnDefinition>
-                <ColumnDefinition></ColumnDefinition>
-                <ColumnDefinition></ColumnDefinition>
-                <ColumnDefinition></ColumnDefinition>
-                <ColumnDefinition></ColumnDefinition>
-                <ColumnDefinition></ColumnDefinition>
-                <ColumnDefinition></ColumnDefinition>
-                <ColumnDefinition></ColumnDefinition>
-            </Grid.ColumnDefinitions>
-            <Button Style="{StaticResource MyButtonStyle}" x:Name="BtnPopYes" Grid.Row="9" Grid.Column="5" Grid.ColumnSpan="2" Grid.RowSpan="2">
-                <Image x:Name="imgYes" Source="/Assets/Buttons/YesG.png" PointerPressed="imgYes_PointerPressed" PointerEntered="img_PointerEntered" PointerExited="img_PointerExited"></Image>
-            </Button>
-            <Button Style="{StaticResource MyButtonStyle}" x:Name="BtnHelp" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="4" Grid.RowSpan="3">
-                <Image x:Name="imgHelp" Source="/Assets/Buttons/HelpO.png" PointerEntered="img_PointerEntered" PointerExited="img_PointerExited" PointerPressed="imgHelp_PointerPressed"></Image>
-            </Button>
-            <Button Style="{StaticResource MyButtonStyle}" x:Name="BtnMusic" Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="4" Grid.RowSpan="3">
-                <Image x:Name="imgMusic" Source="/Assets/Buttons/MusicO.png" PointerEntered="img_PointerEntered" PointerExited="img_PointerExited"></Image>
-            </Button>
-            <Button Style="{StaticResource MyButtonStyle}" x:Name="btnExit" Grid.Row="6" Grid.Column="0" Grid.ColumnSpan="4" Grid.RowSpan="3">
-                <Image x:Name="imgExit" Source="/Assets/Buttons/ExitO.png" PointerEntered="img_PointerEntered" PointerExited="img_PointerExited" PointerPressed="imgExit_PointerPressed"></Image>
-            </Button>
-        </Grid>
+        <Button Style="{StaticResource MyButtonStyle}" x:Name="BtnMusic" Grid.Row="0" Grid.Column="2" Grid.ColumnSpan="3" Grid.RowSpan="2">
+            <Image x:Name="imgMusic" Source="/Assets/Buttons/MusicO.png" PointerEntered="img_PointerEntered" PointerExited="img_PointerExited"></Image>
+        </Button>
+        <Button Style="{StaticResource MyButtonStyle}" x:Name="btnExit" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="4" Grid.RowSpan="2">
+            <Image x:Name="imgExit" Source="/Assets/Buttons/ExitO.png" PointerEntered="img_PointerEntered" PointerExited="img_PointerExited" PointerPressed="imgExit_PointerPressed"></Image>
+        </Button>
         <Border x:Name="GameBorder"  Grid.ColumnSpan="11" Grid.RowSpan="12" Grid.Row="2" Grid.Column="2"  BorderBrush="Black" BorderThickness="10">
             <GameServices:GameScene x:Name="scene" Background="Transparent"></GameServices:GameScene>
         </Border>
+        <Image x:Name="Heart1" Source="/Assets/Game/Heart.png" Grid.ColumnSpan="3" Grid.RowSpan="2" Grid.Column="8"></Image>
+        <Image x:Name="Heart2" Source="/Assets/Game/Heart.png" Grid.ColumnSpan="3" Grid.RowSpan="2" Grid.Column="10"></Image>
+        <Image x:Name="Heart3" Source="/Assets/Game/Heart.png" Grid.ColumnSpan="3" Grid.RowSpan="2" Grid.Column="12"></Image>
+
     </Grid>
 </Page>

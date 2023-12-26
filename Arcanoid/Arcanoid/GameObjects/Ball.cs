@@ -20,7 +20,7 @@ namespace Arcanoid1.GameObjects
         public double dY => _dY;
         public double _speed;
         private bool IsRelased = false;
-
+        private int _countlifes;
 
 
 
@@ -42,6 +42,7 @@ namespace Arcanoid1.GameObjects
             image.Stretch = Windows.UI.Xaml.Media.Stretch.Fill; // כך אנו מותחים את מראה המחבט
             Manager.GameEvent.OnKeyDown += KeyDown;
             Manager.GameEvent.OnKeyUp += KeyUp;
+            _countlifes = 3;
         }
         public void KeyUp(VirtualKey key)
         {
@@ -73,6 +74,8 @@ namespace Arcanoid1.GameObjects
                         //_dX = _speed * Constans.SpeedUnit / 2;
                         _dY = _speed * Constans.SpeedUnit / 2;
                         _dX = 0;
+                        Manager.GameEvent.OnKeyDown -= KeyDown;
+                        Manager.GameEvent.OnKeyUp -= KeyUp;
                         break;
                     case VirtualKey.Right:
                         MoveTo(int.MaxValue, _Y, _speed, 0);
@@ -91,7 +94,7 @@ namespace Arcanoid1.GameObjects
                 _dY = -_dY;
                 if (Math.Abs(bar.dX) > 0)
                 {
-                    _dX += bar.dX / 2.6; // מעניק לכדור כמחצית המהירות של המחבט, כלומר. הכדור נוטה לכיוון תנועת המחבט
+                    _dX = bar.dX ; // מעניק לכדור כמחצית המהירות של המחבט, כלומר. הכדור נוטה לכיוון תנועת המחבט
                 }
                 _Y = bar.rect.Top - Height;
             }
@@ -115,7 +118,6 @@ namespace Arcanoid1.GameObjects
         public override void Render()// מתבצעת כל הזמן
         {
             // בדיקת קצוות הזירה
-
             if (IsRelased)
             {
                 if (_X <= 0) // נגיעה בקיר שמאלי
@@ -138,8 +140,26 @@ namespace Arcanoid1.GameObjects
                 }
                 else if (_Y >= _scene?.ActualHeight - Height) // בדיקת רצפה
                 {
-                    _dY = -dY;
-                    _Y = _scene.ActualHeight - Height;
+                    Stop();
+                    _scene.Init();
+                    Manager.GameEvent.OnKeyDown += KeyDown;
+                    Manager.GameEvent.OnKeyUp += KeyUp;
+                    if (Manager.GameEvent.OnRemoveHeart != null)
+                    {
+                        _countlifes--;
+                        Manager.GameEvent.OnRemoveHeart(_countlifes);
+                    }
+                }
+            }
+            else
+            {
+                if (_X <+ 70)
+                {
+                    _X = 70;
+                }
+                else if (_X >= _scene?.ActualWidth - 90)
+                {
+                    _X = _scene.ActualWidth - 90;
                 }
             }
             base.Render();
