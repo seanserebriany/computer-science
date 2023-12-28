@@ -103,13 +103,14 @@ namespace Arcanoid1.GameObjects
                 var intersectRect = RectHelper.Intersect(rect, jelly.rect);
                 if (intersectRect.Height > intersectRect.Width)
                 {
-                   // _X = _dX;
+                    //  _X = _dX;
                     _dX = -dX;
+
                 }
                 else
                 {
-                  //  _Y = _dY;
-                    _dY = -dY;
+                    // _Y = _dY;
+                        _dY = -dY;
                 }
                 jelly.ChangeJelly();
             }

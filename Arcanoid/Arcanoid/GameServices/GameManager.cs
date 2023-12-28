@@ -30,15 +30,15 @@ namespace Arcanoid.GameServices
             Random rnd = new Random();
 
             Scene.RemoveAllObjects();
-            for (int i = 0; i < 15; i++) 
+            for (int i = 0; i < 13; i++) 
             {
                 Scene.AddObject(new Jelly(Scene, (jellyType)rnd.Next(0, 3), 70, 70 * i, 0));
             }
-            for (int i = 0; i < 15; i++)
+            for (int i = 0; i < 13; i++)
             {
                 Scene.AddObject(new Jelly(Scene, (jellyType)rnd.Next(0, 3), 70, 70 * i, 40));
             }
-            for (int i = 0; i < 15; i++)
+            for (int i = 0; i < 13; i++)
             {
                 Scene.AddObject(new Jelly(Scene, (jellyType)rnd.Next(0, 3), 70, 70 * i, 80));
             }

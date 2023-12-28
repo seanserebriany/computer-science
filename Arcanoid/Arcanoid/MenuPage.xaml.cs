@@ -52,8 +52,6 @@ namespace Arcanoid
                 imgLeader.Source = new BitmapImage(new Uri("ms-appx:///Assets/Buttons/LeaderP.png"));
             if (name == "imgShop")
                 imgShop.Source = new BitmapImage(new Uri("ms-appx:///Assets/Buttons/ShopP.png"));
-            if (name == "imgLevel")
-                imgLevel.Source = new BitmapImage(new Uri("ms-appx:///Assets/Buttons/LevelsP.png"));
             if (name == "imgPopExit")
                 imgPopExit.Source = new BitmapImage(new Uri("ms-appx:///Assets/Buttons/ExitG.png"));
             if (name == "imgYes")
@@ -83,8 +81,6 @@ namespace Arcanoid
                 imgLeader.Source = new BitmapImage(new Uri("ms-appx:///Assets/Buttons/LeaderO.png"));
             if (name == "imgShop")
                 imgShop.Source = new BitmapImage(new Uri("ms-appx:///Assets/Buttons/ShopO.png"));
-            if (name == "imgLevel")
-                imgLevel.Source = new BitmapImage(new Uri("ms-appx:///Assets/Buttons/LevelsO.png"));
             if (name == "imgPopExit")
                 imgPopExit.Source = new BitmapImage(new Uri("ms-appx:///Assets/Buttons/ExitO.png"));
             if (name == "imgYes")
@@ -136,11 +132,6 @@ namespace Arcanoid
         private void imgAccaunt_PointerPressed(object sender, PointerRoutedEventArgs e)
         {
             Frame.Navigate(typeof(SignInPage));
-        }
-
-        private void imgLevel_PointerPressed(object sender, PointerRoutedEventArgs e)
-        {
-            Frame.Navigate(typeof(LevelsPage));
         }
 
         private void imgMusic_PointerPressed(object sender, PointerRoutedEventArgs e)
