@@ -35,16 +35,16 @@
 
         </Grid.ColumnDefinitions>
         <Button Style="{StaticResource MyButtonStyle}" x:Name="BtnLevel1" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" Grid.RowSpan="2">
-            <Image x:Name="imgLevel1" Source="/Assets/Levels/Num1.png" PointerEntered="img_PointerEntered" PointerExited="img_PointerExited" PointerPressed="imgLevel_PointerPressed"></Image>
+            <Image x:Name="imgLevel1" Source="/Assets/Levels/Num1.png" PointerEntered="img_PointerEntered" PointerExited="img_PointerExited" PointerPressed="imgLevel1_PointerPressed"></Image>
         </Button>
         <Button Style="{StaticResource MyButtonStyle}" x:Name="BtnLevel2" Grid.Row="2" Grid.Column="3" Grid.ColumnSpan="2" Grid.RowSpan="2">
-            <Image x:Name="imgLevel2" Source="/Assets/Levels/Num2.png" PointerEntered="img_PointerEntered" PointerExited="img_PointerExited" PointerPressed="imgLevel_PointerPressed"></Image>
+            <Image x:Name="imgLevel2" Source="/Assets/Levels/Num2.png" PointerEntered="img_PointerEntered" PointerExited="img_PointerExited" PointerPressed="imgLevel2_PointerPressed"></Image>
         </Button>
         <Button Style="{StaticResource MyButtonStyle}" x:Name="BtnLevel3" Grid.Row="2" Grid.Column="6" Grid.ColumnSpan="2" Grid.RowSpan="2">
-            <Image x:Name="imgLevel3" Source="/Assets/Levels/Num3.png" PointerEntered="img_PointerEntered" PointerExited="img_PointerExited" PointerPressed="imgLevel_PointerPressed"></Image>
+            <Image x:Name="imgLevel3" Source="/Assets/Levels/Num3.png" PointerEntered="img_PointerEntered" PointerExited="img_PointerExited" PointerPressed="imgLevel3_PointerPressed"></Image>
         </Button>
         <Button Style="{StaticResource MyButtonStyle}" x:Name="BtnLevel4" Grid.Row="2" Grid.Column="9" Grid.ColumnSpan="2" Grid.RowSpan="2">
-            <Image x:Name="imgLevel4" Source="/Assets/Levels/Num4.png" PointerEntered="img_PointerEntered" PointerExited="img_PointerExited" PointerPressed="imgLevel_PointerPressed"></Image>
+            <Image x:Name="imgLevel4" Source="/Assets/Levels/Num4.png" PointerEntered="img_PointerEntered" PointerExited="img_PointerExited" PointerPressed="imgLevel4_PointerPressed"></Image>
         </Button>
         <Viewbox VerticalAlignment="Center" HorizontalAlignment="Center" Grid.ColumnSpan="5" Grid.RowSpan="2" Grid.Column="3">
             <Border Background="LightSkyBlue" BorderBrush="LightBlue" BorderThickness="4">

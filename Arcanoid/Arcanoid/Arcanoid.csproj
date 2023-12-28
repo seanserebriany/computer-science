@@ -199,7 +199,7 @@
     <Content Include="Assets\app\Wide310x150Logo.scale-400.png" />
     <Content Include="Assets\Background\background.jpg" />
     <Content Include="Assets\Background\GameBackground.png" />
-    <Content Include="Assets\Ball\Ball.jpg" />
+    <Content Include="Assets\Ball\Ball.png" />
     <Content Include="Assets\Bar\Bar.png" />
     <Content Include="Assets\Buttons\BackP.png" />
     <Content Include="Assets\Buttons\ProfileO.png" />

@@ -1,5 +1,7 @@
 ﻿using Arcanoid.GameObjects;
+using Arcanoid.Pages;
 using Arcanoid1.GameObjects;
+using DatabaseProject.Models;
 using GameEngine.GameServices;
 using System;
 using System.Collections.Generic;
@@ -12,9 +14,15 @@ namespace Arcanoid.GameServices
 {
     public class GameManager : Manager
     {
+        public static User User { get; set; } = new User();
         public GameManager(Scene scene) : base(scene)
         {
+            User.Level = LevelsPage.Level;
+            User.Name = "Sean";
+            User.Email = "sean123@gmail.com";
+
             Init();
+
         }
 
         private void Init()
@@ -22,22 +30,22 @@ namespace Arcanoid.GameServices
             Random rnd = new Random();
 
             Scene.RemoveAllObjects();
-            for (int i = 0; i < 19; i++) 
+            for (int i = 0; i < 15; i++) 
             {
-                Scene.AddObject(new Jelly(Scene, (jellyType)rnd.Next(0, 3), 50, 50 * i, 0));
+                Scene.AddObject(new Jelly(Scene, (jellyType)rnd.Next(0, 3), 70, 70 * i, 0));
             }
-            for (int i = 0; i < 19; i++)
+            for (int i = 0; i < 15; i++)
             {
-                Scene.AddObject(new Jelly(Scene, (jellyType)rnd.Next(0, 3), 50, 50 * i, 80));
+                Scene.AddObject(new Jelly(Scene, (jellyType)rnd.Next(0, 3), 70, 70 * i, 40));
             }
-            for (int i = 0; i < 19; i++)
+            for (int i = 0; i < 15; i++)
             {
-                Scene.AddObject(new Jelly(Scene, (jellyType)rnd.Next(0, 3), 50, 50 * i, 160));
+                Scene.AddObject(new Jelly(Scene, (jellyType)rnd.Next(0, 3), 70, 70 * i, 80));
             }
 
-            var bar = new Bar(Scene, "Bar/Bar.png", speed: 3, Width: 260, Scene.ActualWidth / 2 - 40, Scene.ActualHeight-30);
+            var bar = new Bar(Scene, "Bar/Bar.png", speed: User.Level.BallSpeed, User.Level.BarWidth, Scene.ActualWidth / 2 - 30, Scene.ActualHeight-30);;
             Scene.AddObject(bar);
-            var ball = new Ball(Scene, "Ball/Ball.jpg", speed:3, width: 50, Scene.ActualWidth / 2 + 60, Scene.ActualHeight - 35);
+            var ball = new Ball(Scene, "Ball/Ball.png", speed:User.Level.BallSpeed, width: 40, Scene.ActualWidth / 2, Scene.ActualHeight - 35);
             Scene.AddObject(ball);
 
         }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DatabaseProject.Models;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -23,6 +24,7 @@ namespace Arcanoid.Pages
     /// </summary>
     public sealed partial class LevelsPage : Page
     {
+        public static Level Level = new Level();
         public LevelsPage()
         {
             this.InitializeComponent();
@@ -57,9 +59,54 @@ namespace Arcanoid.Pages
             Window.Current.CoreWindow.PointerCursor = new Windows.UI.Core.CoreCursor(Windows.UI.Core.CoreCursorType.Arrow, 1);
         }
 
-        private void imgLevel_PointerPressed(object sender, PointerRoutedEventArgs e)
+        private void imgLevel1_PointerPressed(object sender, PointerRoutedEventArgs e)
         {
-            Frame.Navigate(typeof(MenuPage));
+            Level.LevelNumber = 1;
+            Level.BarWidth = 300;
+            Level.CountJellyGreen = 10;
+            Level.CountJellyPurple = 4;
+            Level.CountJellyYellow = 2;
+            Level.BallSpeed = 1;
+
+            Frame.Navigate(typeof(GamePag));
+        }
+
+        private void imgLevel2_PointerPressed(object sender, PointerRoutedEventArgs e)
+        {
+            Level.LevelNumber = 1;
+            Level.BarWidth = 250;
+            Level.CountJellyGreen = 10;
+            Level.CountJellyPurple = 4;
+            Level.CountJellyYellow = 2;
+            Level.BallSpeed = 2;
+            Frame.Navigate(typeof(GamePag));
+
+        }
+
+        private void imgLevel3_PointerPressed(object sender, PointerRoutedEventArgs e)
+        {
+            Level.LevelNumber = 1;
+            Level.BarWidth = 190;
+            Level.CountJellyGreen = 10;
+            Level.CountJellyPurple = 4;
+            Level.CountJellyYellow = 2;
+            Level.BallSpeed = 3;
+
+            Frame.Navigate(typeof(GamePag));
+
+        }
+
+        private void imgLevel4_PointerPressed(object sender, PointerRoutedEventArgs e)
+        {
+            Level.LevelNumber = 1;
+            Level.BarWidth = 100;
+            Level.CountJellyGreen = 10;
+            Level.CountJellyPurple = 4;
+            Level.CountJellyYellow = 2;
+            Level.BallSpeed = 4;
+
+            Frame.Navigate(typeof(GamePag));
+
         }
     }
 }

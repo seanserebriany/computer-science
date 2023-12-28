@@ -183,7 +183,7 @@ namespace Arcanoid
 
         private void imgPlay_PointerPressed(object sender, PointerRoutedEventArgs e)
         {
-            Frame.Navigate(typeof(GamePag));
+            Frame.Navigate(typeof(LevelsPage));
         }
 
         private void BackgroundVolumeSlider_ValueChanged(object sender, RangeBaseValueChangedEventArgs e)
