@@ -22,22 +22,22 @@ namespace Arcanoid.GameServices
             Random rnd = new Random();
 
             Scene.RemoveAllObjects();
-            for (int i = 0; i < 9; i++) 
+            for (int i = 0; i < 19; i++) 
             {
-                Scene.AddObject(new Jelly(Scene, (jellyType)rnd.Next(0, 3), 90, 100 * i, 30));
+                Scene.AddObject(new Jelly(Scene, (jellyType)rnd.Next(0, 3), 50, 50 * i, 0));
             }
-            for (int i = 0; i < 9; i++)
+            for (int i = 0; i < 19; i++)
             {
-                Scene.AddObject(new Jelly(Scene, (jellyType)rnd.Next(0, 3), 90, 100 * i, 110));
+                Scene.AddObject(new Jelly(Scene, (jellyType)rnd.Next(0, 3), 50, 50 * i, 80));
             }
-            for (int i = 0; i < 9; i++)
+            for (int i = 0; i < 19; i++)
             {
-                Scene.AddObject(new Jelly(Scene, (jellyType)rnd.Next(0, 3), 90, 100 * i, 190));
+                Scene.AddObject(new Jelly(Scene, (jellyType)rnd.Next(0, 3), 50, 50 * i, 160));
             }
 
-            var bar = new Bar(Scene, "Bar/Bar.png", speed: 3, Width: 260, Scene.ActualWidth / 2 - 40, Scene.ActualHeight-60);
+            var bar = new Bar(Scene, "Bar/Bar.png", speed: 3, Width: 260, Scene.ActualWidth / 2 - 40, Scene.ActualHeight-30);
             Scene.AddObject(bar);
-            var ball = new Ball(Scene, "Ball/Ball.jpg", speed:3, width: 50, Scene.ActualWidth / 2 + 60, Scene.ActualHeight - 65);
+            var ball = new Ball(Scene, "Ball/Ball.jpg", speed:3, width: 50, Scene.ActualWidth / 2 + 60, Scene.ActualHeight - 35);
             Scene.AddObject(ball);
 
         }

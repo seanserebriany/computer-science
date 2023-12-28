@@ -270,6 +270,10 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\DatabaseProject\DatabaseProject.csproj">
+      <Project>{10f8d97c-f710-4b35-bb8f-48f41cbfac0f}</Project>
+      <Name>DatabaseProject</Name>
+    </ProjectReference>
     <ProjectReference Include="..\GameEngine\GameEngine.csproj">
       <Project>{a9a44176-1ee3-4b30-ae16-5c6d89ab25c9}</Project>
       <Name>GameEngine</Name>

@@ -144,6 +144,7 @@ namespace Arcanoid1.GameObjects
                     _scene.Init();
                     Manager.GameEvent.OnKeyDown += KeyDown;
                     Manager.GameEvent.OnKeyUp += KeyUp;
+                    IsRelased = false;
                     if (Manager.GameEvent.OnRemoveHeart != null)
                     {
                         _countlifes--;
