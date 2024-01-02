@@ -10,6 +10,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Windows.System;
 using Windows.UI.Xaml;
+using Windows.Foundation;
 
 namespace Arcanoid1.GameObjects
 {
@@ -87,34 +88,38 @@ namespace Arcanoid1.GameObjects
             }
         }
 
-        public override void Collide(GameObject gameObject)
+        public override void Collide(GameObject gameObject) // CheckCollistion פעולה מתבצעת רק כאשר יש נגיעה וודאית שבודקים את זה בפונקציה
         {
             if (gameObject is Bar bar)
             {
                 _dY = -_dY;
-                if (Math.Abs(bar.dX) > 0)
+                if (bar.dX > 0)
                 {
-                    _dX = bar.dX ; // מעניק לכדור כמחצית המהירות של המחבט, כלומר. הכדור נוטה לכיוון תנועת המחבט
+                    _dX = Constans.SpeedUnit; // מעניק לכדור כמחצית המהירות של המחבט, כלומר. הכדור נוטה לכיוון תנועת המחבט
                 }
-                _Y = bar.rect.Top - Height;
-            }
-            if (gameObject is Jelly jelly)
-            {
-                var intersectRect = RectHelper.Intersect(rect, jelly.rect);
-                if (intersectRect.Height > intersectRect.Width)
+                else if(bar.dX<0)
                 {
-                    //  _X = _dX;
-                    _dX = -dX;
-
+                    _dX = -Constans.SpeedUnit;
+                }
+                _Y = bar.rect.Top - Height - 10;
+            }
+            if (gameObject is Jelly jelly)// בדיקת פגיעה וגם מוצאת את גיילי זה
+            {
+                var intersectRect = RectHelper.Intersect(rect, jelly.rect); // בדיקת התנגשות בין כדור לגיילי
+                if (intersectRect.Height > intersectRect.Width) // בדיקת פגיעה שאחרי זה לאן הכדור ילך
+                {
+                    _X -= _dX;
+                    _dX = -_dX;
                 }
                 else
                 {
-                    // _Y = _dY;
-                        _dY = -dY;
+                    _Y -= _dY;
+                    _dY = -_dY;
                 }
                 jelly.ChangeJelly();
             }
         }
+
 
         public override void Render()// מתבצעת כל הזמן
         {
