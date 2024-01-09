@@ -7,6 +7,7 @@ using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
+using Windows.Security.Isolation;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Controls.Primitives;
@@ -72,6 +73,25 @@ namespace Arcanoid.Pages
             _GameManeger = new GameManager(scene);
             _GameManeger.Start();
             Manager.GameEvent.OnRemoveHeart += RemoveHeart;
+            Manager.GameEvent.OnAddScore += AddScore;
+            Manager.GameEvent.GameOver += GameOver;
+
+
+        }
+
+        private void GameOver()
+        {
+            Frame.Navigate(typeof(Win));
+        }
+
+        private void AddScore(int score)
+        {
+            if (int.TryParse(txt_score.Text, out int currentScore))
+            {
+                int newScore = 0;
+                newScore = currentScore + score;
+                txt_score.Text = newScore.ToString();
+            }
         }
 
         private void RemoveHeart(int lifes)
@@ -87,6 +107,8 @@ namespace Arcanoid.Pages
             if (lifes == 0)
             {
                 Heart3.Visibility = Visibility.Collapsed;
+                Frame.Navigate(typeof(Loose));
+
             }
         }
     }

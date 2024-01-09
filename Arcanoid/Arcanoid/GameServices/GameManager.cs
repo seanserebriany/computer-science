@@ -14,6 +14,7 @@ namespace Arcanoid.GameServices
 {
     public class GameManager : Manager
     {
+        public static int JellyCount = 0;
         public static User User { get; set; } = new User();
         public GameManager(Scene scene) : base(scene)
         {
@@ -30,15 +31,15 @@ namespace Arcanoid.GameServices
             Random rnd = new Random();
 
             Scene.RemoveAllObjects();
-            for (int i = 0; i < 13; i++) 
+            for (int i = 0; i < 1; i++) 
             {
                 Scene.AddObject(new Jelly(Scene, (jellyType)rnd.Next(0, 3), 70, 70 * i, 0));
             }
-            for (int i = 0; i < 13; i++)
+            for (int i = 0; i < 1; i++)
             {
                 Scene.AddObject(new Jelly(Scene, (jellyType)rnd.Next(0, 3), 70, 70 * i, 40));
             }
-            for (int i = 0; i < 13; i++)
+            for (int i = 0; i < 1; i++)
             {
                 Scene.AddObject(new Jelly(Scene, (jellyType)rnd.Next(0, 3), 70, 70 * i, 80));
             }

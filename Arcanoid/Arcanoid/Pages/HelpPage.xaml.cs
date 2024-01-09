@@ -48,10 +48,5 @@ namespace Arcanoid.Pages
         {
             Frame.GoBack();
         }
-
-        private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
-        {
-
-        }
     }
 }

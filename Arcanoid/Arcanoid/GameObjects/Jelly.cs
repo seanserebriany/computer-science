@@ -1,4 +1,6 @@
-﻿using GameEngine.GameObjects;
+﻿using Arcanoid.GameServices;
+using DatabaseProject.Models;
+using GameEngine.GameObjects;
 using GameEngine.GameServices;
 using System;
 using System.Collections.Generic;
@@ -13,6 +15,7 @@ namespace Arcanoid.GameObjects
 {
     internal class Jelly : GameObject
     {
+      
         public enum jellyType
         {
             Green = 0,
@@ -56,10 +59,18 @@ namespace Arcanoid.GameObjects
                     break;
                 case jellyType.Green:
                     _scene.RemoveObject(this);
-                     break;
-                     return;  
+                    Manager.GameEvent.OnAddScore(1);
+                    if(((GameScene)_scene).JellyCount==0)
+                    {
+                        if(Manager.GameEvent.GameOver != null)
+                        {
+                            Manager.GameEvent.GameOver();
+                        }
+                    }
+                    return;  
             }
             SetImage();
         }
+
     }
 }

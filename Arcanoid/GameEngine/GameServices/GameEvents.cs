@@ -14,5 +14,10 @@ namespace GameEngine.GameServices
         public Action<VirtualKey> OnKeyUp;//עזיבת כפתור
         public Action<VirtualKey> OnKeyDown;//לחיצה על כפתור
         public Action<int> OnRemoveHeart;//removing hearts
+        public Action<int> OnAddScore;//
+        public Action<bool> OnWin;//
+        public Action GameOver;//
+
+
     }
 }

@@ -1,4 +1,5 @@
 ﻿using DatabaseProject.Models;
+using GameEngine.GameServices;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -67,7 +68,7 @@ namespace Arcanoid.Pages
             Level.CountJellyPurple = 4;
             Level.CountJellyYellow = 2;
             Level.BallSpeed = 1;
-
+            Manager.GameEvent.OnRun = null;
             Frame.Navigate(typeof(GamePag));
         }
 
@@ -79,6 +80,8 @@ namespace Arcanoid.Pages
             Level.CountJellyPurple = 4;
             Level.CountJellyYellow = 2;
             Level.BallSpeed = 2;
+            Manager.GameEvent.OnRun = null;
+
             Frame.Navigate(typeof(GamePag));
 
         }
@@ -91,6 +94,7 @@ namespace Arcanoid.Pages
             Level.CountJellyPurple = 4;
             Level.CountJellyYellow = 2;
             Level.BallSpeed = 3;
+            Manager.GameEvent.OnRun = null;
 
             Frame.Navigate(typeof(GamePag));
 
@@ -104,6 +108,7 @@ namespace Arcanoid.Pages
             Level.CountJellyPurple = 4;
             Level.CountJellyYellow = 2;
             Level.BallSpeed = 4;
+            Manager.GameEvent.OnRun = null;
 
             Frame.Navigate(typeof(GamePag));
 

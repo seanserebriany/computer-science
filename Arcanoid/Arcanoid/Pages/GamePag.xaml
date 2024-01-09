@@ -45,6 +45,11 @@
             <ColumnDefinition></ColumnDefinition>
             <ColumnDefinition></ColumnDefinition>
         </Grid.ColumnDefinitions>
+        <Viewbox VerticalAlignment="Center" HorizontalAlignment="Center" Grid.ColumnSpan="5" Grid.RowSpan="2" Grid.Column="5">
+            <Border Background="LightSkyBlue" BorderBrush="LightBlue" BorderThickness="4">
+                <TextBlock x:Name="txt_score" Text="0" FontSize="45" Foreground="White" Grid.RowSpan="2" VerticalAlignment="Stretch" FontFamily="Broadway" FontWeight="Bold"></TextBlock>
+            </Border>
+        </Viewbox>
         <Button Style="{StaticResource MyButtonStyle}" x:Name="BtnHelp" Grid.Row="0" Grid.Column="4" Grid.ColumnSpan="4" Grid.RowSpan="2">
             <Image x:Name="imgHelp" Source="/Assets/Buttons/HelpO.png" PointerEntered="img_PointerEntered" PointerExited="img_PointerExited" PointerPressed="imgHelp_PointerPressed"></Image>
         </Button>
