@@ -11,8 +11,8 @@
     <AssemblyName>Tetris</AssemblyName>
     <DefaultLanguage>en-US</DefaultLanguage>
     <TargetPlatformIdentifier>UAP</TargetPlatformIdentifier>
-    <TargetPlatformVersion Condition=" '$(TargetPlatformVersion)' == '' ">10.0.22621.0</TargetPlatformVersion>
-    <TargetPlatformMinVersion>10.0.17763.0</TargetPlatformMinVersion>
+    <TargetPlatformVersion Condition=" '$(TargetPlatformVersion)' == '' ">10.0.19041.0</TargetPlatformVersion>
+    <TargetPlatformMinVersion>10.0.17134.0</TargetPlatformMinVersion>
     <MinimumVisualStudioVersion>14</MinimumVisualStudioVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{A5A43C5B-DE2A-4C0C-9213-0A381AF9435A};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
@@ -116,8 +116,17 @@
     <RestoreProjectStyle>PackageReference</RestoreProjectStyle>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="AccountPage.xaml.cs">
+      <DependentUpon>AccountPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="GamePage.xaml.cs">
+      <DependentUpon>GamePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="LeaderboardPage.xaml.cs">
+      <DependentUpon>LeaderboardPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
@@ -175,6 +184,7 @@
     <Content Include="Assets\app\StoreLogo.scale-150.png" />
     <Content Include="Assets\app\StoreLogo.scale-200.png" />
     <Content Include="Assets\app\StoreLogo.scale-400.png" />
+    <Content Include="Assets\app\Tetris_Logo.jpg" />
     <Content Include="Assets\app\Wide310x150Logo.scale-100.png" />
     <Content Include="Assets\app\Wide310x150Logo.scale-125.png" />
     <Content Include="Assets\app\Wide310x150Logo.scale-150.png" />
@@ -184,8 +194,11 @@
     <Content Include="Assets\Background\Lose.jpg" />
     <Content Include="Assets\Background\Background.jpg" />
     <Content Include="Assets\Background\Win.jpg" />
+    <Content Include="Assets\Buttons\Account.png" />
     <Content Include="Assets\Buttons\Exit.png" />
     <Content Include="Assets\Buttons\Home.png" />
+    <Content Include="Assets\Buttons\Leaderboard.png" />
+    <Content Include="Assets\Buttons\Music.png" />
     <Content Include="Assets\Buttons\Play.png" />
     <Content Include="Assets\Levels\Num1.png" />
     <Content Include="Assets\Levels\Num2.png" />
@@ -199,6 +212,18 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Page Include="AccountPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="GamePage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="LeaderboardPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MainPage.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -209,6 +234,7 @@
       <Version>6.2.14</Version>
     </PackageReference>
   </ItemGroup>
+  <ItemGroup />
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>
   </PropertyGroup>
