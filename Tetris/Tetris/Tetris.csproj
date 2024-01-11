@@ -11,7 +11,7 @@
     <AssemblyName>Tetris</AssemblyName>
     <DefaultLanguage>en-US</DefaultLanguage>
     <TargetPlatformIdentifier>UAP</TargetPlatformIdentifier>
-    <TargetPlatformVersion Condition=" '$(TargetPlatformVersion)' == '' ">10.0.19041.0</TargetPlatformVersion>
+    <TargetPlatformVersion Condition=" '$(TargetPlatformVersion)' == '' ">10.0.22621.0</TargetPlatformVersion>
     <TargetPlatformMinVersion>10.0.17134.0</TargetPlatformMinVersion>
     <MinimumVisualStudioVersion>14</MinimumVisualStudioVersion>
     <FileAlignment>512</FileAlignment>
@@ -190,6 +190,8 @@
     <Content Include="Assets\app\Wide310x150Logo.scale-150.png" />
     <Content Include="Assets\app\Wide310x150Logo.scale-200.png" />
     <Content Include="Assets\app\Wide310x150Logo.scale-400.png" />
+    <Content Include="Assets\Background\AccountBackground.jpg" />
+    <Content Include="Assets\Background\PopBackground.jpg" />
     <Content Include="Assets\Background\GameBackground.png" />
     <Content Include="Assets\Background\Lose.jpg" />
     <Content Include="Assets\Background\Background.jpg" />
@@ -200,6 +202,7 @@
     <Content Include="Assets\Buttons\Leaderboard.png" />
     <Content Include="Assets\Buttons\Music.png" />
     <Content Include="Assets\Buttons\Play.png" />
+    <Content Include="Assets\Buttons\Yes.png" />
     <Content Include="Assets\Levels\Num1.png" />
     <Content Include="Assets\Levels\Num2.png" />
     <Content Include="Assets\Levels\Num3.png" />
@@ -234,7 +237,15 @@
       <Version>6.2.14</Version>
     </PackageReference>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\GameEngine\GameEngine.csproj">
+      <Project>{dd1842ab-6014-47c3-a21c-25ddba7d95e2}</Project>
+      <Name>GameEngine</Name>
+    </ProjectReference>
+  </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>
   </PropertyGroup>

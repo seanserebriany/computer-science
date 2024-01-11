@@ -5,7 +5,7 @@
     xmlns:local="using:Tetris"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    mc:Ignorable="d"
+    mc:Ignorable="d" Loaded="Page_Loaded"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
     <Grid>
@@ -53,10 +53,55 @@
             <Image x:Name="imgLeaderboard" Source="/Assets/Buttons/Leaderboard.png" PointerEntered="img_PointerEntered" PointerExited="img_PointerExited" PointerPressed="imgLeaderboard_PointerPressed"></Image>
         </Button>
         <Button Style="{StaticResource MyButtonStyle}" x:Name="btnMusic" Grid.Row="0" Grid.Column="4" Grid.ColumnSpan="3" Grid.RowSpan="2">
-            <Image x:Name="imgMusic" Source="/Assets/Buttons/Music.png" PointerEntered="img_PointerEntered" PointerExited="img_PointerExited"></Image>
+            <Image x:Name="imgMusic" Source="/Assets/Buttons/Music.png" PointerEntered="img_PointerEntered" PointerExited="img_PointerExited" PointerPressed="imgMusic_PointerPressed"></Image>
         </Button>
         <Button Style="{StaticResource MyButtonStyle}" x:Name="btnAccount" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3" Grid.RowSpan="2">
             <Image x:Name="imgAccount" Source="/Assets/Buttons/Account.png" PointerEntered="img_PointerEntered" PointerExited="img_PointerExited" PointerPressed="imgAccount_PointerPressed"></Image>
         </Button>
+        <Grid x:Name="popupGridMusic" Grid.Row="3" Grid.Column="4" Grid.RowSpan="9" Grid.ColumnSpan="6" Opacity="1" BorderThickness="10" CornerRadius="30" Visibility="Collapsed">
+            <Grid.Background>
+                <ImageBrush x:Name="BackgroundPop" ImageSource="/Assets/Background/PopBackground.jpg"></ImageBrush>
+            </Grid.Background>
+            <Grid.RowDefinitions>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Viewbox Grid.Row="8" Grid.Column="5" Grid.ColumnSpan="2" Grid.RowSpan="1">
+                <Button Style="{StaticResource MyButtonStyle}" x:Name="BtnYes">
+                    <Image x:Name="imgYesPop" Source="/Assets/Buttons/Yes.png" PointerEntered="img_PointerEntered"  PointerExited="img_PointerExited" PointerPressed="imgYesPop_PointerPressed"></Image>
+                </Button>
+            </Viewbox>
+            <Viewbox Grid.Column="1" Grid.Row="0" Grid.ColumnSpan="10" Grid.RowSpan="2">
+                <TextBlock Text="Sound Control" FontSize="45" Foreground="White" Grid.RowSpan="2" VerticalAlignment="Stretch" FontFamily="Broadway" FontWeight="Bold"></TextBlock>
+            </Viewbox>
+            <Viewbox Grid.Column="1" Grid.Row="2" Grid.RowSpan="4" Grid.ColumnSpan="8">
+                <ToggleSwitch x:Name="BackgroundMusic" OnContent="Music On" OffContent="Music Off" Toggled="BackgroundMusic_Toggled" FontSize="35" Foreground="White" VerticalAlignment="Stretch" FontFamily="Broadway" FontWeight="Bold"></ToggleSwitch>
+            </Viewbox>
+            <Viewbox Grid.ColumnSpan="7" Grid.RowSpan="3" Grid.Row="5" Grid.Column="2">
+                <Slider x:Name="BackgroundVolumeSlider" ValueChanged="BackgroundVolumeSlider_ValueChanged"  Maximum="100" Header="Background Sound" FontSize="40" Foreground="White" VerticalAlignment="Stretch" FontFamily="Broadway" FontWeight="Bold"></Slider>
+            </Viewbox>
+        </Grid>
     </Grid>
 </Page>

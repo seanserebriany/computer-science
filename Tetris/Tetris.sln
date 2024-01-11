@@ -5,18 +5,25 @@ VisualStudioVersion = 17.7.34031.279
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tetris", "Tetris\Tetris.csproj", "{CE0B283B-56D1-4EA3-8860-CD25F53A05E4}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GameEngine", "GameEngine\GameEngine.csproj", "{DD1842AB-6014-47C3-A21C-25DDBA7D95E2}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
 		Debug|ARM = Debug|ARM
 		Debug|ARM64 = Debug|ARM64
 		Debug|x64 = Debug|x64
 		Debug|x86 = Debug|x86
+		Release|Any CPU = Release|Any CPU
 		Release|ARM = Release|ARM
 		Release|ARM64 = Release|ARM64
 		Release|x64 = Release|x64
 		Release|x86 = Release|x86
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{CE0B283B-56D1-4EA3-8860-CD25F53A05E4}.Debug|Any CPU.ActiveCfg = Debug|x64
+		{CE0B283B-56D1-4EA3-8860-CD25F53A05E4}.Debug|Any CPU.Build.0 = Debug|x64
+		{CE0B283B-56D1-4EA3-8860-CD25F53A05E4}.Debug|Any CPU.Deploy.0 = Debug|x64
 		{CE0B283B-56D1-4EA3-8860-CD25F53A05E4}.Debug|ARM.ActiveCfg = Debug|ARM
 		{CE0B283B-56D1-4EA3-8860-CD25F53A05E4}.Debug|ARM.Build.0 = Debug|ARM
 		{CE0B283B-56D1-4EA3-8860-CD25F53A05E4}.Debug|ARM.Deploy.0 = Debug|ARM
@@ -29,6 +36,9 @@ Global
 		{CE0B283B-56D1-4EA3-8860-CD25F53A05E4}.Debug|x86.ActiveCfg = Debug|x86
 		{CE0B283B-56D1-4EA3-8860-CD25F53A05E4}.Debug|x86.Build.0 = Debug|x86
 		{CE0B283B-56D1-4EA3-8860-CD25F53A05E4}.Debug|x86.Deploy.0 = Debug|x86
+		{CE0B283B-56D1-4EA3-8860-CD25F53A05E4}.Release|Any CPU.ActiveCfg = Release|x64
+		{CE0B283B-56D1-4EA3-8860-CD25F53A05E4}.Release|Any CPU.Build.0 = Release|x64
+		{CE0B283B-56D1-4EA3-8860-CD25F53A05E4}.Release|Any CPU.Deploy.0 = Release|x64
 		{CE0B283B-56D1-4EA3-8860-CD25F53A05E4}.Release|ARM.ActiveCfg = Release|ARM
 		{CE0B283B-56D1-4EA3-8860-CD25F53A05E4}.Release|ARM.Build.0 = Release|ARM
 		{CE0B283B-56D1-4EA3-8860-CD25F53A05E4}.Release|ARM.Deploy.0 = Release|ARM
@@ -41,6 +51,26 @@ Global
 		{CE0B283B-56D1-4EA3-8860-CD25F53A05E4}.Release|x86.ActiveCfg = Release|x86
 		{CE0B283B-56D1-4EA3-8860-CD25F53A05E4}.Release|x86.Build.0 = Release|x86
 		{CE0B283B-56D1-4EA3-8860-CD25F53A05E4}.Release|x86.Deploy.0 = Release|x86
+		{DD1842AB-6014-47C3-A21C-25DDBA7D95E2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DD1842AB-6014-47C3-A21C-25DDBA7D95E2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DD1842AB-6014-47C3-A21C-25DDBA7D95E2}.Debug|ARM.ActiveCfg = Debug|ARM
+		{DD1842AB-6014-47C3-A21C-25DDBA7D95E2}.Debug|ARM.Build.0 = Debug|ARM
+		{DD1842AB-6014-47C3-A21C-25DDBA7D95E2}.Debug|ARM64.ActiveCfg = Debug|ARM64
+		{DD1842AB-6014-47C3-A21C-25DDBA7D95E2}.Debug|ARM64.Build.0 = Debug|ARM64
+		{DD1842AB-6014-47C3-A21C-25DDBA7D95E2}.Debug|x64.ActiveCfg = Debug|x64
+		{DD1842AB-6014-47C3-A21C-25DDBA7D95E2}.Debug|x64.Build.0 = Debug|x64
+		{DD1842AB-6014-47C3-A21C-25DDBA7D95E2}.Debug|x86.ActiveCfg = Debug|x86
+		{DD1842AB-6014-47C3-A21C-25DDBA7D95E2}.Debug|x86.Build.0 = Debug|x86
+		{DD1842AB-6014-47C3-A21C-25DDBA7D95E2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DD1842AB-6014-47C3-A21C-25DDBA7D95E2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DD1842AB-6014-47C3-A21C-25DDBA7D95E2}.Release|ARM.ActiveCfg = Release|ARM
+		{DD1842AB-6014-47C3-A21C-25DDBA7D95E2}.Release|ARM.Build.0 = Release|ARM
+		{DD1842AB-6014-47C3-A21C-25DDBA7D95E2}.Release|ARM64.ActiveCfg = Release|ARM64
+		{DD1842AB-6014-47C3-A21C-25DDBA7D95E2}.Release|ARM64.Build.0 = Release|ARM64
+		{DD1842AB-6014-47C3-A21C-25DDBA7D95E2}.Release|x64.ActiveCfg = Release|x64
+		{DD1842AB-6014-47C3-A21C-25DDBA7D95E2}.Release|x64.Build.0 = Release|x64
+		{DD1842AB-6014-47C3-A21C-25DDBA7D95E2}.Release|x86.ActiveCfg = Release|x86
+		{DD1842AB-6014-47C3-A21C-25DDBA7D95E2}.Release|x86.Build.0 = Release|x86
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

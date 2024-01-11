@@ -1,8 +1,10 @@
-﻿using System;
+﻿using GameEngine.GameServices;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
+using Windows.ApplicationModel.Core;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
 using Windows.UI.Xaml;
@@ -55,7 +57,47 @@ namespace Tetris
 
         private void imgExit_PointerPressed(object sender, PointerRoutedEventArgs e)
         {
+            CoreApplication.Exit();
+        }
 
+        private void imgYesPop_PointerPressed(object sender, PointerRoutedEventArgs e)
+        {
+            popupGridMusic.Visibility = Visibility.Collapsed;
+        }
+
+        private void BackgroundMusic_Toggled(object sender, RoutedEventArgs e)
+        {
+            if (BackgroundMusic.IsOn)
+            {
+                BackgroundSound.Play("BackgroundMusic.mp3");
+            }
+            else
+                BackgroundSound.Stop();
+        }
+
+        private void BackgroundVolumeSlider_ValueChanged(object sender, RangeBaseValueChangedEventArgs e)
+        {
+            BackgroundSound.SetVolume(BackgroundVolumeSlider.Value);
+
+        }
+
+        private void imgMusic_PointerPressed(object sender, PointerRoutedEventArgs e)
+        {
+            popupGridMusic.Visibility = Visibility.Visible; 
+        }
+
+        private void Page_Loaded(object sender, RoutedEventArgs e)
+        {
+            if (BackgroundSound.isOn)
+            {
+                BackgroundMusic.IsOn = true;
+                BackgroundVolumeSlider.Value = BackgroundSound.GetVolume();
+            }
+            else
+            {
+                BackgroundMusic.IsOn = false;
+                //BackgroundSound.Stop();
+            }
         }
     }
 }
