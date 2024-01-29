@@ -58,6 +58,9 @@
         <Button Style="{StaticResource MyButtonStyle}" x:Name="btnAccount" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3" Grid.RowSpan="2">
             <Image x:Name="imgAccount" Source="/Assets/Buttons/Account.png" PointerEntered="img_PointerEntered" PointerExited="img_PointerExited" PointerPressed="imgAccount_PointerPressed"></Image>
         </Button>
+        <Button Style="{StaticResource MyButtonStyle}" x:Name="btnHelp" Grid.Row="0" Grid.Column="6" Grid.ColumnSpan="3" Grid.RowSpan="2">
+            <Image x:Name="imgHelp" Source="/Assets/Buttons/Help.png" PointerEntered="img_PointerEntered" PointerExited="img_PointerExited" PointerPressed="imgHelp_PointerPressed"></Image>
+        </Button>
         <Grid x:Name="popupGridMusic" Grid.Row="3" Grid.Column="4" Grid.RowSpan="9" Grid.ColumnSpan="6" Opacity="1" BorderThickness="10" CornerRadius="30" Visibility="Collapsed">
             <Grid.Background>
                 <ImageBrush x:Name="BackgroundPop" ImageSource="/Assets/Background/PopBackground.jpg"></ImageBrush>

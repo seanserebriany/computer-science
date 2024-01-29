@@ -11,7 +11,7 @@
     <AssemblyName>Tetris</AssemblyName>
     <DefaultLanguage>en-US</DefaultLanguage>
     <TargetPlatformIdentifier>UAP</TargetPlatformIdentifier>
-    <TargetPlatformVersion Condition=" '$(TargetPlatformVersion)' == '' ">10.0.22621.0</TargetPlatformVersion>
+    <TargetPlatformVersion Condition=" '$(TargetPlatformVersion)' == '' ">10.0.19041.0</TargetPlatformVersion>
     <TargetPlatformMinVersion>10.0.17134.0</TargetPlatformMinVersion>
     <MinimumVisualStudioVersion>14</MinimumVisualStudioVersion>
     <FileAlignment>512</FileAlignment>
@@ -125,6 +125,9 @@
     <Compile Include="GamePage.xaml.cs">
       <DependentUpon>GamePage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="HelpPage.xaml.cs">
+      <DependentUpon>HelpPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="LeaderboardPage.xaml.cs">
       <DependentUpon>LeaderboardPage.xaml</DependentUpon>
     </Compile>
@@ -198,11 +201,13 @@
     <Content Include="Assets\Background\Win.jpg" />
     <Content Include="Assets\Buttons\Account.png" />
     <Content Include="Assets\Buttons\Exit.png" />
+    <Content Include="Assets\Buttons\Help.png" />
     <Content Include="Assets\Buttons\Home.png" />
     <Content Include="Assets\Buttons\Leaderboard.png" />
     <Content Include="Assets\Buttons\Music.png" />
     <Content Include="Assets\Buttons\Play.png" />
     <Content Include="Assets\Buttons\Yes.png" />
+    <Content Include="Assets\Game\Heart.png" />
     <Content Include="Assets\Levels\Num1.png" />
     <Content Include="Assets\Levels\Num2.png" />
     <Content Include="Assets\Levels\Num3.png" />
@@ -220,6 +225,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="GamePage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="HelpPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

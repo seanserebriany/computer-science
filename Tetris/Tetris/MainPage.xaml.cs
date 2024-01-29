@@ -99,5 +99,10 @@ namespace Tetris
                 //BackgroundSound.Stop();
             }
         }
+
+        private void imgHelp_PointerPressed(object sender, PointerRoutedEventArgs e)
+        {
+            Frame.Navigate(typeof(HelpPage));
+        }
     }
 }

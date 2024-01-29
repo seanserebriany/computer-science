@@ -5,12 +5,14 @@ using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
+using Windows.UI;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Controls.Primitives;
 using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
+using Windows.UI.Xaml.Media.Imaging;
 using Windows.UI.Xaml.Navigation;
 
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=234238
@@ -26,20 +28,98 @@ namespace Tetris
         {
             this.InitializeComponent();
         }
+        private void imgBack_PointerPressed(object sender, PointerRoutedEventArgs e)
+        {
+            Frame.Navigate(typeof(MainPage));
+        }
         private void img_PointerEntered(object sender, PointerRoutedEventArgs e)
         {
+            Image img = (Image)sender;
+            string name = img.Name;
             Window.Current.CoreWindow.PointerCursor = new Windows.UI.Core.CoreCursor(Windows.UI.Core.CoreCursorType.Hand, 1);
-
         }
 
         private void img_PointerExited(object sender, PointerRoutedEventArgs e)
         {
             Window.Current.CoreWindow.PointerCursor = new Windows.UI.Core.CoreCursor(Windows.UI.Core.CoreCursorType.Arrow, 1);
+            Image img = (Image)sender;
         }
-
-        private void imgHome_PointerPressed(object sender, PointerRoutedEventArgs e)
+        private void BtnExistYes_PointerPressed(object sender, PointerRoutedEventArgs e)
         {
             Frame.Navigate(typeof(MainPage));
+        }
+
+        private void BtnNewYes_PointerPressed(object sender, PointerRoutedEventArgs e)
+        {
+            Frame.Navigate(typeof(MainPage));
+        }
+
+        private void LogIn_PointerPressed(object sender, PointerRoutedEventArgs e)
+        {
+            newUserGrid.Visibility = Visibility.Collapsed;
+            existedUserGrid.Visibility = Visibility.Visible;
+            BtnSignUp.Visibility = Visibility.Visible;
+            BtnLogIn.Visibility = Visibility.Collapsed;
+            newName.Text = "";
+            newPass.Password = "";
+            newSamePass.Password = "";
+        }
+
+        private void SignUp_PointerPressed(object sender, PointerRoutedEventArgs e)
+        {
+            newUserGrid.Visibility = Visibility.Visible;
+            existedUserGrid.Visibility = Visibility.Collapsed;
+            ForgotPasswordGrid.Visibility = Visibility.Collapsed;
+            BtnLogIn.Visibility = Visibility.Visible;
+            BtnSignUp.Visibility = Visibility.Collapsed;
+            LoginPassword.Password = "";
+            LoginUser.Text = "";
+        }
+
+        private void text_PointerExited(object sender, PointerRoutedEventArgs e)
+        {
+            Window.Current.CoreWindow.PointerCursor = new Windows.UI.Core.CoreCursor(Windows.UI.Core.CoreCursorType.Arrow, 1);
+            TextBlock img = (TextBlock)sender;
+            img.Foreground = new SolidColorBrush(Colors.White);
+        }
+
+        private void text_PointerEntered(object sender, PointerRoutedEventArgs e)
+        {
+            Window.Current.CoreWindow.PointerCursor = new Windows.UI.Core.CoreCursor(Windows.UI.Core.CoreCursorType.Hand, 1);
+            TextBlock img = (TextBlock)sender;
+            img.Foreground = new SolidColorBrush(Colors.LightGray);
+
+        }
+
+        private void txt_ForgotPassword_PointerEntered(object sender, PointerRoutedEventArgs e)
+        {
+            txt_ForgotPassword.Foreground = new SolidColorBrush(Colors.LightGray);
+            Window.Current.CoreWindow.PointerCursor = new Windows.UI.Core.CoreCursor(Windows.UI.Core.CoreCursorType.Hand, 1);
+        }
+
+        private void txt_ForgotPassword_PointerExited(object sender, PointerRoutedEventArgs e)
+        {
+            txt_ForgotPassword.Foreground = new SolidColorBrush(Colors.White);
+            Window.Current.CoreWindow.PointerCursor = new Windows.UI.Core.CoreCursor(Windows.UI.Core.CoreCursorType.Arrow, 1);
+        }
+        private void txt_ForgotPassword_PointerPressed(object sender, PointerRoutedEventArgs e)
+        {
+            ForgotPasswordGrid.Visibility = Visibility.Visible;
+            existedUserGrid.Visibility = Visibility.Collapsed;
+            ForgotPasswordUsername.Text = "";
+            ForgotPasswordNew.Password = "";
+            ForgotPasswordNewSame.Password = "";
+            LoginUser.Text = "";
+            LoginPassword.Password = "";
+        }
+
+        private void imgNewPasswordYes_PointerPressed(object sender, PointerRoutedEventArgs e)
+        {
+            ForgotPasswordGrid.Visibility = Visibility.Collapsed;
+            existedUserGrid.Visibility = Visibility.Visible;
+            ForgotPasswordUsername.Text = "";
+            ForgotPasswordNew.Password = "";
+            ForgotPasswordNewSame.Password = "";
         }
     }
 }
