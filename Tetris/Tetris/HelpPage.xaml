@@ -46,5 +46,9 @@
         <Button Style="{StaticResource MyButtonStyle}" x:Name="BtnHome" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3" Grid.RowSpan="2">
             <Image x:Name="imgHome" Source="/Assets/Buttons/Home.png" PointerEntered="img_PointerEntered" PointerExited="img_PointerExited" PointerPressed="imgHome_PointerPressed"></Image>
         </Button>
+        <TextBox IsReadOnly="True" ScrollViewer.IsHorizontalRailEnabled="True" Text="Arkanoid is a block breaker video game. Its plot involves the starship Arkanoid being attacked by a mysterious entity from space named DOH. A small paddle-shaped craft, the Vaus, is ejected from the Arkanoid.
+
+The player controls the Vaus, moving it from side to side in order to hit a ball into an pattern of bricks and destroy them. After all bricks have been destroyed, the player advances to the next level and faces a new pattern. Most bricks can be destroyed in one hit; some require multiple hits, and others cannot be destroyed at all. Some bricks release capsules that bestow various power-ups when caught, such as increasing the length of the Vaus, temporarily slowing the ball down, or granting an extra life. Floating enemies/obstacles emerge onto the screen at times and can be hit for bonus points." FontSize="60" Grid.Row="3" Grid.Column="3" Grid.ColumnSpan="8" Grid.RowSpan="8" TextWrapping="Wrap">
+        </TextBox>
     </Grid>
 </Page>

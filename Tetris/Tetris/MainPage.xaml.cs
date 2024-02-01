@@ -57,7 +57,7 @@ namespace Tetris
 
         private void imgExit_PointerPressed(object sender, PointerRoutedEventArgs e)
         {
-            CoreApplication.Exit();
+            popupGrid.Visibility = Visibility.Visible;
         }
 
         private void imgYesPop_PointerPressed(object sender, PointerRoutedEventArgs e)
@@ -103,6 +103,17 @@ namespace Tetris
         private void imgHelp_PointerPressed(object sender, PointerRoutedEventArgs e)
         {
             Frame.Navigate(typeof(HelpPage));
+        }
+
+        private void imgPopExit_PointerPressed(object sender, PointerRoutedEventArgs e)
+        {
+            popupGrid.Visibility = Visibility.Collapsed;
+        }
+
+        private void imgYes_PointerPressed(object sender, PointerRoutedEventArgs e)
+        {
+            CoreApplication.Exit();
+
         }
     }
 }

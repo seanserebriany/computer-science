@@ -120,8 +120,14 @@
     <RestoreProjectStyle>PackageReference</RestoreProjectStyle>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="Class1.cs" />
+    <Compile Include="GameObjects\GameMovingObject.cs" />
+    <Compile Include="GameObjects\GameObject.cs" />
+    <Compile Include="GameObjects\MoveObject.cs" />
     <Compile Include="GameServices\BackgroundSound.cs" />
+    <Compile Include="GameServices\Constans.cs" />
+    <Compile Include="GameServices\GameEvents.cs" />
+    <Compile Include="GameServices\Manager.cs" />
+    <Compile Include="GameServices\Scene.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Properties\GameEngine.rd.xml" />
   </ItemGroup>

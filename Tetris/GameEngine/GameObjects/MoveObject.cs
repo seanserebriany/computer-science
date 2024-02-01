@@ -4,9 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace GameEngine
+namespace GameEngine.GameObjects
 {
-    public class Class1
+    public abstract class MoveObject
     {
+
+
     }
 }
