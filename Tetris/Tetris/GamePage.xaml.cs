@@ -1,8 +1,10 @@
-﻿using System;
+﻿using GameEngine.GameServices;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
+using Tetris.GameServices;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
 using Windows.UI.Xaml;
@@ -23,6 +25,7 @@ namespace Tetris
     /// </summary>
     public sealed partial class GamePage : Page
     {
+        private GameManager _GameManeger;
         public GamePage()
         {
             this.InitializeComponent();
@@ -56,30 +59,10 @@ namespace Tetris
             Frame.Navigate(typeof(MainPage));
         }
 
-        //private void Page_Loaded(object sender, RoutedEventArgs e)
-        //{
-        //    _GameManeger = new GameManager(scene);
-        //    _GameManeger.Start();
-        //    Manager.GameEvent.OnRemoveHeart += RemoveHeart;
-        //    Manager.GameEvent.OnAddScore += AddScore;
-        //    Manager.GameEvent.GameOver += GameOver;
-
-
-        //}
-
-        //private void GameOver()
-        //{
-        //    Frame.Navigate(typeof(Win));
-        //}
-
-        //private void AddScore(int score)
-        //{
-        //    if (int.TryParse(txt_score.Text, out int currentScore))
-        //    {
-        //        int newScore = 0;
-        //        newScore = currentScore + score;
-        //        txt_score.Text = newScore.ToString();
-        //    }
-        //}
+        private void Page_Loaded(object sender, RoutedEventArgs e)
+        {
+            _GameManeger = new GameManager(scene);
+            _GameManeger.Start();
+        }
     }
 }

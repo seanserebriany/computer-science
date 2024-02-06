@@ -3,10 +3,11 @@
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="using:Tetris"
-    xmlns:GameServices ="using:Tetris.game"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:GameServices ="using:Tetris.GameServices"
     mc:Ignorable="d"
+    Loaded="Page_Loaded"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
     <Grid>
@@ -47,18 +48,18 @@
         <Button Style="{StaticResource MyButtonStyle}" x:Name="BtnHome" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3" Grid.RowSpan="2">
             <Image x:Name="imgHome" Source="/Assets/Buttons/Home.png" PointerEntered="img_PointerEntered" PointerExited="img_PointerExited" PointerPressed="imgHome_PointerPressed"></Image>
         </Button>
-        <!--<Viewbox VerticalAlignment="Center" HorizontalAlignment="Center" Grid.ColumnSpan="5" Grid.RowSpan="2" Grid.Column="5">
+        <Viewbox VerticalAlignment="Center" HorizontalAlignment="Center" Grid.ColumnSpan="5" Grid.RowSpan="2" Grid.Column="5">
             <Border Background="LightSkyBlue" BorderBrush="LightBlue" BorderThickness="4">
                 <TextBlock x:Name="txt_score" Text="0" FontSize="45" Foreground="White" Grid.RowSpan="2" VerticalAlignment="Stretch" FontFamily="Broadway" FontWeight="Bold"></TextBlock>
             </Border>
-        </Viewbox>-->
+        </Viewbox>
         <Button Style="{StaticResource MyButtonStyle}" x:Name="BtnHelp" Grid.Row="0" Grid.Column="4" Grid.ColumnSpan="4" Grid.RowSpan="2">
             <Image x:Name="imgHelp" Source="/Assets/Buttons/Help.png" PointerEntered="img_PointerEntered" PointerExited="img_PointerExited" PointerPressed="imgHelp_PointerPressed"></Image>
         </Button>
         <Button Style="{StaticResource MyButtonStyle}" x:Name="BtnMusic" Grid.Row="0" Grid.Column="2" Grid.ColumnSpan="3" Grid.RowSpan="2">
             <Image x:Name="imgMusic" Source="/Assets/Buttons/Music.png" PointerEntered="img_PointerEntered" PointerExited="img_PointerExited"></Image>
         </Button>
-        <Border x:Name="GameBorder"  Grid.ColumnSpan="11" Grid.RowSpan="12" Grid.Row="2" Grid.Column="2"  BorderBrush="Black" BorderThickness="10">
+        <Border x:Name="GameBorder"  Grid.ColumnSpan="6" Grid.RowSpan="14" Grid.Row="2" Grid.Column="4"  BorderBrush="Black" BorderThickness="10">
             <GameServices:GameScene x:Name="scene" Background="Transparent"></GameServices:GameScene>
         </Border>
     </Grid>

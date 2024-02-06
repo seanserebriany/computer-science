@@ -13,7 +13,7 @@ namespace GameEngine.GameServices
         {
             Loaded, Started, Paused, Ended
         }
-        public static GameState Current { get;}
+        public static GameState Current { get; }
         public const int SpeedUnit = 10;
     }
 }

@@ -8,7 +8,5 @@ namespace GameEngine.GameObjects
 {
     public abstract class MoveObject
     {
-
-
     }
 }

@@ -1,29 +1,25 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Reflection.Metadata;
 using System.Text;
 using System.Threading.Tasks;
+using static GameEngine.GameServices.Constans;
 using Windows.UI.Core;
 using Windows.UI.Xaml;
-using static GameEngine.GameServices.Constans;
 
 namespace GameEngine.GameServices
 {
-    /// <summary>
-    /// an abstract class thats manage the game itself (clock ,stage ,events ect)   
-    /// </summary>
     public abstract class Manager
     {
-        public Scene Scene {  get; private set; }
+        public Scene Scene { get; private set; }
         private static DispatcherTimer _runTimer;//הטיימר יפעיל ללא הפסקה אירוע OnRun
-        
-        public static GameEvents GameEvent { get;} = new GameEvents();
-        public static GameState gameState { get; private set;}
+
+        public static GameEvents GameEvent { get; } = new GameEvents();
+        public static GameState gameState { get; private set; }
         public Manager(Scene scene)
         {
             Scene = scene;
-            if(_runTimer == null)
+            if (_runTimer == null)
             {
                 _runTimer = new DispatcherTimer();
                 _runTimer.Interval = TimeSpan.FromMilliseconds(30);
@@ -38,7 +34,7 @@ namespace GameEngine.GameServices
 
         private void CoreWindow_KeyUp(CoreWindow sender, KeyEventArgs args)
         {
-            if(GameEvent.OnKeyUp != null)
+            if (GameEvent.OnKeyUp != null)
             {
                 GameEvent.OnKeyUp(args.VirtualKey);
 
@@ -56,7 +52,7 @@ namespace GameEngine.GameServices
 
         private void _RunTimer_Tick(object sender, object e)
         {
-            if(GameEvent.OnRun != null)
+            if (GameEvent.OnRun != null)
             {
                 GameEvent.OnRun();
             }
@@ -80,7 +76,7 @@ namespace GameEngine.GameServices
         }
         public static bool GameOver()
         {
-            if(gameState != GameState.Ended)
+            if (gameState != GameState.Ended)
             {
                 _runTimer.Stop();
                 gameState = GameState.Ended;

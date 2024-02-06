@@ -4,7 +4,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Windows.Devices.PointOfService.Provider;
 
 namespace GameEngine.GameObjects
 {
@@ -16,7 +15,6 @@ namespace GameEngine.GameObjects
         protected double _ddY;
         protected double _toX;
         protected double _toY;
-
         protected GameMovingObject(double placeX, double placeY, string fileName, Scene scene) : base(placeX, placeY, fileName, scene)
         {
 
@@ -41,7 +39,7 @@ namespace GameEngine.GameObjects
         {
             _dX = _dY = _ddX = 0;
         }
-        public void MoveTo(double toX, double toY, double Speed=0, double ac=0)
+        public void MoveTo(double toX, double toY, double Speed = 0, double ac = 0)
         {
 
             _toX = toX;
@@ -58,6 +56,5 @@ namespace GameEngine.GameObjects
             _ddX = ac * cos;
             _ddY = ac * sin;
         }
-
     }
 }

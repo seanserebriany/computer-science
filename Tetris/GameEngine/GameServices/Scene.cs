@@ -1,10 +1,10 @@
-﻿using System;
+﻿using GameEngine.GameObjects;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Windows.UI.Xaml.Controls;
-using GameEngine.GameObjects;
 using Windows.UI.Xaml;
 
 namespace GameEngine.GameServices
@@ -15,18 +15,18 @@ namespace GameEngine.GameServices
 
         protected List<GameObject> _GameObjectSnapShot => _GameObjects.ToList();
 
-        public double Ground {get; set; }
+        public double Ground { get; set; }
 
-        public Scene() 
+        public Scene()
         {
             Manager.GameEvent.OnRun += Run; //בזכות השורה הפעולה RUN פועלת ללא הפסקה
             Manager.GameEvent.OnRun += CheckCollision;
         }
         private void Run()
         {
-            foreach(var obj in _GameObjects)
+            foreach (var obj in _GameObjectSnapShot)
             {
-                if(obj is GameMovingObject)
+                if (obj is GameMovingObject)
                 {
                     obj.Render();
                 }
@@ -35,7 +35,7 @@ namespace GameEngine.GameServices
 
         public void Init()
         {
-            foreach (var obj in _GameObjects)
+            foreach (var obj in _GameObjectSnapShot)
             {
                 obj.Init();
             }
@@ -55,7 +55,7 @@ namespace GameEngine.GameServices
                 Children.Remove(obj.image);
             }
         }
-        public void AddObject(GameObject obj) 
+        public void AddObject(GameObject obj)
         {
             _GameObjects.Add(obj);
             Children.Add(obj.image);

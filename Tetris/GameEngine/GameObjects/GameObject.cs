@@ -1,5 +1,9 @@
 ﻿using GameEngine.GameServices;
 using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 using Windows.Foundation;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Media.Imaging;
@@ -14,7 +18,7 @@ namespace GameEngine.GameObjects
         protected double _PlaceX;
         protected double _PlaceY;
 
-        public Image image {  get; set; }
+        public Image image { get; set; }
         protected string _FileName;
 
         public double Width => image.ActualWidth;
