@@ -15,10 +15,10 @@ namespace Tetris.GameServices
         {
             Init();
         }
-        private void Init()
+        public void Init()
         {
             Random rnd = new Random();
-            var block = new Block(Scene, "Blocks/Tblock.jpg", speed:2, width: 70, Scene.ActualWidth / 2, 0);
+            var block = new Block(Scene, "Blocks/Block.png", speed:2, width: 50, Scene.ActualWidth / 2, 0);
             Scene.AddObject(block);
 
         }

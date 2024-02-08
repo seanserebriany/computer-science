@@ -202,7 +202,7 @@
     <Content Include="Assets\Background\Lose.jpg" />
     <Content Include="Assets\Background\Background.jpg" />
     <Content Include="Assets\Background\Win.jpg" />
-    <Content Include="Assets\Blocks\Tblock.jpg" />
+    <Content Include="Assets\Blocks\Block.png" />
     <Content Include="Assets\Buttons\Account.png" />
     <Content Include="Assets\Buttons\Exit.png" />
     <Content Include="Assets\Buttons\Help.png" />
