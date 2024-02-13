@@ -17,6 +17,8 @@ namespace Tetris.GameObjects
         public double dY => _dY;
         public double _speed;
         private bool IsFalling = true;
+        private bool right = false;
+        private bool left = false;
         private int _countlifes;
         private Scene _scene;
         /// <summary>
@@ -32,7 +34,7 @@ namespace Tetris.GameObjects
             base(placeX, placeY, fileName, scene)
         {
             _speed = speed;
-            image.Height = 45; // כך אנו קובעים את עובי הכדור
+            image.Height = width; // כך אנו קובעים את עובי הכדו
             image.Width = width; // קובעים את הרוחב הכדור
             image.Stretch = Windows.UI.Xaml.Media.Stretch.Fill; // כך אנו מותחים את מראה המחבט
             _scene = scene;
@@ -45,14 +47,20 @@ namespace Tetris.GameObjects
         /// <param name="key">המקש שנעזוב</param>
         public void KeyDown(VirtualKey key)
         {
-                switch (key)
-                {
-                    case VirtualKey.Right:
-                    _X += 16;
-                        break;
-                    case VirtualKey.Left:
-                    _X -= 16;
-                        break;
+            switch (key)
+            {
+                case VirtualKey.Right:
+                    if(left == false)
+                    {
+                        _X += 51;
+                    }
+                    break;
+                case VirtualKey.Left:
+                    if (right == false)
+                    {
+                        _X -= 51;
+                    }
+                    break;
             }
 
         }
@@ -62,23 +70,39 @@ namespace Tetris.GameObjects
             _dY = 6;
             _dX = 0;
         }
-
         public override void Collide(GameObject gameObject) // CheckCollistion פעולה מתבצעת רק כאשר יש נגיעה וודאית שבודקים את זה בפונקציה
         {
-          
-            if (gameObject is Block block)// בדיקת פגיעה וגם מוצאת את גיילי זה
+            if (gameObject is Block block)
             {
-                Stop();
+                var intersectRect = RectHelper.Intersect(rect, block.rect); // בדיקת התנגשות בין כדור לגיילי
+                if (intersectRect.Height < intersectRect.Width)// בדיקת פגיעה וגם מוצאת את גיילי זה
+                {
+                    Stop();
+                }
+                else
+                {
+                    if(rect.Left<block.rect.Right)
+                    {
+                        right = true;
+                    }
+                    else if(rect.Right > block.rect.Right)
+                    {
+                        left = true;
+                    }
+                }
             }
+
+
         }
 
         public override void Stop()
         {
-            base.Stop();
             Manager.GameEvent.OnKeyDown -= KeyDown;
+
+            base.Stop();
             if (IsFalling)
             {
-                var block = new Block(_scene, "Blocks/Block.png", speed: 2, width: 50, _scene.ActualWidth / 2, 0);
+                var block = new Block(_scene, "Blocks/Block.png", speed: 2, width: 50, 153, 0);
                 _scene.AddObject(block);
             }
             IsFalling = false;
@@ -89,29 +113,35 @@ namespace Tetris.GameObjects
             // בדיקת קצוות הזירה
             //if (IsRelased)
             //{
-                if (_X <= 0) // נגיעה בקיר שמאלי
+            if (_X <= 0) // נגיעה בקיר שמאלי
+            {
+                _dX = -_dX;
+                _X = 0;
+                if (_Y >= _scene?.ActualHeight - Height)
                 {
-                    _dX = -_dX;
-                    _X = 0;
-
-
+                    Stop();
                 }
+
+            }
             else if (_Y + _dY <= 0) // נוגעה בתקרה
             {
-                
+
             }
             else if (_X >= _scene?.ActualWidth - Width) // כאשר תיגע עם הצד הימני שלך בקיר הימני של הזירה
+            {
+                _dX = -_dX;
+                _X = _scene.ActualWidth - Width; // עוצר לך בפינה
+                if (_Y >= _scene?.ActualHeight - Height)
                 {
-                    _dX = -_dX;
-                    _X = _scene.ActualWidth - Width; // עוצר לך בפינה
+                    Stop();
                 }
+            }
             else if (_Y >= _scene?.ActualHeight - Height) // בדיקת רצפה
-                {
+            {
                 Manager.GameEvent.OnKeyDown -= KeyDown;
-
                 Stop();
-                }
-           // }
+            }
+            // }
             base.Render();
         }
 

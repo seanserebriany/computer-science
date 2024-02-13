@@ -18,7 +18,7 @@ namespace Tetris.GameServices
         public void Init()
         {
             Random rnd = new Random();
-            var block = new Block(Scene, "Blocks/Block.png", speed:2, width: 50, Scene.ActualWidth / 2, 0);
+            var block = new Block(Scene, "Blocks/Block.png", 3, 50, 153, 0);
             Scene.AddObject(block);
 
         }
