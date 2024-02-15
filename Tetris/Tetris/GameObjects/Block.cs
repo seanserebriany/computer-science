@@ -6,6 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Windows.Foundation;
+using Windows.Storage.FileProperties;
 using Windows.System;
 using Windows.UI.Xaml;
 
@@ -53,21 +54,29 @@ namespace Tetris.GameObjects
                     if(left == false)
                     {
                         _X += 51;
+                        break;
                     }
-                    break;
+                    else
+                    {
+                        break;
+                    }
                 case VirtualKey.Left:
                     if (right == false)
                     {
                         _X -= 51;
+                        break;
+                    }                      
+                    else
+                    {
+                        break;
                     }
-                    break;
             }
 
         }
 
         private void Fall()
         {
-            _dY = 6;
+            _dY = 8;
             _dX = 0;
         }
         public override void Collide(GameObject gameObject) // CheckCollistion פעולה מתבצעת רק כאשר יש נגיעה וודאית שבודקים את זה בפונקציה
@@ -85,10 +94,11 @@ namespace Tetris.GameObjects
                     {
                         right = true;
                     }
-                    else if(rect.Right > block.rect.Right)
+                    else if(rect.Right > block.rect.Left)
                     {
                         left = true;
                     }
+
                 }
             }
 
@@ -98,7 +108,6 @@ namespace Tetris.GameObjects
         public override void Stop()
         {
             Manager.GameEvent.OnKeyDown -= KeyDown;
-
             base.Stop();
             if (IsFalling)
             {
@@ -127,10 +136,10 @@ namespace Tetris.GameObjects
             {
 
             }
-            else if (_X >= _scene?.ActualWidth - Width) // כאשר תיגע עם הצד הימני שלך בקיר הימני של הזירה
+            else if (_X >= 408) // כאשר תיגע עם הצד הימני שלך בקיר הימני של הזירה
             {
                 _dX = -_dX;
-                _X = _scene.ActualWidth - Width; // עוצר לך בפינה
+                _X = 408; // עוצר לך בפינה
                 if (_Y >= _scene?.ActualHeight - Height)
                 {
                     Stop();
@@ -141,7 +150,6 @@ namespace Tetris.GameObjects
                 Manager.GameEvent.OnKeyDown -= KeyDown;
                 Stop();
             }
-            // }
             base.Render();
         }
 
