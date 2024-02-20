@@ -59,7 +59,7 @@
         <Button Style="{StaticResource MyButtonStyle}" x:Name="BtnMusic" Grid.Row="0" Grid.Column="2" Grid.ColumnSpan="3" Grid.RowSpan="2">
             <Image x:Name="imgMusic" Source="/Assets/Buttons/Music.png" PointerEntered="img_PointerEntered" PointerExited="img_PointerExited"></Image>
         </Button>
-        <Border x:Name="GameBorder"  Grid.ColumnSpan="5" Grid.RowSpan="14" Grid.Row="2" Grid.Column="5"  BorderBrush="Black" BorderThickness="10" Background="Black" Width="470">
+        <Border x:Name="GameBorder"  Grid.ColumnSpan="6" Grid.RowSpan="15" Grid.Row="2" Grid.Column="5"  BorderBrush="Black" BorderThickness="10" Background="Black" Width="468">
                 <GameServices:GameScene x:Name="scene" Background="Transparent"></GameServices:GameScene>
             </Border>
     </Grid>

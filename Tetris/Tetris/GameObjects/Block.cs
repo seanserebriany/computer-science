@@ -9,6 +9,7 @@ using Windows.Foundation;
 using Windows.Storage.FileProperties;
 using Windows.System;
 using Windows.UI.Xaml;
+using Windows.UI.Xaml.Documents;
 
 namespace Tetris.GameObjects
 {
@@ -18,10 +19,9 @@ namespace Tetris.GameObjects
         public double dY => _dY;
         public double _speed;
         private bool IsFalling = true;
-        private bool right = false;
-        private bool left = false;
         private int _countlifes;
         private Scene _scene;
+        private Block _block = null;
         /// <summary>
         ///
         /// </summary>
@@ -50,24 +50,25 @@ namespace Tetris.GameObjects
         {
             switch (key)
             {
+
                 case VirtualKey.Right:
-                    if(left == false)
+                    if (rect.Right > _block.rect.Left)//from left                  
+                    {
+                        break;
+                    }                  
+                    else
                     {
                         _X += 51;
                         break;
                     }
-                    else
+                case VirtualKey.Left:
+                    if (rect.Left < _block.rect.Right)//from right
                     {
                         break;
                     }
-                case VirtualKey.Left:
-                    if (right == false)
-                    {
-                        _X -= 51;
-                        break;
-                    }                      
                     else
                     {
+                        _X -= 51;
                         break;
                     }
             }
@@ -76,7 +77,7 @@ namespace Tetris.GameObjects
 
         private void Fall()
         {
-            _dY = 8;
+            _dY = 9;
             _dX = 0;
         }
         public override void Collide(GameObject gameObject) // CheckCollistion פעולה מתבצעת רק כאשר יש נגיעה וודאית שבודקים את זה בפונקציה
@@ -88,21 +89,7 @@ namespace Tetris.GameObjects
                 {
                     Stop();
                 }
-                else
-                {
-                    if(rect.Left<block.rect.Right)
-                    {
-                        right = true;
-                    }
-                    else if(rect.Right > block.rect.Left)
-                    {
-                        left = true;
-                    }
-
-                }
             }
-
-
         }
 
         public override void Stop()
