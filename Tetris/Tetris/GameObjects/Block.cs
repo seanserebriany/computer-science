@@ -54,7 +54,7 @@ namespace Tetris.GameObjects
                 case VirtualKey.Right:
                     if (rect.Right > _block.rect.Left)//from left                  
                     {
-                        break;
+                        break; ;
                     }                  
                     else
                     {
