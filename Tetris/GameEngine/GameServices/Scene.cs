@@ -6,16 +6,19 @@ using System.Text;
 using System.Threading.Tasks;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml;
+using Windows.ApplicationModel.Appointments;
 
 namespace GameEngine.GameServices
 {
     public abstract class Scene : Canvas
     {
-        private List<GameObject> _GameObjects = new List<GameObject>();// list of the game object
+        public List<GameObject> _GameObjects = new List<GameObject>();// list of the game object
 
         protected List<GameObject> _GameObjectSnapShot => _GameObjects.ToList();
 
         public double Ground { get; set; }
+
+        private int sum = 0;
 
         public Scene()
         {
@@ -59,6 +62,14 @@ namespace GameEngine.GameServices
         {
             _GameObjects.Add(obj);
             Children.Add(obj.image);
+        }
+        public void CountObject()
+        {
+            sum += 1;
+        }
+        public int ReturnCountObject()
+        {
+            return sum;
         }
         public void CheckCollision() // OnRun הפעולה פעולת ללא ערב כתגובה לאירוע
         {

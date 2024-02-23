@@ -2,9 +2,11 @@
 using GameEngine.GameServices;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Transactions;
 using Windows.Foundation;
 using Windows.Storage.FileProperties;
 using Windows.System;
@@ -19,6 +21,7 @@ namespace Tetris.GameObjects
         public double dY => _dY;
         public double _speed;
         private bool IsFalling = true;
+        private bool Condition = true;
         private int _countlifes;
         private Scene _scene;
         private Block _block = null;
@@ -48,29 +51,25 @@ namespace Tetris.GameObjects
         /// <param name="key">המקש שנעזוב</param>
         public void KeyDown(VirtualKey key)
         {
+            Check();
             switch (key)
             {
-
-                case VirtualKey.Right:
-                    if (rect.Right > _block.rect.Left)//from left                  
-                    {
-                        break; ;
-                    }                  
-                    else
+                case VirtualKey.Right:                  
+                    if (Condition == true)
                     {
                         _X += 51;
                         break;
                     }
-                case VirtualKey.Left:
-                    if (rect.Left < _block.rect.Right)//from right
-                    {
-                        break;
-                    }
                     else
+                        break;
+                case VirtualKey.Left:
+                    if (Condition == true)
                     {
                         _X -= 51;
                         break;
                     }
+                    else
+                        break;
             }
 
         }
@@ -100,6 +99,7 @@ namespace Tetris.GameObjects
             {
                 var block = new Block(_scene, "Blocks/Block.png", speed: 2, width: 50, 153, 0);
                 _scene.AddObject(block);
+                _scene.CountObject();
             }
             IsFalling = false;
         }
@@ -142,7 +142,18 @@ namespace Tetris.GameObjects
 
 
 
-        //Messenger.Send(Place);
+        public void Check()
+        {
+            for (int i = 0; i < _scene.ReturnCountObject(); i++)
+            {
+                if (_scene._GameObjects[i].rect.Right >= _X - 1 || _scene._GameObjects[i].rect.Left <= _X + 1)
+                {
+                    Condition = false;
+                }
+            }
+        }
+
     }
+
 }
 
