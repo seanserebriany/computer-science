@@ -58,18 +58,26 @@ namespace Tetris.GameObjects
                     if (Condition == true)
                     {
                         _X += 51;
+                        Condition = true;
                         break;
                     }
                     else
+                    {
+                        Condition = true;
                         break;
+                    }                       
                 case VirtualKey.Left:
                     if (Condition == true)
                     {
                         _X -= 51;
+                        Condition = true;
                         break;
                     }
                     else
+                    {
+                        Condition = true;
                         break;
+                    }
             }
 
         }
@@ -146,7 +154,7 @@ namespace Tetris.GameObjects
         {
             for (int i = 0; i < _scene.ReturnCountObject(); i++)
             {
-                if (_scene._GameObjects[i].rect.Right >= _X - 1 || _scene._GameObjects[i].rect.Left <= _X + 1)
+                if (_scene._GameObjects[i].rect.Right >= rect.Left - 1 || _scene._GameObjects[i].rect.Left <= rect.Right + 1)
                 {
                     Condition = false;
                 }
