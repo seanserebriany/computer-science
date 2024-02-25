@@ -157,7 +157,7 @@ namespace Tetris.GameObjects
                     if (Math.Abs(_scene._GameObjects[i].rect.Right - rect.Left) == 1 || Math.Abs(_scene._GameObjects[i].rect.Left - rect.Right) == 1)
                     {
                         {
-                            if(_scene._GameObjects[i].rect.Top == rect.Top)
+                            if(_scene._GameObjects[i].rect.Top - rect.Top <=50)
                             {
                                 Condition = false;
                             }
