@@ -25,6 +25,8 @@ namespace Tetris.GameObjects
         private int _countlifes;
         private Scene _scene;
         private Block _block = null;
+        private bool IsOnGround = false;
+        private static int countOnGroundBlocks = 0;
         /// <summary>
         ///
         /// </summary>
@@ -51,10 +53,10 @@ namespace Tetris.GameObjects
         /// <param name="key">המקש שנעזוב</param>
         public void KeyDown(VirtualKey key)
         {
-            Check();
+            CheckSides();
             switch (key)
             {
-                case VirtualKey.Right:                  
+                case VirtualKey.Right:
                     if (Condition == true)
                     {
                         _X += 51;
@@ -64,7 +66,7 @@ namespace Tetris.GameObjects
                     {
                         Condition = true;
                         break;
-                    }                       
+                    }
                 case VirtualKey.Left:
                     if (Condition == true)
                     {
@@ -105,7 +107,6 @@ namespace Tetris.GameObjects
             {
                 var block = new Block(_scene, "Blocks/Block.png", speed: 2, width: 50, 153, 0);
                 _scene.AddObject(block);
-                _scene.CountObject();
             }
             IsFalling = false;
         }
@@ -122,6 +123,15 @@ namespace Tetris.GameObjects
                 if (_Y >= _scene?.ActualHeight - Height)
                 {
                     Stop();
+                    if (IsOnGround == false)
+                    {
+                        countOnGroundBlocks++;
+                        IsOnGround = true;
+                    }
+                    if (countOnGroundBlocks == 9)
+                    {
+                        RemoveLine();
+                    }
                 }
 
             }
@@ -136,38 +146,81 @@ namespace Tetris.GameObjects
                 if (_Y >= _scene?.ActualHeight - Height)
                 {
                     Stop();
+                    if (IsOnGround == false)
+                    {
+                        countOnGroundBlocks++;
+                        IsOnGround = true;
+                    }
+                    if (countOnGroundBlocks == 9)
+                    {
+                        RemoveLine();
+                    }
+
                 }
             }
             else if (_Y >= _scene?.ActualHeight - Height) // בדיקת רצפה
             {
                 Manager.GameEvent.OnKeyDown -= KeyDown;
                 Stop();
+                if(IsOnGround==false)
+                {
+                    countOnGroundBlocks++;
+                    IsOnGround = true;
+                }
+                if (countOnGroundBlocks == 9)
+                {
+                    RemoveLine();
+                }
             }
             base.Render();
         }
 
 
 
-        public void Check()
+        public void CheckSides()
         {
-            for (int i = 0; i < _scene.ReturnCountObject(); i++)
+            foreach (GameObject obj in _scene._GameObjectSnapShot)
             {
-                if (this != _scene._GameObjects[i])
+                if (obj != null)
                 {
-                    if (Math.Abs(_scene._GameObjects[i].rect.Right - rect.Left) == 1 || Math.Abs(_scene._GameObjects[i].rect.Left - rect.Right) == 1)
+                    if (obj is Block block)
                     {
+                        if (this != block)
                         {
-                            if(_scene._GameObjects[i].rect.Top - rect.Top <=50)
+                            if (Math.Abs(block.rect.Right - rect.Left) == 1 || Math.Abs(block.rect.Left - rect.Right) == 1)
                             {
-                                Condition = false;
+                                {
+                                    if (block.rect.Top - rect.Top <= 50)
+                                    {
+                                        Condition = false;
+                                    }
+                                }
                             }
                         }
                     }
                 }
             }
         }
+        public void RemoveLine()
+        {
+
+            foreach (GameObject obj in _scene._GameObjectSnapShot)
+            {
+                countOnGroundBlocks = 0;
+                if (obj != null)
+                {
+                    if (obj is Block block)
+                    {
+                        if (block.rect.Top >= _scene?.ActualHeight - Height)
+                        {
+                            _scene.RemoveObject(block);
+                        }
+                    }
+                }
+            }
+
+        }
 
     }
-
 }
 

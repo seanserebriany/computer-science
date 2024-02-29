@@ -14,7 +14,7 @@ namespace GameEngine.GameServices
     {
         public List<GameObject> _GameObjects = new List<GameObject>();// list of the game object
 
-        protected List<GameObject> _GameObjectSnapShot => _GameObjects.ToList();
+        public List<GameObject> _GameObjectSnapShot => _GameObjects.ToList();
 
         public double Ground { get; set; }
 
@@ -63,14 +63,14 @@ namespace GameEngine.GameServices
             _GameObjects.Add(obj);
             Children.Add(obj.image);
         }
-        public void CountObject()
-        {
-            sum += 1;
-        }
-        public int ReturnCountObject()
-        {
-            return sum;
-        }
+        //public void CountObject()
+        //{
+        //    sum += 1;
+        //}
+        //public int ReturnCountObject()
+        //{
+        //    return sum;
+        //}
         public void CheckCollision() // OnRun הפעולה פעולת ללא ערב כתגובה לאירוע
         {
             foreach (var gameObject in _GameObjectSnapShot)  // עוברים על כל רשימת הפרוייקט

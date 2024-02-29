@@ -20,7 +20,6 @@ namespace Tetris.GameServices
             Random rnd = new Random();
             var block = new Block(Scene, "Blocks/Block.png", 3, 50, 153, 0);
             Scene.AddObject(block);
-            Scene.CountObject();
 
         }
     }
