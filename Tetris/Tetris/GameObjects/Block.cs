@@ -128,7 +128,7 @@ namespace Tetris.GameObjects
                         countOnGroundBlocks++;
                         IsOnGround = true;
                     }
-                    if (countOnGroundBlocks == 9)
+                    if (countOnGroundBlocks == 3)
                     {
                         RemoveLine();
                     }
@@ -151,14 +151,14 @@ namespace Tetris.GameObjects
                         countOnGroundBlocks++;
                         IsOnGround = true;
                     }
-                    if (countOnGroundBlocks == 9)
+                    if (countOnGroundBlocks == 3)
                     {
                         RemoveLine();
                     }
 
                 }
             }
-            else if (_Y >= _scene?.ActualHeight - Height) // בדיקת רצפה
+            else if (_Y >= _scene?.ActualHeight - 45) // בדיקת רצפה
             {
                 Manager.GameEvent.OnKeyDown -= KeyDown;
                 Stop();
@@ -167,7 +167,7 @@ namespace Tetris.GameObjects
                     countOnGroundBlocks++;
                     IsOnGround = true;
                 }
-                if (countOnGroundBlocks == 9)
+                if (countOnGroundBlocks == 3)
                 {
                     RemoveLine();
                 }
@@ -215,9 +215,15 @@ namespace Tetris.GameObjects
                         {
                             _scene.RemoveObject(block);
                         }
+                        else
+                        {
+                            block._Y += 50;
+                        }
                     }
+
                 }
             }
+            Manager.GameEvent.AddScore();
 
         }
 

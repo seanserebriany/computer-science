@@ -63,6 +63,17 @@ namespace Tetris
         {
             _GameManeger = new GameManager(scene);
             _GameManeger.Start();
+            Manager.GameEvent.AddScore += AddScore;
+        }
+
+        private void AddScore()
+        {
+            if (int.TryParse(txt_score.Text, out int currentScore))
+            {
+                int newScore = 0;
+                newScore = currentScore + 5;
+                txt_score.Text = newScore.ToString();
+            }
         }
     }
 }
