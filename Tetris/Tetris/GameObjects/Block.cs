@@ -21,7 +21,8 @@ namespace Tetris.GameObjects
         public double dY => _dY;
         public double _speed;
         private bool IsFalling = true;
-        private bool Condition = true;
+        private bool fromright = true;
+        private bool fromleft = true;
         private int _countlifes;
         private Scene _scene;
         private Block _block = null;
@@ -57,25 +58,25 @@ namespace Tetris.GameObjects
             switch (key)
             {
                 case VirtualKey.Right:
-                    if (Condition == true)
+                    if (fromleft == true)
                     {
                         _X += 51;
                         break;
                     }
                     else
                     {
-                        Condition = true;
+                        fromleft = true;
                         break;
                     }
                 case VirtualKey.Left:
-                    if (Condition == true)
+                    if (fromright == true)
                     {
                         _X -= 51;
                         break;
                     }
                     else
                     {
-                        Condition = true;
+                        fromright = true;
                         break;
                     }
             }
@@ -158,7 +159,7 @@ namespace Tetris.GameObjects
 
                 }
             }
-            else if (_Y >= _scene?.ActualHeight - 45) // בדיקת רצפה
+            else if (_Y >= _scene?.ActualHeight - 50) // בדיקת רצפה
             {
                 Manager.GameEvent.OnKeyDown -= KeyDown;
                 Stop();
@@ -187,15 +188,23 @@ namespace Tetris.GameObjects
                     {
                         if (this != block)
                         {
-                            if (Math.Abs(block.rect.Right - rect.Left) == 1 || Math.Abs(block.rect.Left - rect.Right) == 1)
+                            if (Math.Abs(block.rect.Right - this.rect.Left) == 1)
                             {
                                 {
-                                    if (block.rect.Top - rect.Top <= 50)
+                                    if (Math.Abs(block.rect.Top - this.rect.Top) <= 50)
                                     {
-                                        Condition = false;
+                                        fromright = false;
                                     }
                                 }
                             }
+                            else if(Math.Abs(block.rect.Left - this.rect.Right) == 1)
+                            {
+                                if (Math.Abs(block.rect.Top - this.rect.Top) <= 50)
+                                {
+                                    fromleft = false;
+                                }
+                            }
+
                         }
                     }
                 }
@@ -215,9 +224,9 @@ namespace Tetris.GameObjects
                         {
                             _scene.RemoveObject(block);
                         }
-                        else
+                        else if(block._Y> 100)
                         {
-                            block._Y += 50;
+                            block._Y += Width;
                         }
                     }
 
