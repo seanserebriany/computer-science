@@ -23,6 +23,8 @@ namespace Tetris.GameObjects
         private bool IsFalling = true;
         private bool fromright = true;
         private bool fromleft = true;
+        private bool ceeling = true;
+
         private int _countlifes;
         private Scene _scene;
         private Block _block = null;
@@ -66,6 +68,7 @@ namespace Tetris.GameObjects
                     else
                     {
                         fromleft = true;
+                        fromright = true;
                         break;
                     }
                 case VirtualKey.Left:
@@ -77,6 +80,7 @@ namespace Tetris.GameObjects
                     else
                     {
                         fromright = true;
+                        fromleft = true;
                         break;
                     }
             }
@@ -104,9 +108,10 @@ namespace Tetris.GameObjects
         {
             Manager.GameEvent.OnKeyDown -= KeyDown;
             base.Stop();
+            ceeling = false;
             if (IsFalling)
             {
-                var block = new Block(_scene, "Blocks/Block.png", speed: 2, width: 50, 153, 0);
+                var block = new Block(_scene, "Blocks/Block.png", speed: 2, width: 50, 204, 0);
                 _scene.AddObject(block);
             }
             IsFalling = false;
@@ -136,9 +141,11 @@ namespace Tetris.GameObjects
                 }
 
             }
-            else if (_Y + _dY <= 0) // נוגעה בתקרה
+            else if (_Y + _dY <= 50 && ceeling==false) // נוגעה בתקרה
             {
-
+                Manager.GameEvent.OnRun = null;
+                Manager.GameEvent.GameOver();
+               // Manager.GameOver();
             }
             else if (_X >= 408) // כאשר תיגע עם הצד הימני שלך בקיר הימני של הזירה
             {
@@ -226,7 +233,7 @@ namespace Tetris.GameObjects
                         }
                         else if(block._Y> 100)
                         {
-                            block._Y += Width;
+                            block._Y += 45;
                         }
                     }
 

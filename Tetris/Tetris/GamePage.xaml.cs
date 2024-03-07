@@ -64,6 +64,12 @@ namespace Tetris
             _GameManeger = new GameManager(scene);
             _GameManeger.Start();
             Manager.GameEvent.AddScore += AddScore;
+            Manager.GameEvent.GameOver += GameOver;
+        }
+
+        private void GameOver()
+        {
+            Frame.Navigate(typeof(MainPage));
         }
 
         private void AddScore()
