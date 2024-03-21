@@ -134,7 +134,7 @@ namespace Tetris.GameObjects
                         countOnGroundBlocks++;
                         IsOnGround = true;
                     }
-                    if (countOnGroundBlocks == 3)
+                    if (countOnGroundBlocks == 9)
                     {
                         RemoveLine();
                     }
@@ -159,7 +159,7 @@ namespace Tetris.GameObjects
                         countOnGroundBlocks++;
                         IsOnGround = true;
                     }
-                    if (countOnGroundBlocks == 3)
+                    if (countOnGroundBlocks == 9)
                     {
                         RemoveLine();
                     }
@@ -175,7 +175,7 @@ namespace Tetris.GameObjects
                     countOnGroundBlocks++;
                     IsOnGround = true;
                 }
-                if (countOnGroundBlocks == 3)
+                if (countOnGroundBlocks == 9)
                 {
                     RemoveLine();
                 }
