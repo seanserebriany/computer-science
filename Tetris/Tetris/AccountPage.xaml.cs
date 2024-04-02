@@ -3,9 +3,11 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
+using Tetris.GameServices;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
 using Windows.UI;
+using Windows.UI.Popups;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Controls.Primitives;
@@ -49,9 +51,36 @@ namespace Tetris
             Frame.Navigate(typeof(MainPage));
         }
 
-        private void BtnNewYes_PointerPressed(object sender, PointerRoutedEventArgs e)
+        private async void BtnNewYes_PointerPressed(object sender, PointerRoutedEventArgs e)
         {
-            Frame.Navigate(typeof(MainPage));
+            if (newName.Text == "" || newPass.Password == "" || newSamePass.Password == "")
+            {
+                await new MessageDialog("data is missing").ShowAsync();
+            }
+            else if (newPass != newSamePass)
+            {
+                await new MessageDialog("passwords not matching").ShowAsync();
+            }
+            else if()//check valid password
+            {
+                await new MessageDialog("passwords is not strong enough").ShowAsync();
+            }
+            else if ()//check valid mail
+            {
+                await new MessageDialog("mail is not valid").ShowAsync();
+            }
+            else
+            {
+                int? userId = Server.ValidateUser(newName.Text.Trim(), newPass.Password.Trim());
+                if(userId == null)
+                {
+                    //user is not in data base
+                    GameManager.Player = Server.AddNewUser(newName.Text.Trim(), newPass.Password.Trim());//add email
+                    Frame.Navigate(typeof(MainPage));
+                }
+                else
+                    await new MessageDialog("this accaount already exist, log in").ShowAsync();
+            }
         }
 
         private void LogIn_PointerPressed(object sender, PointerRoutedEventArgs e)
