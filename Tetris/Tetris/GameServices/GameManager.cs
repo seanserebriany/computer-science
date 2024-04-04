@@ -1,4 +1,5 @@
-﻿using GameEngine.GameServices;
+﻿using DataBase.Models;
+using GameEngine.GameServices;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,7 +12,7 @@ namespace Tetris.GameServices
 {
     public class GameManager : Manager
     {
-        public static GameUser Player = new GameUser();
+        public static GameUser Player = new GameUser(); 
         public GameManager(Scene scene) : base(scene)
         {
             Init();

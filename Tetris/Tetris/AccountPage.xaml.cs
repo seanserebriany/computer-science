@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DataBase;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -61,11 +62,11 @@ namespace Tetris
             {
                 await new MessageDialog("passwords not matching").ShowAsync();
             }
-            else if()//check valid password
+            else if(CheckPassword(newPass.Password))//check valid password
             {
                 await new MessageDialog("passwords is not strong enough").ShowAsync();
             }
-            else if ()//check valid mail
+            else if (CheckMail(newPass.Password))//check valid mail need to add
             {
                 await new MessageDialog("mail is not valid").ShowAsync();
             }
@@ -74,7 +75,7 @@ namespace Tetris
                 int? userId = Server.ValidateUser(newName.Text.Trim(), newPass.Password.Trim());
                 if(userId == null)
                 {
-                    //user is not in data base
+                    //user is not in data base needs to be added
                     GameManager.Player = Server.AddNewUser(newName.Text.Trim(), newPass.Password.Trim());//add email
                     Frame.Navigate(typeof(MainPage));
                 }
@@ -149,6 +150,14 @@ namespace Tetris
             ForgotPasswordUsername.Text = "";
             ForgotPasswordNew.Password = "";
             ForgotPasswordNewSame.Password = "";
+        }
+        private bool CheckMail(string mail)
+        {
+            return true;
+        }
+        private bool CheckPassword(string password)
+        {
+            return true;
         }
     }
 }
