@@ -47,8 +47,28 @@ namespace Tetris
             Window.Current.CoreWindow.PointerCursor = new Windows.UI.Core.CoreCursor(Windows.UI.Core.CoreCursorType.Arrow, 1);
             Image img = (Image)sender;
         }
-        private void BtnExistYes_PointerPressed(object sender, PointerRoutedEventArgs e)
+        private async void BtnExistYes_PointerPressed(object sender, PointerRoutedEventArgs e)
         {
+            if (LoginUser.Text == "" || LoginPassword.Password == "")
+            {
+                await new MessageDialog("data is missing").ShowAsync();
+            }
+            else if (Server.ValidateUser(LoginUser.Text, LoginPassword.Password) == null)
+            {
+                await new MessageDialog("you need to sign up first / user name or password incorrect").ShowAsync();
+            }
+            else
+            {
+                int? userId = Server.ValidateUser(newName.Text.Trim(), newPass.Password.Trim());
+                if (userId == null)
+                {
+                    //user is not in data base needs to be added
+                    GameManager.Player = Server.AddNewUser(newName.Text.Trim(), newPass.Password.Trim(), Mail.Text.Trim());//add email instead of pass
+                    Frame.Navigate(typeof(MainPage));
+                }
+                else
+                    await new MessageDialog("this accaount already exist, log in").ShowAsync();
+            }
             Frame.Navigate(typeof(MainPage));
         }
 
@@ -58,7 +78,7 @@ namespace Tetris
             {
                 await new MessageDialog("data is missing").ShowAsync();
             }
-            else if (newPass != newSamePass)
+            else if (newPass.Password != newSamePass.Password)
             {
                 await new MessageDialog("passwords not matching").ShowAsync();
             }
@@ -66,7 +86,7 @@ namespace Tetris
             {
                 await new MessageDialog("passwords is not strong enough").ShowAsync();
             }
-            else if (CheckMail(newPass.Password))//check valid mail need to add
+            else if (CheckMail(Mail.Text))//check valid mail need to add
             {
                 await new MessageDialog("mail is not valid").ShowAsync();
             }
@@ -76,7 +96,7 @@ namespace Tetris
                 if(userId == null)
                 {
                     //user is not in data base needs to be added
-                    GameManager.Player = Server.AddNewUser(newName.Text.Trim(), newPass.Password.Trim());//add email
+                    GameManager.Player = Server.AddNewUser(newName.Text.Trim(), newPass.Password.Trim(), Mail.Text.Trim());//add email instead of pass
                     Frame.Navigate(typeof(MainPage));
                 }
                 else
@@ -157,7 +177,44 @@ namespace Tetris
         }
         private bool CheckPassword(string password)
         {
+            bool isDigit = false;
+            if (password == null)
+            {
+                return false;
+            }
+            if (password.Length < 8)
+            {
+                return false;
+            }
+            if ((password.ToUpper() == password) || (password.ToLower() == password))
+            {
+                return false;
+            }
+            for (int i = 0; i < password.Length; i++)
+            {
+
+                for (int j = 0; j < 10 && !isDigit; j++)
+                {
+                    if (password[i] == j)
+                    {
+                        isDigit = true;
+                    }
+                }
+                return false;
+            }
             return true;
+        }
+
+        public static bool IsMailIlegal(string mail)
+        {
+            for (int i = 0; i < mail.Length; i++)
+            {
+                if (mail[i] == '@')
+                {
+                    return true;
+                }
+            }
+            return false;
         }
     }
 }

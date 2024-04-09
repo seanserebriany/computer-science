@@ -62,7 +62,12 @@ public static GameUser AddNewUser(string name, string password, string mail)
 
         private static void Execute(string query)
         {
-            throw new NotImplementedException();
+            using (SqliteConnection connection = new SqliteConnection(connectionString))
+            {
+                connection.Open();
+                SqliteCommand command = new SqliteCommand(query, connection);
+                command.ExecuteNonQuery();
+            }
         }
 
         private static GameUser GetUser(int value)

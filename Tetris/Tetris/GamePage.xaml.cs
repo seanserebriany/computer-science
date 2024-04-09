@@ -44,11 +44,6 @@ namespace Tetris
             Window.Current.CoreWindow.PointerCursor = new Windows.UI.Core.CoreCursor(Windows.UI.Core.CoreCursorType.Arrow, 1);
         }
 
-        private void imgExit_PointerPressed(object sender, PointerRoutedEventArgs e)
-        {
-            Frame.Navigate(typeof(MainPage));
-        }
-
         private void imgHelp_PointerPressed(object sender, PointerRoutedEventArgs e)
         {
             Frame.Navigate(typeof(HelpPage));
