@@ -96,13 +96,13 @@
                 <TextBox x:Name="newName" PlaceholderText="Username" ScrollViewer.VerticalScrollMode="Disabled" FontWeight="Bold" FontStyle="Italic" TextWrapping="NoWrap" Width="160" Height="40" MaxWidth="160" MaxHeight="35" BorderBrush="White" CornerRadius="20" FontSize="18" VerticalAlignment="Center"></TextBox>
             </Viewbox>
             <Viewbox Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="10" Grid.RowSpan="2" HorizontalAlignment="Stretch" ScrollViewer.IsVerticalRailEnabled="False">
-                <TextBox x:Name="Mail" PlaceholderText="Email" ScrollViewer.VerticalScrollMode="Disabled" FontWeight="Bold" FontStyle="Italic" TextWrapping="NoWrap" Width="160" Height="40" MaxWidth="160" MaxHeight="35" BorderBrush="White" CornerRadius="20" FontSize="18" VerticalAlignment="Center"></TextBox>
+                <TextBox x:Name="SignUpMail" PlaceholderText="Email" ScrollViewer.VerticalScrollMode="Disabled" FontWeight="Bold" FontStyle="Italic" TextWrapping="NoWrap" Width="160" Height="40" MaxWidth="160" MaxHeight="35" BorderBrush="White" CornerRadius="20" FontSize="18" VerticalAlignment="Center"></TextBox>
             </Viewbox>
             <Viewbox Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="10" Grid.RowSpan="2">
-                <PasswordBox PasswordChar="●" x:Name="newPass" ScrollViewer.VerticalScrollMode="Disabled" IsPasswordRevealButtonEnabled="False" PlaceholderText="Password" FontWeight="Bold" FontStyle="Italic" MaxLength="25" Width="160" Height="35" BorderBrush="White" CornerRadius="20" FontSize="18" VerticalAlignment="Center"></PasswordBox>
+                <PasswordBox PasswordChar="●" x:Name="SignUpPass" ScrollViewer.VerticalScrollMode="Disabled" IsPasswordRevealButtonEnabled="False" PlaceholderText="Password" FontWeight="Bold" FontStyle="Italic" MaxLength="25" Width="160" Height="35" BorderBrush="White" CornerRadius="20" FontSize="18" VerticalAlignment="Center"></PasswordBox>
             </Viewbox>
             <Viewbox Grid.Row="7" Grid.Column="0" Grid.ColumnSpan="10" Grid.RowSpan="2" VerticalAlignment="Center">
-                <PasswordBox PasswordChar="●" x:Name="newSamePass" ScrollViewer.VerticalScrollMode="Disabled" IsPasswordRevealButtonEnabled="False"  PlaceholderText="Same Password" FontWeight="Bold" FontStyle="Italic" MaxLength="25" Width="160" Height="35" BorderBrush="White" CornerRadius="20" VerticalAlignment="Center" FontSize="18"></PasswordBox>
+                <PasswordBox PasswordChar="●" x:Name="newSameSignUpPass" ScrollViewer.VerticalScrollMode="Disabled" IsPasswordRevealButtonEnabled="False"  PlaceholderText="Same Password" FontWeight="Bold" FontStyle="Italic" MaxLength="25" Width="160" Height="35" BorderBrush="White" CornerRadius="20" VerticalAlignment="Center" FontSize="18"></PasswordBox>
             </Viewbox>
             <Viewbox Grid.Column="2" Grid.ColumnSpan="5" Grid.RowSpan="2" Margin="0,2,0,37">
                 <TextBlock Text="Sign Up" HorizontalAlignment="Left" FontSize="45" Foreground="White" FontFamily="Italic" FontWeight="Bold"/>
@@ -153,7 +153,7 @@
                 <PasswordBox x:Name="LoginPassword" PasswordChar="●" IsPasswordRevealButtonEnabled="False" ScrollViewer.VerticalScrollMode="Disabled" PlaceholderText="Password" FontWeight="Bold" FontStyle="Italic" MaxLength="25" Width="160" Height="35" BorderBrush="White" CornerRadius="20" FontSize="18" VerticalAlignment="Center"></PasswordBox>
             </Viewbox>
         </Grid>
-        <Grid x:Name="ForgotPasswordGrid" Background="DodgerBlue" Grid.Row="3" Grid.Column="2" Grid.ColumnSpan="4" Grid.RowSpan="8" BorderThickness="8" CornerRadius="40" Visibility="Collapsed">
+        <Grid x:Name="ForgotPasswordGrid" Background="DodgerBlue" Grid.Row="3" Grid.Column="2" Grid.ColumnSpan="4" Grid.RowSpan="8" BorderThickness="8" CornerRadius="40" Visibility="Visible">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition></ColumnDefinition>
                 <ColumnDefinition></ColumnDefinition>
@@ -190,10 +190,10 @@
                 <TextBox x:Name="ForgotPasswordUsername" PlaceholderText="Username" FontWeight="Bold" FontStyle="Italic" TextWrapping="Wrap" ScrollViewer.VerticalScrollMode="Disabled"  Width="160" Height="35" MaxWidth="160" MaxHeight="40" MaxLength="10" BorderBrush="White" CornerRadius="20" FontSize="18" VerticalAlignment="Center"></TextBox>
             </Viewbox>
             <Viewbox Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="10" Grid.RowSpan="2">
-                <PasswordBox x:Name="ForgotPasswordNew" PasswordChar="●" IsPasswordRevealButtonEnabled="False" ScrollViewer.VerticalScrollMode="Disabled" PlaceholderText="New Password" FontWeight="Bold" FontStyle="Italic" MaxLength="25" Width="160" Height="35" BorderBrush="White" CornerRadius="20" FontSize="18" VerticalAlignment="Center"></PasswordBox>
+                <PasswordBox x:Name="ForgotPasswordNewPass" PasswordChar="●" IsPasswordRevealButtonEnabled="False" ScrollViewer.VerticalScrollMode="Disabled" PlaceholderText="New Password" FontWeight="Bold" FontStyle="Italic" MaxLength="25" Width="160" Height="35" BorderBrush="White" CornerRadius="20" FontSize="18" VerticalAlignment="Center"></PasswordBox>
             </Viewbox>
             <Viewbox Grid.Row="6" Grid.Column="0" Grid.ColumnSpan="10" Grid.RowSpan="2">
-                <PasswordBox x:Name="ForgotPasswordNewSame" PasswordChar="●" IsPasswordRevealButtonEnabled="False" ScrollViewer.VerticalScrollMode="Disabled" PlaceholderText="Same Password" FontWeight="Bold" FontStyle="Italic" MaxLength="25" Width="160" Height="35" BorderBrush="White" CornerRadius="20" FontSize="18" VerticalAlignment="Center"></PasswordBox>
+                <PasswordBox x:Name="ForgotPasswordNewSamePass" PasswordChar="●" IsPasswordRevealButtonEnabled="False" ScrollViewer.VerticalScrollMode="Disabled" PlaceholderText="Same Password" FontWeight="Bold" FontStyle="Italic" MaxLength="25" Width="160" Height="35" BorderBrush="White" CornerRadius="20" FontSize="18" VerticalAlignment="Center"></PasswordBox>
             </Viewbox>
         </Grid>
         <Viewbox Grid.Column="3" Grid.Row="0" Grid.ColumnSpan="9" Grid.RowSpan="2">

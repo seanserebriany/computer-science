@@ -36,17 +36,38 @@ namespace DataBase
                 return null;
             }
         }
-//        הפעולה מוסיפה משתמש חדש למסד הנתונים.בפועל הפעולה מוסיפה נתונים ל- 3 טבלאות
-//GameData יתווספו הנתונים האישיים של המשתמש.לטבלת User לטבלת.User, GameData, UserProduct :שהם
-//יתווספו נתוני ברירת מחדל של המשחק מפני שהמשתמש משחק בפעם הראשונה
+        /*
+        הפעולה בודקת אם המשתמש הזין נתונים נכונים ונמצא במאגר משתמשים
+ של המשתמש UserId אם הכל תקין, הפעולה מחזירה את  
+ null אם הנתונים אינם תקינים הפעולה מחזירה ערך x
+*/
+        public static int? ValidateUserName(string userName)
+        {
+            string query = $"SELECT UserId FROM [User] WHERE UserName='{userName}'";
+            using (SqliteConnection connection = new SqliteConnection(connectionString))
+            {
+                connection.Open();
+                SqliteCommand command = new SqliteCommand(query, connection);
+                SqliteDataReader reader = command.ExecuteReader();
+                if (reader.HasRows)
+                {
+                    reader.Read();
+                    return reader.GetInt32(0);
+                }
+                return null;
+            }
+        }
+        //        הפעולה מוסיפה משתמש חדש למסד הנתונים.בפועל הפעולה מוסיפה נתונים ל- 3 טבלאות
+        //GameData יתווספו הנתונים האישיים של המשתמש.לטבלת User לטבלת.User, GameData, UserProduct :שהם
+        //יתווספו נתוני ברירת מחדל של המשחק מפני שהמשתמש משחק בפעם הראשונה
 
-//Feature שהוא בעצם המחסן המשותף תתווסף שורה המציינת שהשחקן החדש מקבל בחינם UserProduct לטבלת
+        //Feature שהוא בעצם המחסן המשותף תתווסף שורה המציינת שהשחקן החדש מקבל בחינם UserProduct לטבלת
 
-//ברירת מחדל
+        //ברירת מחדל
 
-//חשוב להדגיש: הפעולה מחזירה עצם משתמש שהוא מלא בנתונים ומוכן לשחק
-//*/
-public static GameUser AddNewUser(string name, string password, string mail)
+        //חשוב להדגיש: הפעולה מחזירה עצם משתמש שהוא מלא בנתונים ומוכן לשחק
+        //*/
+        public static GameUser AddNewUser(string name, string password, string mail)
         {
             int? userId = ValidateUser(name, password); // בדיקה אם המשתמש כבר נמצא במאגר
             if (userId != null) // המשתמש כבר קיים - לשלוח להתחברות במקום הרשמה
@@ -105,38 +126,48 @@ public static GameUser AddNewUser(string name, string password, string mail)
             }
             return user; // user doesnt exsit
         }
-  //      הפעולה ממשיכה למלא את שדותיו של המשתמש.בשלב הראשון
-  //MaxLevel,Money,CurrentLevelId,CurrentProductId :ושולפת משם את נתוני המשחק של המשתמש GameData היא ניגשת לטבלת
-  //נכנסים וממלאים משתמש MaxLevel,Money ,כמו כן
-  //במשתמש CurrentLevel -על מנת למלא את ה Level ניגשים לטבלת CurrentLevelId לאחר מכן באמצעות
-  //SetCurrentLevel על זה תהיה אחראית פעולת עזר
-  //GameData ששלפנו מהטבלה currentProductId בשלב הבא בעזרת
-  //אשר השחקן שיחק בפעם האחרונה Feature -כדי לשלוף ממנה את השם ה Product ניגשים לטבלה
-  //SetCurrentProduct על זה תהיה אחראית הפעולה.GameUser -הנתון הזה גם יכנס ל
-  //GameUser לסיכום, באופן מדורג נאספו הנתונים מארבע טבלאות ומילאו את העצם
-  //כעת יוכל המשתמש לגשת למשחק
-  //*/
+/*
+        הפעולה ממשיכה למלא את שדותיו של המשתמש.בשלב הראשון
+  MaxLevel,Money,CurrentLevelId,CurrentProductId :ושולפת משם את נתוני המשחק של המשתמש GameData היא ניגשת לטבלת
+  נכנסים וממלאים משתמש MaxLevel,Money ,כמו כן
+  במשתמש CurrentLevel -על מנת למלא את ה Level ניגשים לטבלת CurrentLevelId לאחר מכן באמצעות
+  SetCurrentLevel על זה תהיה אחראית פעולת עזר
+  GameData ששלפנו מהטבלה currentProductId בשלב הבא בעזרת
+  אשר השחקן שיחק בפעם האחרונה Feature -כדי לשלוף ממנה את השם ה Product ניגשים לטבלה
+  SetCurrentProduct על זה תהיה אחראית הפעולה.GameUser -הנתון הזה גם יכנס ל
+  GameUser לסיכום, באופן מדורג נאספו הנתונים מארבע טבלאות ומילאו את העצם
+  כעת יוכל המשתמש לגשת למשחק
+  */
  private static void SetUser(GameUser user)
         {
-            //int currentLevelId = 0;
-            //int currentProductId = 0;
-            //string query = $"SELECT CurrentLevelId, MaxLevel, Money, CurrentProductId FROM [GameData] WHERE UserId={user.Id}";
-            //using (SqliteConnection connection = new SqliteConnection(connectionString))
-            //{
-            //    connection.Open();
-            //    SqliteCommand command = new SqliteCommand(query, connection);
-            //    SqliteDataReader reader = command.ExecuteReader();
-            //    if (reader.HasRows)
-            //    {
-            //        reader.Read();
-            //        user.MaxLevel = reader.GetInt32(1);
-            //        user.Money = reader.GetInt32(2);
-            //        currentLevelId = reader.GetInt32(0);
-            //        currentProductId = reader.GetInt32(3);
-            //    }
-            //}
-            //SetCurrentLevel(user, currentLevelId);
-            //SetCurrentProduct(user, currentProductId);
+            int currentLevelId = 0;
+            int currentProductId = 0;
+            string query = $"SELECT CurrentLevelId, MaxLevel, Money, CurrentProductId FROM [GameData] WHERE UserId={user.Id}";
+            using (SqliteConnection connection = new SqliteConnection(connectionString))
+            {
+                connection.Open();
+                SqliteCommand command = new SqliteCommand(query, connection);
+                SqliteDataReader reader = command.ExecuteReader();
+                if (reader.HasRows)
+                {
+                    reader.Read();
+                    user.Points = reader.GetInt32(2);
+                    currentLevelId = reader.GetInt32(0);
+                    currentProductId = reader.GetInt32(3);
+                }
+            }
+            SetCurrentLevel(user, currentLevelId);
+            SetCurrentProduct(user, currentProductId);
+        }
+
+        private static void SetCurrentProduct(GameUser user, int currentProductId)
+        {
+            throw new NotImplementedException();
+        }
+
+        private static void SetCurrentLevel(GameUser user, int currentLevelId)
+        {
+            throw new NotImplementedException();
         }
 
         /*
@@ -149,6 +180,12 @@ public static GameUser AddNewUser(string name, string password, string mail)
         public static void AddUserProduct(int userId, int productId = 1)
         {
             string query = $"INSERT INTO [UserProduct] (UserId,ProductId) VALUES ({userId},{productId})";
+            Execute(query);
+        }
+
+        public static void ChangePassword(string username, string newpass)
+        {
+            string query = $"INSERT INTO [User] (UserPassword) VALUES ({newpass}) WHERE UserName = '{username})";
             Execute(query);
         }
 

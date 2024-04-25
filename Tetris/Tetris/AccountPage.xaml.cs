@@ -7,6 +7,7 @@ using System.Runtime.InteropServices.WindowsRuntime;
 using Tetris.GameServices;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
+using Windows.System;
 using Windows.UI;
 using Windows.UI.Popups;
 using Windows.UI.Xaml;
@@ -47,6 +48,8 @@ namespace Tetris
             Window.Current.CoreWindow.PointerCursor = new Windows.UI.Core.CoreCursor(Windows.UI.Core.CoreCursorType.Arrow, 1);
             Image img = (Image)sender;
         }
+
+        //log in
         private async void BtnExistYes_PointerPressed(object sender, PointerRoutedEventArgs e)
         {
             int? userID = Server.ValidateUser(LoginUser.Text.Trim(), LoginPassword.Password.Trim());
@@ -65,31 +68,32 @@ namespace Tetris
 
         }
 
+        //sign up
         private async void BtnNewYes_PointerPressed(object sender, PointerRoutedEventArgs e)
         {
-            if (newName.Text == "" || newPass.Password == "" || newSamePass.Password == "")
+            if (newName.Text == "" || SignUpPass.Password == "" || newSameSignUpPass.Password == "")
             {
                 await new MessageDialog("data is missing").ShowAsync();
             }
-            else if (newPass.Password != newSamePass.Password)
+            else if (SignUpPass.Password != newSameSignUpPass.Password)
             {
                 await new MessageDialog("passwords not matching").ShowAsync();
             }
-            else if(CheckPassword(newPass.Password))//check valid password
+            else if(CheckPassword(SignUpPass.Password) == false)//check valid password
             {
                 await new MessageDialog("passwords is not strong enough").ShowAsync();
             }
-            else if (!IsMailIlegal(Mail.Text))//check valid mail need to add
+            else if (!IsMailIlegal(SignUpMail.Text))//check valid mail need to add
             {
                 await new MessageDialog("mail is not valid").ShowAsync();
             }
             else
             {
-                int? userId = Server.ValidateUser(newName.Text.Trim(), newPass.Password.Trim());
+                int? userId = Server.ValidateUser(newName.Text.Trim(), SignUpPass.Password.Trim());
                 if(userId == null)
                 {
                     //user is not in data base needs to be added
-                    GameManager.Player = Server.AddNewUser(newName.Text.Trim(), newPass.Password.Trim(), Mail.Text.Trim());//add email instead of pass
+                    GameManager.Player = Server.AddNewUser(newName.Text.Trim(), SignUpPass.Password.Trim(), SignUpMail.Text.Trim());//add email instead of pass
                     Frame.Navigate(typeof(MainPage));
                 }
                 else
@@ -104,8 +108,8 @@ namespace Tetris
             BtnSignUp.Visibility = Visibility.Visible;
             BtnLogIn.Visibility = Visibility.Collapsed;
             newName.Text = "";
-            newPass.Password = "";
-            newSamePass.Password = "";
+            SignUpPass.Password = "";
+            newSameSignUpPass.Password = "";
         }
 
         private void SignUp_PointerPressed(object sender, PointerRoutedEventArgs e)
@@ -150,19 +154,45 @@ namespace Tetris
             ForgotPasswordGrid.Visibility = Visibility.Visible;
             existedUserGrid.Visibility = Visibility.Collapsed;
             ForgotPasswordUsername.Text = "";
-            ForgotPasswordNew.Password = "";
-            ForgotPasswordNewSame.Password = "";
+            ForgotPasswordNewPass.Password = "";
+            ForgotPasswordNewSamePass.Password = "";
             LoginUser.Text = "";
             LoginPassword.Password = "";
         }
 
-        private void imgNewPasswordYes_PointerPressed(object sender, PointerRoutedEventArgs e)
+        //forgot password
+        private async void imgNewPasswordYes_PointerPressed(object sender, PointerRoutedEventArgs e)
         {
+            if (ForgotPasswordUsername.Text == "" || ForgotPasswordNewPass.Password == "" || ForgotPasswordNewSamePass.Password == "")
+            {
+                await new MessageDialog("data is missing").ShowAsync();
+            }
+            else if (ForgotPasswordNewPass.Password != ForgotPasswordNewSamePass.Password)
+            {
+                await new MessageDialog("passwords not matching").ShowAsync();
+            }
+            else if (CheckPassword(ForgotPasswordNewPass.Password) == false)//check valid password
+            {
+                await new MessageDialog("passwords is not strong enough").ShowAsync();
+            }
+            else
+            {
+                int? userID = Server.ValidateUserName(ForgotPasswordUsername.Text.Trim());
+                if (userID == null)
+                {
+                    await new MessageDialog("there is no account with this username so you cant change it password.").ShowAsync();
+                }
+                else
+                {
+                    Server.ChangePassword(ForgotPasswordUsername.Text.Trim(), ForgotPasswordNewPass.Password.Trim());
+                    await new MessageDialog("The password has changed sucsessfuly.").ShowAsync();
+                }
+            }
             ForgotPasswordGrid.Visibility = Visibility.Collapsed;
             existedUserGrid.Visibility = Visibility.Visible;
             ForgotPasswordUsername.Text = "";
-            ForgotPasswordNew.Password = "";
-            ForgotPasswordNewSame.Password = "";
+            ForgotPasswordNewPass.Password = "";
+            ForgotPasswordNewSamePass.Password = "";
         }
 
 
