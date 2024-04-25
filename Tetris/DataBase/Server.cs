@@ -18,7 +18,7 @@ namespace DataBase
         /*
  הפעולה בודקת אם המשתמש הזין נתונים נכונים ונמצא במאגר משתמשים
  של המשתמש UserId אם הכל תקין, הפעולה מחזירה את  
- null אם הנתונים אינם תקינים הפעולה מחזירה ערך 
+ null אם הנתונים אינם תקינים הפעולה מחזירה ערך x
 */
         public static int? ValidateUser(string userName, string userPassword)
         {
