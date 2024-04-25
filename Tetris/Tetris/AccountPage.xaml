@@ -61,7 +61,7 @@
         <Button Style="{StaticResource MyButtonStyle}" x:Name="BtnBack" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" Grid.RowSpan="2">
             <Image x:Name="imgBack" Source="/Assets/Buttons/BackO.png" PointerEntered="img_PointerEntered"  PointerExited="img_PointerExited" PointerPressed="imgBack_PointerPressed"></Image>
         </Button>
-        <Grid x:Name="newUserGrid" Background="DodgerBlue" Grid.Row="3" Grid.Column="9" Grid.ColumnSpan="4" Grid.RowSpan="10" BorderThickness="8" CornerRadius="40" Visibility="Collapsed">
+        <Grid x:Name="newUserGrid" Background="DodgerBlue" Grid.Row="3" Grid.Column="9" Grid.ColumnSpan="4" Grid.RowSpan="10" BorderThickness="8" CornerRadius="40" Visibility="Visible">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition></ColumnDefinition>
                 <ColumnDefinition></ColumnDefinition>

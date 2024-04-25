@@ -5,7 +5,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Linq;
 using Windows.Storage;
+using Windows.System;
 
 namespace DataBase
 {
@@ -70,19 +72,90 @@ public static GameUser AddNewUser(string name, string password, string mail)
             }
         }
 
-        private static GameUser GetUser(int value)
+        /*
+           הפעולה מחזירה משתמש אשר כל שדותיו מלאים
+           הפעולה אוספת נתונים מ- 4 טבלאות וממלאה באמצעותם את המשתמש 
+           ולוקחת משם User כדי שיוכל לגשת למשחק. בשלב התחלתי הפעולה ניגשת לטבלת
+           של המשתמש Id,Name,Mail
+           הממשיכה למלא את נתוני המשתמש,SetUser לאחר מכן הפעולה נעזרת בפעולת עזר 
+         */
+        public static GameUser GetUser(int userId)
         {
-            throw new NotImplementedException();
+            GameUser user = null;
+            string query = $"SELECT UserId, UserName, UserMail FROM [User] WHERE UserId={userId}";
+            using (SqliteConnection connection = new SqliteConnection(connectionString))
+            {
+                connection.Open();
+                SqliteCommand command = new SqliteCommand(query, connection);
+                SqliteDataReader reader = command.ExecuteReader();
+                if (reader.HasRows)
+                {
+                    reader.Read();
+                    user = new GameUser
+                    {
+                        Id = reader.GetInt32(0),
+                        Name = reader.GetString(1),
+                        Email = reader.GetString(2),
+                    };
+                }
+            }
+            if (user != null)
+            {
+                SetUser(user);//המשך מילוי משתמש
+            }
+            return user; // user doesnt exsit
+        }
+  //      הפעולה ממשיכה למלא את שדותיו של המשתמש.בשלב הראשון
+  //MaxLevel,Money,CurrentLevelId,CurrentProductId :ושולפת משם את נתוני המשחק של המשתמש GameData היא ניגשת לטבלת
+  //נכנסים וממלאים משתמש MaxLevel,Money ,כמו כן
+  //במשתמש CurrentLevel -על מנת למלא את ה Level ניגשים לטבלת CurrentLevelId לאחר מכן באמצעות
+  //SetCurrentLevel על זה תהיה אחראית פעולת עזר
+  //GameData ששלפנו מהטבלה currentProductId בשלב הבא בעזרת
+  //אשר השחקן שיחק בפעם האחרונה Feature -כדי לשלוף ממנה את השם ה Product ניגשים לטבלה
+  //SetCurrentProduct על זה תהיה אחראית הפעולה.GameUser -הנתון הזה גם יכנס ל
+  //GameUser לסיכום, באופן מדורג נאספו הנתונים מארבע טבלאות ומילאו את העצם
+  //כעת יוכל המשתמש לגשת למשחק
+  //*/
+ private static void SetUser(GameUser user)
+        {
+            //int currentLevelId = 0;
+            //int currentProductId = 0;
+            //string query = $"SELECT CurrentLevelId, MaxLevel, Money, CurrentProductId FROM [GameData] WHERE UserId={user.Id}";
+            //using (SqliteConnection connection = new SqliteConnection(connectionString))
+            //{
+            //    connection.Open();
+            //    SqliteCommand command = new SqliteCommand(query, connection);
+            //    SqliteDataReader reader = command.ExecuteReader();
+            //    if (reader.HasRows)
+            //    {
+            //        reader.Read();
+            //        user.MaxLevel = reader.GetInt32(1);
+            //        user.Money = reader.GetInt32(2);
+            //        currentLevelId = reader.GetInt32(0);
+            //        currentProductId = reader.GetInt32(3);
+            //    }
+            //}
+            //SetCurrentLevel(user, currentLevelId);
+            //SetCurrentProduct(user, currentProductId);
         }
 
-        private static void AddUserProduct(int value)
+        /*
+                                        הפעולה משמשת לשני מצבים: בעת קנייה בחנות ובעת הוספת משתמש חדש. היא מוסיפה שורה חדשה
+                                                                                                          UserProduct לטבלה
+          שורה המורכבת ממספר השחקן ומספר המוצר שקנה. באופן כזה מתבצע שיוך המוצר לשחקן UserProduct הפעולה מוסיפה לטבלת המחסן
+         */
+
+
+        public static void AddUserProduct(int userId, int productId = 1)
         {
-            throw new NotImplementedException();
+            string query = $"INSERT INTO [UserProduct] (UserId,ProductId) VALUES ({userId},{productId})";
+            Execute(query);
         }
 
-        private static void AddGameData(int value)
+        private static void AddGameData(int userId)
         {
-            throw new NotImplementedException();
+            string query = $"INSERT INTO [GameData] (UserId, CurrentProductId, Money) VALUES ({userId},{1},{0})";
+            Execute(query);
         }
     }
 }

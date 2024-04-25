@@ -49,27 +49,20 @@ namespace Tetris
         }
         private async void BtnExistYes_PointerPressed(object sender, PointerRoutedEventArgs e)
         {
-            if (LoginUser.Text == "" || LoginPassword.Password == "")
+            int? userID = Server.ValidateUser(LoginUser.Text.Trim(), LoginPassword.Password.Trim());
+
+            if (userID.HasValue) // המשתמש אכן נמצא
             {
-                await new MessageDialog("data is missing").ShowAsync();
+                GameManager.Player = Server.GetUser(userID.Value); // שליפת נתוני המשתמש
+                await new MessageDialog("MyGame", "You have logged in successfully").ShowAsync();
+                Frame.Navigate(typeof(MainPage));   // חוזרים לתפריט הראשי
             }
-            else if (Server.ValidateUser(LoginUser.Text, LoginPassword.Password) == null)
+            else // נתונים לא נכונים
             {
-                await new MessageDialog("you need to sign up first / user name or password incorrect").ShowAsync();
+                // יש להציג הודעה שהוזנו לא נכונים או המשתמש צריך לפתוח חשבון
+                await new MessageDialog("MyGame", "User not found in DataBase").ShowAsync();
             }
-            else
-            {
-                int? userId = Server.ValidateUser(newName.Text.Trim(), newPass.Password.Trim());
-                if (userId == null)
-                {
-                    //user is not in data base needs to be added
-                    GameManager.Player = Server.AddNewUser(newName.Text.Trim(), newPass.Password.Trim(), Mail.Text.Trim());//add email instead of pass
-                    Frame.Navigate(typeof(MainPage));
-                }
-                else
-                    await new MessageDialog("this accaount already exist, log in").ShowAsync();
-            }
-            Frame.Navigate(typeof(MainPage));
+
         }
 
         private async void BtnNewYes_PointerPressed(object sender, PointerRoutedEventArgs e)
@@ -86,7 +79,7 @@ namespace Tetris
             {
                 await new MessageDialog("passwords is not strong enough").ShowAsync();
             }
-            else if (CheckMail(Mail.Text))//check valid mail need to add
+            else if (!IsMailIlegal(Mail.Text))//check valid mail need to add
             {
                 await new MessageDialog("mail is not valid").ShowAsync();
             }
@@ -171,10 +164,8 @@ namespace Tetris
             ForgotPasswordNew.Password = "";
             ForgotPasswordNewSame.Password = "";
         }
-        private bool CheckMail(string mail)
-        {
-            return true;
-        }
+
+
         private bool CheckPassword(string password)
         {
             bool isDigit = false;
