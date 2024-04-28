@@ -43,8 +43,8 @@ namespace Tetris
 
         private void imgPlay_PointerPressed(object sender, PointerRoutedEventArgs e)
         {
-           // string dbPath = ApplicationData.Current.LocalFolder.Path;
-            Frame.Navigate(typeof(GamePage));
+            //string dbPath = ApplicationData.Current.LocalFolder.Path;
+            Frame.Navigate(typeof(LevelPage));
         }
 
         private void imgAccount_PointerPressed(object sender, PointerRoutedEventArgs e)

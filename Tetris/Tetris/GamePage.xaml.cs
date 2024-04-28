@@ -64,7 +64,7 @@ namespace Tetris
 
         private void GameOver()
         {
-            Frame.Navigate(typeof(MainPage));
+            Frame.Navigate(typeof(YouLose));
         }
 
         private void AddScore()

@@ -1,4 +1,5 @@
-﻿using GameEngine.GameObjects;
+﻿using DataBase.Models;
+using GameEngine.GameObjects;
 using GameEngine.GameServices;
 using System;
 using System.Collections.Generic;
@@ -89,7 +90,8 @@ namespace Tetris.GameObjects
 
         private void Fall()
         {
-            _dY = 9;
+            GameLevel level = new GameLevel();
+            _dY = level.Speed;
             _dX = 0;
         }
         public override void Collide(GameObject gameObject) // CheckCollistion פעולה מתבצעת רק כאשר יש נגיעה וודאית שבודקים את זה בפונקציה
@@ -111,8 +113,7 @@ namespace Tetris.GameObjects
             ceeling = false;
             if (IsFalling)
             {
-                var block = new Block(_scene, "Blocks/Block.png", speed: 2, width: 50, 204, 0);
-                _scene.AddObject(block);
+                Init();
             }
             IsFalling = false;
         }
