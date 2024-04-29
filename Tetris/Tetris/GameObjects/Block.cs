@@ -111,6 +111,12 @@ namespace Tetris.GameObjects
             Manager.GameEvent.OnKeyDown -= KeyDown;
             base.Stop();
             ceeling = false;
+             if (_Y + _dY <= 50 && ceeling == false) // נוגעה בתקרה
+            {
+                Manager.GameEvent.OnRun = null;
+                Manager.GameEvent.GameOver();
+                // Manager.GameOver();
+            }
             if (IsFalling)
             {
                 Init();
@@ -141,12 +147,6 @@ namespace Tetris.GameObjects
                     }
                 }
 
-            }
-            else if (_Y + _dY <= 50 && ceeling==false) // נוגעה בתקרה
-            {
-                Manager.GameEvent.OnRun = null;
-                Manager.GameEvent.GameOver();
-               // Manager.GameOver();
             }
             else if (_X >= 408) // כאשר תיגע עם הצד הימני שלך בקיר הימני של הזירה
             {
