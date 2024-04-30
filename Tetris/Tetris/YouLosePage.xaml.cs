@@ -32,8 +32,8 @@ namespace Tetris
             {
                 Image img = (Image)sender;
                 string name = img.Name;
-                if (name == "imgBack")
-                    imgBack.Source = new BitmapImage(new Uri("ms-appx:///Assets/Buttons/BackP.png"));
+                if (name == "Home")
+                    imgBack.Source = new BitmapImage(new Uri("ms-appx:///Assets/Buttons/Home.png"));
                 Window.Current.CoreWindow.PointerCursor = new Windows.UI.Core.CoreCursor(Windows.UI.Core.CoreCursorType.Hand, 1);
             }
 
@@ -42,8 +42,8 @@ namespace Tetris
                 Window.Current.CoreWindow.PointerCursor = new Windows.UI.Core.CoreCursor(Windows.UI.Core.CoreCursorType.Arrow, 1);
                 Image img = (Image)sender;
                 string name = img.Name;
-                if (name == "imgBack")
-                    imgBack.Source = new BitmapImage(new Uri("ms-appx:///Assets/Buttons/BackO.png"));
+                if (name == "Home")
+                    imgBack.Source = new BitmapImage(new Uri("ms-appx:///Assets/Buttons/Home.png"));
             }
             private void imgBack_PointerPressed(object sender, PointerRoutedEventArgs e)
             {

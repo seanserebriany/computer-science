@@ -142,7 +142,7 @@ namespace DataBase
         {
             int currentLevelId = 0;
             int currentProductId = 0;
-            string query = $"SELECT CurrentLevelId, MaxLevel, Money, CurrentProductId FROM [GameData] WHERE UserId={user.Id}";
+            string query = $"SELECT Money, CurrentProductId FROM [GameData] WHERE UserId={user.Id}";
             using (SqliteConnection connection = new SqliteConnection(connectionString))
             {
                 connection.Open();

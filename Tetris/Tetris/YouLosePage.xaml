@@ -44,7 +44,7 @@
             <ColumnDefinition></ColumnDefinition>
         </Grid.ColumnDefinitions>
         <Button Style="{StaticResource MyButtonStyle}" x:Name="BtnBack" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" Grid.RowSpan="2">
-            <Image x:Name="imgBack" Source="/Assets/Buttons/BackO.png" PointerEntered="img_PointerEntered"  PointerExited="img_PointerExited"  PointerPressed="imgBack_PointerPressed"></Image>
+            <Image x:Name="imgBack" Source="/Assets/Buttons/Home.png" PointerEntered="img_PointerEntered"  PointerExited="img_PointerExited"  PointerPressed="imgBack_PointerPressed"></Image>
         </Button>
     </Grid>
 </Page>

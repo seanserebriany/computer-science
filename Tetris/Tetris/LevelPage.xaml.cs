@@ -55,7 +55,7 @@ namespace Tetris
         private void imgLevel1_PointerPressed(object sender, PointerRoutedEventArgs e)
         {
             Level.LevelNumber = 1;
-            Level.Speed = 9;
+            Level.Speed = 8;
             Manager.GameEvent.OnRun = null;
             Frame.Navigate(typeof(GamePage));
         }
@@ -63,7 +63,7 @@ namespace Tetris
         private void imgLevel2_PointerPressed(object sender, PointerRoutedEventArgs e)
         {
             Level.LevelNumber = 2;
-            Level.Speed = 14;
+            Level.Speed = 12;
             Manager.GameEvent.OnRun = null;
             Frame.Navigate(typeof(GamePage));
 

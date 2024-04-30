@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Transactions;
+using Tetris.GameServices;
 using Windows.Foundation;
 using Windows.Storage.FileProperties;
 using Windows.System;
@@ -25,7 +26,7 @@ namespace Tetris.GameObjects
         private bool fromright = true;
         private bool fromleft = true;
         private bool ceeling = true;
-
+        public int RealNotFakeHeight = 530;
         private int _countlifes;
         private Scene _scene;
         private Block _block = null;
@@ -84,14 +85,43 @@ namespace Tetris.GameObjects
                         fromleft = true;
                         break;
                     }
+                case VirtualKey.Down:
+                    {
+                        BringDown();
+                            break;
+                    }
+
             }
 
         }
 
+        private void BringDown()
+        {
+            double currentx = _X;
+            double currenty = _Y;
+            double MinY = _Y;
+            foreach (GameObject obj in _scene._GameObjectSnapShot)
+            {
+                
+                if (obj != null)
+                {
+                    if (obj is Block block && block != this._block)
+                    {
+                        if(block._X == currentx)
+                        {
+                            if(currenty < block._Y)
+                                MinY = block._Y;
+                        }
+                    }
+
+                }
+            }
+            _Y = MinY - 49;
+        }
+
         private void Fall()
         {
-            GameLevel level = new GameLevel();
-            _dY = level.Speed;
+            _dY = LevelPage.Level.Speed;
             _dX = 0;
         }
         public override void Collide(GameObject gameObject) // CheckCollistion פעולה מתבצעת רק כאשר יש נגיעה וודאית שבודקים את זה בפונקציה
@@ -101,6 +131,7 @@ namespace Tetris.GameObjects
                 var intersectRect = RectHelper.Intersect(rect, block.rect); // בדיקת התנגשות בין כדור לגיילי
                 if (intersectRect.Height < intersectRect.Width)// בדיקת פגיעה וגם מוצאת את גיילי זה
                 {
+                    
                     Stop();
                 }
             }
@@ -111,15 +142,15 @@ namespace Tetris.GameObjects
             Manager.GameEvent.OnKeyDown -= KeyDown;
             base.Stop();
             ceeling = false;
-             if (_Y + _dY <= 50 && ceeling == false) // נוגעה בתקרה
+            if (_Y + _dY <= 50 && ceeling == false) // נוגעה בתקרה
             {
                 Manager.GameEvent.OnRun = null;
                 Manager.GameEvent.GameOver();
-                // Manager.GameOver();
             }
             if (IsFalling)
             {
-                Init();
+                var block = new Block(_scene, "Blocks/Block.png", 3, 50, 204, 0);
+                _scene.AddObject(block);
             }
             IsFalling = false;
         }
@@ -133,7 +164,7 @@ namespace Tetris.GameObjects
             {
                 _dX = -_dX;
                 _X = 0;
-                if (_Y >= _scene?.ActualHeight - Height)
+                if (_Y >= RealNotFakeHeight - Height)
                 {
                     Stop();
                     if (IsOnGround == false)
@@ -152,7 +183,7 @@ namespace Tetris.GameObjects
             {
                 _dX = -_dX;
                 _X = 408; // עוצר לך בפינה
-                if (_Y >= _scene?.ActualHeight - Height)
+                if (_Y >= RealNotFakeHeight - Height)
                 {
                     Stop();
                     if (IsOnGround == false)
@@ -167,7 +198,7 @@ namespace Tetris.GameObjects
 
                 }
             }
-            else if (_Y >= _scene?.ActualHeight - 50) // בדיקת רצפה
+            else if (_Y >= RealNotFakeHeight - 50) // בדיקת רצפה
             {
                 Manager.GameEvent.OnKeyDown -= KeyDown;
                 Stop();
@@ -220,7 +251,6 @@ namespace Tetris.GameObjects
         }
         public void RemoveLine()
         {
-
             foreach (GameObject obj in _scene._GameObjectSnapShot)
             {
                 countOnGroundBlocks = 0;
@@ -228,20 +258,19 @@ namespace Tetris.GameObjects
                 {
                     if (obj is Block block)
                     {
-                        if (block.rect.Top >= _scene?.ActualHeight - Height)
+                        if (block.rect.Top >= RealNotFakeHeight - Height)
                         {
                             _scene.RemoveObject(block);
                         }
                         else if(block._Y> 100)
                         {
-                            block._Y += 45;
+                            block._Y += 47;
                         }
                     }
 
                 }
             }
             Manager.GameEvent.AddScore();
-
         }
 
     }
