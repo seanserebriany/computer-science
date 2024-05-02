@@ -97,26 +97,27 @@ namespace Tetris.GameObjects
 
         private void BringDown()
         {
-            double currentx = _X;
-            double currenty = _Y;
-            double MinY = _Y;
+            double maxY = 530; // Initialize maxY with the lowest possible value
+
+            // Iterate over each game object in the scene snapshot
             foreach (GameObject obj in _scene._GameObjectSnapShot)
             {
-                
-                if (obj != null)
+                // Check if the object is a block and not the same block
+                if (obj is Block block && block != this._block)
                 {
-                    if (obj is Block block && block != this._block)
+                    // Check if the block is directly above the current object and lower than maxY
+                    if (block._X == _X && block._Y > _Y)
                     {
-                        if(block._X == currentx)
-                        {
-                            if(currenty < block._Y)
-                                MinY = block._Y;
-                        }
+                        maxY = block._Y; // Update maxY to the highest position below the current block
                     }
-
                 }
             }
-            _Y = MinY - 49;
+
+            // If maxY hasn't changed, set Y to the default value (530); otherwise, move down by 47 units
+            if (maxY == 530)
+                _Y = 480;
+            else
+                _Y = maxY - 60;
         }
 
         private void Fall()
@@ -142,10 +143,11 @@ namespace Tetris.GameObjects
             Manager.GameEvent.OnKeyDown -= KeyDown;
             base.Stop();
             ceeling = false;
-            if (_Y + _dY <= 50 && ceeling == false) // נוגעה בתקרה
+            if (_Y + _dY <= 130 && ceeling == false) // נוגעה בתקרה
             {
                 Manager.GameEvent.OnRun = null;
                 Manager.GameEvent.GameOver();
+                IsFalling = false;
             }
             if (IsFalling)
             {

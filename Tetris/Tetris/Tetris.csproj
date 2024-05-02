@@ -217,7 +217,9 @@
     <Content Include="Assets\Buttons\Music.png" />
     <Content Include="Assets\Buttons\Play.png" />
     <Content Include="Assets\Buttons\Yes.png" />
+    <Content Include="Assets\Game\FinishLine.png" />
     <Content Include="Assets\Game\Heart.png" />
+    <Content Include="Assets\Game\simple-line.png" />
     <Content Include="Assets\Levels\Num1.png" />
     <Content Include="Assets\Levels\Num2.png" />
     <Content Include="Assets\Levels\Num3.png" />
@@ -280,7 +282,6 @@
       <Name>GameEngine</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>
   </PropertyGroup>

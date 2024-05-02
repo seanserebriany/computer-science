@@ -48,7 +48,7 @@
         <Button Style="{StaticResource MyButtonStyle}" x:Name="BtnHome" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3" Grid.RowSpan="2">
             <Image x:Name="imgHome" Source="/Assets/Buttons/Home.png" PointerEntered="img_PointerEntered" PointerExited="img_PointerExited" PointerPressed="imgHome_PointerPressed"></Image>
         </Button>
-        <Viewbox VerticalAlignment="Center" HorizontalAlignment="Center" Grid.ColumnSpan="5" Grid.RowSpan="2" Grid.Column="5">
+        <Viewbox VerticalAlignment="Center" HorizontalAlignment="Center" Grid.ColumnSpan="2" Grid.RowSpan="2" Grid.Column="6" Stretch="Fill">
             <Border Background="LightSkyBlue" BorderBrush="LightBlue" BorderThickness="4">
                 <TextBlock x:Name="txt_score" Text="0" FontSize="45" Foreground="White" Grid.RowSpan="2" VerticalAlignment="Stretch" FontFamily="Broadway" FontWeight="Bold"></TextBlock>
             </Border>
@@ -59,8 +59,9 @@
         <Button Style="{StaticResource MyButtonStyle}" x:Name="BtnMusic" Grid.Row="0" Grid.Column="2" Grid.ColumnSpan="3" Grid.RowSpan="2">
             <Image x:Name="imgMusic" Source="/Assets/Buttons/Music.png" PointerEntered="img_PointerEntered" PointerExited="img_PointerExited"></Image>
         </Button>
-        <Border x:Name="GameBorder"  Grid.ColumnSpan="6" Grid.RowSpan="11" Grid.Row="2" Grid.Column="5"  BorderBrush="Black" BorderThickness="10" Background="Black" Width="468">
-                <GameServices:GameScene x:Name="scene" Background="Transparent"></GameServices:GameScene>
-            </Border>
+        <Border x:Name="GameBorder"  Grid.ColumnSpan="6" Grid.RowSpan="11" Grid.Row="2" Grid.Column="4"  BorderBrush="Black" BorderThickness="10" Background="Black" Width="468">
+            <GameServices:GameScene x:Name="scene" Background="Transparent"></GameServices:GameScene>
+        </Border>
+        <Image x:Name="imgLine" Source="/Assets/Game/FinishLine.png" PointerEntered="img_PointerEntered" PointerExited="img_PointerExited" PointerPressed="imgHelp_PointerPressed" Grid.Column="4" Grid.Row="5" Grid.ColumnSpan="6" Stretch="Fill" Margin="53,0,54,0"></Image>
     </Grid>
 </Page>

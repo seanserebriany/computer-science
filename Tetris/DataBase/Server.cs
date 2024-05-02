@@ -167,7 +167,8 @@ namespace DataBase
 
         private static void SetCurrentLevel(GameUser user, int currentLevelId)
         {
-            throw new NotImplementedException();
+            //string query = $"INSERT INTO [Level] (LevelId,BlockSpeed) VALUES ({0},{productId})";
+            //Execute(query);
         }
 
         /*
