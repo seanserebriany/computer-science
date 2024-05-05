@@ -116,7 +116,7 @@ namespace Tetris.GameObjects
             if (maxY == _scene.ActualHeight)
                 _Y = _scene.ActualHeight - 50;
             else
-                _Y = maxY - 60;
+                _Y = maxY - 55;
         }
 
         private void Fall()
@@ -170,49 +170,50 @@ namespace Tetris.GameObjects
                 _X = 0;
                 if (_Y >= _scene.ActualHeight - Height)
                 {
-                    Stop();
+                        _Y = _scene.ActualHeight - 50;
+                        Stop();
                     if (IsOnGround == false)
                     {
                         countOnGroundBlocks++;
                         IsOnGround = true;
                     }
-                    if (countOnGroundBlocks == 9)
+                    if (countOnGroundBlocks == 6)
                     {
                         RemoveLine();
                     }
                 }
 
             }
-            else if (_X >= 408) // כאשר תיגע עם הצד הימני שלך בקיר הימני של הזירה
+            else if (_X >= 255) // כאשר תיגע עם הצד הימני שלך בקיר הימני של הזירה
             {
                 _dX = -_dX;
-                _X = 408; // עוצר לך בפינה
+                _X = 255; // עוצר לך בפינה
                 if (_Y >= _scene.ActualHeight - 50)
                 {
-                    Stop();
+                        _Y = _scene.ActualHeight - 50;
+                        Stop();
                     if (IsOnGround == false)
                     {
                         countOnGroundBlocks++;
                         IsOnGround = true;
                     }
-                    if (countOnGroundBlocks == 9)
+                    if (countOnGroundBlocks == 6)
                     {
                         RemoveLine();
                     }
-
                 }
             }
-            else if (_Y >= _scene.ActualHeight - 50) // בדיקת רצפה
+            else if (_Y >= _scene.ActualHeight - 55) // בדיקת רצפה
             {
-
-                Manager.GameEvent.OnKeyDown -= KeyDown;
+                    _Y = _scene.ActualHeight - 50;
+                    Manager.GameEvent.OnKeyDown -= KeyDown;
                 Stop();
                 if(IsOnGround==false)
                 {
                     countOnGroundBlocks++;
                     IsOnGround = true;
                 }
-                if (countOnGroundBlocks == 9)
+                if (countOnGroundBlocks == 6)
                 {
                     RemoveLine();
                 }
