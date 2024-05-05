@@ -26,7 +26,6 @@ namespace Tetris.GameObjects
         private bool fromright = true;
         private bool fromleft = true;
         private bool ceeling = true;
-        public int RealNotFakeHeight = 530;
         private int _countlifes;
         private Scene _scene;
         private Block _block = null;
@@ -97,7 +96,7 @@ namespace Tetris.GameObjects
 
         private void BringDown()
         {
-            double maxY = 530; // Initialize maxY with the lowest possible value
+            double maxY = _scene.ActualHeight; // Initialize maxY with the lowest possible value
 
             // Iterate over each game object in the scene snapshot
             foreach (GameObject obj in _scene._GameObjectSnapShot)
@@ -114,8 +113,8 @@ namespace Tetris.GameObjects
             }
 
             // If maxY hasn't changed, set Y to the default value (530); otherwise, move down by 47 units
-            if (maxY == 530)
-                _Y = 480;
+            if (maxY == _scene.ActualHeight)
+                _Y = _scene.ActualHeight - 50;
             else
                 _Y = maxY - 60;
         }
@@ -143,7 +142,7 @@ namespace Tetris.GameObjects
             Manager.GameEvent.OnKeyDown -= KeyDown;
             base.Stop();
             ceeling = false;
-            if (_Y + _dY <= 130 && ceeling == false) // נוגעה בתקרה
+            if (_Y  <= _scene.ActualHeight - 7*50 && ceeling == false) // נוגעה בתקרה
             {
                 Manager.GameEvent.OnRun = null;
                 Manager.GameEvent.GameOver();
@@ -159,6 +158,9 @@ namespace Tetris.GameObjects
 
         public override void Render()// מתבצעת כל הזמן
         {
+            if ( _scene != null && _scene.ActualHeight != 0)
+            {
+            
             // בדיקת קצוות הזירה
             //if (IsRelased)
             //{
@@ -166,7 +168,7 @@ namespace Tetris.GameObjects
             {
                 _dX = -_dX;
                 _X = 0;
-                if (_Y >= RealNotFakeHeight - Height)
+                if (_Y >= _scene.ActualHeight - Height)
                 {
                     Stop();
                     if (IsOnGround == false)
@@ -185,7 +187,7 @@ namespace Tetris.GameObjects
             {
                 _dX = -_dX;
                 _X = 408; // עוצר לך בפינה
-                if (_Y >= RealNotFakeHeight - Height)
+                if (_Y >= _scene.ActualHeight - 50)
                 {
                     Stop();
                     if (IsOnGround == false)
@@ -200,8 +202,9 @@ namespace Tetris.GameObjects
 
                 }
             }
-            else if (_Y >= RealNotFakeHeight - 50) // בדיקת רצפה
+            else if (_Y >= _scene.ActualHeight - 50) // בדיקת רצפה
             {
+
                 Manager.GameEvent.OnKeyDown -= KeyDown;
                 Stop();
                 if(IsOnGround==false)
@@ -215,6 +218,7 @@ namespace Tetris.GameObjects
                 }
             }
             base.Render();
+            }
         }
 
 
@@ -260,7 +264,7 @@ namespace Tetris.GameObjects
                 {
                     if (obj is Block block)
                     {
-                        if (block.rect.Top >= RealNotFakeHeight - Height)
+                        if (block.rect.Top >= _scene.ActualHeight - Height)
                         {
                             _scene.RemoveObject(block);
                         }

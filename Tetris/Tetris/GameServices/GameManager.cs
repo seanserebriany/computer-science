@@ -19,7 +19,6 @@ namespace Tetris.GameServices
         }
         public void Init()
         {
-            Random rnd = new Random();
             var block = new Block(Scene, "Blocks/Block.png", 3, 50, 204, 0);
             Scene.AddObject(block);
         }
