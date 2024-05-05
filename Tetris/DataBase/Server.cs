@@ -157,25 +157,37 @@ namespace DataBase
                 }
             }
             SetCurrentLevel(user, currentLevelId);
-            SetCurrentProduct(user, currentProductId);
+            //SetCurrentProduct(user, currentProductId);
         }
 
-        private static void SetCurrentProduct(GameUser user, int currentProductId)
-        {
-            throw new NotImplementedException();
-        }
-
-        private static void SetCurrentLevel(GameUser user, int currentLevelId)
-        {
-            //string query = $"INSERT INTO [Level] (LevelId,BlockSpeed) VALUES ({0},{productId})";
-            //Execute(query);
-        }
-
+        //private static void SetCurrentProduct(GameUser user, int currentProductId)
+        //{
+        //    throw new NotImplementedException();
+        //}
         /*
-                                        הפעולה משמשת לשני מצבים: בעת קנייה בחנות ובעת הוספת משתמש חדש. היא מוסיפה שורה חדשה
-                                                                                                          UserProduct לטבלה
-          שורה המורכבת ממספר השחקן ומספר המוצר שקנה. באופן כזה מתבצע שיוך המוצר לשחקן UserProduct הפעולה מוסיפה לטבלת המחסן
-         */
+       ,שולפת ממנה את נתוני רמת הקושי currentLevelId ולפי Level הפעולה ניגשת לטבלת
+         ומכניסה אותו לתוך המשתמש GameLevel בשלב הבא הפעולה בונה עצם מסוג
+         מפני שנעזר בה בעקבות החלפת רמת הקושי public הדגש: הפעולה
+        */
+        public static void SetCurrentLevel(GameUser user, int currentLevelId)
+        {
+            string query = $"SELECT LevelId, BlockSpeed FROM [Level] WHERE LevelId={currentLevelId}";
+            using (SqliteConnection connection = new SqliteConnection(connectionString))
+            {
+                connection.Open();
+                SqliteCommand command = new SqliteCommand(query, connection);
+                SqliteDataReader reader = command.ExecuteReader();
+                if (reader.HasRows)
+                {
+                    reader.Read();
+                    user.Level = new GameLevel
+                    {
+                        Speed = (0)
+                    };
+                }
+            }
+
+        }
 
 
         public static void AddUserProduct(int userId, int productId = 1)

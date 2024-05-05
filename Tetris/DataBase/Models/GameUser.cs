@@ -13,6 +13,7 @@ namespace DataBase.Models
         public string Email { get; set; } = "None Mail";
         public string Password { get; set; }
         public int Points { get; set; }
+        public GameLevel Level { get; set; }
         public string UsingProduct { get; set; } = "Regular";
 
     }

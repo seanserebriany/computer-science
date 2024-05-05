@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
+using System.Text.RegularExpressions;
 using Tetris.GameServices;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
@@ -79,7 +80,7 @@ namespace Tetris
             {
                 await new MessageDialog("passwords not matching").ShowAsync();
             }
-            else if(CheckPassword(SignUpPass.Password) == false)//check valid password
+            else if (CheckPassword(SignUpPass.Password) == false)//check valid password
             {
                 await new MessageDialog("passwords is not strong enough").ShowAsync();
             }
@@ -90,7 +91,7 @@ namespace Tetris
             else
             {
                 int? userId = Server.ValidateUser(newName.Text.Trim(), SignUpPass.Password.Trim());
-                if(userId == null)
+                if (userId == null)
                 {
                     //user is not in data base needs to be added
                     GameManager.Player = Server.AddNewUser(newName.Text.Trim(), SignUpPass.Password.Trim(), SignUpMail.Text.Trim());//add email instead of pass
@@ -198,33 +199,30 @@ namespace Tetris
 
         private bool CheckPassword(string password)
         {
-            bool isDigit = false;
-            if (password == null)
-            {
-                return false;
-            }
-            if (password.Length < 8)
-            {
-                return false;
-            }
-            if ((password.ToUpper() == password) || (password.ToLower() == password))
-            {
-                return false;
-            }
-            for (int i = 0; i < password.Length; i++)
-            {
+            //// Check length
+            //if (password.Length < 8)
+            //    return false;
 
-                for (int j = 0; j < 10 && !isDigit; j++)
-                {
-                    if (password[i] == j)
-                    {
-                        isDigit = true;
-                    }
-                }
-                return false;
-            }
+            //// Check for at least one capital letter
+            //if (!Regex.IsMatch(password, "[A-Z]"))
+            //    return false;
+
+            //// Check for at least one lowercase letter
+            //if (!Regex.IsMatch(password, "[a-z]"))
+            //    return false;
+
+            //// Check for at least one number
+            //if (!Regex.IsMatch(password, "[0-9]"))
+            //    return false;
+
+            //// Check for at least one special character
+            //if (!Regex.IsMatch(password, "[^a-zA-Z0-9]"))
+            //    return false;
+
             return true;
         }
+    
+    
 
         public static bool IsMailIlegal(string mail)
         {
