@@ -45,24 +45,24 @@
             <ColumnDefinition></ColumnDefinition>
         </Grid.ColumnDefinitions>
         
-        <Viewbox Grid.Row="6" Grid.Column="6" Grid.ColumnSpan="3" Grid.RowSpan="2">
+        <Viewbox Grid.Row="12" Grid.Column="6" Grid.ColumnSpan="3" Grid.RowSpan="2">
             <Button Style="{StaticResource MyButtonStyle}" x:Name="BtnLogIn" Visibility="Collapsed">
                 <Border  BorderThickness="4" Background="DodgerBlue" CornerRadius="25">
                     <TextBlock x:Name="LogIn" Text="Log in" Foreground="White" FontStyle="Italic" FontFamily="Broadway" FontSize="70" FontWeight="Bold" VerticalAlignment="Center" PointerPressed="LogIn_PointerPressed" PointerEntered="text_PointerEntered" PointerExited="text_PointerExited"></TextBlock>
                 </Border>
             </Button>
         </Viewbox>
-        <Viewbox Grid.Row="6" Grid.Column="6" Grid.ColumnSpan="3" Grid.RowSpan="2">
+        <Viewbox Grid.Row="12" Grid.Column="6" Grid.ColumnSpan="3" Grid.RowSpan="2">
             <Button Style="{StaticResource MyButtonStyle}" x:Name="BtnSignUp" Visibility="Visible">
                 <Border  BorderThickness="4" Background="DodgerBlue" CornerRadius="25">
-                    <TextBlock x:Name="SignUp" Text="Sign Up" Foreground="White" FontStyle="Italic" FontFamily="Broadway" FontSize="70" FontWeight="Bold" VerticalAlignment="Center" PointerPressed="SignUp_PointerPressed" PointerEntered="text_PointerEntered" PointerExited="text_PointerExited"></TextBlock>
+                    <TextBlock x:Name="SignUp" Text="Sign Up" Foreground="White" FontStyle="Italic" FontFamily="Broadway" FontSize="70" FontWeight="Bold" VerticalAlignment="Center" PointerPressed="SignUp_PointerPressed" PointerEntered="text_PointerEntered" PointerExited="text_PointerExited" ></TextBlock>
                 </Border>
             </Button>
         </Viewbox>
         <Button Style="{StaticResource MyButtonStyle}" x:Name="BtnBack" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" Grid.RowSpan="2">
             <Image x:Name="imgBack" Source="/Assets/Buttons/Home.png" PointerEntered="img_PointerEntered"  PointerExited="img_PointerExited" PointerPressed="imgBack_PointerPressed"></Image>
         </Button>
-        <Grid x:Name="newUserGrid" Background="DodgerBlue" Grid.Row="3" Grid.Column="9" Grid.ColumnSpan="4" Grid.RowSpan="10" BorderThickness="8" CornerRadius="40" Visibility="Collapsed">
+        <Grid x:Name="newUserGrid" Background="DodgerBlue" Grid.Row="2" Grid.Column="6" Grid.ColumnSpan="3" Grid.RowSpan="10" BorderThickness="8" CornerRadius="40" Visibility="Collapsed">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition></ColumnDefinition>
                 <ColumnDefinition></ColumnDefinition>
@@ -109,7 +109,7 @@
                 <TextBlock Text="Sign Up" HorizontalAlignment="Left" FontSize="45" Foreground="White" FontFamily="Italic" FontWeight="Bold"/>
             </Viewbox>
         </Grid>
-        <Grid x:Name="existedUserGrid" Background="DodgerBlue" Grid.Row="3" Grid.Column="2" Grid.ColumnSpan="4" Grid.RowSpan="8" BorderThickness="8" CornerRadius="40" Visibility="Visible">
+        <Grid x:Name="existedUserGrid" Background="DodgerBlue" Grid.Row="3" Grid.Column="6" Grid.ColumnSpan="3" Grid.RowSpan="8" BorderThickness="8" CornerRadius="40" Visibility="Visible">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition></ColumnDefinition>
                 <ColumnDefinition></ColumnDefinition>
@@ -154,7 +154,7 @@
                 <PasswordBox x:Name="LoginPassword" PasswordChar="●" IsPasswordRevealButtonEnabled="False" ScrollViewer.VerticalScrollMode="Disabled" PlaceholderText="Password" FontWeight="Bold" FontStyle="Italic" MaxLength="25" Width="160" Height="35" BorderBrush="White" CornerRadius="20" FontSize="18" VerticalAlignment="Center"></PasswordBox>
             </Viewbox>
         </Grid>
-        <Grid x:Name="ForgotPasswordGrid" Background="DodgerBlue" Grid.Row="3" Grid.Column="2" Grid.ColumnSpan="4" Grid.RowSpan="8" BorderThickness="8" CornerRadius="40" Visibility="Collapsed">
+        <Grid x:Name="ForgotPasswordGrid" Background="DodgerBlue" Grid.Row="3" Grid.Column="6" Grid.ColumnSpan="3" Grid.RowSpan="8" BorderThickness="8" CornerRadius="40" Visibility="Collapsed">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition></ColumnDefinition>
                 <ColumnDefinition></ColumnDefinition>
@@ -198,7 +198,7 @@
             </Viewbox>
         </Grid>
         <Viewbox Grid.Column="3" Grid.Row="0" Grid.ColumnSpan="9" Grid.RowSpan="2">
-            <TextBlock Text="Enter Game" FontSize="45" Foreground="White" Grid.RowSpan="2" VerticalAlignment="Stretch" FontFamily="Broadway" FontWeight="Bold"></TextBlock>
+            <TextBlock Text="Account" FontSize="45" Foreground="White" Grid.RowSpan="2" VerticalAlignment="Stretch" FontFamily="Broadway" FontWeight="Bold"></TextBlock>
         </Viewbox>
 
     </Grid>

@@ -217,6 +217,7 @@
     <Content Include="Assets\Buttons\Music.png" />
     <Content Include="Assets\Buttons\Play.png" />
     <Content Include="Assets\Buttons\Yes.png" />
+    <Content Include="Assets\Game\coin.png" />
     <Content Include="Assets\Game\FinishLine.png" />
     <Content Include="Assets\Game\Heart.png" />
     <Content Include="Assets\Game\simple-line.png" />

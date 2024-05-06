@@ -46,7 +46,7 @@
         <Button Style="{StaticResource MyButtonStyle}" x:Name="BtnHome" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3" Grid.RowSpan="2">
             <Image x:Name="imgHome" Source="/Assets/Buttons/Home.png" PointerEntered="img_PointerEntered" PointerExited="img_PointerExited" PointerPressed="imgHome_PointerPressed"></Image>
         </Button>
-        <TextBox IsReadOnly="True" ScrollViewer.IsHorizontalRailEnabled="True" Text="in this game the blocks fall down, every time that the line is full it dissapeares and you recive points based on the level difficulty. you cant win but you can be the one that survived the longest. its tetris." FontSize="60" Grid.Row="3" Grid.Column="3" Grid.ColumnSpan="8" Grid.RowSpan="8" TextWrapping="Wrap">
+        <TextBox IsReadOnly="True" ScrollViewer.IsHorizontalRailEnabled="True" Text="in this game the blocks fall down, every time that the line is full it dissapeares and you recive points based on the level difficulty. you cant win but you can be the one that survived the longest. its tetris. press right arrow to move right, left arrow to move left and down arrow to instantly make the block go down" FontSize="51" Grid.Row="3" Grid.Column="3" Grid.ColumnSpan="8" Grid.RowSpan="8" TextWrapping="Wrap">
         </TextBox>
     </Grid>
 </Page>
