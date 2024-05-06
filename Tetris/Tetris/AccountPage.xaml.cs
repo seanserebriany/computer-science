@@ -95,6 +95,7 @@ namespace Tetris
                 {
                     //user is not in data base needs to be added
                     GameManager.Player = Server.AddNewUser(newName.Text.Trim(), SignUpPass.Password.Trim(), SignUpMail.Text.Trim());//add email instead of pass
+                    await new MessageDialog("New AccountCreated!").ShowAsync();
                     Frame.Navigate(typeof(MainPage));
                 }
                 else
@@ -187,6 +188,7 @@ namespace Tetris
                 {
                     Server.ChangePassword(ForgotPasswordUsername.Text.Trim(), ForgotPasswordNewPass.Password.Trim());
                     await new MessageDialog("The password has changed sucsessfuly.").ShowAsync();
+                    Frame.Navigate(typeof(MainPage));
                 }
             }
             ForgotPasswordGrid.Visibility = Visibility.Collapsed;
@@ -199,41 +201,44 @@ namespace Tetris
 
         private bool CheckPassword(string password)
         {
-            //// Check length
-            //if (password.Length < 8)
-            //    return false;
+            // Check length
+            if (password.Length < 8)
+                return false;
 
-            //// Check for at least one capital letter
-            //if (!Regex.IsMatch(password, "[A-Z]"))
-            //    return false;
+            // Check for at least one capital letter
+            if (!Regex.IsMatch(password, "[A-Z]"))
+                return false;
 
-            //// Check for at least one lowercase letter
-            //if (!Regex.IsMatch(password, "[a-z]"))
-            //    return false;
+            // Check for at least one lowercase letter
+            if (!Regex.IsMatch(password, "[a-z]"))
+                return false;
 
-            //// Check for at least one number
-            //if (!Regex.IsMatch(password, "[0-9]"))
-            //    return false;
+            // Check for at least one number
+            if (!Regex.IsMatch(password, "[0-9]"))
+                return false;
 
-            //// Check for at least one special character
-            //if (!Regex.IsMatch(password, "[^a-zA-Z0-9]"))
-            //    return false;
+            // Check for at least one special character
+            if (!Regex.IsMatch(password, "[^a-zA-Z0-9]"))
+                return false;
 
             return true;
         }
-    
-    
+
+
 
         public static bool IsMailIlegal(string mail)
         {
-            for (int i = 0; i < mail.Length; i++)
-            {
-                if (mail[i] == '@')
-                {
-                    return true;
-                }
-            }
-            return false;
+            string pattern = @"^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+.[a-zA-Z]{2,}$";
+            return Regex.IsMatch(mail, pattern);
+        }
+
+        private void imgNewPasswordLogIn_PointerPressed(object sender, PointerRoutedEventArgs e)
+        {
+            ForgotPasswordGrid.Visibility = Visibility.Collapsed;
+            existedUserGrid.Visibility = Visibility.Visible;
+            ForgotPasswordUsername.Text = "";
+            ForgotPasswordNewPass.Password = "";
+            ForgotPasswordNewSamePass.Password = "";
         }
     }
 }

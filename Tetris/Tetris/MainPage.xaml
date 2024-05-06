@@ -56,11 +56,12 @@
             <Image x:Name="imgMusic" Source="/Assets/Buttons/Music.png" PointerEntered="img_PointerEntered" PointerExited="img_PointerExited" PointerPressed="imgMusic_PointerPressed"></Image>
         </Button>
         <Button Style="{StaticResource MyButtonStyle}" x:Name="btnAccount" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3" Grid.RowSpan="2">
-            <Image x:Name="imgAccount" Source="/Assets/Buttons/Account.png" PointerEntered="img_PointerEntered" PointerExited="img_PointerExited" PointerPressed="imgAccount_PointerPressed"></Image>
+            <Image x:Name="imgAccount" Source="/Assets/Buttons/Account.png" PointerEntered="imgAccount_PointerEntered" PointerExited="imgAccount_PointerExited"  PointerPressed="imgAccount_PointerPressed"></Image>
         </Button>
         <Button Style="{StaticResource MyButtonStyle}" x:Name="btnHelp" Grid.Row="0" Grid.Column="6" Grid.ColumnSpan="3" Grid.RowSpan="2">
             <Image x:Name="imgHelp" Source="/Assets/Buttons/Help.png" PointerEntered="img_PointerEntered" PointerExited="img_PointerExited" PointerPressed="imgHelp_PointerPressed"></Image>
         </Button>
+        <TextBlock x:Name="UserNameText" Text="Points" FontSize="35" Foreground="White" FontFamily="Broadway" FontWeight="Bold" Grid.ColumnSpan="3" Grid.RowSpan="1" Grid.Column="0" Grid.Row="2" Visibility="Collapsed"></TextBlock>
         <Grid x:Name="popupGridMusic" Grid.Row="3" Grid.Column="4" Grid.RowSpan="9" Grid.ColumnSpan="6" Opacity="1" BorderThickness="10" CornerRadius="30" Visibility="Collapsed">
             <Grid.Background>
                 <ImageBrush x:Name="BackgroundPop" ImageSource="/Assets/Background/PopBackground.jpg"></ImageBrush>

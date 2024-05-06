@@ -4,10 +4,12 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
+using Tetris.GameServices;
 using Windows.ApplicationModel.Core;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
 using Windows.Storage;
+using Windows.UI.Popups;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Controls.Primitives;
@@ -41,10 +43,12 @@ namespace Tetris
             Window.Current.CoreWindow.PointerCursor = new Windows.UI.Core.CoreCursor(Windows.UI.Core.CoreCursorType.Arrow, 1);
         }
 
-        private void imgPlay_PointerPressed(object sender, PointerRoutedEventArgs e)
+        private async void imgPlay_PointerPressed(object sender, PointerRoutedEventArgs e)
         {
-            //string dbPath = ApplicationData.Current.LocalFolder.Path;
-            Frame.Navigate(typeof(LevelPage));
+            if(GameManager.Player.Name!= "Annonymous")
+                Frame.Navigate(typeof(LevelPage));
+            else
+                await new MessageDialog("you need to log in first").ShowAsync();
         }
 
         private void imgAccount_PointerPressed(object sender, PointerRoutedEventArgs e)
@@ -115,6 +119,25 @@ namespace Tetris
         {
             CoreApplication.Exit();
 
+        }
+
+        private void imgAccount_PointerEntered(object sender, PointerRoutedEventArgs e)
+        {
+            Window.Current.CoreWindow.PointerCursor = new Windows.UI.Core.CoreCursor(Windows.UI.Core.CoreCursorType.Hand, 1);
+            if (GameManager.Player.Name != "Annonymous")
+            {
+                UserNameText.Text = GameManager.Player.Name;
+                UserNameText.Visibility = Visibility.Visible;
+            }
+        }
+
+        private void imgAccount_PointerExited(object sender, PointerRoutedEventArgs e)
+        {
+            Window.Current.CoreWindow.PointerCursor = new Windows.UI.Core.CoreCursor(Windows.UI.Core.CoreCursorType.Arrow, 1);
+            if (GameManager.Player.Name != "Annonymous")
+            {
+                UserNameText.Visibility = Visibility.Collapsed;
+            }
         }
     }
 }

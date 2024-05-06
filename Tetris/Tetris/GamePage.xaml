@@ -48,12 +48,15 @@
         <Button Style="{StaticResource MyButtonStyle}" x:Name="BtnHome" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3" Grid.RowSpan="2">
             <Image x:Name="imgHome" Source="/Assets/Buttons/Home.png" PointerEntered="img_PointerEntered" PointerExited="img_PointerExited" PointerPressed="imgHome_PointerPressed"></Image>
         </Button>
-        <Border Background="BurlyWood" Grid.ColumnSpan="3" Grid.RowSpan="2" Grid.Column="5"></Border>
-        <TextBlock x:Name="txt_score" Text="0" FontSize="70" Foreground="White" HorizontalAlignment="Center" Grid.RowSpan="1" Grid.Column="6" Grid.Row="0" FontWeight="Bold" Margin="0,-10,0,10"/>
+        <Border Background="BurlyWood" Grid.ColumnSpan="4" Grid.RowSpan="2" Grid.Column="5" Height="153" Margin="0,0,107,0" VerticalAlignment="Bottom"></Border>
+        <Viewbox HorizontalAlignment="Center" Grid.RowSpan="1" Grid.Column="6" Grid.Row="0">
+            <TextBlock x:Name="txt_score" Text="0" FontSize="70" Foreground="White" FontWeight="Bold"/>
+        </Viewbox>
         <Image Source="/Assets/Game/coin.png" HorizontalAlignment="Center" Grid.ColumnSpan="1" Grid.RowSpan="1" Grid.Column="5" Grid.Row="0"></Image>
         <Viewbox VerticalAlignment="Center" HorizontalAlignment="Center" Grid.ColumnSpan="3" Grid.RowSpan="1" Grid.Column="5" Grid.Row="1">
-                <TextBlock Text="Points" FontSize="35" Foreground="White" FontFamily="Broadway" FontWeight="Bold"></TextBlock>
-        </Viewbox>        <Button Style="{StaticResource MyButtonStyle}" x:Name="BtnHelp" Grid.Row="0" Grid.Column="2" Grid.ColumnSpan="4" Grid.RowSpan="2">
+            <TextBlock Text="Points" FontSize="35" Foreground="White" FontFamily="Broadway" FontWeight="Bold"></TextBlock>
+        </Viewbox>
+        <Button Style="{StaticResource MyButtonStyle}" x:Name="BtnHelp" Grid.Row="0" Grid.Column="2" Grid.ColumnSpan="4" Grid.RowSpan="2">
             <Image x:Name="imgHelp" Source="/Assets/Buttons/Help.png" PointerEntered="img_PointerEntered" PointerExited="img_PointerExited" PointerPressed="imgHelp_PointerPressed"></Image>
         </Button>
         <Border x:Name="GameBorder" Background="Black" Grid.RowSpan="9" Grid.ColumnSpan="5" Grid.Row="3" Grid.Column="4" Width="306" >

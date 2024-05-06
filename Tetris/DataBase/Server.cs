@@ -142,7 +142,7 @@ namespace DataBase
         {
             int currentLevelId = 0;
             int currentProductId = 0;
-            string query = $"SELECT Money, CurrentProductId FROM [GameData] WHERE UserId={user.Id}";
+            string query = $"SELECT Money, CurrentProductId, CurrentLevelId FROM [GameData] WHERE UserId={user.Id}";
             using (SqliteConnection connection = new SqliteConnection(connectionString))
             {
                 connection.Open();
@@ -151,9 +151,9 @@ namespace DataBase
                 if (reader.HasRows)
                 {
                     reader.Read();
-                    user.Points = reader.GetInt32(2);
-                    currentLevelId = reader.GetInt32(0);
-                    currentProductId = reader.GetInt32(3);
+                    user.Points = reader.GetInt32(0);
+                    currentLevelId = reader.GetInt32(2);
+                    currentProductId = reader.GetInt32(1);
                 }
             }
             SetCurrentLevel(user, currentLevelId);
@@ -198,13 +198,13 @@ namespace DataBase
 
         public static void ChangePassword(string username, string newpass)
         {
-            string query = $"INSERT INTO [User] (UserPassword) VALUES ({newpass}) WHERE UserName = '{username})";
+            string query = $"UPDATE [User] SET UserPassword = '{newpass}' WHERE UserName = '{username}'";
             Execute(query);
         }
 
         private static void AddGameData(int userId)
         {
-            string query = $"INSERT INTO [GameData] (UserId, CurrentProductId, Money) VALUES ({userId},{1},{0})";
+            string query = $"INSERT INTO [GameData] (UserId, CurrentProductId, Money, CurrentLevelId) VALUES ({userId},{1},{0},{1})";
             Execute(query);
         }
     }
