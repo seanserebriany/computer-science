@@ -44,6 +44,7 @@
             <ColumnDefinition></ColumnDefinition>
             <ColumnDefinition></ColumnDefinition>
         </Grid.ColumnDefinitions>
+        
         <Viewbox Grid.Row="6" Grid.Column="6" Grid.ColumnSpan="3" Grid.RowSpan="2">
             <Button Style="{StaticResource MyButtonStyle}" x:Name="BtnLogIn" Visibility="Collapsed">
                 <Border  BorderThickness="4" Background="DodgerBlue" CornerRadius="25">
@@ -59,9 +60,9 @@
             </Button>
         </Viewbox>
         <Button Style="{StaticResource MyButtonStyle}" x:Name="BtnBack" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" Grid.RowSpan="2">
-            <Image x:Name="imgBack" Source="/Assets/Buttons/BackO.png" PointerEntered="img_PointerEntered"  PointerExited="img_PointerExited" PointerPressed="imgBack_PointerPressed"></Image>
+            <Image x:Name="imgBack" Source="/Assets/Buttons/Home.png" PointerEntered="img_PointerEntered"  PointerExited="img_PointerExited" PointerPressed="imgBack_PointerPressed"></Image>
         </Button>
-        <Grid x:Name="newUserGrid" Background="DodgerBlue" Grid.Row="3" Grid.Column="9" Grid.ColumnSpan="4" Grid.RowSpan="10" BorderThickness="8" CornerRadius="40" Visibility="Visible">
+        <Grid x:Name="newUserGrid" Background="DodgerBlue" Grid.Row="3" Grid.Column="9" Grid.ColumnSpan="4" Grid.RowSpan="10" BorderThickness="8" CornerRadius="40" Visibility="Collapsed">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition></ColumnDefinition>
                 <ColumnDefinition></ColumnDefinition>
@@ -153,7 +154,7 @@
                 <PasswordBox x:Name="LoginPassword" PasswordChar="●" IsPasswordRevealButtonEnabled="False" ScrollViewer.VerticalScrollMode="Disabled" PlaceholderText="Password" FontWeight="Bold" FontStyle="Italic" MaxLength="25" Width="160" Height="35" BorderBrush="White" CornerRadius="20" FontSize="18" VerticalAlignment="Center"></PasswordBox>
             </Viewbox>
         </Grid>
-        <Grid x:Name="ForgotPasswordGrid" Background="DodgerBlue" Grid.Row="3" Grid.Column="2" Grid.ColumnSpan="4" Grid.RowSpan="8" BorderThickness="8" CornerRadius="40" Visibility="Visible">
+        <Grid x:Name="ForgotPasswordGrid" Background="DodgerBlue" Grid.Row="3" Grid.Column="2" Grid.ColumnSpan="4" Grid.RowSpan="8" BorderThickness="8" CornerRadius="40" Visibility="Collapsed">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition></ColumnDefinition>
                 <ColumnDefinition></ColumnDefinition>

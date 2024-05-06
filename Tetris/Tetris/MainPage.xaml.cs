@@ -97,8 +97,7 @@ namespace Tetris
             }
             else
             {
-                BackgroundMusic.IsOn = false;
-                //BackgroundSound.Stop();
+                BackgroundSound.Stop();
             }
         }
 

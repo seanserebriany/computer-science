@@ -48,20 +48,19 @@
         <Button Style="{StaticResource MyButtonStyle}" x:Name="BtnHome" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3" Grid.RowSpan="2">
             <Image x:Name="imgHome" Source="/Assets/Buttons/Home.png" PointerEntered="img_PointerEntered" PointerExited="img_PointerExited" PointerPressed="imgHome_PointerPressed"></Image>
         </Button>
-        <Viewbox VerticalAlignment="Center" HorizontalAlignment="Center" Grid.ColumnSpan="2" Grid.RowSpan="2" Grid.Column="6" Stretch="Fill">
+        <Viewbox VerticalAlignment="Center" HorizontalAlignment="Center" Grid.ColumnSpan="1" Grid.RowSpan="2" Grid.Column="6" >
             <Border Background="LightSkyBlue" BorderBrush="LightBlue" BorderThickness="4">
-                <TextBlock x:Name="txt_score" Text="0" FontSize="45" Foreground="White" Grid.RowSpan="2" VerticalAlignment="Stretch" FontFamily="Broadway" FontWeight="Bold"></TextBlock>
+                <TextBlock x:Name="txt_score" Text="0" FontSize="45" Foreground="White" Grid.RowSpan="2" FontFamily="Broadway" FontWeight="Bold"/>
             </Border>
         </Viewbox>
-        <Button Style="{StaticResource MyButtonStyle}" x:Name="BtnHelp" Grid.Row="0" Grid.Column="4" Grid.ColumnSpan="4" Grid.RowSpan="2">
+        <Button Style="{StaticResource MyButtonStyle}" x:Name="BtnHelp" Grid.Row="0" Grid.Column="2" Grid.ColumnSpan="4" Grid.RowSpan="2">
             <Image x:Name="imgHelp" Source="/Assets/Buttons/Help.png" PointerEntered="img_PointerEntered" PointerExited="img_PointerExited" PointerPressed="imgHelp_PointerPressed"></Image>
         </Button>
-        <Button Style="{StaticResource MyButtonStyle}" x:Name="BtnMusic" Grid.Row="0" Grid.Column="2" Grid.ColumnSpan="3" Grid.RowSpan="2">
-            <Image x:Name="imgMusic" Source="/Assets/Buttons/Music.png" PointerEntered="img_PointerEntered" PointerExited="img_PointerExited"></Image>
-        </Button>
-        <Border x:Name="GameBorder" Background="Black" Grid.RowSpan="9" Grid.ColumnSpan="5" Grid.Row="3" Grid.Column="5" Width="306" >
+        <Border x:Name="GameBorder" Background="Black" Grid.RowSpan="9" Grid.ColumnSpan="5" Grid.Row="3" Grid.Column="4" Width="306" >
             <GameServices:GameScene x:Name="scene" Background="Transparent"></GameServices:GameScene>
         </Border>
-        <Image x:Name="imgLine" Source="/Assets/Game/FinishLine.png" Grid.Column="4" Grid.Row="5" Grid.ColumnSpan="6" Stretch="Fill" Margin="53,0,54,0"></Image>
+        <Viewbox Grid.Column="3" Grid.Row="5" Grid.ColumnSpan="6" Stretch="Fill" Margin="96,67,10,10" Grid.RowSpan="2">
+            <Image x:Name="imgLine" Source="/Assets/Game/FinishLine.png"></Image>
+        </Viewbox>
     </Grid>
 </Page>

@@ -19,7 +19,7 @@ namespace Tetris.GameServices
         }
         public void Init()
         {
-            var block = new Block(Scene, "Blocks/Block.png", 3, 50, 204, 0);
+            var block = new Block(Scene, "Blocks/Block.png", 3, 50, 153, 0);
             Scene.AddObject(block);
         }
     }

@@ -21,16 +21,14 @@ namespace Tetris.GameObjects
     {
         public double dX => _dX;
         public double dY => _dY;
-        public double _speed;
-        private bool IsFalling = true;
-        private bool fromright = true;
-        private bool fromleft = true;
-        private bool ceeling = true;
-        private int _countlifes;
-        private Scene _scene;
-        private Block _block = null;
-        private bool IsOnGround = false;
-        private static int countOnGroundBlocks = 0;
+        public double _speed;//the block speed
+        private bool IsFalling = true;//if the block is falling
+        private bool fromright = true;//if there block can move to the left and there is no obstacle there
+        private bool fromleft = true;//if there block can move to the right and there is no obstacle there
+        private bool ceeling = true;//to check if the block passed the y=0 so the game wont recognize it as a lose
+        private Scene _scene;// the scene
+        private bool IsOnGround = false; //לבדוק אם הבלוק על הרצפה
+        private static int countOnGroundBlocks = 0;//לבדוק כמה בלוקים יש על הרצפה כדי לדעת מתי למחוק את השורה
         /// <summary>
         ///
         /// </summary>
@@ -48,8 +46,8 @@ namespace Tetris.GameObjects
             image.Width = width; // קובעים את הרוחב הכדור
             image.Stretch = Windows.UI.Xaml.Media.Stretch.Fill; // כך אנו מותחים את מראה המחבט
             _scene = scene;
-            Manager.GameEvent.OnKeyDown += KeyDown;
-            Fall();
+            Manager.GameEvent.OnKeyDown += KeyDown;//הרשמת הEVENT KEYDOWN
+            Fall();//פונקציה שנותנת לבלוק את המהירות לפי הלבל
         }
         /// <summary>
         /// באמצעות הפעולה הזאת הכדור מגיב לעזיבת המקש
@@ -61,7 +59,7 @@ namespace Tetris.GameObjects
             switch (key)
             {
                 case VirtualKey.Right:
-                    if (fromleft == true)
+                    if (fromleft == true)//אם נלחץ כפתור שמאלה אז להזיז את הבלוק שמאלה אם אין הפרעה מצד ימין שנבדק באמצעות המשתנה from left
                     {
                         _X += 51;
                         break;
@@ -72,7 +70,7 @@ namespace Tetris.GameObjects
                         fromright = true;
                         break;
                     }
-                case VirtualKey.Left:
+                case VirtualKey.Left://אם נלחץ כפתור שמאלה אז להזיז את הבלוק שמאלה אם אין הפרעה מצד שמאל שנבדק באמצעות המשתנה from right
                     if (fromright == true)
                     {
                         _X -= 51;
@@ -84,10 +82,10 @@ namespace Tetris.GameObjects
                         fromleft = true;
                         break;
                     }
-                case VirtualKey.Down:
+                case VirtualKey.Down: //אם נלחץ כפתור למטה אז להוריד את הבלוק
                     {
                         BringDown();
-                            break;
+                        break;
                     }
 
             }
@@ -97,12 +95,11 @@ namespace Tetris.GameObjects
         private void BringDown()
         {
             double maxY = _scene.ActualHeight; // Initialize maxY with the lowest possible value
-
             // Iterate over each game object in the scene snapshot
             foreach (GameObject obj in _scene._GameObjectSnapShot)
             {
                 // Check if the object is a block and not the same block
-                if (obj is Block block && block != this._block)
+                if (obj is Block block && block != this)
                 {
                     // Check if the block is directly above the current object and lower than maxY
                     if (block._X == _X && block._Y > _Y)
@@ -112,113 +109,114 @@ namespace Tetris.GameObjects
                 }
             }
 
-            // If maxY hasn't changed, set Y to the default value (530); otherwise, move down by 47 units
+            // If maxY hasn't changed, set Y to the default value; otherwise, move down by 60 units
             if (maxY == _scene.ActualHeight)
                 _Y = _scene.ActualHeight - 50;
             else
-                _Y = maxY - 55;
+                _Y = maxY - 60;
         }
 
-        private void Fall()
+        private void Fall() // מעניקה לבלוק מהירות לפי הלבל
         {
             _dY = LevelPage.Level.Speed;
             _dX = 0;
         }
-        public override void Collide(GameObject gameObject) // CheckCollistion פעולה מתבצעת רק כאשר יש נגיעה וודאית שבודקים את זה בפונקציה
+        public override void Collide(GameObject gameObject) // ובודקת התנגשות בין שני בלוקים CheckCollistion פעולה מתבצעת רק כאשר יש נגיעה וודאית שבודקים את זה בפונקציה
         {
             if (gameObject is Block block)
             {
-                var intersectRect = RectHelper.Intersect(rect, block.rect); // בדיקת התנגשות בין כדור לגיילי
-                if (intersectRect.Height < intersectRect.Width)// בדיקת פגיעה וגם מוצאת את גיילי זה
+
+                if (block._Y >= _Y) //אם האובייקט מתחת לבלוק
                 {
-                    
+                    _Y = block._Y - 48; 
                     Stop();
                 }
             }
         }
 
-        public override void Stop()
+
+        public override void Stop()// הפונקצייה שעוצרת את המשחק ובודקת הפסד
         {
-            Manager.GameEvent.OnKeyDown -= KeyDown;
+            Manager.GameEvent.OnKeyDown -= KeyDown; //ביטול הרשמה מאירוע כי לא צריך כבר הבלוק נעצר
             base.Stop();
-            ceeling = false;
-            if (_Y  <= _scene.ActualHeight - 7*50 && ceeling == false) // נוגעה בתקרה
+            ceeling = false;//בגלל שהבלוק כבר לא יורד מהגבול אלה הוא נעצר
+            if (_Y <= _scene.ActualHeight / 3 && ceeling == false) // נוגעה בגבול
             {
                 Manager.GameEvent.OnRun = null;
                 Manager.GameEvent.GameOver();
-                IsFalling = false;
+                IsFalling = false;//כדי למנוע יצירה של בלוק חדש בגלל שהמשחק נגמר
             }
-            if (IsFalling)
+            if (IsFalling)//אם המשחק לא נגמר והבלוק עדיין צריך ליפול אז יוצרים בלוק חדש
             {
-                var block = new Block(_scene, "Blocks/Block.png", 3, 50, 204, 0);
+                var block = new Block(_scene, "Blocks/Block.png", 3, 50, 153, 0);
                 _scene.AddObject(block);
             }
-            IsFalling = false;
+            IsFalling = false;//אחרת ימשיכו להיווצר בלוקים שיובליו לסיום המשחק למרות שהוא לא הסתיים
         }
 
         public override void Render()// מתבצעת כל הזמן
         {
-            if ( _scene != null && _scene.ActualHeight != 0)
+            if (_scene != null && _scene.ActualHeight != 0)
             {
-            
-            // בדיקת קצוות הזירה
-            //if (IsRelased)
-            //{
-            if (_X <= 0) // נגיעה בקיר שמאלי
-            {
-                _dX = -_dX;
-                _X = 0;
-                if (_Y >= _scene.ActualHeight - Height)
-                {
-                        _Y = _scene.ActualHeight - 50;
-                        Stop();
-                    if (IsOnGround == false)
-                    {
-                        countOnGroundBlocks++;
-                        IsOnGround = true;
-                    }
-                    if (countOnGroundBlocks == 6)
-                    {
-                        RemoveLine();
-                    }
-                }
 
-            }
-            else if (_X >= 255) // כאשר תיגע עם הצד הימני שלך בקיר הימני של הזירה
-            {
-                _dX = -_dX;
-                _X = 255; // עוצר לך בפינה
-                if (_Y >= _scene.ActualHeight - 50)
+                // בדיקת קצוות הזירה
+                //if (IsRelased)
+                //{
+                if (_X <= 0) // נגיעה בקיר שמאלי
                 {
+                    _dX = -_dX;
+                    _X = 0;
+                    if (_Y >= _scene.ActualHeight - Height)//נגיעה ברצפה
+                    {
                         _Y = _scene.ActualHeight - 50;
                         Stop();
-                    if (IsOnGround == false)
-                    {
-                        countOnGroundBlocks++;
-                        IsOnGround = true;
+                        if (IsOnGround == false)//אם הוא לא על הרצפה
+                        {
+                            countOnGroundBlocks++;
+                            IsOnGround = true;//לעדכן שהוא על הרצפה
+                        }
+                        if (countOnGroundBlocks == 6)
+                        {
+                            RemoveLine();
+                        }
                     }
-                    if (countOnGroundBlocks == 6)
+
+                }
+                else if (_X >= 255) // כאשר תיגע עם הצד הימני שלך בקיר הימני של הזירה
+                {
+                    _dX = -_dX;
+                    _X = 255; // עוצר לך בפינה
+                    if (_Y >= _scene.ActualHeight - 50)
                     {
-                        RemoveLine();
+                        _Y = _scene.ActualHeight - 50;
+                        Stop();
+                        if (IsOnGround == false)
+                        {
+                            countOnGroundBlocks++;
+                            IsOnGround = true;
+                        }
+                        if (countOnGroundBlocks == 6)
+                        {
+                            RemoveLine();
+                        }
                     }
                 }
-            }
-            else if (_Y >= _scene.ActualHeight - 55) // בדיקת רצפה
-            {
+                else if (_Y >= _scene.ActualHeight - 55) // בדיקת רצפה
+                {
                     _Y = _scene.ActualHeight - 50;
                     Manager.GameEvent.OnKeyDown -= KeyDown;
-                Stop();
-                if(IsOnGround==false)
-                {
-                    countOnGroundBlocks++;
-                    IsOnGround = true;
+                    Stop();
+                    if (IsOnGround == false)
+                    {
+                        countOnGroundBlocks++;
+                        IsOnGround = true;
+                    }
+                    if (countOnGroundBlocks == 6)
+                    {
+                        RemoveLine();
+                    }
                 }
-                if (countOnGroundBlocks == 6)
-                {
-                    RemoveLine();
-                }
-            }
-            base.Render();
+                base.Render();
             }
         }
 
@@ -234,20 +232,20 @@ namespace Tetris.GameObjects
                     {
                         if (this != block)
                         {
-                            if (Math.Abs(block.rect.Right - this.rect.Left) == 1)
+                            if (Math.Abs(block.rect.Right - this.rect.Left) == 1) // אם יש מכשול מצדו השמאלי של הבלוק
                             {
                                 {
-                                    if (Math.Abs(block.rect.Top - this.rect.Top) <= 50)
+                                    if (Math.Abs(block.rect.Top - this.rect.Top) <= 50) //והמכשול בגובה המתאים
                                     {
-                                        fromright = false;
+                                        fromright = false; //לעדכן שאי אפשר להזיז את הבלוק שמאלה ושיש מכשול
                                     }
                                 }
                             }
-                            else if(Math.Abs(block.rect.Left - this.rect.Right) == 1)
+                            else if (Math.Abs(block.rect.Left - this.rect.Right) == 1)// אם יש מכשול מצדו הימני של הבלוק
                             {
-                                if (Math.Abs(block.rect.Top - this.rect.Top) <= 50)
+                                if (Math.Abs(block.rect.Top - this.rect.Top) <= 50)//והמכשול בגובה המתאים
                                 {
-                                    fromleft = false;
+                                    fromleft = false;//לעדכן שאי אפשר להזיז את הבלוק ימינה ושיש מכשול
                                 }
                             }
 
@@ -258,18 +256,18 @@ namespace Tetris.GameObjects
         }
         public void RemoveLine()
         {
-            foreach (GameObject obj in _scene._GameObjectSnapShot)
+            foreach (GameObject obj in _scene._GameObjectSnapShot) //עובר על כל הבלוקים
             {
                 countOnGroundBlocks = 0;
                 if (obj != null)
                 {
                     if (obj is Block block)
                     {
-                        if (block.rect.Top >= _scene.ActualHeight - Height)
+                        if (block.rect.Top >= _scene.ActualHeight - Height) // אם הבלוק בשורה הכי נמוכה
                         {
                             _scene.RemoveObject(block);
                         }
-                        else if(block._Y> 100)
+                        else if (block._Y > 100)
                         {
                             block._Y += 47;
                         }

@@ -103,7 +103,7 @@
                 <ToggleSwitch x:Name="BackgroundMusic" OnContent="Music On" OffContent="Music Off" Toggled="BackgroundMusic_Toggled" FontSize="35" Foreground="White" VerticalAlignment="Stretch" FontFamily="Broadway" FontWeight="Bold"></ToggleSwitch>
             </Viewbox>
             <Viewbox Grid.ColumnSpan="7" Grid.RowSpan="3" Grid.Row="5" Grid.Column="2">
-                <Slider x:Name="BackgroundVolumeSlider" ValueChanged="BackgroundVolumeSlider_ValueChanged"  Maximum="100" Header="Background Sound" FontSize="40" Foreground="White" VerticalAlignment="Stretch" FontFamily="Broadway" FontWeight="Bold"></Slider>
+                <Slider x:Name="BackgroundVolumeSlider" ValueChanged="BackgroundVolumeSlider_ValueChanged" Value="20"  Maximum="100" Header="Background Sound" FontSize="40" Foreground="White" VerticalAlignment="Stretch" FontFamily="Broadway" FontWeight="Bold"></Slider>
             </Viewbox>
         </Grid>
         <Grid x:Name="popupGrid" Background="DodgerBlue" Grid.Row="3" Grid.Column="3" Grid.RowSpan="9" Grid.ColumnSpan="8" Opacity="1" BorderThickness="10" CornerRadius="120" Visibility="Collapsed">
