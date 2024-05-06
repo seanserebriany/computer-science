@@ -62,7 +62,7 @@
         <Border x:Name="GameBorder" Background="Black" Grid.RowSpan="9" Grid.ColumnSpan="5" Grid.Row="3" Grid.Column="4" Width="306" >
             <GameServices:GameScene x:Name="scene" Background="Transparent"></GameServices:GameScene>
         </Border>
-        <Viewbox Grid.Column="5" Grid.Row="5" Grid.ColumnSpan="3" Stretch="Fill" Grid.RowSpan="1">
+        <Viewbox Grid.Column="5" Grid.Row="6" Grid.ColumnSpan="3" Stretch="Fill" Grid.RowSpan="1">
             <Image x:Name="imgLine" Source="/Assets/Game/FinishLine.png"></Image>
         </Viewbox>
     </Grid>
