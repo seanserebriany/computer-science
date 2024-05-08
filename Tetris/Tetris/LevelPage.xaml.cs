@@ -71,5 +71,10 @@ namespace Tetris
             Frame.Navigate(typeof(GamePage));
 
         }
+
+        private void Page_Loaded(object sender, RoutedEventArgs e)
+        {
+            Manager.GameEvent.OnRun = null;
+        }
     }
 }

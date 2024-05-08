@@ -45,10 +45,10 @@ namespace Tetris
 
         private async void imgPlay_PointerPressed(object sender, PointerRoutedEventArgs e)
         {
-            if(GameManager.Player.Name!= "Annonymous")
+            //if(GameManager.Player.Name!= "Annonymous")
                 Frame.Navigate(typeof(LevelPage));
-            else
-                await new MessageDialog("you need to log in first").ShowAsync();
+            //else
+            //    await new MessageDialog("you need to log in first").ShowAsync();
         }
 
         private void imgAccount_PointerPressed(object sender, PointerRoutedEventArgs e)
