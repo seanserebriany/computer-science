@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
+using Tetris.GameObjects;
 using Tetris.GameServices;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
@@ -55,26 +56,28 @@ namespace Tetris
 
         private void imgLevel1_PointerPressed(object sender, PointerRoutedEventArgs e)
         {
+
+            Manager.GameEvent.OnKeyDown -= Block.KeyDown;
             Level.LevelNumber = 1;
             Level.Speed = 5;
-            Server.SetCurrentLevel(GameManager.Player, 1);
-            Manager.GameEvent.OnRun = null;
+            //Server.SetCurrentLevel(GameManager.Player, 1);
             Frame.Navigate(typeof(GamePage));
         }
 
         private void imgLevel2_PointerPressed(object sender, PointerRoutedEventArgs e)
         {
+            Manager.GameEvent.OnRun = null;
+            Manager.GameEvent.OnKeyDown = null;
             Level.LevelNumber = 2;
             Level.Speed = 10;
-            Manager.GameEvent.OnRun = null;
-            Server.SetCurrentLevel(GameManager.Player, 2);
+            //Server.SetCurrentLevel(GameManager.Player, 2);
             Frame.Navigate(typeof(GamePage));
 
         }
 
         private void Page_Loaded(object sender, RoutedEventArgs e)
         {
-            Manager.GameEvent.OnRun = null;
+
         }
     }
 }

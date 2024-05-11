@@ -45,8 +45,8 @@ namespace Tetris
 
         private async void imgPlay_PointerPressed(object sender, PointerRoutedEventArgs e)
         {
-            //if(GameManager.Player.Name!= "Annonymous")
-                Frame.Navigate(typeof(LevelPage));
+            //if (GameManager.Player.Name != "Annonymous")
+            Frame.Navigate(typeof(LevelPage));
             //else
             //    await new MessageDialog("you need to log in first").ShowAsync();
         }
@@ -94,6 +94,8 @@ namespace Tetris
 
         private void Page_Loaded(object sender, RoutedEventArgs e)
         {
+            Manager.GameEvent.OnRun = null;
+            Manager.GameEvent.OnKeyDown = null;
             if (BackgroundSound.isOn)
             {
                 BackgroundMusic.IsOn = true;

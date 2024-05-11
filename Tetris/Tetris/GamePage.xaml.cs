@@ -46,11 +46,15 @@ namespace Tetris
 
         private void imgHelp_PointerPressed(object sender, PointerRoutedEventArgs e)
         {
+            Manager.GameEvent.OnRun = null;
+            Manager.GameEvent.OnKeyDown = null;
             Frame.Navigate(typeof(HelpPage));
         }
 
         private void imgHome_PointerPressed(object sender, PointerRoutedEventArgs e)
         {
+            Manager.GameEvent.OnRun = null;
+            Manager.GameEvent.OnKeyDown = null;
             Frame.Navigate(typeof(MainPage));
         }
 
@@ -64,6 +68,8 @@ namespace Tetris
 
         private void GameOver()
         {
+            Manager.GameEvent.OnRun = null;
+            Manager.GameEvent.OnKeyDown = null;
             Frame.Navigate(typeof(YouLosePage));
         }
 
