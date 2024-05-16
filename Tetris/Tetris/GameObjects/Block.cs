@@ -46,7 +46,10 @@ namespace Tetris.GameObjects
             image.Width = width; // קובעים את הרוחב הכדור
             image.Stretch = Windows.UI.Xaml.Media.Stretch.Fill; // כך אנו מותחים את מראה המחבט
             _scene = scene;
-            Manager.GameEvent.OnKeyDown += KeyDown;//הרשמת הEVENT KEYDOWN
+            if(Manager.GameEvent.OnKeyDown == null) 
+            {
+                Manager.GameEvent.OnKeyDown += KeyDown;//הרשמת הEVENT KEYDOWN
+            }
             Fall();//פונקציה שנותנת לבלוק את המהירות לפי הלבל
         }
         /// <summary>
@@ -204,7 +207,6 @@ namespace Tetris.GameObjects
                 else if (_Y >= _scene.ActualHeight - 55) // בדיקת רצפה
                 {
                     _Y = _scene.ActualHeight - 50;
-                    Manager.GameEvent.OnKeyDown -= KeyDown;
                     Stop();
                     if (IsOnGround == false)
                     {
@@ -269,7 +271,7 @@ namespace Tetris.GameObjects
                         }
                         else if (block._Y > 100)
                         {
-                            block._Y += 47;
+                            block._Y += 50;
                         }
                     }
 

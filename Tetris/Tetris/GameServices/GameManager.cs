@@ -13,12 +13,14 @@ namespace Tetris.GameServices
     public class GameManager : Manager
     {
         public static GameUser Player = new GameUser();
+
         public GameManager(Scene scene) : base(scene)
         {
             Init();
         }
         public void Init()
         {
+            Manager.GameEvent.CleraKey();
             var block = new Block(Scene, "Blocks/Block.png", 3, 50, 153, 0);
             Scene.AddObject(block);
         }

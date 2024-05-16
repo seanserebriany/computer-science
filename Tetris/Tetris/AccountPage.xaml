@@ -154,7 +154,7 @@
                 <PasswordBox x:Name="LoginPassword" PasswordChar="●" IsPasswordRevealButtonEnabled="False" ScrollViewer.VerticalScrollMode="Disabled" PlaceholderText="Password" FontWeight="Bold" FontStyle="Italic" MaxLength="25" Width="160" Height="35" BorderBrush="White" CornerRadius="20" FontSize="18" VerticalAlignment="Center"></PasswordBox>
             </Viewbox>
         </Grid>
-        <Grid x:Name="ForgotPasswordGrid" Background="DodgerBlue" Grid.Row="3" Grid.Column="6" Grid.ColumnSpan="3" Grid.RowSpan="8" BorderThickness="8" CornerRadius="40" Visibility="Visible">
+        <Grid x:Name="ForgotPasswordGrid" Background="DodgerBlue" Grid.Row="3" Grid.Column="6" Grid.ColumnSpan="3" Grid.RowSpan="8" BorderThickness="8" CornerRadius="40" Visibility="Collapsed">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition></ColumnDefinition>
                 <ColumnDefinition></ColumnDefinition>

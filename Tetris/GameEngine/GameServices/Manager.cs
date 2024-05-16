@@ -19,17 +19,16 @@ namespace GameEngine.GameServices
         public Manager(Scene scene)
         {
             Scene = scene;
+            //GameEvent.CleraKey();
             if (_runTimer == null)
             {
                 _runTimer = new DispatcherTimer();
                 _runTimer.Interval = TimeSpan.FromMilliseconds(30);
                 _runTimer.Start();
                 _runTimer.Tick += _RunTimer_Tick;
+                Window.Current.CoreWindow.KeyDown += CoreWindow_KeyDown;
+                Window.Current.CoreWindow.KeyUp += CoreWindow_KeyUp;
             }
-            Window.Current.CoreWindow.KeyDown += CoreWindow_KeyDown;
-            Window.Current.CoreWindow.KeyUp += CoreWindow_KeyUp;
-
-
         }
 
         private void CoreWindow_KeyUp(CoreWindow sender, KeyEventArgs args)
@@ -37,7 +36,6 @@ namespace GameEngine.GameServices
             if (GameEvent.OnKeyUp != null)
             {
                 GameEvent.OnKeyUp(args.VirtualKey);
-
             }
         }
 

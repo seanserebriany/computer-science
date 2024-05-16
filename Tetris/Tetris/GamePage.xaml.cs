@@ -46,20 +46,17 @@ namespace Tetris
 
         private void imgHelp_PointerPressed(object sender, PointerRoutedEventArgs e)
         {
-            Manager.GameEvent.OnRun = null;
-            Manager.GameEvent.OnKeyDown = null;
             Frame.Navigate(typeof(HelpPage));
         }
 
         private void imgHome_PointerPressed(object sender, PointerRoutedEventArgs e)
         {
-            Manager.GameEvent.OnRun = null;
-            Manager.GameEvent.OnKeyDown = null;
             Frame.Navigate(typeof(MainPage));
         }
 
         private void Page_Loaded(object sender, RoutedEventArgs e)
         {
+            Manager.GameEvent.CleraKey();
             _GameManeger = new GameManager(scene);
             _GameManeger.Start();
             Manager.GameEvent.AddScore += AddScore;
@@ -68,8 +65,6 @@ namespace Tetris
 
         private void GameOver()
         {
-            Manager.GameEvent.OnRun = null;
-            Manager.GameEvent.OnKeyDown = null;
             Frame.Navigate(typeof(YouLosePage));
         }
 

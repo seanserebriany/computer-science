@@ -57,17 +57,15 @@ namespace Tetris
         private void imgLevel1_PointerPressed(object sender, PointerRoutedEventArgs e)
         {
 
-            Manager.GameEvent.OnKeyDown -= Block.KeyDown;
             Level.LevelNumber = 1;
             Level.Speed = 5;
             //Server.SetCurrentLevel(GameManager.Player, 1);
+            Manager.GameEvent.CleraKey();
             Frame.Navigate(typeof(GamePage));
         }
 
         private void imgLevel2_PointerPressed(object sender, PointerRoutedEventArgs e)
         {
-            Manager.GameEvent.OnRun = null;
-            Manager.GameEvent.OnKeyDown = null;
             Level.LevelNumber = 2;
             Level.Speed = 10;
             //Server.SetCurrentLevel(GameManager.Player, 2);
