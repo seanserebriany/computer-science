@@ -19,6 +19,7 @@ namespace Tetris.GameObjects
 {
     public class Block : GameMovingObject
     {
+        private bool _isNewGame;
         public double dX => _dX;
         public double dY => _dY;
         public double _speed;//the block speed
@@ -38,15 +39,20 @@ namespace Tetris.GameObjects
         /// <param name="width">מהירות אנכית</param>
         /// <param name="placeX">מיקום יווצרות הכדור ביחס לציר האופקי</param>
         /// <param name="placeY">מיקום יווצרות המחבט ביחס לציר אנכי</param>
-        public Block(Scene scene, string fileName, double speed, int width, double placeX, double placeY) :
+        public Block(Scene scene, string fileName, double speed, int width, double placeX, double placeY, bool IsNewGame) :
             base(placeX, placeY, fileName, scene)
         {
+            _isNewGame = IsNewGame;
+            if(IsNewGame)
+            {
+                countOnGroundBlocks = 0;
+            }
             _speed = speed;
             image.Height = width; // כך אנו קובעים את עובי הכדו
             image.Width = width; // קובעים את הרוחב הכדור
             image.Stretch = Windows.UI.Xaml.Media.Stretch.Fill; // כך אנו מותחים את מראה המחבט
             _scene = scene;
-            if(Manager.GameEvent.OnKeyDown == null) 
+            if (Manager.GameEvent.OnKeyDown == null) 
             {
                 Manager.GameEvent.OnKeyDown += KeyDown;//הרשמת הEVENT KEYDOWN
             }
@@ -151,7 +157,7 @@ namespace Tetris.GameObjects
             }
             if (IsFalling)//אם המשחק לא נגמר והבלוק עדיין צריך ליפול אז יוצרים בלוק חדש
             {
-                var block = new Block(_scene, "Blocks/Block.png", 3, 50, 153, 0);
+                var block = new Block(_scene, "Blocks/Block.png", 3, 50, 153, 0, false);
                 _scene.AddObject(block);
             }
             IsFalling = false;//אחרת ימשיכו להיווצר בלוקים שיובליו לסיום המשחק למרות שהוא לא הסתיים

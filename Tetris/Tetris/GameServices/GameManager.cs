@@ -20,8 +20,8 @@ namespace Tetris.GameServices
         }
         public void Init()
         {
-            Manager.GameEvent.CleraKey();
-            var block = new Block(Scene, "Blocks/Block.png", 3, 50, 153, 0);
+            Manager.GameEvent.Clear();
+            var block = new Block(Scene, "Blocks/Block.png", 3, 50, 153, 0, true);
             Scene.AddObject(block);
         }
     }

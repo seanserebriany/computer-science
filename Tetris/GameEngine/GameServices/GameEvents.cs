@@ -17,8 +17,10 @@ namespace GameEngine.GameServices
         public Action<VirtualKey> OnKeyDown;//לחיצה על כפתור
         
 
-        public void CleraKey()
+        public void Clear()
         {
+            GameOver = null;
+            AddScore = null;
             OnKeyUp = null;
             OnKeyDown = null;
         }

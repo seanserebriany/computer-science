@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
+using Tetris.GameObjects;
 using Tetris.GameServices;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
@@ -55,8 +56,8 @@ namespace Tetris
         }
 
         private void Page_Loaded(object sender, RoutedEventArgs e)
-        {
-            Manager.GameEvent.CleraKey();
+        {           
+            Manager.GameEvent.Clear();
             _GameManeger = new GameManager(scene);
             _GameManeger.Start();
             Manager.GameEvent.AddScore += AddScore;

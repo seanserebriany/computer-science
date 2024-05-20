@@ -60,7 +60,7 @@ namespace Tetris
             Level.LevelNumber = 1;
             Level.Speed = 5;
             //Server.SetCurrentLevel(GameManager.Player, 1);
-            Manager.GameEvent.CleraKey();
+            Manager.GameEvent.Clear();
             Frame.Navigate(typeof(GamePage));
         }
 
