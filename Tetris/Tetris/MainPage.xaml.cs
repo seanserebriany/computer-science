@@ -141,5 +141,10 @@ namespace Tetris
                 UserNameText.Visibility = Visibility.Collapsed;
             }
         }
+
+        private void imgShop_PointerPressed(object sender, PointerRoutedEventArgs e)
+        {
+            Frame.Navigate(typeof(ShopPage));
+        }
     }
 }

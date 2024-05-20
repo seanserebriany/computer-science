@@ -52,6 +52,9 @@
         <Button Style="{StaticResource MyButtonStyle}" x:Name="btnLeaderboard" Grid.Row="0" Grid.Column="2" Grid.ColumnSpan="3" Grid.RowSpan="2">
             <Image x:Name="imgLeaderboard" Source="/Assets/Buttons/Leaderboard.png" PointerEntered="img_PointerEntered" PointerExited="img_PointerExited" PointerPressed="imgLeaderboard_PointerPressed"></Image>
         </Button>
+        <Button Style="{StaticResource MyButtonStyle}" x:Name="btnShop" Grid.Row="0" Grid.Column="8" Grid.ColumnSpan="3" Grid.RowSpan="2">
+            <Image x:Name="imgShop" Source="/Assets/Buttons/Shop.png" PointerEntered="img_PointerEntered" PointerExited="img_PointerExited" PointerPressed="imgShop_PointerPressed"></Image>
+        </Button>
         <Button Style="{StaticResource MyButtonStyle}" x:Name="btnMusic" Grid.Row="0" Grid.Column="4" Grid.ColumnSpan="3" Grid.RowSpan="2">
             <Image x:Name="imgMusic" Source="/Assets/Buttons/Music.png" PointerEntered="img_PointerEntered" PointerExited="img_PointerExited" PointerPressed="imgMusic_PointerPressed"></Image>
         </Button>
