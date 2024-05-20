@@ -211,9 +211,9 @@
     <Content Include="Assets\Background\Lose.jpg" />
     <Content Include="Assets\Background\Background.jpg" />
     <Content Include="Assets\Background\Win.jpg" />
-    <Content Include="Assets\Blocks\Block.png" />
-    <Content Include="Assets\Blocks\Block1.png" />
-    <Content Include="Assets\Blocks\Block2.png" />
+    <Content Include="Assets\Blocks\DeafultBlock.png" />
+    <Content Include="Assets\Blocks\CoolBlock.png" />
+    <Content Include="Assets\Blocks\AngryBlock.png" />
     <Content Include="Assets\Buttons\Account.png" />
     <Content Include="Assets\Buttons\Exit.png" />
     <Content Include="Assets\Buttons\Help.png" />

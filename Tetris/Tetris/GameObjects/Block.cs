@@ -157,7 +157,7 @@ namespace Tetris.GameObjects
             }
             if (IsFalling)//אם המשחק לא נגמר והבלוק עדיין צריך ליפול אז יוצרים בלוק חדש
             {
-                var block = new Block(_scene, "Blocks/Block.png", 3, 50, 153, 0, false);
+                var block = new Block(_scene, $"Blocks/{GameManager.Player.UsingProduct}.png", 3, 50, 153, 0, false);
                 _scene.AddObject(block);
             }
             IsFalling = false;//אחרת ימשיכו להיווצר בלוקים שיובליו לסיום המשחק למרות שהוא לא הסתיים
@@ -284,6 +284,7 @@ namespace Tetris.GameObjects
                 }
             }
             Manager.GameEvent.AddScore();
+
         }
 
     }

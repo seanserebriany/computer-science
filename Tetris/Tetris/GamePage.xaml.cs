@@ -1,4 +1,5 @@
-﻿using GameEngine.GameServices;
+﻿using DataBase;
+using GameEngine.GameServices;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -76,6 +77,7 @@ namespace Tetris
                 int newScore = 0;
                 newScore = currentScore + 5;
                 txt_score.Text = newScore.ToString();
+                Server.UpdateUser(GameManager.Player);
             }
         }
     }

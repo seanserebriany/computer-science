@@ -6,6 +6,7 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
+    Loaded="Page_Loaded"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
     <Grid>
@@ -59,16 +60,16 @@
                 <TextBlock Text="Skins" FontSize="30" FontWeight="Bold" Margin="0,10"/>
                 <Border BorderBrush="Gray" BorderThickness="1" Width="150" Height="200" Margin="10">
                     <StackPanel>
-                        <Image Source="/Assets/Blocks/Block1.png" Height="100"/>
+                        <Image Source="/Assets/Blocks/CoolBlock.png" Height="100"/>
                         <TextBlock Text="Cool Skin" Margin="10,5" HorizontalAlignment="Center"/>
-                        <Button x:Name="btnCoolSkin" Content="Buy - 500 Coins" Margin="10" PointerPressed="btnCoolSkin_PointerPressed"/>
+                        <Button x:Name="CoolSkin" Content="Buy - 500 Coins" Margin="10" PointerPressed="btnSkin_PointerPressed"/>
                     </StackPanel>
                 </Border>
                 <Border BorderBrush="Gray" BorderThickness="1" Width="150" Height="200" Margin="10">
                     <StackPanel>
-                        <Image Source="/Assets/Blocks/Block2.png" Height="100"/>
+                        <Image Source="/Assets/Blocks/AngryBlock.png" Height="100"/>
                         <TextBlock Text="Angry Skin" Margin="10,5" HorizontalAlignment="Center"/>
-                        <Button x:Name="btnAngrySkin"  Content="Buy - 700 Coins" Margin="10" PointerPressed="btnAngrySkin_PointerPressed"/>
+                        <Button x:Name="AngrySkin"  Content="Buy - 700 Coins" Margin="10" PointerPressed="btnSkin_PointerPressed"/>
                     </StackPanel>
                 </Border>
             </StackPanel>

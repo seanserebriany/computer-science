@@ -14,7 +14,7 @@ namespace DataBase.Models
         public string Password { get; set; }
         public int Points { get; set; }
         public GameLevel Level { get; set; }
-        public string UsingProduct { get; set; } = "Regular";
+        public string UsingProduct { get; set; } = "DeafultBlock";
 
     }
 }

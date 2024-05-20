@@ -83,7 +83,7 @@ namespace DataBase
             return GetUser(userId.Value);
         }
 
-        private static void Execute(string query)
+        public static void Execute(string query)
         {
             using (SqliteConnection connection = new SqliteConnection(connectionString))
             {
@@ -157,13 +157,24 @@ namespace DataBase
                 }
             }
             SetCurrentLevel(user, currentLevelId);
-            //SetCurrentProduct(user, currentProductId);
+            SetCurrentProduct(user, currentProductId);
         }
 
-        //private static void SetCurrentProduct(GameUser user, int currentProductId)
-        //{
-        //    throw new NotImplementedException();
-        //}
+        public static void SetCurrentProduct(GameUser user, int currentProductId)
+        {
+            string query = $"SELECT ProductName FROM [Product] WHERE ProductId={currentProductId}";
+            using (SqliteConnection connection = new SqliteConnection(connectionString))
+            {
+                connection.Open();
+                SqliteCommand command = new SqliteCommand(query, connection);
+                SqliteDataReader reader = command.ExecuteReader();
+                if (reader.HasRows)
+                {
+                    reader.Read();
+                    user.UsingProduct = reader.GetString(0);
+                }
+            }
+        }
         /*
        ,שולפת ממנה את נתוני רמת הקושי currentLevelId ולפי Level הפעולה ניגשת לטבלת
          ומכניסה אותו לתוך המשתמש GameLevel בשלב הבא הפעולה בונה עצם מסוג
@@ -206,6 +217,62 @@ namespace DataBase
         {
             string query = $"INSERT INTO [GameData] (UserId, CurrentProductId, Money, CurrentLevelId) VALUES ({userId},{1},{0},{1})";
             Execute(query);
+        }
+        //מחזיר אמת אם יש למשתמש את המוצר ושקר אם אין לו
+        public static bool ValidateProduct(int userId, int productId)
+        {
+            string query = $"SELECT * FROM [UserProduct] WHERE UserId='{userId}' AND UserProduct='{productId}'";
+            using (SqliteConnection connection = new SqliteConnection(connectionString))
+            {
+                connection.Open();
+                SqliteCommand command = new SqliteCommand(query, connection);
+                SqliteDataReader reader = command.ExecuteReader();
+                if (reader.HasRows)
+                {
+                    reader.Read();
+                    return reader.GetBoolean(0);
+                }
+                return false;
+            }
+        }
+        //מחזיר את מיספר המוצר לפי המחיר שלו
+        public static int GetProductId(string name)
+        {
+            string query = $"SELECT ProductId FROM [Product] WHERE ProductName='{name}'";
+            using (SqliteConnection connection = new SqliteConnection(connectionString))
+            {
+                connection.Open();
+                SqliteCommand command = new SqliteCommand(query, connection);
+                SqliteDataReader reader = command.ExecuteReader();
+                if (reader.HasRows)
+                {
+                    reader.Read();
+                    return reader.GetInt32(0);
+                }
+                return 0;
+            }
+        }
+        public static int GetProductPrice(string name)
+        {
+            string query = $"SELECT ProductPrice FROM [Product] WHERE ProductName='{name}'";
+            using (SqliteConnection connection = new SqliteConnection(connectionString))
+            {
+                connection.Open();
+                SqliteCommand command = new SqliteCommand(query, connection);
+                SqliteDataReader reader = command.ExecuteReader();
+                if (reader.HasRows)
+                {
+                    reader.Read();
+                    return reader.GetInt32(0);
+                }
+                return 0;
+            }
+        }
+        public static void UpdateUser(GameUser user)
+        {
+            string query = $"UPDATE GameData SET UserId = '{user.Id}' , CurrentProductId = '{user.UsingProduct}', Points = '{user.Points}'";
+            Execute(query);
+            
         }
     }
 }
