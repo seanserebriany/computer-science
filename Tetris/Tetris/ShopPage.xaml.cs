@@ -69,20 +69,17 @@ namespace Tetris
             {
                 AngrySkin.Content = "Equip";
             }
-            if (GameManager.Player.UsingProduct.Equals("DeafultSkin"))
-            {
-                CoolSkin.Content = "equipped";
-            }
 
             if (GameManager.Player.UsingProduct.Equals("CoolSkin"))
             {
                 CoolSkin.Content = "equipped";
             }
-
-            if (GameManager.Player.UsingProduct.Equals("AngrySkin"))
+            else if (GameManager.Player.UsingProduct.Equals("AngrySkin"))
             {
                 AngrySkin.Content = "equipped";
             }
+            else
+                DeafultSkin.Content = "equipped";
         }
         /// <summary>
         /// כאשר לוחצים על כפתור
@@ -97,6 +94,7 @@ namespace Tetris
                 {
                     Server.SetCurrentProduct(GameManager.Player, Server.GetProductId(btn.Name));
                     this.Frame.Navigate(typeof(ShopPage));
+                    await new MessageDialog("The skin is now equipped").ShowAsync();
                 }
                 else if (!btn.Content.Equals("Equipped")) //קניה
                 {
@@ -108,6 +106,7 @@ namespace Tetris
                         Server.AddUserProduct(GameManager.Player.Id, Server.GetProductId(btn.Name));
                        
                         this.Frame.Navigate(typeof(ShopPage));
+                        await new MessageDialog("Nice Purchase").ShowAsync();
                     }
                     else
                     {

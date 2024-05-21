@@ -289,14 +289,7 @@ namespace Tetris.GameObjects
 
                 }
             }
-            if(LevelPage.Level.LevelId == 1)
-            {
-                Manager.GameEvent.AddScore(5);
-            }
-            else if (LevelPage.Level.LevelId == 2)
-            {
-                Manager.GameEvent.AddScore(10);
-            }
+                Manager.GameEvent.AddScore();
         }
 
     }

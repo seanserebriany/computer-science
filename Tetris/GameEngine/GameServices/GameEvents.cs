@@ -11,7 +11,7 @@ namespace GameEngine.GameServices
     {
         public Action OnRun;//האירוע שבזכותו כל מי שירשם ינוע
         public Action OnClock;//האירוע שבזכותו יפעל השעון
-        public Action<int> AddScore;
+        public Action AddScore;
         public Action GameOver;
         public Action<VirtualKey> OnKeyUp;//עזיבת כפתור
         public Action<VirtualKey> OnKeyDown;//לחיצה על כפתור

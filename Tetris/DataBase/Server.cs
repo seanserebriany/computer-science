@@ -37,6 +37,27 @@ namespace DataBase
             }
         }
         /*
+הפעולה בודקת אם המשתמש הזין נתונים נכונים ונמצא במאגר משתמשים
+של המשתמש UserId אם הכל תקין, הפעולה מחזירה את  
+null אם הנתונים אינם תקינים הפעולה מחזירה ערך x
+*/
+        public static int? ValidateUserMail(string mail)
+        {
+            string query = $"SELECT UserId FROM [User] WHERE UserMail='{mail}'";
+            using (SqliteConnection connection = new SqliteConnection(connectionString))
+            {
+                connection.Open();
+                SqliteCommand command = new SqliteCommand(query, connection);
+                SqliteDataReader reader = command.ExecuteReader();
+                if (reader.HasRows)
+                {
+                    reader.Read();
+                    return reader.GetInt32(0);
+                }
+                return null;
+            }
+        }
+        /*
         הפעולה בודקת אם המשתמש הזין נתונים נכונים ונמצא במאגר משתמשים
  של המשתמש UserId אם הכל תקין, הפעולה מחזירה את  
  null אם הנתונים אינם תקינים הפעולה מחזירה ערך x
@@ -237,7 +258,7 @@ namespace DataBase
         //   - userId: מזהה המשתמש שלו יוצרים את רשומת נתוני המשחק.
         private static void AddGameData(int userId)
         {
-            string query = $"INSERT INTO [GameData] (UserId, CurrentProductId, Points, CurrentLevelId) VALUES ({userId},{1},{0},{1})";
+            string query = $"INSERT INTO [GameData] (UserId, CurrentProduct, Points, CurrentLevelId) VALUES ({userId},{1},{0},{1})";
             Execute(query);
         }
         //מחזיר אמת אם יש למשתמש את המוצר ושקר אם אין לו
@@ -304,7 +325,7 @@ namespace DataBase
         //
         public static void UpdateUser(GameUser user)
         {
-            string query = $"UPDATE GameData SET UserId = '{user.Id}' , CurrentProduct = '{user.UsingProduct}', Points = '{user.Points}'";
+            string query = $"UPDATE GameData SET  CurrentProduct = '{user.UsingProduct}', Points = '{user.Points}' WHERE UserId = '{user.Id}'";
             Execute(query);
             
         }
@@ -314,7 +335,7 @@ namespace DataBase
         //
         public static void UpdateScore(GameUser user)
         {
-            string query = $"UPDATE GameData SET Points = '{user.Points}'";
+            string query = $"UPDATE GameData SET Points = '{user.Points}' WHERE UserId = '{user.Id}'";
             Execute(query);
 
         }

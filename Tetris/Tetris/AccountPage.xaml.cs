@@ -91,7 +91,8 @@ namespace Tetris
             else
             {
                 int? userId = Server.ValidateUser(newName.Text.Trim(), SignUpPass.Password.Trim());
-                if (userId == null)
+                int? userMailId = Server.ValidateUserMail(SignUpMail.Text.Trim());
+                if (userId == null && userMailId == null)
                 {
                     //user is not in data base needs to be added
                     GameManager.Player = Server.AddNewUser(newName.Text.Trim(), SignUpPass.Password.Trim(), SignUpMail.Text.Trim());//add email instead of pass

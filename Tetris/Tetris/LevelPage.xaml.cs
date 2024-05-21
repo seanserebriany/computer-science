@@ -59,7 +59,7 @@ namespace Tetris
 
             Level.LevelNumber = 1;
             Level.Speed = 5;
-            //Server.SetCurrentLevel(GameManager.Player, 1);
+            Server.SetCurrentLevel(GameManager.Player, 1);
             Manager.GameEvent.Clear();
             Frame.Navigate(typeof(GamePage));
         }
@@ -68,7 +68,7 @@ namespace Tetris
         {
             Level.LevelNumber = 2;
             Level.Speed = 10;
-            //Server.SetCurrentLevel(GameManager.Player, 2);
+            Server.SetCurrentLevel(GameManager.Player, 2);
             Frame.Navigate(typeof(GamePage));
 
         }

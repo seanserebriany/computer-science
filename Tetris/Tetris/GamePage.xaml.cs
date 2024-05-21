@@ -57,7 +57,8 @@ namespace Tetris
         }
 
         private void Page_Loaded(object sender, RoutedEventArgs e)
-        {           
+        {
+            txt_score.Text = GameManager.Player.Points.ToString();
             Manager.GameEvent.Clear();
             _GameManeger = new GameManager(scene);
             _GameManeger.Start();
@@ -70,14 +71,14 @@ namespace Tetris
             Frame.Navigate(typeof(YouLosePage));
         }
 
-        private void AddScore(int score)
+        private void AddScore()
         {
             if (int.TryParse(txt_score.Text, out int currentScore))
             {
                 int newScore = 0;
-                newScore = currentScore + score;
+                newScore = currentScore + 10;
+                GameManager.Player.Points += 10;
                 txt_score.Text = newScore.ToString();
-                GameManager.Player.Points += score;
                 Server.UpdateScore(GameManager.Player);
             }
         }
