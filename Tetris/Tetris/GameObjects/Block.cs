@@ -101,6 +101,9 @@ namespace Tetris.GameObjects
 
         }
 
+
+        // פונקציה: BringDown
+        // תיאור: מורידה את הבלוק בצורה אנכית לנקודה הכי נמוכה האפשרית.
         private void BringDown()
         {
             double maxY = _scene.ActualHeight; // Initialize maxY with the lowest possible value
@@ -229,7 +232,8 @@ namespace Tetris.GameObjects
         }
 
 
-
+        // פונקציה: CheckSides
+        // תיאור: בודקת את המכשולים מצידי הבלוק הנוכחי עם בלוקים אחרים בסצנה ומעדכנת משתנים בהתאם.
         public void CheckSides()
         {
             foreach (GameObject obj in _scene._GameObjectSnapShot)
@@ -262,6 +266,8 @@ namespace Tetris.GameObjects
                 }
             }
         }
+
+        //הפונקצייה מוחקת את השורה ונרשמת לאירוע של הוספת ניקוד
         public void RemoveLine()
         {
             foreach (GameObject obj in _scene._GameObjectSnapShot) //עובר על כל הבלוקים
@@ -283,8 +289,14 @@ namespace Tetris.GameObjects
 
                 }
             }
-            Manager.GameEvent.AddScore();
-
+            if(LevelPage.Level.LevelId == 1)
+            {
+                Manager.GameEvent.AddScore(5);
+            }
+            else if (LevelPage.Level.LevelId == 2)
+            {
+                Manager.GameEvent.AddScore(10);
+            }
         }
 
     }

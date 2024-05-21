@@ -57,10 +57,10 @@ namespace Tetris
 
         private void Page_Loaded(object sender, RoutedEventArgs e)
         {
-            ScoreTxt.Text = GameManager.Player.Points.ToString();
+            txt_score.Text = GameManager.Player.Points.ToString();
 
             Server.UpdateUser(GameManager.Player);
-
+            DeafultSkin.Content = "Equip";
             if (Server.ValidateProduct(GameManager.Player.Id, 2))
             {
                 CoolSkin.Content = "Equip";
@@ -69,8 +69,12 @@ namespace Tetris
             {
                 AngrySkin.Content = "Equip";
             }
+            if (GameManager.Player.UsingProduct.Equals("DeafultSkin"))
+            {
+                CoolSkin.Content = "equipped";
+            }
 
-            if(GameManager.Player.UsingProduct.Equals("CoolSkin"))
+            if (GameManager.Player.UsingProduct.Equals("CoolSkin"))
             {
                 CoolSkin.Content = "equipped";
             }
@@ -80,7 +84,11 @@ namespace Tetris
                 AngrySkin.Content = "equipped";
             }
         }
-
+        /// <summary>
+        /// כאשר לוחצים על כפתור
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private async void CoolSkin_Click(object sender, RoutedEventArgs e)
         {
             if (sender is Button btn)
@@ -103,7 +111,7 @@ namespace Tetris
                     }
                     else
                     {
-                        await new MessageDialog("Go work poor ni***").ShowAsync();
+                        await new MessageDialog("Go work, poor").ShowAsync();
                     }
                 }
             }

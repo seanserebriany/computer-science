@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1">
   <Class Name="Tetris.AccountPage" Collapsed="true" BaseTypeListCollapsed="true">
-    <Position X="8" Y="4.5" Width="1.5" />
+    <Position X="10.25" Y="6.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>CAAgAAAIAAABBAAQADAAAAEgBAgAAAAAAIAAAIAAIAA=</HashCode>
       <FileName>AccountPage.xaml.cs</FileName>
@@ -9,7 +9,7 @@
     <Lollipop Position="0.2" Collapsed="true" />
   </Class>
   <Class Name="Tetris.App" Collapsed="true" BaseTypeListCollapsed="true">
-    <Position X="8" Y="3.75" Width="1.5" />
+    <Position X="10.25" Y="5.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAQAAIAAA=</HashCode>
       <FileName>App.xaml.cs</FileName>
@@ -17,7 +17,7 @@
     <Lollipop Position="0.2" Collapsed="true" />
   </Class>
   <Class Name="Tetris.GamePage" Collapsed="true" BaseTypeListCollapsed="true">
-    <Position X="6.5" Y="3.75" Width="1.5" />
+    <Position X="10.25" Y="7.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAoEAgAAAAAAAAABAAAAAAAQAAAAABAIAAAAAAAAA=</HashCode>
       <FileName>GamePage.xaml.cs</FileName>
@@ -25,15 +25,15 @@
     <Lollipop Position="0.2" Collapsed="true" />
   </Class>
   <Class Name="Tetris.HelpPage" Collapsed="true" BaseTypeListCollapsed="true">
-    <Position X="6.5" Y="4.5" Width="1.5" />
+    <Position X="12" Y="6.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAEAAAAAAAAAAABAAAAAAAAAAAAAAAIAAAAAAAAA=</HashCode>
       <FileName>HelpPage.xaml.cs</FileName>
     </TypeIdentifier>
-    <Lollipop Orientation="Left" Position="0.1" Collapsed="true" />
+    <Lollipop Position="0.2" Collapsed="true" />
   </Class>
   <Class Name="Tetris.LeaderboardPage" Collapsed="true" BaseTypeListCollapsed="true">
-    <Position X="9.75" Y="4.5" Width="1.5" />
+    <Position X="12" Y="5.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAEAAAAAAAAAAABAAAAAAAAAAAAAAAIAAAAAAAAA=</HashCode>
       <FileName>LeaderboardPage.xaml.cs</FileName>
@@ -41,7 +41,7 @@
     <Lollipop Position="0.2" Collapsed="true" />
   </Class>
   <Class Name="Tetris.LevelPage" Collapsed="true" BaseTypeListCollapsed="true">
-    <Position X="9.75" Y="3" Width="1.5" />
+    <Position X="12" Y="7.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAABAAAAAAAQAAAAABAIAAAAAAAAE=</HashCode>
       <FileName>LevelPage.xaml.cs</FileName>
@@ -49,15 +49,23 @@
     <Lollipop Position="0.2" Collapsed="true" />
   </Class>
   <Class Name="Tetris.MainPage" Collapsed="true" BaseTypeListCollapsed="true">
-    <Position X="9.75" Y="3.75" Width="1.5" />
+    <Position X="13.75" Y="5.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAIAAAAAQECAgAAFAAAAAgEQAEAAAgAJAMAIAAAAA=</HashCode>
       <FileName>MainPage.xaml.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" Collapsed="true" />
   </Class>
+  <Class Name="Tetris.ShopPage" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="13.75" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAIAAAABAAAAEAAQAAAAAAAIAAAAAAAAA=</HashCode>
+      <FileName>ShopPage.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
   <Class Name="Tetris.YouLosePage" Collapsed="true" BaseTypeListCollapsed="true">
-    <Position X="8" Y="3" Width="1.5" />
+    <Position X="13.75" Y="7.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAABAAAAEAAAAAAAAAAIAAAAAAAAA=</HashCode>
       <FileName>YouLosePage.xaml.cs</FileName>
@@ -65,32 +73,32 @@
     <Lollipop Position="0.2" Collapsed="true" />
   </Class>
   <Class Name="Tetris.GameObjects.Block" Collapsed="true">
-    <Position X="2" Y="2.25" Width="1.5" />
+    <Position X="4" Y="4.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>QACAAAAABAAAkAAAAECAAAwECAAAAAAgJBIIAAABAAA=</HashCode>
       <FileName>GameObjects\Block.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Tetris.GameServices.GameManager" Collapsed="true">
-    <Position X="6" Y="2.25" Width="1.5" />
+    <Position X="5.75" Y="0.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAQAAAAA=</HashCode>
       <FileName>GameServices\GameManager.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Tetris.GameServices.GameScene" Collapsed="true">
-    <Position X="4.25" Y="2.25" Width="1.5" />
+    <Position X="1.75" Y="2.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>GameServices\GameScene.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="GameEngine.GameObjects.GameMovingObject" Collapsed="true">
-    <Position X="2" Y="1.25" Width="1.5" />
+    <Position X="4" Y="2.75" Width="1.5" />
     <TypeIdentifier />
   </Class>
   <Class Name="GameEngine.GameObjects.GameObject" Collapsed="true">
-    <Position X="2" Y="0.5" Width="1.5" />
+    <Position X="4" Y="0.5" Width="1.5" />
     <TypeIdentifier />
   </Class>
   <Class Name="GameEngine.GameObjects.MoveObject" Collapsed="true">
@@ -98,7 +106,7 @@
     <TypeIdentifier />
   </Class>
   <Class Name="GameEngine.GameServices.BackgroundSound" Collapsed="true">
-    <Position X="3.75" Y="3.75" Width="1.5" />
+    <Position X="8.5" Y="0.5" Width="1.5" />
     <TypeIdentifier />
   </Class>
   <Class Name="GameEngine.GameServices.Constans" Collapsed="true">
@@ -110,11 +118,11 @@
     <TypeIdentifier />
   </Class>
   <Class Name="GameEngine.GameServices.Manager" Collapsed="true">
-    <Position X="6" Y="0.5" Width="1.5" />
+    <Position X="5.75" Y="2.75" Width="1.5" />
     <TypeIdentifier />
   </Class>
   <Class Name="GameEngine.GameServices.Scene" Collapsed="true">
-    <Position X="4.25" Y="0.5" Width="1.5" />
+    <Position X="1.75" Y="0.5" Width="1.5" />
     <TypeIdentifier />
   </Class>
   <Font Name="Segoe UI" Size="9" />

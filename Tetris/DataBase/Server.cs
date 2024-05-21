@@ -82,7 +82,10 @@ namespace DataBase
             AddUserProduct(userId.Value);
             return GetUser(userId.Value);
         }
-
+        // פונקציה: Execute
+        // תיאור: מבצעת שאילתת SQL על מסד הנתונים על ידי ביצוע הפעולה המצויינת בשאילתה.
+        // פרמטרים:
+        //   - query: השאילתה ה-SQL שתבוצע על מסד הנתונים.
         public static void Execute(string query)
         {
             using (SqliteConnection connection = new SqliteConnection(connectionString))
@@ -162,7 +165,11 @@ namespace DataBase
             SetCurrentLevel(user, currentLevelId);
             //SetCurrentProduct(user, currentProductId);
         }
-
+        // פונקציה: SetCurrentProduct
+        // תיאור: מגדירה את המוצר הנוכחי של משתמש במשחק על פי מזהה המוצר.
+        // פרמטרים:
+        //   - user: אובייקט ה-GameUser שבו יוגדר המוצר הנוכחי.
+        //   - currentProductId: מזהה המוצר שבו יתווסף למשתמש כמוצר נוכחי.
         public static void SetCurrentProduct(GameUser user, int currentProductId)
         {
             string query = $"SELECT ProductName FROM [Product] WHERE ProductId={currentProductId}";
@@ -202,20 +209,32 @@ namespace DataBase
             }
 
         }
-       
+
+        // פונקציה: AddUserProduct
+        // תיאור: מוסיפה רשומת מוצר למשתמש במסד הנתונים.
+        // פרמטרים:
+        //   - userId: מזהה המשתמש שלו יתווסף המוצר.
+        //   - productId: מזהה המוצר שיתווסף למשתמש (ברירת מחדל היא 1).
 
         public static void AddUserProduct(int userId, int productId = 1)
         {
             string query = $"INSERT INTO [UserProduct] (UserId,ProductId) VALUES ({userId},{productId})";
             Execute(query);
         }
-
+        // פונקציה: ChangePassword
+        // תיאור: משנה את הסיסמה של משתמש במסד הנתונים.
+        // פרמטרים:
+        //   - username: שם המשתמש של מי שנרצה לשנות את הסיסמה שלו.
+        //   - newpass: הסיסמה החדשה שתוחלף למשתמש.
         public static void ChangePassword(string username, string newpass)
         {
             string query = $"UPDATE [User] SET UserPassword = '{newpass}' WHERE UserName = '{username}'";
             Execute(query);
         }
-
+        // פונקציה: AddGameData
+        // תיאור: מוסיפה רשומת נתוני משחק חדשה למסד הנתונים עבור משתמש חדש.
+        // פרמטרים:
+        //   - userId: מזהה המשתמש שלו יוצרים את רשומת נתוני המשחק.
         private static void AddGameData(int userId)
         {
             string query = $"INSERT INTO [GameData] (UserId, CurrentProductId, Points, CurrentLevelId) VALUES ({userId},{1},{0},{1})";
@@ -257,6 +276,12 @@ namespace DataBase
                 return 0;
             }
         }
+        // פונקציה: GetProductPrice
+        // תיאור: מחזירה את מחיר המוצר ממסד הנתונים על פי שם המוצר.
+        // פרמטרים:
+        //   - name: שם המוצר שלו רוצים לקבל את המחיר.
+        // מחזיר:
+        //   - המחיר של המוצר אם נמצא, אחרת 0.
         public static int GetProductPrice(string name)
         {
             string query = $"SELECT ProductPrice FROM [Product] WHERE ProductName='{name}'";
@@ -273,12 +298,20 @@ namespace DataBase
                 return 0;
             }
         }
+        // פונקציה: UpdateUser
+        // תיאור: מעדכנת את פרטי המשתמש במסד הנתונים.
+        // פרמטרים:
+        //
         public static void UpdateUser(GameUser user)
         {
             string query = $"UPDATE GameData SET UserId = '{user.Id}' , CurrentProduct = '{user.UsingProduct}', Points = '{user.Points}'";
             Execute(query);
             
         }
+        // פונקציה: UpdateScore
+        // תיאור: מעדכנת את הניקוד (נקודות) של משתמש במשחק במסד הנתונים.
+        // פרמטרים:
+        //
         public static void UpdateScore(GameUser user)
         {
             string query = $"UPDATE GameData SET Points = '{user.Points}'";

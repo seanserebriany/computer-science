@@ -46,5 +46,23 @@
         <Button Style="{StaticResource MyButtonStyle}" x:Name="BtnHome" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3" Grid.RowSpan="2">
             <Image x:Name="imgHome" Source="/Assets/Buttons/Home.png" PointerEntered="img_PointerEntered" PointerExited="img_PointerExited" PointerPressed="imgHome_PointerPressed"></Image>
         </Button>
+        <Viewbox Grid.Column="1" Grid.ColumnSpan="12" Grid.RowSpan="2">
+            <TextBlock Text="TableRecord" HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="Bold"
+           FontFamily="Boadway" FontSize="35" Foreground="Yellow">
+            </TextBlock>
+        </Viewbox>
+
+        <Border  Grid.Row="3" Grid.Column="2" Grid.RowSpan="2" Grid.ColumnSpan="10" BorderBrush="Blue" Background="Gold" BorderThickness="8" CornerRadius="17">
+            <TextBlock x:Name ="Place1" Text="1. Player : " Foreground="Blue" FontSize="80" HorizontalAlignment="Center" VerticalAlignment="Center"></TextBlock>
+        </Border>
+
+        <Border  Grid.Row="6" Grid.Column="2" Grid.RowSpan="2" Grid.ColumnSpan="10" BorderBrush="Black" BorderThickness="8" Background="Silver" CornerRadius="17">
+            <TextBlock x:Name ="Place2" Text="2. Player :" Foreground="Black" FontSize="80" HorizontalAlignment="Center" VerticalAlignment="Center"></TextBlock>
+        </Border>
+
+        <Border  Grid.Row="9" Grid.Column="2" Grid.RowSpan="2" Grid.ColumnSpan="10" BorderBrush="Black" BorderThickness="8" Background="Brown" CornerRadius="17">
+            <TextBlock x:Name ="Place3" Text="3. Player :" Foreground="Black" FontSize="80" HorizontalAlignment="Center" VerticalAlignment="Center"></TextBlock>
+        </Border>
+
     </Grid>
 </Page>
