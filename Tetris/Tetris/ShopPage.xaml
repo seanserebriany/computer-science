@@ -45,15 +45,15 @@
             <ColumnDefinition></ColumnDefinition>
         </Grid.ColumnDefinitions>
         <!-- Header -->
-        <Viewbox Grid.Row="0" Opacity="1" Grid.ColumnSpan="14">
-            <StackPanel Background="White" Orientation="Horizontal">
-                <TextBlock Text="Tetris Shop" FontSize="43" FontWeight="Bold" Foreground="SkyBlue"/>
-            </StackPanel>
+        <Viewbox Grid.Row="0" Opacity="1" Grid.ColumnSpan="5">
+            <TextBlock Text="Tetris Shop" FontSize="43" FontWeight="Bold" Foreground="SkyBlue"/>
         </Viewbox>
 
-        <Button Style="{StaticResource MyButtonStyle}" x:Name="BtnBack" Grid.Row="0" Grid.Column="13" Grid.ColumnSpan="2" Grid.RowSpan="1">
-            <Image x:Name="imgBack" Source="/Assets/Buttons/Home.png" PointerEntered="img_PointerEntered"  PointerExited="img_PointerExited"  PointerPressed="imgBack_PointerPressed"></Image>
-        </Button>
+        <Viewbox Grid.Row="11" Opacity="1" Grid.ColumnSpan="8">
+            <TextBlock x:Name="ScoreTxt" Text="0" FontSize="40" FontWeight="Bold" Foreground="SkyBlue"/>
+        </Viewbox>
+
+        <Button Style="{StaticResource MyButtonStyle}" x:Name="BtnBack" Grid.Row="0" Grid.Column="13" Grid.ColumnSpan="2" Grid.RowSpan="1"/>
 
         <Viewbox Grid.Row="3" Grid.Column="4" Grid.ColumnSpan="4" Grid.RowSpan="7">
             <StackPanel Background="DarkGray">
@@ -62,19 +62,22 @@
                     <StackPanel>
                         <Image Source="/Assets/Blocks/CoolBlock.png" Height="100"/>
                         <TextBlock Text="Cool Skin" Margin="10,5" HorizontalAlignment="Center"/>
-                        <Button x:Name="CoolSkin" Content="Buy - 500 Coins" Margin="10" PointerPressed="btnSkin_PointerPressed"/>
+                        <Button x:Name="CoolSkin" Content="Buy - 500 Coins" Margin="10" Click="CoolSkin_Click"/>
                     </StackPanel>
                 </Border>
                 <Border BorderBrush="Gray" BorderThickness="1" Width="150" Height="200" Margin="10">
                     <StackPanel>
                         <Image Source="/Assets/Blocks/AngryBlock.png" Height="100"/>
                         <TextBlock Text="Angry Skin" Margin="10,5" HorizontalAlignment="Center"/>
-                        <Button x:Name="AngrySkin"  Content="Buy - 700 Coins" Margin="10" PointerPressed="btnSkin_PointerPressed"/>
+                        <Button x:Name="AngrySkin"  Content="Buy - 700 Coins" Margin="10" Click="CoolSkin_Click"/>
                     </StackPanel>
                 </Border>
             </StackPanel>
         </Viewbox>
-        
-        
+        <Viewbox Grid.Column="12" Grid.ColumnSpan="2" Grid.RowSpan="2" Grid.Row="0">
+            <Image x:Name="imgBack" Source="/Assets/Buttons/Home.png" PointerEntered="img_PointerEntered"  PointerExited="img_PointerExited"  PointerPressed="imgBack_PointerPressed" RenderTransformOrigin="-4.348,4.082"/>
+        </Viewbox>
+
+
     </Grid>
 </Page>

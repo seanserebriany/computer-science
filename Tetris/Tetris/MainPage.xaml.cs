@@ -45,10 +45,10 @@ namespace Tetris
 
         private async void imgPlay_PointerPressed(object sender, PointerRoutedEventArgs e)
         {
-            //if (GameManager.Player.Name != "Annonymous")
-            Frame.Navigate(typeof(LevelPage));
-            //else
-            //    await new MessageDialog("you need to log in first").ShowAsync();
+            if (GameManager.Player.Name != "Annonymous")
+                Frame.Navigate(typeof(LevelPage));
+            else
+                await new MessageDialog("you need to log in first").ShowAsync();
         }
 
         private void imgAccount_PointerPressed(object sender, PointerRoutedEventArgs e)
@@ -142,9 +142,12 @@ namespace Tetris
             }
         }
 
-        private void imgShop_PointerPressed(object sender, PointerRoutedEventArgs e)
+        private async void imgShop_PointerPressed(object sender, PointerRoutedEventArgs e)
         {
-            Frame.Navigate(typeof(ShopPage));
+            if (GameManager.Player.Name != "Annonymous")
+                Frame.Navigate(typeof(ShopPage));
+            else
+                await new MessageDialog("you need to log in first").ShowAsync();
         }
     }
 }

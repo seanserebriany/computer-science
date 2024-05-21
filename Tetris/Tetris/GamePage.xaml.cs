@@ -77,7 +77,8 @@ namespace Tetris
                 int newScore = 0;
                 newScore = currentScore + 5;
                 txt_score.Text = newScore.ToString();
-                Server.UpdateUser(GameManager.Player);
+                GameManager.Player.Points += 5;
+                Server.UpdateScore(GameManager.Player);
             }
         }
     }

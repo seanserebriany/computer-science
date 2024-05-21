@@ -92,7 +92,11 @@ namespace DataBase
                 command.ExecuteNonQuery();
             }
         }
-
+        public static void AddProduct(int userId, int productId)
+        {
+            string query = $"INSERT INTO [UserProduct] (UserId, ProductId) VALUES ({userId}, {productId})";
+            Execute(query);
+        }
         /*
            הפעולה מחזירה משתמש אשר כל שדותיו מלאים
            הפעולה אוספת נתונים מ- 4 טבלאות וממלאה באמצעותם את המשתמש 
@@ -141,8 +145,7 @@ namespace DataBase
  private static void SetUser(GameUser user)
         {
             int currentLevelId = 0;
-            int currentProductId = 0;
-            string query = $"SELECT Money, CurrentProductId, CurrentLevelId FROM [GameData] WHERE UserId={user.Id}";
+            string query = $"SELECT Points, CurrentLevelId, CurrentProduct FROM [GameData] WHERE UserId={user.Id}";
             using (SqliteConnection connection = new SqliteConnection(connectionString))
             {
                 connection.Open();
@@ -152,12 +155,12 @@ namespace DataBase
                 {
                     reader.Read();
                     user.Points = reader.GetInt32(0);
-                    currentLevelId = reader.GetInt32(2);
-                    currentProductId = reader.GetInt32(1);
+                    currentLevelId = reader.GetInt32(1);
+                    user.UsingProduct = reader.GetString(2) ;
                 }
             }
             SetCurrentLevel(user, currentLevelId);
-            SetCurrentProduct(user, currentProductId);
+            //SetCurrentProduct(user, currentProductId);
         }
 
         public static void SetCurrentProduct(GameUser user, int currentProductId)
@@ -199,7 +202,7 @@ namespace DataBase
             }
 
         }
-
+       
 
         public static void AddUserProduct(int userId, int productId = 1)
         {
@@ -215,30 +218,32 @@ namespace DataBase
 
         private static void AddGameData(int userId)
         {
-            string query = $"INSERT INTO [GameData] (UserId, CurrentProductId, Money, CurrentLevelId) VALUES ({userId},{1},{0},{1})";
+            string query = $"INSERT INTO [GameData] (UserId, CurrentProductId, Points, CurrentLevelId) VALUES ({userId},{1},{0},{1})";
             Execute(query);
         }
         //מחזיר אמת אם יש למשתמש את המוצר ושקר אם אין לו
         public static bool ValidateProduct(int userId, int productId)
         {
-            string query = $"SELECT * FROM [UserProduct] WHERE UserId='{userId}' AND UserProduct='{productId}'";
+            string query = $"SELECT * FROM [UserProduct] WHERE UserId='{userId}' AND ProductId='{productId}'";
             using (SqliteConnection connection = new SqliteConnection(connectionString))
             {
                 connection.Open();
                 SqliteCommand command = new SqliteCommand(query, connection);
                 SqliteDataReader reader = command.ExecuteReader();
-                if (reader.HasRows)
-                {
-                    reader.Read();
-                    return reader.GetBoolean(0);
-                }
-                return false;
+                return reader.HasRows;
+                
+                //if (reader.HasRows)
+                //{
+                //    reader.Read();
+                //    return reader.GetBoolean(0);
+                //}
+                //return false;
             }
         }
         //מחזיר את מיספר המוצר לפי המחיר שלו
-        public static int GetProductId(string name)
+        public static int GetProductId(string productName)
         {
-            string query = $"SELECT ProductId FROM [Product] WHERE ProductName='{name}'";
+            string query = $"SELECT ProductId FROM [Product] WHERE ProductName='{productName}'";
             using (SqliteConnection connection = new SqliteConnection(connectionString))
             {
                 connection.Open();
@@ -270,9 +275,15 @@ namespace DataBase
         }
         public static void UpdateUser(GameUser user)
         {
-            string query = $"UPDATE GameData SET UserId = '{user.Id}' , CurrentProductId = '{user.UsingProduct}', Points = '{user.Points}'";
+            string query = $"UPDATE GameData SET UserId = '{user.Id}' , CurrentProduct = '{user.UsingProduct}', Points = '{user.Points}'";
             Execute(query);
             
+        }
+        public static void UpdateScore(GameUser user)
+        {
+            string query = $"UPDATE GameData SET Points = '{user.Points}'";
+            Execute(query);
+
         }
     }
 }

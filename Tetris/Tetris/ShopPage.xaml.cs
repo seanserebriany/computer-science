@@ -53,46 +53,19 @@ namespace Tetris
         {
             Frame.Navigate(typeof(MainPage));
         }
-        private async void btnSkin_PointerPressed(object sender, PointerRoutedEventArgs e)
-        {
-            if(sender is Button btn)
-            {
-                if(btn.Content.Equals("Equip"))
-                {
-                    Server.SetCurrentProduct(GameManager.Player, Server.GetProductId(btn.Name));
-                    this.Frame.Navigate(typeof(ShopPage));
-                }
-                else if(!btn.Content.Equals("Equipped"))
-                {
-                    if(GameManager.Player.Points >= Server.GetProductPrice(btn.Name))
-                    {
-                        GameManager.Player.Points -= Server.GetProductPrice(btn.Name);
-                        Server.SetCurrentProduct(GameManager.Player, Server.GetProductId(btn.Name));
-                        Server.Execute($"INSERT INTO UserProduct VALUES ('{GameManager.Player.Id}', '{Server.GetProductId(btn.Name)}')");
-                        this.Frame.Navigate(typeof(ShopPage));
-                    }
-                    else
-                    {
-                        await new MessageDialog("Go work poor ni***").ShowAsync();
-                    }
-                }
-            }
-            //if(GameManager.Player.Points > 500)
-            //{
-            //    Server.AddUserProduct(GameManager.Player.Id);
-            //    GameManager.Player.Points = GameManager.Player.Points - 500;
-            //    btnCoolSkin.Visibility = Visibility.Collapsed;
-            //}
-        }
+       
 
         private void Page_Loaded(object sender, RoutedEventArgs e)
         {
+            ScoreTxt.Text = GameManager.Player.Points.ToString();
+
             Server.UpdateUser(GameManager.Player);
-            if (Server.ValidateProduct(GameManager.Player.Id, Server.GetProductId(CoolSkin.Name)))
+
+            if (Server.ValidateProduct(GameManager.Player.Id, 2))
             {
                 CoolSkin.Content = "Equip";
             }
-            if (Server.ValidateProduct(GameManager.Player.Id, Server.GetProductId(AngrySkin.Name)))
+            if (Server.ValidateProduct(GameManager.Player.Id, 3))
             {
                 AngrySkin.Content = "Equip";
             }
@@ -105,6 +78,34 @@ namespace Tetris
             if (GameManager.Player.UsingProduct.Equals("AngrySkin"))
             {
                 AngrySkin.Content = "equipped";
+            }
+        }
+
+        private async void CoolSkin_Click(object sender, RoutedEventArgs e)
+        {
+            if (sender is Button btn)
+            {
+                if (btn.Content.Equals("Equip")) //בחירה
+                {
+                    Server.SetCurrentProduct(GameManager.Player, Server.GetProductId(btn.Name));
+                    this.Frame.Navigate(typeof(ShopPage));
+                }
+                else if (!btn.Content.Equals("Equipped")) //קניה
+                {
+                    int price = Server.GetProductPrice(btn.Name);
+                    if (GameManager.Player.Points >=price )
+                    {
+                        GameManager.Player.Points -= price;
+                        GameManager.Player.UsingProduct = btn.Name;
+                        Server.AddUserProduct(GameManager.Player.Id, Server.GetProductId(btn.Name));
+                       
+                        this.Frame.Navigate(typeof(ShopPage));
+                    }
+                    else
+                    {
+                        await new MessageDialog("Go work poor ni***").ShowAsync();
+                    }
+                }
             }
         }
     }
