@@ -74,12 +74,14 @@ namespace Tetris
             {
                 CoolSkin.Content = "equipped";
             }
-            else if (GameManager.Player.UsingProduct.Equals("AngrySkin"))
+            if (GameManager.Player.UsingProduct.Equals("AngrySkin"))
             {
                 AngrySkin.Content = "equipped";
             }
-            else
+            if (GameManager.Player.UsingProduct.Equals("DeafultSkin"))
+            {
                 DeafultSkin.Content = "equipped";
+            }
         }
         /// <summary>
         /// כאשר לוחצים על כפתור
