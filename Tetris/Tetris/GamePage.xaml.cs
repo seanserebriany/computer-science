@@ -71,13 +71,13 @@ namespace Tetris
             Frame.Navigate(typeof(YouLosePage));
         }
 
-        private void AddScore()
+        private void AddScore(int num)
         {
             if (int.TryParse(txt_score.Text, out int currentScore))
             {
                 int newScore = 0;
-                newScore = currentScore + 10;
-                GameManager.Player.Points += 10;
+                newScore = currentScore + num;
+                GameManager.Player.Points += num;
                 txt_score.Text = newScore.ToString();
                 Server.UpdateScore(GameManager.Player);
             }

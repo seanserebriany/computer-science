@@ -289,7 +289,10 @@ namespace Tetris.GameObjects
 
                 }
             }
-                Manager.GameEvent.AddScore();
+                if(LevelPage.Level.Speed == 5)
+                    Manager.GameEvent.AddScore(10);
+                else
+                    Manager.GameEvent.AddScore(20);
         }
 
     }

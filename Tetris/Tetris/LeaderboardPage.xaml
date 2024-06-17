@@ -6,63 +6,38 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
+    Loaded="Page_Loaded"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
-    <Grid>
-        <Grid.Background>
-            <ImageBrush x:Name="Background" ImageSource="/Assets/Background/Background.jpg"></ImageBrush>
-        </Grid.Background>
-        <Grid.RowDefinitions>
-            <RowDefinition></RowDefinition>
-            <RowDefinition></RowDefinition>
-            <RowDefinition></RowDefinition>
-            <RowDefinition></RowDefinition>
-            <RowDefinition></RowDefinition>
-            <RowDefinition></RowDefinition>
-            <RowDefinition></RowDefinition>
-            <RowDefinition></RowDefinition>
-            <RowDefinition></RowDefinition>
-            <RowDefinition></RowDefinition>
-            <RowDefinition></RowDefinition>
-            <RowDefinition></RowDefinition>
-            <RowDefinition></RowDefinition>
-        </Grid.RowDefinitions>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition></ColumnDefinition>
-            <ColumnDefinition></ColumnDefinition>
-            <ColumnDefinition></ColumnDefinition>
-            <ColumnDefinition></ColumnDefinition>
-            <ColumnDefinition></ColumnDefinition>
-            <ColumnDefinition></ColumnDefinition>
-            <ColumnDefinition></ColumnDefinition>
-            <ColumnDefinition></ColumnDefinition>
-            <ColumnDefinition></ColumnDefinition>
-            <ColumnDefinition></ColumnDefinition>
-            <ColumnDefinition></ColumnDefinition>
-            <ColumnDefinition></ColumnDefinition>
-            <ColumnDefinition></ColumnDefinition>
-            <ColumnDefinition></ColumnDefinition>
-        </Grid.ColumnDefinitions>
-        <Button Style="{StaticResource MyButtonStyle}" x:Name="BtnHome" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3" Grid.RowSpan="2">
-            <Image x:Name="imgHome" Source="/Assets/Buttons/Home.png" PointerEntered="img_PointerEntered" PointerExited="img_PointerExited" PointerPressed="imgHome_PointerPressed"></Image>
-        </Button>
-        <Viewbox Grid.Column="1" Grid.ColumnSpan="12" Grid.RowSpan="2">
-            <TextBlock Text="TableRecord" HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="Bold"
-           FontFamily="Boadway" FontSize="35" Foreground="Yellow">
-            </TextBlock>
+    <Grid x:Name="TetrisRankGrid" Width="600" HorizontalAlignment="Right" Background="#1c1c1c">
+        <TextBlock Text="Te Rank" FontSize="60" HorizontalAlignment="Center" Margin="0,25,0,0" Height="100"
+                           VerticalAlignment="Top"/>
+        <Line X1="0" Y1="100" X2="600" Y2="100" Stroke="Black" StrokeThickness="2"/>
+        <Grid x:Name="TetrisRankGridDefenitions" Height="880" VerticalAlignment="Top" Margin="0,120,0,0">
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="100"/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <TextBlock Text="Rank" FontSize="40" HorizontalAlignment="Center" VerticalAlignment="Top"/>
+            <TextBlock Text="Name" FontSize="40" HorizontalAlignment="Center" VerticalAlignment="Top" Grid.Column="1"/>
+            <TextBlock Text="Points" FontSize="40" HorizontalAlignment="Center" VerticalAlignment="Top" Grid.Column="2"/>
+        </Grid>
+        <Viewbox  Height="100" Width="100" HorizontalAlignment="Right" VerticalAlignment="Top">
+            <Image x:Name="imgBack" Source="/Assets/Buttons/Home.png" PointerEntered="img_PointerEntered"  PointerExited="img_PointerExited"  PointerPressed="imgBack_PointerPressed"/>
         </Viewbox>
-
-        <Border  Grid.Row="3" Grid.Column="2" Grid.RowSpan="2" Grid.ColumnSpan="10" BorderBrush="Blue" Background="Gold" BorderThickness="8" CornerRadius="17">
-            <TextBlock x:Name ="Place1" Text="1. Player : " Foreground="Blue" FontSize="80" HorizontalAlignment="Center" VerticalAlignment="Center"></TextBlock>
-        </Border>
-
-        <Border  Grid.Row="6" Grid.Column="2" Grid.RowSpan="2" Grid.ColumnSpan="10" BorderBrush="Black" BorderThickness="8" Background="Silver" CornerRadius="17">
-            <TextBlock x:Name ="Place2" Text="2. Player :" Foreground="Black" FontSize="80" HorizontalAlignment="Center" VerticalAlignment="Center"></TextBlock>
-        </Border>
-
-        <Border  Grid.Row="9" Grid.Column="2" Grid.RowSpan="2" Grid.ColumnSpan="10" BorderBrush="Black" BorderThickness="8" Background="Brown" CornerRadius="17">
-            <TextBlock x:Name ="Place3" Text="3. Player :" Foreground="Black" FontSize="80" HorizontalAlignment="Center" VerticalAlignment="Center"></TextBlock>
-        </Border>
-
     </Grid>
 </Page>

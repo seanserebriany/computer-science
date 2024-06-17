@@ -2,6 +2,7 @@
 using Microsoft.Data.Sqlite;
 using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -154,19 +155,39 @@ null אם הנתונים אינם תקינים הפעולה מחזירה ערך 
             }
             return user; // user doesnt exsit
         }
-/*
-        הפעולה ממשיכה למלא את שדותיו של המשתמש.בשלב הראשון
-  MaxLevel,Money,CurrentLevelId,CurrentProductId :ושולפת משם את נתוני המשחק של המשתמש GameData היא ניגשת לטבלת
-  נכנסים וממלאים משתמש MaxLevel,Money ,כמו כן
-  במשתמש CurrentLevel -על מנת למלא את ה Level ניגשים לטבלת CurrentLevelId לאחר מכן באמצעות
-  SetCurrentLevel על זה תהיה אחראית פעולת עזר
-  GameData ששלפנו מהטבלה currentProductId בשלב הבא בעזרת
-  אשר השחקן שיחק בפעם האחרונה Feature -כדי לשלוף ממנה את השם ה Product ניגשים לטבלה
-  SetCurrentProduct על זה תהיה אחראית הפעולה.GameUser -הנתון הזה גם יכנס ל
-  GameUser לסיכום, באופן מדורג נאספו הנתונים מארבע טבלאות ומילאו את העצם
-  כעת יוכל המשתמש לגשת למשחק
-  */
- private static void SetUser(GameUser user)
+        public static GameUser GetUserName(int userId)
+        {
+            GameUser user = null;
+            string query = $"SELECT UserName FROM [User] WHERE UserId={userId}";
+            using (SqliteConnection connection = new SqliteConnection(connectionString))
+            {
+                connection.Open();
+                SqliteCommand command = new SqliteCommand(query, connection);
+                SqliteDataReader reader = command.ExecuteReader();
+                if (reader.HasRows)
+                {
+                    reader.Read();
+                    user = new GameUser
+                    {
+                        Name = reader.GetString(0)
+                    };
+                }
+            }
+            return user ; // user doesnt exsit
+        }
+        /*
+                הפעולה ממשיכה למלא את שדותיו של המשתמש.בשלב הראשון
+          MaxLevel,Money,CurrentLevelId,CurrentProductId :ושולפת משם את נתוני המשחק של המשתמש GameData היא ניגשת לטבלת
+          נכנסים וממלאים משתמש MaxLevel,Money ,כמו כן
+          במשתמש CurrentLevel -על מנת למלא את ה Level ניגשים לטבלת CurrentLevelId לאחר מכן באמצעות
+          SetCurrentLevel על זה תהיה אחראית פעולת עזר
+          GameData ששלפנו מהטבלה currentProductId בשלב הבא בעזרת
+          אשר השחקן שיחק בפעם האחרונה Feature -כדי לשלוף ממנה את השם ה Product ניגשים לטבלה
+          SetCurrentProduct על זה תהיה אחראית הפעולה.GameUser -הנתון הזה גם יכנס ל
+          GameUser לסיכום, באופן מדורג נאספו הנתונים מארבע טבלאות ומילאו את העצם
+          כעת יוכל המשתמש לגשת למשחק
+          */
+        private static void SetUser(GameUser user)
         {
             int currentLevelId = 0;
             string query = $"SELECT Points, CurrentLevelId, CurrentProduct FROM [GameData] WHERE UserId={user.Id}";
@@ -180,7 +201,7 @@ null אם הנתונים אינם תקינים הפעולה מחזירה ערך 
                     reader.Read();
                     user.Points = reader.GetInt32(0);
                     currentLevelId = reader.GetInt32(1);
-                    user.UsingProduct = reader.GetString(2) ;
+                    user.UsingProduct = reader.GetString(2);
                 }
             }
             SetCurrentLevel(user, currentLevelId);
@@ -271,7 +292,7 @@ null אם הנתונים אינם תקינים הפעולה מחזירה ערך 
                 SqliteCommand command = new SqliteCommand(query, connection);
                 SqliteDataReader reader = command.ExecuteReader();
                 return reader.HasRows;
-                
+
                 //if (reader.HasRows)
                 //{
                 //    reader.Read();
@@ -327,7 +348,7 @@ null אם הנתונים אינם תקינים הפעולה מחזירה ערך 
         {
             string query = $"UPDATE GameData SET  CurrentProduct = '{user.UsingProduct}', Points = '{user.Points}' WHERE UserId = '{user.Id}'";
             Execute(query);
-            
+
         }
         // פונקציה: UpdateScore
         // תיאור: מעדכנת את הניקוד (נקודות) של משתמש במשחק במסד הנתונים.
@@ -339,5 +360,27 @@ null אם הנתונים אינם תקינים הפעולה מחזירה ערך 
             Execute(query);
 
         }
+
+        public static List<Tuple<string, string>> LeaderBoard()
+        {
+            var players = new List<Tuple<string, string>>();
+            string query = "SELECT UserId, Points FROM GameData ORDER BY Points DESC LIMIT 3";
+            using (SqliteConnection connection = new SqliteConnection(connectionString))
+            {
+                connection.Open();
+                SqliteCommand command = new SqliteCommand(query, connection);
+                using (SqliteDataReader reader = command.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        players.Add(new Tuple<string, string>(reader.GetString(0), reader.GetString(1)));
+                    }
+                }
+            }
+
+            return players;
+        }
+
     }
 }
+
