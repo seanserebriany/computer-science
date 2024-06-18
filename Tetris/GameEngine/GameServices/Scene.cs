@@ -28,7 +28,7 @@ namespace GameEngine.GameServices
                 Manager.GameEvent.OnRun += CheckCollision;
             }
         }
-        private void Run()
+        private void Run() // render למשחק
         {
             foreach (var obj in _GameObjectSnapShot)
             {

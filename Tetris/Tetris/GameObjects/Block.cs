@@ -59,7 +59,7 @@ namespace Tetris.GameObjects
             Fall();//פונקציה שנותנת לבלוק את המהירות לפי הלבל
         }
         /// <summary>
-        /// באמצעות הפעולה הזאת הכדור מגיב לעזיבת המקש
+        /// 
         /// </summary>
         /// <param name="key">המקש שנעזוב</param>
         public void KeyDown(VirtualKey key)
